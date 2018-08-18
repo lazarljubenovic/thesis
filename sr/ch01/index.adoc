@@ -1,0 +1,23 @@
+== Moderni veb
+
+Internet je odavno postao sastavni deo života ljudi, a prvenstveno mladima.
+Predstavlja neiscrpan izvor zabave i informacija i povezuje ljude širom sveta.
+Ujedinjene nacije su 2016. godine proglasile pristup internetu osnovnim ljudskim pravom. TODO https://www.article19.org/data/files/Internet_Statement_Adopted.pdf
+Gugl je još 2011. godine pustio u prodaju Hrombuk, lap-top u kome su operativni sistem i brauzer spojeni u jedno.
+Sve više aplikacija se izvršavaju direktno u brauzeru, umesto klasičnih desktop aplikacija.
+
+Ovo ima brojne prednosti, ali se sledeće dve izdvajaju kao ključne.
+
+Veb-aplikacije od korisnika **ne zahtevaju instalaciju**.
+Mnogo je veća verovatnoća da će po&shy;ten&shy;ci&shy;jal&shy;ni klijent koristiti aplikaciju ukoliko može da je koristi čim naide na nju, umesto da mora da je preuzme i instalira na svojoj mašini.
+Sem toga, danas nije retkost da korisnici poseduju više uredaja koje svakodnevno koriste.
+Veb-aplikacija je po definiciji dostupna sa svakog od njih, dok bi desktop- ili mobilnu aplikaciju trebalo instalirati na svakom uredaju ponaosob.
+
+Pored ovoga, **ažuriranje** klasičnih desktop aplikacija zahteva neki vid akcije od korisnika.
+Čak i ako je ažuriranje dobro isplanirano i može da se odvija automatski i bez čitave ponovne instalacije programa, korisnici uvek imaju mogućnost da ipak ostanu na staroj verziji.
+Developer ne može da bude siguran u to koju verziju aplikacije koriste klijenti, što za posledicu ima razne probleme u kompatibilnosti prilikom, na primer, komunikacije sa serverom, koji bi morao da uvek podržava sve verzije desktop aplikacije.
+Veb-aplikaciju je trivijalno ažurirati; garantovano je da će svi korisnici istog trenutka moći da pristupe jedino najnovijoj verziji.
+
+include::01.adoc[]
+
+include::02.adoc[]

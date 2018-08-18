@@ -1,0 +1,12 @@
+= Tehnike statičke analize u generisanju koda za jednostranične aplikacije i njihova optimizacija uz implementaciju
+:source-highlighter: pygments
+:source-language: typescript
+:stylesheet: styles/index.css
+:lang: sr
+:toc:
+:toclevels: 3
+:last-update-label!:
+
+include::ch01/index.adoc[]
+
+include::ch02/index.adoc[]

@@ -1,0 +1,218 @@
+=== Proces kompajliranja
+
+Skup fajlova koje će biti obrađene od strane kompajlera naziva se **kontekst kompilacije** (_compilation context_).
+Mada je sva podešavanja moguće proslediti direktno kao argumente CLI aplikacije, obično se, radi preglednosti, za ovo koristi konfiguracioni fajl.
+U pitanju je JSON5footnote:[Nadskup JSON specifikacije u kome se, između ostalog, dopuštaju viseći zarezi i komentari, a omeđivanje ključeva znacima navoda je opciono ukoliko ne sadrži karaktere koji bi doveli do dvosmislenosti; zbog ovoga dobija naziv "JSON za ljude".] fajl za koji se očekuje da bude imenovan `tsconfig.json` i da se nalazi u korenom direktorijumu projekta.
+Ukoliko to nije slučaj, putanja do konfiguracione datoteke se može proslediti kao argument opcije `--project` (`-p`).
+
+==== Opšta konfiguracija
+
+Za uključivanje i isključivanje datoteka iz projekta koriste se tri polja u konfiguracionoj datoteci: `files`, `include` i `exclude`.
+Svi primaju niz stringova.
+Ukoliko se ne navede nijedna od ove tri opcije, biće uključene sve `.ts` datoteke koje se nalaze u korenom direktorijumu i poddirektorijumima, rekurzivno.
+
+Da bi se naznačilo da datoteka ne pripada projektu, potrebno je dodati je u niz `exclude`.
+Pored putanja do datoteka, `exclude` opcija prepoznaje i imena direktorijuma i globfootnote:[Glob je string kojim se na koncizan i čitljiv način definiše skup datoteka i/ili direktorijuma; koristi specijalne simbole kao `\*`, `\**` i `?` da bi se zadale određene "komande". Primeri: `\*.txt`, `node_modules/**/\*`, `*.tsx?`.] šablone.
+
+Slično, `include` opcija se koristi da bi se ograničio opseg projekta.
+Takođe razume putanje do datoteka, direktorijuma i blobove.
+Na primer, sve izvorne datoteke se često nalaze u direktorijumu `src`.
+Opcija `files` je specifičnija od opcije `include` jer prima samo putanje do datoteka i uglavnom se koristi za manje projekte.
+
+Ponašanje sistema tipa podatka i način na koji će TajpSkript generisati izlaznu datoteku ili datoteke definiše se u sklopu objekta `compilerOptions`.
+Ovaj ključ prima objekat od preko osamdeset podešavanja.
+U nastavku će biti iznesene samo najznačajnije; cela lista se može naći na https://www.typescriptlang.org/docs/handbook/compiler-options.html[_Compiler Options_ sekciji dokumentacije TajpSkripta].
+
+==== Izbor ES verzije
+
+Osim što uvodi tipove podataka u JavaSkript, TajpSkript služi i za izbor standarda koji aplikacija treba da podrži.
+Kod je moguće pisati ne samo u tekućoj verziji standarda, već i koristiti predloge koji još uvek nisu ušli u standard.
+
+Kako ne podržavaju svi brauzeri sve TC39 predloge, developer treba da odluči po kom standardu treba da bude napisan emitovan kod.
+Ovo se određuje poljem `target`.
+
+Najstariji podržani standard je `es3`, i ovo je podrazumevana vrednost za `target`.
+Moguće je izabrati i konkretne standarde `es5`, `es2015`, `es2016`, `es2017` i `es2018`.
+Ukoliko developer ne želi da se kod adaptira ni za jedan standard već da ostane u izvornom obliku (naravno, bez tipova), onda se koristi vrednost `esnext`; ovo znači da će izlazni kod sadržati JavaSkript koji još uvek nije postao standard, pa postoji dobra šansa da kod bude nevalidan u nekim brauzerima.
+
+==== Moduli
+
+Kao glavni nedostatak JavaSkripta se često navodilo to što nema specifikaciju za podelu koda u manje datoteke.
+Najraniji alati koji su slućili da nadomeste ovaj nedostatak su radili jednostavnu konkatenaciju.
+Sa pojavom Noda se javio prvi formalni standard; koristi se funkcija `require` za uvoz datoteka i posebna globalna promenljiva `exports` za izvoz simbola iz njih.
+Ovaj standard je kasnije dobio ime **CJS** (_CommonJS_).
+Iako je ovaj standard bio specifičan za Nod i iako nije bio prihvaćen kao JavaSkript standard, javili su se alati koji dopuštaju developerima da kod namenjen izvršenju u brauzerima (a ne u Nodu) pišu u odvojenim fajlovima i da reference na simbole definišu eksplicitno koristeći `require` i `exports` umesto da se oslanjaju na primitivne metode kao što je konkatenacija.
+Ovi alati su bili prvi **bandleri**.
+Kao izlaz su davali isključivo jednu `.js` datoteku, tako što su zavisnosti među izvornim datotekama praćene od jedne početne.
+
+Aplikacije su vremenom rasle a SPA metoda za izgradnju aplikacija se koristila sve češće.
+Postalo je jasno da se dobar deo koda koji se isporučuje korisnicima nikada ne izvrši, jer korisnik nikada ne dođe do određenog dela aplikacije.
+Da bi se ovaj problem premostio, zajednica je definisala specifikaciju poznatu kao **AMD** (_Asynchronous Module Definition_).
+Ovime je omogućeno da se definišu zavisnosti između datoteka u fazi izvršenja programa na klijentu i da se pribave asihrono, kada se za to javi potreba.
+Pošto su zavinosti eksplicitno definisane, dodatne zavisnosti se pribavljaju automatski, pa se s developera skida teret da mora ručno da definiše koje datoteke se prve moraju učitati da bi se učitala druga.
+
+Osim pisanja JavaSkripta kroz AMD module, moguće je i pisati ih u odvojenim datotekama a prepustiti nekom devop alatu da ih pretvori u AMD module, bilo da su oni u jednoj datoteci ili u više njih.
+
+I CJS i AMD su dosegli dovoljnu popularnost da se smatraju "standardom" -- jedan za Node, a drugi za brauzere.
+Ali šta je sa modulima za koje ima smisla da istovremeno budu dostupni i u Nodu i u brauzeru; na primer, što su biblioteke sa pomoćnim funkcijama kao što je _lodash_?
+
+Kako ne bi postojale dve različite verzije datoteka, osmišljena je nova specifikacija, nazvana **UMD** (_Universal Module Definition_).
+UMD ne samo da je kompatibilan i sa CJS-om i sa AMD-om, već radi i sa globalno definisanim simbolima.
+
+Paralelno sa ovim, sa porastom popularnosti JavaSkripta i veba kao vodeće platforme za razviće aplikacija, počinje da se intenzivnije radi se na specifikaciji _Harmonije_, nove verzije EkmaSkript specifikacije koja je danas poznata kao ES2015.
+Ovime je problem rada sa više fajlova formalno rešen.
+
+Međutim, postoje dva razloga zašto većina developera ne koristi ES2015 module u produkciji.
+Prvi je to što i dalje postoji određeni procenat ljudi koji koristi brauzere koji nisu implementirali ovaj standard.
+Drugi je to što se povećava broj zahteva i aplikacija se usporava.
+
+Osim toga što se zahteva više datoteka (što predstavlja više zahteva ka serveru pa samim tim dužu komunikaciju sa istim), ostaje problem minifikacije i drugih tehnika optimizacije koje ili nisu izvodljive ili nisu u dovoljnoj meri izražene.
+Zbog ovoga se i dalje koriste bandleri koji na složeni način obarđuju fajlove kako bi pronašli njihove međuzavisnosti i od njih stvorile jedan ili više izlaznih datoteka spremnih za produkciju.
+
+Da bi TajpSkript zadovoljio široke potrebe developera, podržava više načina na generiše module.
+Opcija `module` prima jednu od sledećih vrednosti: `None`, `CommonJS`, `AMD`, `System`, `UMD`, i `ES2015`.
+
+Ovo polje je usko povezano sa poljem `target`; `ES2015` je moguće koristiti samo ako je `target` podešeno na `es5` ili niže.
+S druge strane, jedino ako se izabere `AMD` ili `System` je moguće definisati opciju `outFile` kojom se podešava ime fajla u kojem će se naći izlazni kod.
+
+==== Globalni tipovi
+
+Osim jezičkih konstrukcija, novi ES standardi u jezik uvode i nove globalne promenljive ili nove metode i propertije nad postojećim prototipima.
+Da bi se TajpSkript kompajlirao bez greške i da bi pružio podršku u vidu tipova podataka za sve metode, developer mora da naglasi koje tipove ili koje grupe tipova želi da vidi globalno dostupne, odnosno za šta očekuje da postoji tokom izvršenja koda u okruženju za koje piše softver.
+
+U ovu svrhu se opciji `lib` prosleđuje niz stringova.
+Pored celih standarda (od `ES5` do `ES2018`), mogu se uključiti i `ESNext` (kojim se pokrivaju deklaracije za predloge koji još uvek nisu postali standard), `WebWorker` (deklaracije za pokretanje koda u okviru veb-vorkera), kao i određene deklaracije iz standardâ pojedinačno: na primer, `ES2015.Core` (osnovni skup funkcionalnosti), `ES2015.Promise` (deklaracije za objekte tipa `Promise` iz 2015), `ES2016.Array.Include` (dodata metoda `include` nad prototipom globalnog objekta `Array`), `ES2018.Promise` (deklaracije za novi `Promise` gde je uključena metoda `finally`), itd.
+
+==== Emitovanje koda
+
+Sem izbora načina na koji se kod parsira i ciljne verzije standarda, moguće je definisati i _šta_ treba da se emituje.
+
+Ukoliko je TajpSkript potrebno koristiti samo da bi se proverili da li su zadovoljeni tipovi podataka, postavlja se fleg `noEmit`; ovime kompilator neće generisati niejdan fajl ali će izvršiti sve provere nad kodom o tome da li bi se kompilacija završila uspešno ili ne.
+Slično, fleg `emitDeclarationOnly` se koristi da bi se generisale samo `.d.ts` datoteke -- izlaz neće biti kod koji je moguće pokrenuti već će biti kod kojim je moguće obećati TajpSkriptu da postoji neki kod.
+
+Ukoliko se u kodu koriste određene konstukcije koje nisu dostupne u EkmaSkript verziji koja je navedena u `target` opciji, TajpSkript može emitovati enke pomoćne funkcije kojim premošćava njihov nedostatak, a koje imaju isti ili dovoljno sličan efekat na kod kao konstrukcija iz novog standarda koju developer koristi u kodu.
+Na primer, definisanje klase koja nasleđuje neku drugu klasu koristi ključne reči `class` i `extend`, ali ES5 ne podržava nijednu od njih.
+Iako je klasu lako imitirati funkcijom, nasleđivanje nije tako trivijalno, pa kompilator dodaje pomoćnu funkciju `__extends` koja prima dva argumenta: izvedenu i osnovnu klasu.
+Slično, ukoliko se koriste generatorske funkcije, umeće se pomoćna funkcija `__generator`, a ukoliko se koriste ključne reči `async` i `await` onda se pored `__generator` umeće i `__awaiter`.
+
+Potencijalni problem leži u tome što se ove funkcije, ukoliko se koriste, definišu u svakom fajlu ponaosob.
+Nad velikim projektima ovo može da bude puno bespotrebno ponovljenog koda.
+Zato je uz verziju 1.5 dodat je fleg `noEmitHelpers`.
+Kada je ova opcija uključena, TajpSkript i dalje generiše _pozive_ ovih pomoćnih funkcija, ali ne i njih same.
+
+Međutim, sada je na developeru da definiše ove pomoćne funkcije -- TajpSkript podrazumeva da su globalno definisane.
+Kako developer ne bi morao ručno da ih definiše, a kako ne bi bile ni generisane u svakoj datoteci, u verziji 2.1 dolazi fleg `importHelpers` sa kojim će generisani kod importovati potrebne module iz biblioteke `tslib`.
+Ova biblioteka je dostupna na npm repozitorijumu i dovoljno je da je developer instalira u projekat kao zavinosti da bi generisani kod radio.
+
+Greške prilikom kompilacije TajpSkript koda se mogu svrstati u dve grupe.
+Jedna su greške zbog kojih ni JavaSkript ne bi bio sintaksični ispravan, i zbog njih se kompilacija uvek obustavlja neuspešno, bez emitovanja datoteka.
+Drugu grupu čine semantičke greške u vidu nelegalnih operacija u vezi s tipovima podataka.
+Iako je dodela stringa broju nemoguća, ovo je moguće kompajliarti u validan JavaSkript.
+Postavkom flega `noEmitOnError`, ponašanje prilikom nailaska na drugi tip greške se može promeniti, tj. moguće je zabraniti da se emituju `.js` datoteke sve dok ima bilo kakvih grešaka u `.ts` kodu.
+Ova opcija se obično ostavlja isključena prilikom migracije sa JavaSkript projekta na TajpSkript, ali i prilikom developmenta -- nekada je korisno da se pokrene kod iako nije u potpunosti ispravan, kako bi se nešto brzo testiralo.
+
+==== Lintanje koda
+
+Iako za to postoji poseban alat
+
+==== Strogi režim
+
+=== Tipovi
+
+U JavaSkriptu, podatak koji nije objekat i nema nijednu metodu naziva se **primitivni tip**.
+Ima ih šest: `string`, `number`, `boolean`, `null`, `undefined` i `symbol`.
+Za svaki od ovih tipova postoji i odgovarajući statički tip u TajpSkriptu, sa istim imenom.
+
+==== Interfejsi
+
+==== Klase
+
+==== Funkcije
+
+==== Unije i preseci
+
+==== Manipulacija postojećih tipova
+
+==== Čuvari tipova
+
+Kako je TajpSkript jezik koji se oslanja na JavaSkript, mnoge osobine TajpSkripta su prouzrokovane obrascima i čestim šablonima koje developeri koriste dok pišu JavaScript kod.
+
+Na primer, često se na osnovu nekog propertija utvrđuje o kom tipu objekta je reč.
+
+[source, js]
+----
+const pointOnPlane = { x: 1, y: 2 }
+const pointInSpace = { x: 9, y: 8, z: 7 }
+
+function getHalfPoint (p) {
+  if ('z' in p) return { x: p.x / 2, y: p.y / 2 }
+  else return { x: p.x / 2, y: p.y / 2, z: p.z / 2 }
+}
+----
+
+Međutim, utvrđivanje tipova može da bude jako kompleksno, pa u praksi postaje nemoguće utvrditi o kom je tipu reč -- barem ne automatskom statičkom analizom koju TajpSkript sprovodi.
+
+[source]
+----
+interface PlanePoint { x: number, y: number }
+interface SpacePoint { x: number, y: number, z: number }
+
+function getHalfPoint (p: PlanePoint | SpacePoint): PlanePoint | SpacePoint {
+  if ('z' in p) return { x: p.x / 2, y: p.y / 2, z: p.z / 2 }
+  else return { x: p.x / 2, y: p.y / 2 }
+}
+----
+
+U prethodnom primeru, verzija 2.6 TajpSkripta prijavljuje grešku na pretposlednjoj liniji prilikom pristupa `p.z`, sa greškom _Property '`z`' does not exist on type '`PlanePoint`'_.
+Zaista, pošto `p` može da ima bilo koji od dva navedena tipa, u slučaju da se pristupa `p.z` nad tipom `PlanePoint`, dolazi do greške.
+Kompilator ne može da zaključi da je uslovom `'z' in p` zapravo napravljena razlika između tipova.
+
+Da bi se ovaj čest način pisanja koda u JavaSkriptu podržao, TajpSkript u verziji 1.6 dodaje mogućnost da se developer definiše funkciju koja vraća `true` ili `false`, ali kao tip ima defisan **čuvar tipa** (_type guard_).
+Čuvari se pišu u formi `x is T`, gde je `x` deklarisan perametar u potpisu funkcije, a `T` je bilo koji tip.
+
+[source]
+----
+function isSpacePoint (p: PlanePoint | SpacePoint): p is SpacePoint {
+  return 'z' in p
+}
+----
+
+Ako se `'z' in p` iz funkcije `getHalfPoint` iz primera zameni pozivom funkcije-čuvara `isSpacePoint(p)`, TajpSkript više ne prijavljuje grešku; sada može da zaključi da je promenljiva `p` u pozitivnoj grani tipa `PlanePoint`, a u negaitvnoj grani ono što ostaje kada se iz `PlanePoint | SpacePoint` odbaci `PlanePoint`, dakle `SpacePoint`.
+
+==== Preklapanje funkcija
+
+U jezicima sa jakim tipovima podataka se često dozvoljava da funkcije imaju isto ime, a da se na osnovu broja i tipa argumenata određuje koju od njih treba pozvati.
+Međutim, kako je JavaSkript jezik sa izuzetno slabim tipovima podataka, ovaj način preklapanja funkcija nije moguć.
+Kod koji ispituje broj i topve argumenata mora da definiše developer.
+
+Kako TajpSkript nije u stanju da uvek automatski zaključi o kom je tipu reč, i kako bi bilo potrebno previše menjati izvorni kod i izvoditi zaključke o tome koja je bila developerova namera (što se kosi sa ideologijom TajpSkripta), ovakav kod se i dalje mora pisati u telu funkcije, čak i u TajpSkriptu.
+Ipak, TajpSkript prepoznaje ovaj šablon i omogućuje da se dobro definišu tipovi ovakvih funkcija; ovo se zove **preklapanje funkcije** (_function overloading_, _function overloads_).
+
+Na primer, iako je u telu funckije iz primera u prošlom odeljku jasna razlika između dva tipa, povratna vrednost je dvosmislena.
+Koji god tip da se prosledi u funkciju `getHalfPoint`, iako je on jasno statički definisan, rezultat će biti unija tipova.
+
+[source]
+----
+function getHalfPoint (p: PlanePoint): PlanePoint
+function getHalfPoint (p: SpacePoint): SpacePoint
+function getHalfPoint (p: PlanePoint | SpacePoint): PlanePoint | SpacePoint {
+  if ('z' in p) return { x: p.x / 2, y: p.y / 2, z: p.z / 2 }
+  else return { x: p.x / 2, y: p.y / 2 }
+}
+----
+
+Ovako definisana funkcija je preklopljena sa dve deklaracije (prva dva reda).
+Deklaracija u definiciji funkcije se neće koristiti prilikom poziva funkcije, već samo prilikom provere tipova u samom telu funkcije.
+Na ovaj način je obezbeđeno da tip povratne vrednosti funkcije bude isti kao tip prosleđenog argumenta.
+
+==== Generički tipovi
+
+==== Automatsko zaključivanje tipova
+
+==== Tip `never`
+
+==== Manipulacija tipova
+
+
+
+

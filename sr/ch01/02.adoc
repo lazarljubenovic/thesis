@@ -1,0 +1,76 @@
+=== Sazrevanje JavaSkripta
+
+==== Nastanak
+
+JavaSkript je nastao maja 1995. godine kao “jezik-lepak” za tadašnji dominantni brauzer Netskejp.
+Prvobitno nazvan Mocha, četiri meseca kasnije biva prekršten u LiveScript da bi tri meseca nakon toga dobio ime po kojem je i danas poznat: JavaScript.
+Ovaj jezik je nastao iz potrebe za premošćavanjem jaza izmedu brauzera kao korisničkog okruženja za prikaz dokumenata i jezika za opis tih dokumenata, HTML-a. 
+Definisao ga je Brendon Ajk za samo deset dana.
+
+Sa pojavom drugih brauzera, pojavili su se i jezici koji su očigledno bili inspirisani JavaSkriptom, ali njihovi stvaratelji nisu smeli da ga zvanično tretiraju kao JavaSkript zbog autorskih prava koji je imao San Majkrosistems.
+Na primer, JavaSkript je poslužio kao podloga Adobiju za jezik ActionScript, i sada predstavlja njegov zvaničan dijalekat.
+Ipak, najpoznatiji primer kopije JavaSkripta je nesumnjivo JScript koji je došao uz Majkrosoftov Internet Eksplorer u verziji 3, već krajem 1996.
+Osim u imenu, razlikovao se i u nekim detaljima u implementaciji, ali i u API-ju za komunikaciju sa DOM-om (Document Object Model).
+Iz tog razloga je ubrzo organizovana komisija za standardizaciju JavaSkripta, nazvana ECMA.
+
+==== Pokušaji popravke
+
+Osnova za moderni JavaSkript definisana je 1999. godine u trećoj verziji standarda, ES3.
+Počelo se sa radom na četvrtoj verziji, koja je trebalo da bude još radikalnija i da ispravi neke “greške” u JavaSkript standardu.
+Najavljivane promene su bile toliko velike da su čak dovele do toga da ES4 bude postane poznat kao “JavaSkript 2”.
+Medutim, komitet za standardizaciju je bio podeljen: dok se jedna strana zalagala za poboljšanje jezika zarad bolje budućnosti, druga se bojala da će ovime nastati prevelika pometnja, jer bi sve veb-stranice koje koriste “stari” JavaSkript prestale da rade zbog promene u sintaksi jezika (tzv. “slamanje veba”).
+Sukob je aktivno trajao do 2003, kada je projekat zvanično napušten.
+
+Dve godine kasnije, osnivač JavaSkripta Ajk u saradnji za Mozilom počinje da radi na projektu E4X.
+Pridružuje im se i Makromedija (sada Adobi), u nadi da će standardizovati svoj ActionScript3 u saradnji sa ECMA-om, i time ponovo spojiti razdeljene dijalekte jezika.
+Ipak, razlika je bila previše velika, što su obe strane počele da shvataju krajem 2007. godine.
+Otprilike u to vreme, Daglas Krokford, koji je tada radio u Jahuu, udružuje snage sa Majkrosoftom kao opozicija promenama koje treba da budu definisane standardom ES4, a svoje stavove iskazuju tako što standard žele da nazovu jednostavno ES3.1, jer unosi samo neznatne promene.
+
+Sve se ovo dešava u vreme kada je JavaSkript zajednica pokrenula revoluciju u mogućnostima koje pruža JavaSkript, što nesumnjivo otpočinje 2005. godine
+kada je Džesi Džejms Geret skovao termin Ajaks koji je iskoristio za opis skupa tehnologija izgradenim nad JavaSkriptom.
+Ovo je bio renesansni period za jezik, i tada počinju da se javljaju biblioteke otvorenog koda kao što su jQuery, Mootools i Dojo koje su do pojave SPA  rejmvorka bile dominantni alati za izgradnju dinamičkih veb-sajtova i veb-aplikacija.
+
+Iz rata oko konačnog oblika četvrte verzije standarda koji se konačno okončava 2009. godine izlazi Krokford.
+U JavaSkript je posle dvanaest godina uneto svega nekoliko neznatnih promena, a rezultujući standard je preimenovan u ES5, kako ne bi došlo do kasnije zabune oko eventualne četvrte verzije o kojoj se već godinama govori.
+U standard tada dolazi takozvani strict mode, koji definiše “strožu” verziju jezika, ali na kompatibilan način, kako ne bi narušio već postojeći kod koji se nalazi na vebu.
+
+Dve godine kasnije usledila je mala promena standarda, editorijalnog karaktera, nazvana ES5.1, koja nije bila od većeg značaja za JavaSkript.
+
+==== Godišnji ciklusi
+
+Nove osobine JavaSkripta koje nisu ušle u ES5 standard ostale su poznate pod imenom Harmonija (Harmony).
+Tek 2015. godine se ECMA komitet ponovo sastaje radi definisanja standarda šeste edicije standarda, kada se konačno, posle petanest godina nagomilanih ideja za proširene i poboljšanje jezika, sprovode u delo.
+Šesta edicija standarda je vrlo kratko pre zvaničnog objavljana preimanovana iz ES6 u ES2015, zbog ideje da se u nastavku standard za JavaSkript obnavlja na svakih godinu dana, kako naredne promene ne bi bile toliko velike kao ova.
+
+ES2015 je drastično promenio izgled JavaSkripta, čime je omogućeno znatno jednostavnije pisanje složenih aplikacija.
+Nesumnjivo najznačanija novina u jeziku su moduli koji omogućuju podelu koda u fajlove, ali je tu i intuitivnija sintaksa za defisanje klasa, iteratori i generatori (koji će poslužiti kao osnova za async/await u ES2017), generatorski izrazi, `for...of` petlje, “streličaste” funkcije za sintaksno jednostavnije pisanje funkcionalnog koda, binarni podaci, tipizirani nizovi, kolekcije (mape, skupovi, slabe mape), promisi, dodatne funkcije na `Math` objektu, bolja refleksija, kao i posrednici za metaprogramiranje virtuelnih objekata i omotača.
+
+Sedma edicija objavljena 2016. godine uvodi blage promene: operator za stepenovanje `**` i `Array#includes`. Sledeća edicija ponovo uvodi dosta promena u jezik koje omogućavaju da se procesorska moć iskoristi na znatno višem nivou nego ranije. Medu novinama koje ES2017 uvodi izdvaja se mogućnost paralelnog programiranja, izvodenja atomičnih operacija ukoliko ih procesor podržava, nadgledanja tokova podataka (observable streams), definisanja tipova podataka koji omogućuju SIMD programiranje. Sem toga, uvedena je sintaksna integracija promisa i generatora pomoću ključnih reči `async` i `await`, a bolji Simboli predstavljaju korak bliže predefinisanju operatora.
+
+Presek za ES2018 napravljen je juna 2018. godine, a u novine se ubraja korišćenje _rest/spread_ sintakse za objekte pored nizova, asinhrona iteracija (`for await...of` petlje), metoda `finally` nad prototipom promisa i imenovane grupe u regeksima.
+
+==== Odbor TC39
+
+Proces usvajanja nove konstrukcije u jezik nije jednostavan i ne dešava se preko noći.
+ECMAScript je dizajniran od strane odbora koji se naziva TC39.
+Sačinjen je od kompanija među kojima su i kreatori svih značajnijih brauzera.
+Redovnim sastancima prisustvuju delegati koje biraju kompanije članice, a nekada se pridružuju i spoljni eksperti za određene oblasti.
+Sažeci sastanka su javno dostupni onlajn.
+
+Odbor je organizovan uz izdanje ES2016, kada je zvanično potvrđeno da će se jezik nadograđivati na godišnjem nivou.
+Konačnu odluku o uvođenju osobine u JavaSkript donosi većina iz odbora, ali pod uslovom da nijedna članica nije strogo protiv ideje.
+Kako su mnoge članice kompanije koje rade na razviću brauzera, za njih slaganje sa promenom jezika sa sobom nosi i teret odgovornosti oko njihove implementacije.
+
+Svaki predlog za dopunu jezika prolazi kroz nekoliko _faza zrelosti_, počev od nulte faze.
+Prelazak u sledeću fazu mora biti odobren od strane odbora.
+Svaki predlog počinje kao neformalna, tzv. **slamnata** ideja (faza 0).
+Ukoliko TC39 smatra da predlog ima potencijal, on se dodaju na listu slamnatih predloga.
+
+U fazi 1 se za ideju formalno može govoriti kao o **predlogu**. 
+Za predlog se bira jedan _šampion_ koji je za njega odgovoran, pri čemu jedan od šampiona i ko-šampiona mora da bude član odbora.
+U ovoj fazi se daje tekstualni opis ideje, praćen primera, diskusiji o API-ju, semantici koja se uvodi u jezik i algoritmima koji će se koristiti za obavljanje metoda koje se uvode u jezik.
+Takođe se identifikuju potencijalne prepreke u usvajanju predloga u specifikaciju jezika.
+Ukoliko predlog to dozvoljava, neophodno je da se implementiraju polifilovi i nekoliko demonstracija koje ih koriste.
+
+Prva faza samo iskazuje da je odbor zainteresovan za predlog.
+Tek kada predlog pređe u drugu fazu, počinje da se piše **nacrt**: to je prva verzija onoga što treba da postane deo formalne specifikacije jezika.

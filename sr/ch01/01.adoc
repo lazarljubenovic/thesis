@@ -1,0 +1,80 @@
+=== Jednostranične aplikacije
+
+Sadržaj na internetu je prvobitno zamišljen kao skup statičkih dokumenata koji su međusobno povezani.
+Praćenjem tih veza (“klikom na link”), korisnik pomoću brauzera sa svog računara (klijent) izdaje udaljenom i znatno moćnijem računaru (server) zahtev za pribavljanje nove stranice, koristeći URL kao identifikator.
+Kao odgovor na zahtev, server klijentu vraća novu stranicu, koju klijent iznova renderuje.
+Za izgradnju ovakvih statičkih stranica dovoljno je koristiti HTML (_HyperText Markup Language_), kojim se definiše semantička struktura sadržaja stranice, i CSS (_Cascading Style Sheet_), koji služi za deklaraciju stilova, tj. načina prikaza (prezentacije) dokumenata pisanih u HTML-u.
+
+Kada brauzer primi stranicu od servera, on je parsira.
+Na osnovu HTML-a kreira strukturu podataka u vidu stabla koja se naziva DOM (_Document Object Model_), a na osnovu CSS-a se na sličan način generiše CSSOM (_Cascading Style Sheets Object Model_).
+Na osnovu ova dva stabla brazuer može da renderuje stranicu.
+
+Statičke veb-strance su vremenom zamenile dinamičke veb-stranice, koje su korisnicima omogućile odredeni vid interakcije.
+Da bi stranica bila dinamička, osim HTML-a i CSS-a mora se pisati i kod u JavaSkriptu, kojim se programira način interakcije s korisnikom.
+Brazueri nude API ka DOM-u koje programer može iskoristiti da osluškuje dogadaje (klik mišem, pritisak dirke na tastaturi, itd), i da programski manipuliše strukturom DOM-a.
+Ovo znači da stranica može promeniti svoju strukturu i izgled na osnovu akcija korisnika, bez potrebe da se sa servera dobavi cela nova stranica, i bez potrebe da je brauzer iznova parsira i renderuje.
+
+Takav način ponašanja stranice se u početku koristio samo za neke manje izmene na stranici koje je bilo trivijalno promeniti JavaSkriptom, npr. za validaciju
+formi na klijentu: korisnik odmah nakon unosa lozinke može biti obavešten da ona mora imati više od odredenog broja karaktera (umesto da pošalje formu, da se na serveru detektuje nevalidna lozinka, i da se vrati nova stranica sa upisanom greškom).
+Ovaj vid funkcionisanja predstavlja preteču veb-aplikacija, kod kojih se sve više funkcionalnosti događa na klijentu umesto na serveru.
+
+Veb-aplikacija je klijentska aplikacija kod koje se sav korisnički interfejs izvršava u okviru brauzera.
+Ne postoji jasna granica izmedu “dinamičke veb-stranice” i “veb-aplikacije”; za sajtove koji po izgledu više podsećaju na desktop ili mobilnu aplikaciju postoji veća šansa da se proglase veb-aplikacijama.
+Medu veb-aplikacijama se posebno izdvajaju jednostranične aplikacije (SPA, _Single Page Application_) jer se potpuno odvajaju od tipične veb paradigme gde se korisnik kreće kroz stranice koje imaju različite URL-ove.
+
+==== Tehnologije na koje se oslanja SPA
+
+U osnovi svake SPA aplikacije leži Ajaks (AJAX).
+Striktno govoreći, ne radi se o tehnologiji, već o skupu više tehnologija, od kojih se kao najznačajnija izdvaja `XMLHttpRequest` koja u kombinaciji sa HTML-om, CSS-om, JavaSkriptom, DOM-om i XML-om ili JSON-om omogućava inkrementalno ažuriranje korisničkog interfejsa bez slanja zahteva ka serveru za novu HTML stranicu, i samim tim bez osvežavanja čitave stranice.
+Na ovaj način je aplikacija znatno responzivnija, u smislu da brže odgovara na zahteve korisnika.
+
+Mada je X u AJAX oznaka za XML, za razmenu podataka se relativno brzo sa XML-a prešlo na JSON, iz razloga što predstavlja kompaktniji zapis podataka, ali
+i zbog toga što od 2009. godine JavaSkript ima ugradenu funkciju za parsiranje JSON formata u JavaSkript objekat.
+
+Medutim, vremenom se pokazalo da je XMLHttpRequest nezgrapan i previše komplikovan za rad.
+Dolazak prototipa `Promise` u ES2015 iskorišćen je za definiciju novog standarda za obavljanje Ajaks zahteva pod nazivom `fetch`.
+
+==== Prednosti
+
+Kao prednosti jednostraničnih aplikacija izdvajaju se tri glavne osobine.
+
+Jednostranične aplikacije su **brze**.
+Većina resursa se učitava samo jednom (lejaut, stilovi, skripte).
+Samo se podaci razmenjuju sa serverom.
+Na primer, u aplikacijama kao što su mejl-klijenti, struktura aplikacije ostaje ista tokom navigacije kroz nju.
+Umesto da se otvaranjem mejla iznova učitava čitava stranica, dobavlja se samo sadržaj mejla i zatim se JavaSkriptom taj sadržaj ubacuje u odgovarajuću sekciju sajta – ostatak stranice nema potrebe da se ponovo preuzima sa servera.
+
+Iskustvo korisnika je znatno bolje prilikom korišćenja jednostraničnih aplikacija spram klasičnih veb-sajtova.
+Ovo je direktna posledica goreopisane brzine.
+Ako se iskoriste neke tehnike za optimistično učitavanje podataka _pre_ nego što ih korisnik zatraži, moguće je učiniti da se promene koje korisnik zahteva dogode (naizgled) istog trenutka.
+
+Pošto jednostranične aplikacije konzumiraju **API samo za razmenu podataka**, identičan API se može iskoristiti i za druge aplikacije; na primer, mobilna aplikacija može gadati iste tačke na API-ju, a interno na drugačiji način prikazivati te podatke.
+Ovo je nemoguće ostvariti u tradicionalnoj paradigmi jer server vraća čitavu HTML stranicu, koja je mobilnom klijentu beskorisna.
+
+===== Mane
+
+Mane jednostraničnih aplikacija su mnogo suptilnije i uglavnom se tiču činjenice da one ne mogu u potpunosti iskoristiti funkcionalnosti brauzera, već da moraju manuelno iznova implementirati te funkcionalnosti u JavaSkriptu.
+
+Brauzeri čuvaju **istoriju posećenih stranica** što čini povratak na prethodnu stranicu veoma brzim.
+Kada korisnik pritisne dugme za navigaciju unazad, on očekuje da se promena dogodi uz veoma malo kašnjenje i da stranica bude u sličnom stanju u odnosu na ono kada je poslednji put bila prikazana na ekranu.
+
+Kada je sajt izgraden tradicionalnim modelom, brauzer će biti u stanju da iskoristi keširanu verziju stranice i povezane resurse.
+Naivna implementacija jednostranične aplikacije će povratak nazad poistovetiti sa bilo kojom drugom akcijom, odnosno biće okinut dogadaj koji će detektovai osluškivač u JavaSkriptu, što će kao posledicu imati ponovno ispaljivanje zahteva ka serveru za istim podacima; dakle javlja se dodatna latentnost i (verovatno) vizuelna promena.
+
+Da bi korisnici mogli da imaju zadovoljavajuće iskustvo prilikom navigacije kroz jednostraničnu aplikaciju, slična funkcionalnost se mora implementirati u JavaSkriptu. Aplikacija treba da kešira stranice korišćenjem memorije, lokalnog skladišta, baze podataka na strani klijenta ili kolačića.
+Sem toga, aplikacija mora da odluči i kada da pokupi te stranice i iskoristi ih.
+Da bi se ovo rešilo, neophodno je da se napravi razlika izmedu klika na link ili kucanja adrese direktno u brauzer, i pritiskom na dugmad back i forward na brauzeru. 
+Medutim, iz bezbednosnih razloga, nemoguće je iz Javaskripta ustanoviti na koji je način korisnik navigirao na drugu stranicu.
+
+Sličan problem postoji i kod čuvanja **pozicije skrola**.
+Brauzeri pamte poziciju skrola na stranicama koje su ranije posećene.
+Pošto se kod jednostraničnih aplikacija stranica nikada ne menja, brauzer nije svestan promene “stranica”, pa čuva poziciju skrola čak i kada se to ne očekuje.
+Na primer, ako korisnik klikne na link na dnu stranice, kada mu se otvori “nova” stranica, brauzer neće znati da treba da ažurira poziciju skrola na vrh, pa će korisnik biti odveden na dno.
+
+Ovo je će biti moguće delimično zaobići korišćenjem _Custom Scroll Restoration_ API-ja.
+Međutim, u slučaju da se prethodno dobavljeni podaci ne keširaju, ili da postoji bilo kakvo kašenjenje između otvaranje stranice i prikaza asinhrono podataka, pozicija skrola će i dalje biti pogrešna.
+
+Zatim, brauzeri će korisnike obavestiti da imaju **popunjenu formu** koja još uvek nije poslata kada probaju da navigiraju na neku drugu stranicu.
+Ovo je implementirano kroz dogadaj `beforeunload` na koji se developer može pretplatiti.
+Medutim, kod jednostraničnih aplikacija ovaj dogadaj postaje beskoristan jer brauzer ne pravi zahteve ka pravim stranicama.
+Developer bi morao lično da bude odgovoran da pruži ovakvo iskusvo korisnicima.

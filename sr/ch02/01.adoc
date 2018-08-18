@@ -1,0 +1,114 @@
+=== Klasifikcija sistema tipova
+
+Skup pravila na osnovu kojih se svojstvo poznato kao **tip podatka** dodeljuje zaličitim delovima kompjuterskog programa (promenljive, izrazi, funkcije, moduli, itd) naziva se **sistem topiva podataka**.
+Služe da bi se formalizovali koncepti koje programeri koriste za algebarske vrednosti, strukture podataka i druge komponente programa, kao što su "logička vrednost", "niz stringova" i "funkcija koja vraća broj".
+
+Glavna namera postojanja tipova podataka jeste da minimizuje šanse za pojavu bagova u programima i pruži mogućnost za bolje isksutvo tokom razvoja softvera, ali se može koristiti i kao sredstvo za sprovođenje optimizacije.
+**Provera tipova** (_type checking_) je proces kojim se utvrđuje da li su ispoštovana pravila i ograničenja koja nameću tipovi podataka u nekom programskom jeziku.
+Postoji nekoliko osobina na osnovu kojih se može izvršiti podela načina na koje se vrši provera tipova.
+
+==== Podele
+
+Prvo pitanje koje se nameće jeste _kada_ se dešava provera: da li tokom kompilacije ili tokom izvršenja programa?
+Za jezike koji se interpretiraju (JavaSkript, Pajton, Rubi) ne postoji faza kompilacije pa je jedino mesto gde se može vršiti provera tipova -- tokom izvršenja.
+Za ovakve jezike -- u kojima se provera tipova sprovodi tokom izvršenja -- kaže se da imaju **dinamičku** proveru tipova.
+Interpretatori za ovakve jezike obično svakom objektu dodeljuju oznaku tipa u kojoj se nalaze informacije o tipu.
+Ukoliko se provera vrši tokom kompjaliranja, radi se o **statičkoj** proveri.
+Ako program zadovolji uslove koje nameće analizator kod jezika sa statičkom proverom tipova, onda to daje garanciju da program tokom izvršenja neće da naiđe na određeni skup mogućih grešaka u vezi sa tipovima podataka.
+
+Poznajući trenutak izvršenja provere tipova podataka, postavlja se pitanje _kako_ se ona sprovodi.
+Kod jezika sa **jakim** tipovima podataka, nad kodom su dozvoljene samo one operacije koje imaju smisla u skladu sa semantikom jezika i one koje neće dovesti do gubitka informacija.
+Za jezike koje ne nameću ova ograničenja kaže se da imaju **slabe** tipove podataka.
+Ne postoji jasna granica između jakih i slabih tipova, pa se ovi termini koriste uglavnom za poređenje jezika (koji ima "jače" a koji "slabije" tipove) ili za određene osobine jezika (za koju se može reći da je "jaka" a za koju "slaba").
+
+**JavaSkript** nema podršku za statičko definisanje tipova podataka, a uz to je i slabo tipiziran jezik.
+Promenljiva kojoj je dodeljen string može u sledećem redu da ima referencu na niz brojeva, a zatim da u nju bude upisana logička promenljiva.
+Kako je JavaSkript jezik koji se interpretira, ni nema prilike da se ovo zabeleži kao greška prilikom kompajliranja; taj proces ne postoji.
+Međutim, čak i tokom izvršenja programa, ovakvo ponašanje koda se neće tretirati kao greška i interpretator će bez problema upisivati bilo koju vrednost u promenljivu.
+
+Ovakvo ponašanje ne samo da može negativno da utiče na performanse (jer optimizator nije u stanju da predvidi koliko memorije je potrebno da se zauzme za promenljivu), već čini kod nečitljivim i podložnim greškama.
+Glavna prednost TajpSkripta je uvođenje tipova podataka u JavaSkript, ali samo prilikom kompajliranja.
+
+TajpSkript ni na koji način ne utiče na fazu interpretiranja i izvršenja koda.
+TajpSkript dolazi uz kompajler koji postojeći TajpSkript kod kompajlira u JavaSkript.
+Dobijeni JavaSkript kod ne sadrži nikakve informacije i tipovima podataka; ne postoje nikakvi uslovi koji će dovesti do greške ukoliko se promenljivoj dodeli drugačiji tip od navedenog.
+Umesto toga, TajpSkript ima zadatak da tokom kompajliranja utvrdi tipove i da se postara da developera obavesti o nastaloj nekonzistentnosti tako emituje grešku.
+
+Da bi se ovo postiglo, TajpSkriptov kompajler obavlja statičku analizu koda tokom koje zaključuje tipove i proverava da li su određeni operatori izvodljivi nad njima.
+Na primer, iako je se JavaSkript interpretator ne buni za pokušaj sabiranja praznog niza i praznog objekta (`[] + {}`), TajpSkript će prijaviti grešku "Operator `+` cannot be applied to types `undefined[]` and `{}`".
+
+==== Deklaracije
+
+Kako bi bilo moguće da se koriste postojeće biblioteke pisane u JavaSkriptu, u TajpSkript je uveden pojam _deklaracije_.
+Na primer, TajpSkipt ne može automatski da bude svestan postojanja eksterne biblioteke učitane kroz `script` tag u `<head>` sekciji HTML dokumenta za koju se piše TajpSkript kod.
+Deklaracija promenljive ili nekog drugog simbola navodi se ili u posebnom fajlu sa ekstenzijom `.d.ts` ili direktno u postojeći fajl, uz prefiks `declare`.
+
+Deklaracije za mnoge postojeće JavaSkript biblioteke se mogu naći na GitHab repozitorijumu Majkrosoftovog projekta _DefinitelyTyped_ koji održava zajednica.
+Svi paketi se mogu preuzeti sa npm repozitorijuma.
+Radi lakšeg pronalaska deklaracionih fajlova koristi se imenski prostor (_namespace_) `@types`, a za ime deklaracionog paketa se koristi isto ime koje je dodeljeno samom paketu za koji se instaliraju deklaracije.
+Na primer, za paket `jquery` deklaracije se nalaze na `@types/jquery`.
+
+Deklaracije se mogu dostaviti i zajedno sa samim paketom; ovaj način se preferira u situacijama kada je sam paket već napisan u TajpSkriptu.
+Koristeći opciju `--declaration`, TajpSkriptov kompajer može, pored `.js` fajlova, generisati i `.d.ts` fajlove, a iz `package.json` vrednosti pod ključem `types` može se pročitati putanja do ovog fajla.
+Ovako TajpSkriptov kompajler zna gde da pronađe potrebne deklaracije.
+
+==== Definisanje tipova
+
+Neki stariji jezici sa statičkim tipovima podataka od developera zahtevaju da se tipovi uvek definišu eksplicitno.
+TajpSkript je specifičan po tome što su se njegovi stvaraoci postarani da održe barijeru prelaska od JavaSkripta na TajkSkript izuzetno niskom.
+To je postignuto skroz nekoliko osobina.
+
+Uz odgovarajuća podešavanja kompajlera, migracija na TajpSkript se sastoji od samo jednog koraka: promeniti ekstenziju svim `.js` datotekama u `.ts`.
+Ovo je omogućeno činjenicom da su tipovi podataka **opcioni**.
+Svaki JavaSkript kod može se formalno prevesti u TajpSkript kod promenom ekstenzije, a TajpSkriptov kompajer će u procesu kompajliranja od `.ts` datoteke generisati kod identičan polaznoj `.js` datoteci.
+TajpSkript je zbog ovoga s namerom zamišljen kao **nadskup** JavaSkripta.
+
+Za **eksplicitno** definisanje tipova koristi se postfiksna sintaksa koja je popularna među jezicima koji pružaju opcione tipove (npr. ActionScript i F♯).
+Ispred tipa se navode dve tačke (`:`).
+
+[source]
+----
+const foo: string = "Hello"
+----
+
+Informacije o tipovima često nije neophodno ručno specificirati jer tipovi u TajpSkriptu mogu biti **implicitni**.
+Analizator će, gde god je to moguće, na osnovu analize koda zaključiti o kom je tipu reč.
+Na primer, ukoliko se konstanta inicijalizuje brojnom vrednošću, za konstantu se implicitno zaključuje da ima tip `number`.
+Slično, ako se iz funkcije koja prima dva stringa vrati vrednost dobijenja njihovom konkatenacijom pomoću polimorfnog operatora `+`, povratnoj vrednosti funkcije se implicitno dodeljuje tip `string` jer je upravo tog tipa rezultat primene ovog operatora nad dva stringa.
+
+[source]
+----
+const foo = 2103
+const concat = (a: string, b: string) => a + b
+----
+
+==== Strukturalni sistem tipova
+
+Tradicionalni objektno-orijentisani jezici kao što su Java i C koriste sistem tipova u kome se podudaranje između tipova podataka vrši na osnovu njihovih eksplicitno navedenih _imena_.
+Ovakvi sistemi nazivaju se **nominalni**.
+Na primer, iako su definisane dve strukture istog oblika, njihova međusobna dodela neće biti moguća jer su imena tipova različita.
+
+[source, cpp]
+----
+struct Foo { int baz; };
+struct Bar { int baz; };
+
+int main () {
+  Foo foo;
+  Bar bar;
+  foo = bar; // error: no viable overloaded '='
+}
+----
+
+S druge strane su jezici kod kojih je za određivanje privila u sistemu tipova presudna njihova _struktura_.
+Oni se nazivaju **strukturalni** sistemi, u koje spada TajpSkript.
+
+[source]
+----
+interface Foo { baz: number }
+interface Bar { baz: number }
+
+let foo!: Foo
+let bar!: Bar
+foo = bar // ok
+----

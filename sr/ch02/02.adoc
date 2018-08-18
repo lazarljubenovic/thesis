@@ -204,6 +204,26 @@ function inc (n: number | null) {
 
 ==== Tip `never`
 
+Uz verziju 2.0 dolazi tip `never`.
+U pitanju je primitvni tip koji predstavlja tip vrednosti koja se nikad neće dobiti.
+`never` je pod-tip svakog tipa, a nijedan tip nije pod-tip tipa `never`, osim samog tipa `never`.
+Ovaj tip se prirodno javlja u delovima koda koji nisu dosegljivi, bilo zbog TajpSkriptove analize tipova podataka ili zbog same prirode JavaSkripta.
+
+Na primer, funkcije koje se nikad ne završe imaju kao povratni tip `never`.
+Ovo se može postići beskonačnom petljom ili bezuslovnim bacanjem izuzetka unutar tela funkcije.
+Sličan tip za povratnu vrednost funkcije je `void`, ali se on koristi za funkcije čije se izvršenje okonča, ali se iz nje ništa ne vrati eksplicitno (odnosno vrati se implicitni `undefined`).
+
+Drugi čest slučaj gde se ovaj tip javlja jeste prilikom ispitivanja tipa simbola pomoću čuvara (bilo implicitnih ili eksplicitnih).
+
+[source]
+----
+function doSomething (x: number | string): any {
+  if (typeof x == 'string') return 1
+  else if (typeof x == 'number') return 2
+  else { /* x is of type never */ }
+}
+----
+
 ==== Preklapanje funkcija
 
 U jezicima sa jakim tipovima podataka se često dozvoljava da funkcije imaju isto ime, a da se na osnovu broja i tipa argumenata određuje koju od njih treba pozvati.

@@ -179,6 +179,31 @@ function isSpacePoint (p: PlanePoint | SpacePoint): p is SpacePoint {
 
 Ako se `'z' in p` iz funkcije `getHalfPoint` iz primera zameni pozivom funkcije-čuvara `isSpacePoint(p)`, TajpSkript više ne prijavljuje grešku; sada može da zaključi da je promenljiva `p` u pozitivnoj grani tipa `PlanePoint`, a u negaitvnoj grani ono što ostaje kada se iz `PlanePoint | SpacePoint` odbaci `PlanePoint`, dakle `SpacePoint`.
 
+U određenim delovima koda, TajpSkript može implicitno da zaključi da se radi o čuvaru i da na taj načini poboljša tipove podataka na mestima u kodu gde se dešava granajne.
+Iz verzije u verziju je ovih tačaka u kodu sve više; najpre samo u uslovima kod `if` konstrukcije nad pozitivnom i negativnom granom i kod ternarnog operatora, zatim u `switch` naredbama, da bi se na kraju došlo do toga da se radi potpuna kontrola toka gde su uključeni i rani izlasci iz funkcije.
+Sem toga, vremenom se sve više načina pisanja koda prepoznaje kao čuvar.
+
+Dva osnovna i najstarija načina za definisanje čuvara jesu korišćenje `typeof` i `instanceof` operatora.
+
+[source]
+----
+function doSomething (n: string | number): number {
+  if (typeof n == 'string') { /* n is of type string here */ }
+  else { /* n is of type number here */ }
+}
+----
+
+Tipovi _null_ i _undefined_ se iz tipa mogu odstraniti klasičnim poređenjem sa `null`.
+
+[source]
+----
+function inc (n: number | null) {
+  return n == null ? 0 : n + 1
+}
+----
+
+==== Tip `never`
+
 ==== Preklapanje funkcija
 
 U jezicima sa jakim tipovima podataka se često dozvoljava da funkcije imaju isto ime, a da se na osnovu broja i tipa argumenata određuje koju od njih treba pozvati.
@@ -207,12 +232,53 @@ Na ovaj način je obezbeđeno da tip povratne vrednosti funkcije bude isti kao t
 
 ==== Generički tipovi
 
-==== Automatsko zaključivanje tipova
+Generički tipovi omogućuju da se ista funkcija koristi za više različitih tipova, pri čemu je moguće biti eksplicitan o kome se tipu radi.
+U prethodnom primeru su deklarisana dva potpisa-preklopa kojima se ovo omogućava, ali je istu funkciju moguće zapisati i kraće, korišćejnjem genetičkih tipova prilikom definicije funkcije.
 
-==== Tip `never`
+[source]
+----
+function getHalfPoint<T> (p: T): T { /* ... */ }
+----
+
+U gornjem isečku koda, dodata je tipska promenljiva `T` koja omogućava da se uhvati tip koji potršač funkcije prosledi (npr. `SpacePoint`) i da se ta informacija iskoristi u ostataku funkcije (bilo u telu ili u deklaraciji).
+Ovde se `T` koristi kao tip povratne vrednosti.
+
+Međutim, na ovaj način definisana funkcija će zapravo dati grešku prilikom pokušaja pristupa u negativnoj grani uslova iz tela.
+Naime, iako se čuvarom obezbeđuje da je tip u pozitivnoj grani `SpacePoint`, u negativnoj grani se zna jedino da _nije_ u pitanju `SpacePoint`.
+Ovo je zato što, kako je funkcija trenutno napisana, `T` može biti bilo šta.
+
+Da bi se ograničio skup tipova koji se može koristiti kao `T`, koristi se format `<T extends U>`, pri čemu je `T` generički tip a `U` tip kojim se određuje kojem skupu tipova mora da pripada tip `T`; drugim rečima, `U` je tip takav da je `T` pod-tip `U`.
+
+[source]
+----
+function getHalfPoint<T extends SpacePoint | PlanePoint> (p: T): T { /* ... */ }
+----
+
+Sada ne samo da je tip unutar tela funkcije ispravno definisan, već se i od potrašača zahteva da se za tip unese isključivo `SpacePoint` ili `PlanePoint` (ili tip koji je njihov podskup).
+
+Kada se poziva funkcija sa generičkim argumentima, posle imena se navodi tip.
+
+[source]
+----
+getHalfPoint<SpacePoint>({ x: 9, y: 8, z: 7 })
+----
+
+Međutim, TajpSkipt omogućava i drugačiji način da se funkcija pozove.
+Ukoliko je moguće zaključiti stvarni tip generičkog tipa na osnovu stvarnih argumenata prosleđenih funckiji, onda se specificiranje generičkog tipa može izostaviti -- kompajler će sam popuniti prazninu.
+
+
+[source]
+----
+getHalfPoint({ x: 9, y: 8, z: 7 })
+----
+
+Osim toga, ako se funkciji prosledi tip `SpacePoint | PlanePoint`, povratna vrednost će takođe biti `SpacePoint | PlanePoint`.
+Ovo je posledica toga što takva unija zadovljava `extends` uslov naveden u deklaraciji generičkog argumenta funkcije.
+
+Pored metoda, i interfejsi i klase mogu biti generički.
 
 ==== Manipulacija tipova
 
-
+==== Primeri tipova iz `lib`
 
 

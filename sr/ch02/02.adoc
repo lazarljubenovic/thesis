@@ -297,8 +297,67 @@ Ovo je posledica toga što takva unija zadovljava `extends` uslov naveden u dekl
 
 Pored metoda, i interfejsi i klase mogu biti generički.
 
+==== Uslovni tipovi
+
+Veliki pomak u mogućnostima koje pruža TajpSkript načinjen je verzijom 2.8 uz koju dolaze uslovni tipovi.
+Uslovni tipovi omogućavaju developeru da bude izabran jedan od dva tipa na osnovu ispunjenja uslova postavljenim kao test veze između uslova sa `extends`.
+Imaju oblik `T extends U ? X : Y` -- kada se `T` može dodeliti `U`, tada je tip `X` a inače je tip `Y`.
+
+Kada je tip koji se proverava "`go`", odnosno nije upleten deo nekog tipa-omotača, tada se za uslovni tip kaže da je **distributivan**.
+Distribucija se vrši automatski nad tipovima koji su delovi unije.
+Na primer, za `T` se može proslediti `A | B`, pa se rezultat izraza `(A | B) extends U ? X : Y` dobija kao `(A extends U ? X : Y) | (B extends U ? X : Y)`.
+
 ==== Manipulacija tipova
 
 ==== Primeri tipova iz `lib`
 
+U ovom odeljku će biti prokomentarisano nekoliko značajnih primera iz `lib.*.d.ts` datoteka koje TajpSkript koristi za ambijentalne deklaracije.
 
+Metoda `filter` deklarisana je nad prototipom `Array` na sledeći način.
+
+[source]
+----
+interface Array<T> {
+  filter<S extends T>(callbackfn: (value: T, index: number, array: ReadonlyArray<T>) => value is S, thisArg?: any): S[];
+  filter(callbackfn: (value: T, index: number, array: ReadonlyArray<T>) => any, thisArg?: any): T[];
+}
+----
+
+Metoda je preklopljena sa dva potpisa; pošto se radi o deklaracionoj `.d.ts` datoteci, nema definicije funkcije pa su oba potpisa vidljiva potrošaču.
+Prilikom poziva metode, preklopljeni potpisi se obilaze redom koji su navedni, tj. traži se prvo poklapanje.
+
+Zato, ukoliko se kao `callbackfn` prosledi čuvar koji tip `T` svodi na tip `S`, dobijeni rezultat će biti niz čiji su elementi tipa `S`.
+Ako se pak radi o običnoj funkciji, tip povratne vrednosti neće biti promenjen u odnosu na početni tip koju ima niz nad kojim se metoda poziva.
+
+Osim deklaracija ambijentalnih simbola koji su dostupni tokom izvršenja programa, u `lib` datotekama se nalaze i neki pomoćni tipovi koji mogu poslužiti developeru da izvede jedan tip iz drugog.
+
+Jedan takav tip je `NonNullable`.
+U pitanju je generički tip koji od prosleđenog argumenta sklanja `undefined` i `null`.
+
+[source]
+----
+type NonNullable<T> = T extends null | undefined ? never : T;
+----
+
+Ukoliko je stvarni tip koji se prosledi umesto `T` neki od pod-tipova tipa `null | undefined` (tj. `null | undefined`, `null`, `undefined` ili `never`), onda se dobija tip `never`.
+Zaista, ako se od nečega što je obavezno _nullable_ ukloni ta osobina, dobija se tip koji nikad ne može da ima vrednost.
+Ako stvarni tip _nije_ neki od pod-tipova `null | undefined`, onda se dobija taj isti tip.
+
+Na primer, za `NonNullable<number | string | null>` se radi o distributivnom uslovnom tipu, pa se rezultujući tip dobija na sledeći način.
+
+[source]
+----
+(number | string | null) extends null | undefined ? never : T   // =>
+  (number extends null | undefined ? never : T) |
+  (string extends null | undefined ? never : T) |
+  (null   extends null | undefined ? never : T)   // =>
+    number | string | never   // =>  
+      number | string
+----
+
+Uopštenje ovog pomoćnog tipa je `Exclude`, koji prima dva argumenta `T` i `U` i iz `T` odbacuje `U`.
+
+[source]
+----
+type Exclude<T, U> = T extends U ? never : T;
+----

@@ -1,0 +1,22 @@
+=== Mogućnosti Vejna
+
+==== Komponente
+
+Kao i kod svih UI frejmvorka, glavna gradivna jedinica je _komponenta_.
+Komponente predstavljaju izolovane logičke celine koje se mogu smestiti u korisnički interfejs.
+
+Komponente se u Vejnu definišu klasom nad kojom je primenjen dekorator `@Template`.
+Prvi i jedini argument dekoratora je string kojim se definiše lejaut komponente.
+
+Za stanje komponente koristi se telo klase, gde se standardno mogu definisati atributi i metode.
+Svi atributi i metode su dostupne za referenciranje u templejtu.
+
+Komponentu treba shvatiti kao prirodnu nadogradnju HTML postojećih HTML elemenata.
+Na primer, HTML element `HTMLInputElement` ima svoje **ime** na osnovu kojeg se prepoznaje u HTML kodu (`input`), ima neka **svojstva** na osnovu kojih može da se kontrolišu finese njegovog ponašanja i izgleda koja se mogu specificirati navođenjem HTML atributa ili direktnom manipulacijom kad odgovarajućim propertijima JavaSkript objekta (npr. `type`), i emituje neke **događaje** uz informaciju o tim događajima na koje se potrošači mogu pretplati i reagovati na njih.
+
+Na sličan način se koriste i komponente.
+
+Za razliku od HTML elemenata, koji su uvek globalno dostupni, komponente je potrebno registrovati za komponentu kako bi moglo da joj se pristupi iz templejta.
+Registracija se vrši navođenjem reference na odgovarajuću klasu među argumentima dekoratora `@Register` koji se navodi uz klasu.
+
+Da bi komponentu bilo moguće parametrizovati, uvodi se pojam **ulaza** (_input_) u komponentu.

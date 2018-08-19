@@ -10,3 +10,5 @@
 include::ch01/index.adoc[]
 
 include::ch02/index.adoc[]
+
+include::ch04/index.adoc[]

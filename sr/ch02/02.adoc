@@ -89,6 +89,7 @@ Sem izbora načina na koji se kod parsira i ciljne verzije standarda, moguće je
 
 Ukoliko je TajpSkript potrebno koristiti samo da bi se proverili da li su zadovoljeni tipovi podataka, postavlja se fleg `noEmit`; ovime kompilator neće generisati niejdan fajl ali će izvršiti sve provere nad kodom o tome da li bi se kompilacija završila uspešno ili ne.
 Slično, fleg `emitDeclarationOnly` se koristi da bi se generisale samo `.d.ts` datoteke -- izlaz neće biti kod koji je moguće pokrenuti već će biti kod kojim je moguće obećati TajpSkriptu da postoji neki kod.
+Ovaj način kompilacije se koristi kada se `.js` datoteke generišu od strane nekog eksternog alata kao što je Babel.
 
 Ukoliko se u kodu koriste određene konstukcije koje nisu dostupne u EkmaSkript verziji koja je navedena u `target` opciji, TajpSkript može emitovati enke pomoćne funkcije kojim premošćava njihov nedostatak, a koje imaju isti ili dovoljno sličan efekat na kod kao konstrukcija iz novog standarda koju developer koristi u kodu.
 Na primer, definisanje klase koja nasleđuje neku drugu klasu koristi ključne reči `class` i `extend`, ali ES5 ne podržava nijednu od njih.
@@ -123,15 +124,176 @@ U JavaSkriptu, podatak koji nije objekat i nema nijednu metodu naziva se **primi
 Ima ih šest: `string`, `number`, `boolean`, `null`, `undefined` i `symbol`.
 Za svaki od ovih tipova postoji i odgovarajući statički tip u TajpSkriptu, sa istim imenom.
 
+[source]
+----
+const aNumber: number = 2103
+const aString: string = 'hello'
+const aBoolean: boolean = true
+----
+
+Kao kontrast primitivnim tipovima, svi neprimitivni tipovi pripadaju tipu `object` (od verzije 2.2).
+
+Osim primtivnih tipova, TajpSkript nudi i neke ambijentalne tipove, u zavinosti od izabranih opcija kroz polje `lib` u konfiguracionom fajlu.
+Ambijentalni tipovi vezani za postojeće globalne JavaSkript objekte, što znači da postoji tipovi `Object` i `Function`.
+Na primer, neke od metoda definisanim nad tipom `Object` su `toString (): string` i `hasOwnProperty (v: string): boolean`.
+Kada se kaže da je u JavaSkritu sve objekat, misli se na to da se u svakom prototipskom lancu na vrhu nalazi `Object`, što znači da su metode kao `toString` i `hasOwnProperty` dostupne svakoj vrednosti, bilo da se radi o primitivnim ili neprimitivnim tipovima.
+
+Prema tome, `Object` opisuje ono što je zajedničko za svaki objekat u JavaSkriptu (uključujući i primitivne vrednosti kao što su brojevi); `object` odgovara užem skupu jer iksljučuje pritmivne tipove.
+
+Za preciznije definisanje objekata koristi se posebna sintaksa, koja podseća na inicijalizaciju objekata.
+Unutar para vitičastih zagrada navode se ključevi za koje se očekuje da postoje, a zatim se, posle dvotačke, navodi njihov tip
+Ova lista se odvaja zarezima.
+
+[source]
+----
+const anObject: { foo: number, bar: string } = {
+  foo: 2103,
+  bar: 'hello',
+}
+----
+
+Počev od verzije 1.4, moguće je definisati alijase za tipove.
+Ovime je omogućeno da se tipovi lakše koriste kroz program i da se međusobno referenciraju.
+
+[source]
+----
+type MyObject = { foo: number, bar: string }
+const anObject: MyObject = { foo: 2103, bar: 'hello' }
+----
+
+Properti u definicije strukture objekta se može označiti kao opcioni.
+
+Od verzije 2.0 se ispred imena propertija može dodati modifikator `readonly`.
+Ukoliko on postoji, dodela vrednosti tom propertiju je moguća samo prilikom inicijalizacije.
+
+Mada se za tipiziranje funkcija može koristiti tip `Function`, ovo je retko dovoljno jer ne pruža uvid u to koliko argumenata ima funkcija, kog su oni tipa i koja im je povratna vrednost.
+Za preciznije definjsanje tipa funkcije koristi se posebna sintaksa koja podseća na streličanstu funkciju u JavaSkriptu.
+Argumenti funkcije su oblika `arg: Tip`, razdvojeni zarezom i omeđeni oblim zagradama.
+Desno od ove liste se, nakon debele strelice (`=>`), daje tip povratne vrednosti.
+
+[source]
+----
+type MyFn = (foo: number, bar: string) => boolean
+const myFn: MyFn = (foo, bar) => foo > 21 && bar.length < 3
+----
+
+Tipovi argumenata i povratne vrednosti se mogu definisati i prilikom same definicije funkcije.
+
+[source]
+----
+const myFn = (foo: number, bar: stirng): boolean => {
+  return foo > 21 && bar.length < 3
+}
+----
+
+U gornjem primeru bi tip `boolean` kao tip povratne vrednosti mogao i sam analizator da zaključi na osnovu poznavanja tipa kojia vraćaju operator `&&`, `>` i `<`, pa ga nije neophodno definisati.
+Prednost definisanja tipova jeste što predstavlja dokumentaciju čitljivu ljudima, pa čovek može brže ustanoviti koji je povratni tip (ne mora da analizira telo fukcije, već je dovoljno da pročita samo potpis).
+Eksplicitno navođenje tipa povratne vrednosti je korisno i zbog provere tipa povratne vrednosti u samo celu funkcije.
+
+Osim streličastih funkcija, ovaj način se koristi i kod klasične definicije funkcije pomoću ključne reči `function`.
+
+[source]
+----
+function myFn (foo: number, bar: string): boolean {
+  return foo > 21 && bar.length < 3
+}
+----
+
+Prilikom provere da li je funkcija pozvana ispravno, pored tipova argumenata posmatra se i njihov broj.
+JavaSkript nema ograničenje po pitanju broja argumenata sa kojima se funkcija može pozvati; ukoliko postoje argumenti viška, oni se igrnoišu, a ukoliko se neki argumenti ne dodele, za njihovu vrednost se uzima `undefined`.
+
+U TajpSkriptu se na broj argumenata može uticati na dva načina.
+Proizvoljan broj argumenata zdesna se može označiti kao opcioni, dodavanjem simbola `?` posle simboličnog imena argumenta.
+S druge strane, broj argumenata se može povećati na beskonačnost ukoliko se ispred simboličnog imena poslednjeg argumenta doda token `...`.
+
+Na primer, globalno dostupna funkcija `parseInt` kao prvi parametar prima string koji treba parsirati, a drugi parametar, koji je opcioni, predstavlja brojnu osnovu.
+
+[source]
+----
+declare function parseInt (s: string, radix?: number): number
+----
+
+Metoda `push` definisana nad prototipom globalnog objekta `Array` prima proizvoljan broj argumenata -- to su elementi koje treba dodati na kraj niza.
+
+[source]
+----
+interface Array<T> {
+  push (...items: T[]): number;
+}
+----
+
+==== Unija i presek
+
+Čest slučaj je da se nekoj promenljivoj mogu dodeliti može dodeliti vrednost koja može bit različitog tipa.
+Ovaj slučaj se u TajpSkriptu iskazuje pomoću **unija**.
+Mogući tipovi se navode razdvojeni simbolom `|`.
+
+[source]
+----
+const a: number | string = 2103
+const b: number | string = 'hello'
+----
+
+Kada se pristupa propertijima sa unije, moguće je pristupiti samo onim propertijima koji postoje nad oba tipa.
+U opštem slučaju je ovo `Object`, ali u zavinosti od tipova koji se nalaze u uniji ih može biti više.
+Na primer, i nizovi i stringovi imaju properti `length`.
+
+==== Interfejsi i klase
+
+Drugi način za definisanje oblika objekata su interfejsi.
+Definišu se ključnom rečju `interface`, nakon koje se navodi ime a potom lista parova oblika `ime: Tip`.
+Glavna sintaksna razlika liste jeste što se umesto zareza za razdvajanje parova mogu koristiti tačka-zarez ili novi red.
+
+[source]
+----
+interface User {
+  name: string
+  age: number
+}
+----
+
+Na sličan način se definišu i klase.
+
+[source]
+----
+class User {
+  name: string
+  age: number
+}
+----
+
+Mada se mogu koristiti na sličan način... TODO
+
+==== Osnovni tipovi
+
+Pored šest tipova izvedenih iz primitivnih tipova koje opisuju JavaSkript objekte i jednog tipa za sve neprimitivne vrednosti, TajpSkript definše još četiri osnovna tipa: `unknown` (od 3.0), `any`, `void` i `never` (od 2.0).
+
+Jedan od glavnih dodataka koji dolaze uz verziju 3.0 jeste **tip `unknown`**.
+Pomoću `unknown` se opisuju tipovi promenljivih za koje je tip nepoznat, odnosno za promenljive za koje se ne može garntovati kakva će se vrednost naći u njima.
+Tip `unknown` se najčešće koristi za dinamički učitane podatke, kao što su odgovori sa servera.
+`unknown` je vršni tip (_top type_).
+Vršni tip je tip kojem se može dodeliti bilo koji drugi tip, ali se on ne može dodeliti nijednom drugom tipu.
+
+**Tip `any`** je univerzalni tip.
+Koristi se za opis tipa promenljivih za koje tip nije od važnosti.
+Najčešće se koristi tokom migracije ili kada bi pisanje tipa oduzelo previše vremena, a učinak bi bio previše mali.
+Na primer, ako za neku biblioteku ne postoje deklaracije, programer može najjednostavnije deklarisati globalnu promenljivu kao `declare const foo: any`.
+Sa ovime, pokušaji pristupa `foo` neće prouzrokovati TajpSkript grešku; s druge strane, kako TajpSkript ne zna o kom je tipu reč, sve operacije nad njime će bit dozvoljene tokom kompjaliranja -- TajpSkriptova statička analiza se u ovmo slučaju ne može koristiti kao garancija da neće doći do greške tokom izvršenja programa.
+
+Svaka funkcija u JavaSkriptu, pod uslovom da se uspešno okonča njeno izvršenje (nema beskonačne petlje i ne dođe do greške pre kraja funkcije), mora da vrati neku vrednost.
+Povratna vrednost navodi se u istom redu posle ključne reči `return`.
+Ukoliko se `return` ne navede (ili se kontrolom toka zaobiđe), funkcija se završava kada se izvrši ceo blok koji predstavlja njeno telo.
+U tom slučaju se implicitno iz funkcije vraća vrednost `undefined`.
+
+Međutim, TajpSkript ipak uvodi **tip `void`** koji se koristi za povratne vrednosti funkcije koje ne vraćaju ništa (izostavljanjem ključne reči `return`).
+Ovime se naglašava da potrošač ne treba da očekuje nikakvu povratnu vrednost od funkcije ili metode, već da se njenim pozivom očekuje neki sporedni efekat.
+Na ovaj način je moguće razlikovati slučaj kada je povratna vrednost funkcije eksplicitno `undefined` (na primer, kada se u nizu ne nađe traženi rezulta pozivom `Array#find`) i kada nju treba zanemariti (na primer, `Array#forEach` samo implicitno vraća `undefined`, a sporedni efekat se definiše funkcijom koja se prosleđuje kao argument).
+
 ==== Interfejsi
 
+Opcioni (razlika između `undefined` i `?`), readonly, razlika između interfejsa i alijasa (https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c)
+
 ==== Klase
-
-==== Funkcije
-
-==== Unije i preseci
-
-==== Manipulacija postojećih tipova
 
 ==== Čuvari tipova
 
@@ -202,6 +364,8 @@ function inc (n: number | null) {
 }
 ----
 
+Počev of verzije 2.7, operator `in` se takođe može koristiti kao čuvar, pa se sa ovim dodatkom primer koda TODOREF uspešno kompajlira jer se na osnovu `'z' in p` može napraviti jasna razlika između dva tipa iz unije. 
+
 ==== Tip `never`
 
 Uz verziju 2.0 dolazi tip `never`.
@@ -253,7 +417,7 @@ Na ovaj način je obezbeđeno da tip povratne vrednosti funkcije bude isti kao t
 ==== Generički tipovi
 
 Generički tipovi omogućuju da se ista funkcija koristi za više različitih tipova, pri čemu je moguće biti eksplicitan o kome se tipu radi.
-U prethodnom primeru su deklarisana dva potpisa-preklopa kojima se ovo omogućava, ali je istu funkciju moguće zapisati i kraće, korišćejnjem genetičkih tipova prilikom definicije funkcije.
+U prethodnom primeru su deklarisana dva potpisa-preklopa kojima se ovo omogućava, ali je istu funkciju moguće zapisati i kraće, korišćejnjem generičkih tipova prilikom definicije funkcije.
 
 [source]
 ----
@@ -296,6 +460,7 @@ Osim toga, ako se funkciji prosledi tip `SpacePoint | PlanePoint`, povratna vred
 Ovo je posledica toga što takva unija zadovljava `extends` uslov naveden u deklaraciji generičkog argumenta funkcije.
 
 Pored metoda, i interfejsi i klase mogu biti generički.
+Na primer, `Array` je generički tip, pa se umesto kraćeg zapisa `T[]` može koristiti pun zapis `Array<T>`.
 
 ==== Uslovni tipovi
 
@@ -307,7 +472,21 @@ Kada je tip koji se proverava "`go`", odnosno nije upleten deo nekog tipa-omota�
 Distribucija se vrši automatski nad tipovima koji su delovi unije.
 Na primer, za `T` se može proslediti `A | B`, pa se rezultat izraza `(A | B) extends U ? X : Y` dobija kao `(A extends U ? X : Y) | (B extends U ? X : Y)`.
 
-==== Manipulacija tipova
+==== Manipulacija tipovima
+
+TajpSkript dolazi uz neke pomoćne tipove koji nemaju nikakav JavaSkript ekvivalent, odnosno ne opisuju postojeće ambijentalne simbole.
+Oni služe da bi developeru omogućili da transformiše tipove, odnosno da manipuliše njima, kako bi se na osnovu postojećih dobili novi.
+Zaključno sa verzijom 3.1 ih ima deset.
+
+- Za označavanje da su svi propertiji tipa T opcioni, koristi se tip `Partial<T>`.
+- Obrnuto, `Required<T>` služi da se označi da su svi propertiji obavezni.
+- `Readonly<T>` označava sve propertije kao `readonly`.
+
+Neki generički tipovi definsisani su zahvaljujući uslovnim tipovima.
+
+- `Exclude<T, U>` iz tipa `T` odbacuje tipove koji se mogu dodeliti tipu `U`. Na primer, `Exclude<A | B | C, C | D>` vraća tipa `A | B`. Definisan je kao `T extends U ? never : T`.
+- Suprotno od `Exclude`, tip `Extract<T, U>` definisan je kao `T extends U ? T : never` i služi da bi se iz `T` izdvojili samo tipove koje je moguće dodeliti tipu `U`.
+
 
 ==== Primeri tipova iz `lib`
 

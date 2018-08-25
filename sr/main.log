@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.14)  25 AUG 2018 11:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.14)  25 AUG 2018 11:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/lazar/thesis/sr-latex/main.tex
-(/home/lazar/thesis/sr-latex/main.tex
+**/home/lazar/thesis/sr/main.tex
+(/home/lazar/thesis/sr/main.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -889,13 +889,26 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 80.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 65.
+
+(/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 65.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `fvm' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [2
 
 ])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [3] (./ch01/main.tex
+ [3]
+(./ch01/main.tex
 Glava 1.
 (./ch01/01.tex
 
@@ -905,19 +918,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 [4
 
-]
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 27.
- (/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 27.
-Package microtype Info: Loading generic settings for font family
-(microtype)             `fvm' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [5] [6])
-(./ch01/02.tex [7] [8] [9])) (./ch02/main.tex [10]
+] [5] [6]) (./ch01/02.tex [7] [8] [9])) (./ch02/main.tex [10]
 Glava 2.
 (./ch02/01.tex [11
 
@@ -930,16 +931,35 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 13.
  [15] [16] [17])
-(./ch02/03.tex [18] [19] [20]
+(./ch02/03.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+[19] [20] [21]
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 140.
- [21] [22]
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+C'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 167.
+
+[22]
 Overfull \hbox (0.66904pt too wide) in paragraph at lines 190--190
 []                                                  \T1/fvm/m/n/10 | SpacePoint
  {[] 
  []
 
-[23] [24] [25]
+[23]
+LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 235.
+ [24]
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 281.
+
+[25] [26]
 LaTeX Font Info:    Try loading font information for OMS+bch on input line 342.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
@@ -947,8 +967,8 @@ File: omsbch.fd
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 342.
-
-[26] [27])) (./ch04/main.tex [28]
+ [27]))
+(./ch04/main.tex [28]
 Glava 3.
 [29
 
@@ -961,21 +981,28 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D4973BAAD6AA1B82F068BFCB84ACD9D1;2235.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: E12BE19DB2CF8CE409195B54AC742DBE;3398
+(rerunfilecheck)             After:  F4E59957E623CDE01E814C7328C78942;3397.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 15397 strings out of 493013
- 249294 string characters out of 6135682
- 741508 words of memory out of 5000000
- 18438 multiletter control sequences out of 15000+600000
- 71303 words of font info for 207 fonts, out of 8000000 for 9000
+ 15430 strings out of 493013
+ 249791 string characters out of 6135682
+ 741515 words of memory out of 5000000
+ 18453 multiletter control sequences out of 15000+600000
+ 71923 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,15n,62p,958b,1867s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,15n,62p,952b,1867s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fon
@@ -984,10 +1011,10 @@ ts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb>
-Output written on main.pdf (37 pages, 194498 bytes).
+Output written on main.pdf (37 pages, 197329 bytes).
 PDF statistics:
- 407 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 34585 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 495 PDF objects out of 1000 (max. 8388607)
+ 443 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 35233 words of extra memory for PDF output out of 35830 (max. 10000000)
 

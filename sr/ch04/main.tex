@@ -1,6 +1,6 @@
 \chapter{Mogućnosti Vejna}
 
-Vejn je UI frejmvork koji služi za pisanje jednostraničnih veb-aplikacija u TajpSkriptu.
+Vejn je UI frejmvork koji služi za pisanje jednostraničnih veb-aplikacija u Tajpskriptu.
 Uz frejmvork dolazi CLI i bandler sa optimizatorom, pa se ne javlja potreba za instaliranjem drugih paketa i podešavanjem sistema za kreiranje produkcionog bilda.
 
 \section{Šabloni}
@@ -19,7 +19,7 @@ Uz frejmvork dolazi CLI i bandler sa optimizatorom, pa se ne javlja potreba za i
 % ////
 
 S obzirom da se o frejmvorku za kreiranje \emph{veb}-aplikacija, način komunikacije sa korisnicima odvija se pomoću DOM-a.
-Brauzer kreira DOM na osnovu HTML-a poslatog sa servera, ali i pruža programski pristup istom pomoću JavaSkripta.
+Brauzer kreira DOM na osnovu HTML-a poslatog sa servera, ali i pruža programski pristup istom pomoću Javaskripta.
 Ideja korišćenja UI frejmvorka je da se zaobiđe ovaj proces
 Glavni zadatak Vejna je da pogled sa kojim korisnik interaguje održava sinhronizovanim sa modelom, tj. internim stanjem aplikacije.
 Ovo je omogućeno definisanjem oblika interfejsa kroz \emph{deklarativnu} sintaksu -- u pitanju je sintaksa koja podseća na HTML kako bi se developer osećao \textquote{kod kuće}, ali se zapravo radi o proizvoljnoj sintaksi.
@@ -137,7 +137,7 @@ Kao i kod svih UI frejmvorka, glavna gradivna jedinica u Vejnu je \emph{komponen
 Komponente predstavljaju izolovane logičke celine koje se mogu smestiti u korisnički interfejs.
 
 Komponentu treba shvatiti kao prirodnu nadogradnju HTML postojećih HTML elemenata.
-Na primer, HTML element \code{HTMLInputElement} ima svoje \textbf{ime} na osnovu kojeg se prepoznaje u HTML kodu (string \code{input}), ima neka \textbf{svojstva} na osnovu kojih može da se kontrolišu finese njegovog ponašanja i izgleda koja se mogu specificirati navođenjem HTML atributa ili direktnom manipulacijom kad odgovarajućim propertijima JavaSkript objekta (npr. \code{type}), i emituje neke \textbf{događaje} uz informaciju o tim događajima na koje se potrošači mogu pretplati i reagovati na njih.
+Na primer, HTML element \code{HTMLInputElement} ima svoje \textbf{ime} na osnovu kojeg se prepoznaje u HTML kodu (string \code{input}), ima neka \textbf{svojstva} na osnovu kojih može da se kontrolišu finese njegovog ponašanja i izgleda koja se mogu specificirati navođenjem HTML atributa ili direktnom manipulacijom kad odgovarajućim propertijima Javaskript objekta (npr. \code{type}), i emituje neke \textbf{događaje} uz informaciju o tim događajima na koje se potrošači mogu pretplati i reagovati na njih.
 
 Analogno tome, komponente dobijaju \textbf{ime} registrovanjem za druge komponente, \textbf{ulazi} (\textsl{inputs}) koji su sačinjeni od skupa svojstava klase koje je autor komponente proglasio kao delom njenog javnog API-ja, dok su \textbf{izlazi} događaji na koje se druge komponente mogu pretplatiti da bi se obavljala komunikacija između njih.
 
@@ -182,7 +182,7 @@ Ovaj pojam je pandam svojstvima koje imaju HTML elementi.
 
 Ulazi u komponentu se definišu deklarisanjem javnog svojstva na klasi.
 
-Pošto se za proveru ispravnosti tipova u izvornom kodu koristi strogi režim TajpSkripta, ulazima za koje se očekuje da uvek dobiju vrednost iz šablona u kome se koriste dodaje se \code{!} -- stoga, ovo označava \textbf{obavezni ulaz}, pa Vejn prijavljuje grešku ukoliko mu se vrednost ne prosledi.
+Pošto se za proveru ispravnosti tipova u izvornom kodu koristi strogi režim Tajpskripta, ulazima za koje se očekuje da uvek dobiju vrednost iz šablona u kome se koriste dodaje se \code{!} -- stoga, ovo označava \textbf{obavezni ulaz}, pa Vejn prijavljuje grešku ukoliko mu se vrednost ne prosledi.
 Za bi se definisala podrazumevana vrednost ulaza, dovoljno je da se svojstvo jednostavno inicijalizuje.
 Ulazi sa podrazumevanom vrednošću ne mogu biti obavezni.
 
@@ -220,6 +220,8 @@ Primaju proizvoljan broj čvorova za decu i služe za parametrizaciju načina na
 Sintaksno, direktive se od HTML elemenata i Vejn komponenti razlikuju po prefiksu \code{w:}.
 Zbog svoje prirode, parametri se -- umesto navođenjem atributa u vidu parov ključ-vrednost -- definišu potpuno proizvoljnom sintaksom koja se piše u nastavku imena, a u sklopu otvarajućeg taga.
 
+Developer nema mogućnost da definiše proizvoljne direktive; sve direktive su sastavni deo Vejna.
+
 \subsection{Uslovi}
 
 Prisustvo ili odsustvo dela šablona može se kontrolisati korišćenjem direktive \code{w:if}.
@@ -236,7 +238,7 @@ U prethodnom primeru se, u zavinosti od trenutne vrednosti dodeljene svojsvu kla
 
 \subsection{Nizovi}
 
-Predstavnik struktura podataka za rad sa kolekcijama istorodnih elemenata u JavaSkriptu su nizovi, implementirani pomoću prototipa \code{Array}.
+Predstavnik struktura podataka za rad sa kolekcijama istorodnih elemenata u Javaskriptu su nizovi, implementirani pomoću prototipa \code{Array}.
 U šablonima se može vršiti iteracija nad nizovima korišćenjem direktive \code{w:for}.
 
 U nastavku se navodi sintaksa oblika \code{(item, index) of items; key: id}, gde je
@@ -281,8 +283,6 @@ U tim slučajevima, način zapisa direktive se može skratiti tako što se direk
 
 Dve direktive se ne mogu istovremeno naći na jednom elementu ili jednoj komponenti.
 Ukoliko se javi potreba za ovakvom strukturom, barem jedna od direktiva se mora zapisati u regularnoj (dužoj) sintaksi.
-
-\subsection{}
 
 \section{Pokretanje}
 

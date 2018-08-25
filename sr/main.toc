@@ -12,7 +12,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.3}Mane}{6}{subsection.1.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Sazrevanje JavaSkripta}{7}{section.1.2}
+\contentsline {section}{\numberline {1.2}Sazrevanje Javaskripta}{7}{section.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.1}Nastanak}{7}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
@@ -22,7 +22,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.4}Odbor TC39}{9}{subsection.1.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}TajpSkript}{11}{chapter.2}
+\contentsline {chapter}{\numberline {2}Tajpskript}{11}{chapter.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Klasifikcija sistema tipova}{11}{section.2.1}
 \defcounter {refsection}{0}\relax 
@@ -34,45 +34,45 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.4}Strukturalni sistem tipova}{14}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.5}Konfiguracija}{14}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Konfiguracija}{14}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Izbor ES verzije}{15}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.2.1}Izbor ES verzije}{15}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Moduli}{15}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.2.2}Moduli}{15}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Globalni tipovi}{17}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.2.3}Globalni tipovi}{17}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Emitovanje koda}{17}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.2.4}Emitovanje koda}{17}{subsection.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Lintanje koda}{18}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.2.5}Lintanje koda}{18}{subsection.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Strogi re\IeC {\v z}im}{18}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.2.6}Strogi re\IeC {\v z}im}{19}{subsection.2.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.6}Tipovi}{18}{subsection.2.1.6}
+\contentsline {section}{\numberline {2.3}Tipovi}{19}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Unija i presek}{20}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.1}Unija i presek}{21}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Interfejsi i klase}{21}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.2}Interfejsi i klase}{21}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Osnovni tipovi}{21}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.3}Osnovni tipovi}{21}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Interfejsi}{22}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.4}Interfejsi}{22}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Klase}{22}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.5}Klase}{22}{subsection.2.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\IeC {\v C}uvari tipova}{22}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.6}\IeC {\v C}uvari tipova}{22}{subsection.2.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Tip \leavevmode {\color {black!80}\texttt {never}}}{24}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.7}Tip \leavevmode {\color {black!80}\texttt {never}}}{24}{subsection.2.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Preklapanje funkcija}{24}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.8}Preklapanje funkcija}{25}{subsection.2.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Generi\IeC {\v c}ki tipovi}{25}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.9}Generi\IeC {\v c}ki tipovi}{25}{subsection.2.3.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Uslovni tipovi}{26}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.10}Uslovni tipovi}{26}{subsection.2.3.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Manipulacija tipovima}{26}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.11}Manipulacija tipovima}{27}{subsection.2.3.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Primeri tipova iz \leavevmode {\color {black!80}\texttt {lib}}}{27}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.3.12}Primeri tipova iz \leavevmode {\color {black!80}\texttt {lib}}}{27}{subsection.2.3.12}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Mogu\IeC {\'c}nosti Vejna}{29}{chapter.3}
 \defcounter {refsection}{0}\relax 
@@ -103,7 +103,5 @@
 \contentsline {subsection}{\numberline {3.3.2}Nizovi}{35}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.3}Skra\IeC {\'c}eni oblik}{36}{subsection.3.3.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.4}}{36}{subsection.3.3.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Pokretanje}{36}{section.3.4}

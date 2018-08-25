@@ -3,33 +3,50 @@
 \BOOKMARK [2][-]{subsection.1.1.1}{Tehnologije na koje se oslanja SPA}{section.1.1}% 3
 \BOOKMARK [2][-]{subsection.1.1.2}{Prednosti}{section.1.1}% 4
 \BOOKMARK [2][-]{subsection.1.1.3}{Mane}{section.1.1}% 5
-\BOOKMARK [1][-]{section.1.2}{Sazrevanje JavaSkripta}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Sazrevanje Javaskripta}{chapter.1}% 6
 \BOOKMARK [2][-]{subsection.1.2.1}{Nastanak}{section.1.2}% 7
 \BOOKMARK [2][-]{subsection.1.2.2}{Poku\235aji popravke}{section.1.2}% 8
 \BOOKMARK [2][-]{subsection.1.2.3}{Godi\235nji ciklusi}{section.1.2}% 9
 \BOOKMARK [2][-]{subsection.1.2.4}{Odbor TC39}{section.1.2}% 10
-\BOOKMARK [0][-]{chapter.2}{TajpSkript}{}% 11
+\BOOKMARK [0][-]{chapter.2}{Tajpskript}{}% 11
 \BOOKMARK [1][-]{section.2.1}{Klasifikcija sistema tipova}{chapter.2}% 12
 \BOOKMARK [2][-]{subsection.2.1.1}{Podele}{section.2.1}% 13
 \BOOKMARK [2][-]{subsection.2.1.2}{Deklaracije}{section.2.1}% 14
 \BOOKMARK [2][-]{subsection.2.1.3}{Definisanje tipova}{section.2.1}% 15
 \BOOKMARK [2][-]{subsection.2.1.4}{Strukturalni sistem tipova}{section.2.1}% 16
-\BOOKMARK [2][-]{subsection.2.1.5}{Konfiguracija}{section.2.1}% 17
-\BOOKMARK [2][-]{subsection.2.1.6}{Tipovi}{section.2.1}% 18
-\BOOKMARK [0][-]{chapter.3}{Mogucnosti Vejna}{}% 19
-\BOOKMARK [1][-]{section.3.1}{\227abloni}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.1.1}{Vezivna sintaksa}{section.3.1}% 21
-\BOOKMARK [2][-]{subsection.3.1.2}{Interpolacija}{section.3.1}% 22
-\BOOKMARK [2][-]{subsection.3.1.3}{HTML elementi}{section.3.1}% 23
-\BOOKMARK [1][-]{section.3.2}{Komponente}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.2.1}{Deklaracija}{section.3.2}% 25
-\BOOKMARK [2][-]{subsection.3.2.2}{Pristupna komponenta}{section.3.2}% 26
-\BOOKMARK [2][-]{subsection.3.2.3}{Kori\235cenje}{section.3.2}% 27
-\BOOKMARK [2][-]{subsection.3.2.4}{Ulazi}{section.3.2}% 28
-\BOOKMARK [2][-]{subsection.3.2.5}{Izlazi}{section.3.2}% 29
-\BOOKMARK [1][-]{section.3.3}{Direktive}{chapter.3}% 30
-\BOOKMARK [2][-]{subsection.3.3.1}{Uslovi}{section.3.3}% 31
-\BOOKMARK [2][-]{subsection.3.3.2}{Nizovi}{section.3.3}% 32
-\BOOKMARK [2][-]{subsection.3.3.3}{Skraceni oblik}{section.3.3}% 33
-\BOOKMARK [2][-]{subsection.3.3.4}{}{section.3.3}% 34
-\BOOKMARK [1][-]{section.3.4}{Pokretanje}{chapter.3}% 35
+\BOOKMARK [1][-]{section.2.2}{Konfiguracija}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.1}{Izbor ES verzije}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.2}{Moduli}{section.2.2}% 19
+\BOOKMARK [2][-]{subsection.2.2.3}{Globalni tipovi}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.4}{Emitovanje koda}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.5}{Lintanje koda}{section.2.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.6}{Strogi re\236im}{section.2.2}% 23
+\BOOKMARK [1][-]{section.2.3}{Tipovi}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.3.1}{Unija i presek}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.2}{Interfejsi i klase}{section.2.3}% 26
+\BOOKMARK [2][-]{subsection.2.3.3}{Osnovni tipovi}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.4}{Interfejsi}{section.2.3}% 28
+\BOOKMARK [2][-]{subsection.2.3.5}{Klase}{section.2.3}% 29
+\BOOKMARK [2][-]{subsection.2.3.6}{Cuvari tipova}{section.2.3}% 30
+\BOOKMARK [2][-]{subsection.2.3.7}{Tip never}{section.2.3}% 31
+\BOOKMARK [2][-]{subsection.2.3.8}{Preklapanje funkcija}{section.2.3}% 32
+\BOOKMARK [2][-]{subsection.2.3.9}{Genericki tipovi}{section.2.3}% 33
+\BOOKMARK [2][-]{subsection.2.3.10}{Uslovni tipovi}{section.2.3}% 34
+\BOOKMARK [2][-]{subsection.2.3.11}{Manipulacija tipovima}{section.2.3}% 35
+\BOOKMARK [2][-]{subsection.2.3.12}{Primeri tipova iz lib}{section.2.3}% 36
+\BOOKMARK [0][-]{chapter.3}{Mogucnosti Vejna}{}% 37
+\BOOKMARK [1][-]{section.3.1}{\227abloni}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.1.1}{Vezivna sintaksa}{section.3.1}% 39
+\BOOKMARK [2][-]{subsection.3.1.2}{Interpolacija}{section.3.1}% 40
+\BOOKMARK [2][-]{subsection.3.1.3}{HTML elementi}{section.3.1}% 41
+\BOOKMARK [1][-]{section.3.2}{Komponente}{chapter.3}% 42
+\BOOKMARK [2][-]{subsection.3.2.1}{Deklaracija}{section.3.2}% 43
+\BOOKMARK [2][-]{subsection.3.2.2}{Pristupna komponenta}{section.3.2}% 44
+\BOOKMARK [2][-]{subsection.3.2.3}{Kori\235cenje}{section.3.2}% 45
+\BOOKMARK [2][-]{subsection.3.2.4}{Ulazi}{section.3.2}% 46
+\BOOKMARK [2][-]{subsection.3.2.5}{Izlazi}{section.3.2}% 47
+\BOOKMARK [1][-]{section.3.3}{Direktive}{chapter.3}% 48
+\BOOKMARK [2][-]{subsection.3.3.1}{Uslovi}{section.3.3}% 49
+\BOOKMARK [2][-]{subsection.3.3.2}{Nizovi}{section.3.3}% 50
+\BOOKMARK [2][-]{subsection.3.3.3}{Skraceni oblik}{section.3.3}% 51
+\BOOKMARK [1][-]{section.3.4}{Pokretanje}{chapter.3}% 52

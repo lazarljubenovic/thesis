@@ -10,7 +10,7 @@ Postoji nekoliko osobina na osnovu kojih se može izvršiti podela načina na ko
 \subsection{Podele}
 
 Prvo pitanje koje se nameće jeste \textit{kada} se dešava provera: da li tokom kompilacije ili tokom izvršenja programa.
-Za jezike koji se interpretiraju (JavaSkript, Pajton, Rubi) ne postoji faza kompilacije pa je jedino mesto gde se može vršiti provera tipova -- tokom izvršenja.
+Za jezike koji se interpretiraju (Javaskript, Pajton, Rubi) ne postoji faza kompilacije pa je jedino mesto gde se može vršiti provera tipova -- tokom izvršenja.
 Za ovakve jezike -- u kojima se provera tipova sprovodi tokom izvršenja -- kaže se da imaju \textbf{dinamičku} proveru tipova.
 Interpretatori za ovakve jezike obično svakom objektu dodeljuju oznaku tipa u kojoj se nalaze informacije o tipu.
 Ukoliko se provera vrši tokom kompjaliranja, radi se o \textbf{statičkoj} proveri.
@@ -21,47 +21,47 @@ Kod jezika sa \textbf{jakim} tipovima podataka, nad kodom su dozvoljene samo one
 Za jezike koje ne nameću ova ograničenja kaže se da imaju \textbf{slabe} tipove podataka.
 Ne postoji jasna granica između jakih i slabih tipova, pa se ovi termini koriste uglavnom za poređenje jezika (koji ima \textquote{jače} a koji \textquote{slabije} tipove) ili za određene osobine jezika (za koju se može reći da je \textquote{jaka} a za koju \textquote{slaba}).
 
-\textbf{JavaSkript} nema podršku za statičko definisanje tipova podataka, a uz to je i slabo tipiziran jezik.
+\textbf{Javaskript} nema podršku za statičko definisanje tipova podataka, a uz to je i slabo tipiziran jezik.
 Promenljiva kojoj je dodeljen string može u sledećem redu da ima referencu na niz brojeva, a zatim da u nju bude upisana logička promenljiva.
-Kako je JavaSkript jezik koji se interpretira, ni nema prilike da se ovo zabeleži kao greška prilikom kompajliranja; taj proces ne postoji.
+Kako je Javaskript jezik koji se interpretira, ni nema prilike da se ovo zabeleži kao greška prilikom kompajliranja; taj proces ne postoji.
 Međutim, čak i tokom izvršenja programa, ovakvo ponašanje koda se neće tretirati kao greška i interpretator će bez problema upisivati bilo koju vrednost u promenljivu.
 
 Ovakvo ponašanje ne samo da može negativno da utiče na performanse (jer optimizator nije u stanju da predvidi koliko memorije je potrebno da se zauzme za promenljivu), već čini kod nečitljivim i podložnim greškama.
-Glavna prednost TajpSkripta je uvođenje tipova podataka u JavaSkript, ali samo prilikom kompajliranja.
+Glavna prednost Tajpskripta je uvođenje tipova podataka u Javaskript, ali samo prilikom kompajliranja.
 
-TajpSkript ni na koji način ne utiče na fazu interpretiranja i izvršenja koda.
-TajpSkript dolazi uz kompajler koji postojeći TajpSkript kod kompajlira u JavaSkript.
-Dobijeni JavaSkript kod ne sadrži nikakve informacije i tipovima podataka; ne postoje nikakvi uslovi koji će dovesti do greške ukoliko se promenljivoj dodeli drugačiji tip od navedenog.
-Umesto toga, TajpSkript ima zadatak da tokom kompajliranja utvrdi tipove i da se postara da developera obavesti o nastaloj nekonzistentnosti tako emituje grešku.
+Tajpskript ni na koji način ne utiče na fazu interpretiranja i izvršenja koda.
+Tajpskript dolazi uz kompajler koji postojeći Tajpskript kod kompajlira u Javaskript.
+Dobijeni Javaskript kod ne sadrži nikakve informacije i tipovima podataka; ne postoje nikakvi uslovi koji će dovesti do greške ukoliko se promenljivoj dodeli drugačiji tip od navedenog.
+Umesto toga, Tajpskript ima zadatak da tokom kompajliranja utvrdi tipove i da se postara da developera obavesti o nastaloj nekonzistentnosti tako emituje grešku.
 
-Da bi se ovo postiglo, TajpSkriptov kompajler obavlja statičku analizu koda tokom koje zaključuje tipove i proverava da li su određeni operatori izvodljivi nad njima.
-Na primer, iako je se JavaSkript interpretator ne buni za pokušaj sabiranja praznog niza i praznog objekta (\code{[] + \{\}}), TajpSkript će prijaviti grešku \textquote{Operator \textquote{\code{+}} cannot be applied to types \textquote{\code{undefined[]}} and \textquote{\code{\{\}}}}.
+Da bi se ovo postiglo, Tajpskriptov kompajler obavlja statičku analizu koda tokom koje zaključuje tipove i proverava da li su određeni operatori izvodljivi nad njima.
+Na primer, iako je se Javaskript interpretator ne buni za pokušaj sabiranja praznog niza i praznog objekta (\code{[] + \{\}}), Tajpskript će prijaviti grešku \textquote{Operator \textquote{\code{+}} cannot be applied to types \textquote{\code{undefined[]}} and \textquote{\code{\{\}}}}.
 
 \subsection{Deklaracije}
 
-Kako bi bilo moguće da se koriste postojeće biblioteke pisane u JavaSkriptu, u TajpSkript je uveden pojam \textit{deklaracije}.
-Na primer, TajpSkipt ne može automatski da bude svestan postojanja eksterne biblioteke učitane kroz \code{script} tag u \code{head} sekciji HTML dokumenta za koju se piše TajpSkript kod.
+Kako bi bilo moguće da se koriste postojeće biblioteke pisane u Javaskriptu, u Tajpskript je uveden pojam \textit{deklaracije}.
+Na primer, TajpSkipt ne može automatski da bude svestan postojanja eksterne biblioteke učitane kroz \code{script} tag u \code{head} sekciji HTML dokumenta za koju se piše Tajpskript kod.
 Deklaracija promenljive ili nekog drugog simbola navodi se ili u posebnom fajlu sa ekstenzijom \code{.d.ts} ili direktno u postojeći fajl, uz prefiks \code{declare}.
 
-Deklaracije za mnoge postojeće JavaSkript biblioteke se mogu naći na GitHab repozitorijumu Majkrosoftovog projekta \textsl{DefinitelyTyped} koji održava zajednica.
+Deklaracije za mnoge postojeće Javaskript biblioteke se mogu naći na GitHab repozitorijumu Majkrosoftovog projekta \textsl{DefinitelyTyped} koji održava zajednica.
 Svi paketi se mogu preuzeti sa npm repozitorijuma.
 Radi lakšeg pronalaska deklaracionih fajlova koristi se imenski prostor (\textsl{namespace}) \code{@types}, a za ime deklaracionog paketa se koristi isto ime koje je dodeljeno samom paketu za koji se instaliraju deklaracije.
 Na primer, za paket \code{jquery} deklaracije se nalaze na \code{@types/jquery}.
 
-Deklaracije se mogu dostaviti i zajedno sa samim paketom; ovaj način se preferira u situacijama kada je sam paket već napisan u TajpSkriptu.
-Koristeći opciju \code{--declaration}, TajpSkriptov kompajer može, pored \code{.js} fajlova, generisati i \code{.d.ts} fajlove, a iz \code{package.json} vrednosti pod ključem \code{types} može se pročitati putanja do ovog fajla.
-Ovako TajpSkriptov kompajler zna gde da pronađe potrebne deklaracije.
+Deklaracije se mogu dostaviti i zajedno sa samim paketom; ovaj način se preferira u situacijama kada je sam paket već napisan u Tajpskriptu.
+Koristeći opciju \code{--declaration}, Tajpskriptov kompajer može, pored \code{.js} fajlova, generisati i \code{.d.ts} fajlove, a iz \code{package.json} vrednosti pod ključem \code{types} može se pročitati putanja do ovog fajla.
+Ovako Tajpskriptov kompajler zna gde da pronađe potrebne deklaracije.
 
 \subsection{Definisanje tipova}
 
 Neki stariji jezici sa statičkim tipovima podataka od developera zahtevaju da se tipovi uvek definišu eksplicitno.
-TajpSkript je specifičan po tome što su se njegovi stvaraoci postarani da održe barijeru prelaska od JavaSkripta na TajkSkript izuzetno niskom.
+Tajpskript je specifičan po tome što su se njegovi stvaraoci postarani da održe barijeru prelaska od Javaskripta na TajkSkript izuzetno niskom.
 To je postignuto skroz nekoliko osobina.
 
-Uz odgovarajuća podešavanja kompajlera, migracija na TajpSkript se sastoji od samo jednog koraka: promeniti ekstenziju svim \code{.js} datotekama u \code{.ts}.
+Uz odgovarajuća podešavanja kompajlera, migracija na Tajpskript se sastoji od samo jednog koraka: promeniti ekstenziju svim \code{.js} datotekama u \code{.ts}.
 Ovo je omogućeno činjenicom da su tipovi podataka \textbf{opcioni}.
-Svaki JavaSkript kod može se formalno prevesti u TajpSkript kod promenom ekstenzije, a TajpSkriptov kompajer će u procesu kompajliranja od \code{.ts} datoteke generisati kod identičan polaznoj \code{.js} datoteci.
-TajpSkript je zbog ovoga s namerom zamišljen kao \textbf{nadskup} JavaSkripta.
+Svaki Javaskript kod može se formalno prevesti u Tajpskript kod promenom ekstenzije, a Tajpskriptov kompajer će u procesu kompajliranja od \code{.ts} datoteke generisati kod identičan polaznoj \code{.js} datoteci.
+Tajpskript je zbog ovoga s namerom zamišljen kao \textbf{nadskup} Javaskripta.
 
 Za \textbf{eksplicitno} definisanje tipova koristi se postfiksna sintaksa koja je popularna među jezicima koji pružaju opcione tipove (npr. \textsl{EkšnSkript} i F$\sharp$).
 Ispred tipa se navode dve tačke (\code{:}).
@@ -70,7 +70,7 @@ Ispred tipa se navode dve tačke (\code{:}).
 const foo: string = "Hello"
 \end{verbatim}
 
-Informacije o tipovima često nije neophodno ručno specificirati jer tipovi u TajpSkriptu mogu biti \textbf{implicitni}.
+Informacije o tipovima često nije neophodno ručno specificirati jer tipovi u Tajpskriptu mogu biti \textbf{implicitni}.
 Analizator će, gde god je to moguće, na osnovu analize koda zaključiti o kom je tipu reč.
 Na primer, ukoliko se konstanta inicijalizuje brojnom vrednošću, za konstantu se implicitno zaključuje da ima tip \code{number}.
 Slično, ako se iz funkcije koja prima dva stringa vrati vrednost dobijenja njihovom konkatenacijom pomoću polimorfnog operatora \code{+}, povratnoj vrednosti funkcije se implicitno dodeljuje tip `string` jer je upravo tog tipa rezultat primene ovog operatora nad dva stringa.
@@ -99,7 +99,7 @@ int main () {
 \end{verbatim}
 
 S druge strane su jezici kod kojih je za određivanje privila u sistemu tipova presudna njihova \textit{struktura}.
-Oni se nazivaju \textbf{strukturalni} sistemi, u koje spada TajpSkript.
+Oni se nazivaju \textbf{strukturalni} sistemi, u koje spada Tajpskript.
 
 \begin{verbatim}
 interface Foo { baz: number }

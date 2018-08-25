@@ -80,6 +80,8 @@
     </requires>
     <requires type="editable">
       <file>mdn.bib</file>
+      <file>w3c.bib</file>
+      <file>other.bib</file>
     </requires>
   </external>
 </requests>

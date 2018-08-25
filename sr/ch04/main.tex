@@ -284,12 +284,118 @@ U tim slučajevima, način zapisa direktive se može skratiti tako što se direk
 Dve direktive se ne mogu istovremeno naći na jednom elementu ili jednoj komponenti.
 Ukoliko se javi potreba za ovakvom strukturom, barem jedna od direktiva se mora zapisati u regularnoj (dužoj) sintaksi.
 
+\section{Stilovi}
+
+Kada se govori o korisničkim interfejsima, stilovi su nezaobilazna tema.
+U brauzerima se oni definišu pomoću CSS-a.
+
+\subsection{Enkapsulacija}
+
+Tradicionalno, CSS se primenjuje globalno, nad celim dokumentom.
+Kako je osnovna jedinica izgradnje korisničkog interfejsa komponenta, globalni stilovi nisu idealno rešenje jer se onda mora voditi računa o tome da stil jedne komponente ne utiče na stil druge, što remeti mentalni model kojim se komponenta proglašava kao nezavisna celina.
+
+Ovo nije novi problem -- uviđen je početkom ere jednostraničnih aplikacija -- i počelo se sa radom na njegovom zvaničnom rešenju koje treba da postane deo standarda.
+Rešenje je nazvano \textquote{DOM u senci} (\textsl{Shadow DOM}).
+Specifikacija \textquote{opisuje metodu kombinovanja više DOM stabala u jednu hijerarhiju i način na koji ova stabla međusobno interaguju u okviru dokumenta, omogućujući na taj način bolju kompoziciju DOM-a \cite{w3c:shadow-dom}}.
+Deo specifikacije koji se tiče stilova a povezan je sa DOM-om u senci naziva se \textsl{CSS Scoping Module}.
+Specifikacija još uvek nije finalizirana, ali moderni brauzeri nude eksperimentalnu podršku.
+
+Pozajmljujući ovu ideju, ali ne oslanjajući se na DOM u senci zbog eksperimentalne podrške u brauzerima, stilovi definisani u okviru Vejn komponente će biti vezani isključivo za nju -- ovaj pojam se naziva \textbf{enkapsulacija stilova}.
+Stilovi su enkapsulirani i tiču se isključivo dela DOM-a za koji su vezani.
+
+Na primer, ukoliko se u jednoj komponenti promeni boja elementima koji odgovaraju selektoru \code{button}, a u drugoj se promeni veličina teksta koristeći isti selektor, stilovi će biti primenjeni samo u šablonima komponenti za koje su stilovi definisani -- drugim rečima, stilovi neće biti pomešani i nijedno dugme na stranici, bilo unutar tih komponenti ili izvan, neće dobiti mešavinu ova dva stila.
+
+Stilovi se definišu u okviru string literala koji se prosleđuje kao prvi i jedini argument dekoratoru \code{@Style} koji treba primeniti nad klasom koja opisuje komponentu kojoj se vezuju stilovi.
+
+\begin{verbatim}
+@Template(`<button>Red</button>`)
+@Style{`button { color: red; }`}
+class RedButton { }
+
+@Template(`<button>Large</button>`)
+@Style{`button { font-size: 2em; }`}
+class LargeButton { }
+\end{verbatim}
+
+\subsection{Nadogradnja}
+
+Standardni način definisanja CSS-a je proširen posebnim selektorom \code{:host}.
+Ime i semantika selektora je pozajmljena iz \cite[\S3.2]{w3c:css-scoping-1}, ali je način funkcionisanja emuliran (kao i sama enkapsulacija stilova).
+
+CSS se odnosi na \emph{sadržaj} komponente -- bez samog elementa koji predstavlja komponentu, u koji je smešten njen sadržaj.
+Jedini način da se ovom elementu pristupilo \textquote{iznutra} (iz koda same komponente) je pomoću selektora \code{:host}.
+
+\begin{verbatim}
+:host {
+  background-color: red;
+}
+\end{verbatim}
+
+Osim ovoga, podržano je korišćenje registrovanih imena komponenti za selektore (iako se takvo ime -- sa velikim početnim slovom -- neće odraziti u DOM-u).
+
+\begin{verbatim}
+@Register(Child1, Child2)
+@Template(`<Child1/> <Child2/>`)
+@Style(`Child1 { color: red; }
+        Child2 { font-siye: 2em; }`)
+class Example { }
+\end{verbatim}
+
+% \subsection{Specijalni slučaj}
+
+% TODO: lobotomizovana sova ide u delu gde opisujemo KAKO stvari rade
+
+\subsection{SCSS}
+
+Danas se korišćenje nekog alata koji olakšava pisanje CSS-a podrazumeva.
+Najpopularniji su preprocesori, a kao vodeći se izdvaja \textbf{SCSS}, koji se koristi više od pisanja čistog CSS-a~\cite{sojs:2017}.
+
+CSS preprocesor je program koji generiše CSS na osnovu sintakse preprocesora.
+Pojavilo se mnogo ovakvih alata, i većina dodaje novine koje ne postoje u CSS-u: miksini, ugnježđavanje pravila, nasleđivanje, itd.
+Imaju za cilj da definicije stilova učine čitljivijim i jednostavijim za održavanje~\cite{mdn:glossary:css-preprocessor}.
+
+Stilovi u Vejnu se, umesto u CSS-u, pišu u SCSS-u.
+Ova opcija se ne može isključiti.
+Pošto je SCSS striktni nadskup CSS-a, ukoliko developer ne želi da koristi SCSS -- jednostano ne treba da iskoristi nijedan njegov deo i kod će biti potpuno kompatibilan sa običnim CSS-om.
+
 \section{Pokretanje}
 
-wane binexec iz nodemodules
+Pored frejmvorka, deo Vejna je CLI koji je primarni način za generisanje izvršne verzije koda, spremne za produkciju.
+Paket je objavljen tako da se iz komandne linije može koristiti izvršni modul pod imenom \code{wane}.
 
-prod build, dist folder
+\subsection{Produkcija}
 
-config fajl
+Jedna od dve dostupne komande je komanda \code{build}.
 
-dev server
+\begin{verbatim}
+$ yarn wane build
+\end{verbatim}
+
+Ova komanda pokreće kompilator.
+Ukoliko aplikacija prođe proces kompilacije uspešno, na standardni izlaz se ispisuju informacije o veličini izlaznih datoteka, a u \code{dist} folderu se pojavljuju datoteke spremne da bude prebačene na server.
+
+Proces kompilacije izvornog koda se može kontrolisati pomoću konfiguracione datoteke.
+Ova datoteka treba biti smeštena u korenom direktorijumu Vejn projekta, sačuvana pod imenom \code{wane.toml}.
+Sadržaj datoteke treba da bude validna TOML sintaksa\footnote{TOML (\textsl{Tom's Obvious Minimal Language}) je jednostavan format namenjen za konfiguracione datoteke koji je lako čitljiv ljudima zbog pregledne sintakse i očigledne semantike. Nastao kao kontrast JSON-u koji je namenjen mašinama i YAML-u koji je često previše kompleksno rešenje \cite{toml:spec}.}, pri čemu su dozvoljena sledeća dva polja.
+
+\begin{itemize}
+\item \code{output.build} je relativna putanja do direktorijuma u kojem treba da budu smeštene izlazne datoteke.
+  Ukoliko direktorijum ne postoji, biće napravljen.
+  Ukoliko postoji, njegov sadržaj će biti obrisan.
+  Ako vrednost nije podešena, podrazumeva se \code{dist}.
+\item \code{debug.pretty} je fleg kojim se kontroliše da li izlazne datoteke treba da prođu proces minifikacije.
+  Na šta se tačno odnosi \textquote{minifikacija} nije definisano i nije deo javnog API-ja.
+  Ovime je omogućeno da se ovaj proces unapređuje u narednim verzijama Vejna bez poterbe da developer čini promene u kodu.
+  Služi za debagiranje izlaznog koda.
+  Ako vrednost nije podešena, podrazumeva se \code{false}.
+\end{itemize}
+
+\subsection{Razviće}
+
+Tokom razlića aplikacije može se koristiti posebna komanda \code{start}.
+Ovime će biti automatski kreiran dev-server, a \code{src} direktorijum u kome se nalazi izvorni kod će se osluškivati za promene.
+Svaki put kada se promena detektuje, proces kompilacije će biti pokrenut iznova, a stranica u brauzeru će biti osvežena kako bi developer mogao da vidi izmene koje su načinjene.
+
+\section{Primer aplikacije}
+
+% TODO nešto jednostavno što pokazuje sve

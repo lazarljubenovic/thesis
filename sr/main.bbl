@@ -19,17 +19,203 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
-    \entry{mdn:glossary:control-flow}{online}{}
-      \field{sortinit}{C}
-      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+    \entry{w3c:shadow-dom}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f1d2795d173fdb9c5022a15a0095e900}{%
+           family={Ito},
+           familyi={I\bibinitperiod},
+           given={Hayato},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {W3C}%
+      }
+      \strng{namehash}{f1d2795d173fdb9c5022a15a0095e900}
+      \strng{fullhash}{f1d2795d173fdb9c5022a15a0095e900}
+      \strng{authornamehash}{f1d2795d173fdb9c5022a15a0095e900}
+      \strng{authorfullhash}{f1d2795d173fdb9c5022a15a0095e900}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Control flow -- MDN Web Docs Glossary: Definitions of Web-related terms | MDN}
+      \field{day}{1}
+      \field{month}{3}
+      \field{title}{Shadow {DOM}}
+      \field{urlday}{25}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.w3.org/TR/shadow-dom/
+      \endverb
+    \endentry
+    \entry{w3c:css-scoping-1}{online}{}
+      \name{author}{2}{}{%
+        {{hash=cb5388be542029c38a0451092494beb3}{%
+           family={Jr.},
+           familyi={J\bibinitperiod},
+           given={Tab\bibnamedelima Atkins},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5c8dc425b6dbbcb4a7ec0309a0ed197a}{%
+           family={Etemad},
+           familyi={E\bibinitperiod},
+           given={Elika},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {W3C}%
+      }
+      \strng{namehash}{b3a49e3ccb0a54193e4a0366077e41a3}
+      \strng{fullhash}{b3a49e3ccb0a54193e4a0366077e41a3}
+      \strng{authornamehash}{b3a49e3ccb0a54193e4a0366077e41a3}
+      \strng{authorfullhash}{b3a49e3ccb0a54193e4a0366077e41a3}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{{CSS} Scopring Module Level 1}
+      \field{urlday}{25}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.w3.org/TR/shadow-dom
+      \endverb
+    \endentry
+    \entry{mdn:glossary:css-preprocessor}{online}{}
+      \name{author}{4}{}{%
+        {{hash=7d3d8572b75dc5da8b42971abc910a77}{%
+           family={lazarljubenovic},
+           familyi={l\bibinitperiod}}}%
+        {{hash=9d8c129d35328913385389d85137364b}{%
+           family={iigmir},
+           familyi={i\bibinitperiod}}}%
+        {{hash=c2b573938baba36be30b2f637ee9e447}{%
+           family={Promhize},
+           familyi={P\bibinitperiod}}}%
+        {{hash=5d4a587921106d588cd1c4307a60afa6}{%
+           family={an\_editor},
+           familyi={a\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Mozilla}%
+      }
+      \strng{namehash}{3a266cb13b700cf1c2751aff68ea5d2e}
+      \strng{fullhash}{ebe3999f064d884812cb712d275532ed}
+      \strng{authornamehash}{3a266cb13b700cf1c2751aff68ea5d2e}
+      \strng{authorfullhash}{ebe3999f064d884812cb712d275532ed}
+      \field{sortinit}{l}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{MDN Web Docs Glossary: Definitions of Web-related terms}
+      \field{title}{CSS preprocessor}
+      \field{urlday}{25}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor
+      \endverb
+    \endentry
+    \entry{mdn:glossary:control-flow}{online}{}
+      \name{author}{5}{}{%
+        {{hash=d72e44cb45ec261d8cf904707b558c61}{%
+           family={PetiPandaRou},
+           familyi={P\bibinitperiod}}}%
+        {{hash=0e6d69f62b8467a62cf9cb3582c8510a}{%
+           family={Andrew\_Pfeiffer},
+           familyi={A\bibinitperiod}}}%
+        {{hash=920f11fd17e52a6da474b8ea19ce9843}{%
+           family={Jeremie},
+           familyi={J\bibinitperiod}}}%
+        {{hash=d66118deb007508795d00042b53402a8}{%
+           family={klez},
+           familyi={k\bibinitperiod}}}%
+        {{hash=6405d70230c2d175f9518a5325226c9b}{%
+           family={SueSmith},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Mozilla}%
+      }
+      \strng{namehash}{59b2467d5859395086db15c26eae5790}
+      \strng{fullhash}{49500d5d324bda606db1426c35d923e0}
+      \strng{authornamehash}{59b2467d5859395086db15c26eae5790}
+      \strng{authorfullhash}{49500d5d324bda606db1426c35d923e0}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{MDN Web Docs Glossary: Definitions of Web-related terms}
+      \field{title}{Control flow}
       \field{urlday}{24}
       \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{urldateera}{ce}
       \verb{url}
       \verb https://developer.mozilla.org/en-US/docs/Glossary/Control_flow
+      \endverb
+    \endentry
+    \entry{toml:spec}{online}{}
+      \name{author}{1}{}{%
+        {{hash=86c590c4ef15d0078286562a483eb052}{%
+           family={Preston-Werner},
+           familyi={P\bibinithyphendelim W\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{fullhash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authornamehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authorfullhash}{86c590c4ef15d0078286562a483eb052}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Tom's Obvious, Minimal Language}
+      \field{title}{TOML}
+      \field{urlday}{25}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://github.com/toml-lang/toml
+      \endverb
+    \endentry
+    \entry{sojs:2017}{online}{}
+      \name{author}{3}{}{%
+        {{hash=d9fa428dd3e986c39b7458de8e5d66a9}{%
+           family={Sacha},
+           familyi={S\bibinitperiod}}}%
+        {{hash=28ce382d14f1307b2eff2f1f3f720d3e}{%
+           family={Raphaël},
+           familyi={R\bibinitperiod}}}%
+        {{hash=3e06fa3927cbdf4e9d93ba4541acce86}{%
+           family={Michael},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8c7ede6c95c143094f7acbc6bf5067af}
+      \strng{fullhash}{8c7ede6c95c143094f7acbc6bf5067af}
+      \strng{authornamehash}{8c7ede6c95c143094f7acbc6bf5067af}
+      \strng{authorfullhash}{8c7ede6c95c143094f7acbc6bf5067af}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Survey Results}
+      \field{title}{The State of JavaScript (2017)}
+      \field{urlday}{25}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://stateofjs.com/2017/
       \endverb
     \endentry
   \endsortlist

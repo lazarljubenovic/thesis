@@ -2141,9 +2141,16 @@
   <!-- SECTION 0 -->
   <bcf:bibdata section="0">
     <bcf:datasource type="file" datatype="bibtex">mdn.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex">w3c.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex">other.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">mdn:glossary:control-flow</bcf:citekey>
+    <bcf:citekey order="2">w3c:shadow-dom</bcf:citekey>
+    <bcf:citekey order="3">w3c:css-scoping-1</bcf:citekey>
+    <bcf:citekey order="4">sojs:2017</bcf:citekey>
+    <bcf:citekey order="5">mdn:glossary:css-preprocessor</bcf:citekey>
+    <bcf:citekey order="6">toml:spec</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

@@ -1,7 +1,0 @@
-== TajpSkript
-
-TajpSkript (_TypeScript_) je jezik koji podseća na JavaScript i služi kao njegova zamena za pisanje velikih aplikacija. Dodaje opcione tipove i TC39 predloge koji još uvek nisu ušli u standard, ali su barem u fazi 3. Tajpskript se kompajlira ("transpajlira") u čitljiv JavaSkript.
-
-include::01.adoc[]
-
-include::02.adoc[]

@@ -1,0 +1,35 @@
+\BOOKMARK [0][-]{chapter.1}{Moderni veb}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Jednostranicne aplikacije}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Tehnologije na koje se oslanja SPA}{section.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.2}{Prednosti}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.3}{Mane}{section.1.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Sazrevanje JavaSkripta}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.2.1}{Nastanak}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.2}{Poku\235aji popravke}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.3}{Godi\235nji ciklusi}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.4}{Odbor TC39}{section.1.2}% 10
+\BOOKMARK [0][-]{chapter.2}{TajpSkript}{}% 11
+\BOOKMARK [1][-]{section.2.1}{Klasifikcija sistema tipova}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.1.1}{Podele}{section.2.1}% 13
+\BOOKMARK [2][-]{subsection.2.1.2}{Deklaracije}{section.2.1}% 14
+\BOOKMARK [2][-]{subsection.2.1.3}{Definisanje tipova}{section.2.1}% 15
+\BOOKMARK [2][-]{subsection.2.1.4}{Strukturalni sistem tipova}{section.2.1}% 16
+\BOOKMARK [2][-]{subsection.2.1.5}{Konfiguracija}{section.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.1.6}{Tipovi}{section.2.1}% 18
+\BOOKMARK [0][-]{chapter.3}{Mogucnosti Vejna}{}% 19
+\BOOKMARK [1][-]{section.3.1}{\227abloni}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.1.1}{Vezivna sintaksa}{section.3.1}% 21
+\BOOKMARK [2][-]{subsection.3.1.2}{Interpolacija}{section.3.1}% 22
+\BOOKMARK [2][-]{subsection.3.1.3}{HTML elementi}{section.3.1}% 23
+\BOOKMARK [1][-]{section.3.2}{Komponente}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.2.1}{Deklaracija}{section.3.2}% 25
+\BOOKMARK [2][-]{subsection.3.2.2}{Pristupna komponenta}{section.3.2}% 26
+\BOOKMARK [2][-]{subsection.3.2.3}{Kori\235cenje}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.4}{Ulazi}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.5}{Izlazi}{section.3.2}% 29
+\BOOKMARK [1][-]{section.3.3}{Direktive}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.3.1}{Uslovi}{section.3.3}% 31
+\BOOKMARK [2][-]{subsection.3.3.2}{Nizovi}{section.3.3}% 32
+\BOOKMARK [2][-]{subsection.3.3.3}{Skraceni oblik}{section.3.3}% 33
+\BOOKMARK [2][-]{subsection.3.3.4}{}{section.3.3}% 34
+\BOOKMARK [1][-]{section.3.4}{Pokretanje}{chapter.3}% 35

@@ -1,0 +1,295 @@
+\chapter{Mogućnosti Vejna}
+
+Vejn je UI frejmvork koji služi za pisanje jednostraničnih veb-aplikacija u TajpSkriptu.
+Uz frejmvork dolazi CLI i bandler sa optimizatorom, pa se ne javlja potreba za instaliranjem drugih paketa i podešavanjem sistema za kreiranje produkcionog bilda.
+
+\section{Šabloni}
+
+% ////
+% TODO OVO TREBA DA IDE U DEO GDE SE OBJAŠNJAVA KAKO VEJN RADI
+
+% Ovaj zadatak sam po sebi ne predstavlja veliki izazov, ali stvari postaju znatno komplikovanije kada se uvrsti nekoliko drugih zahteva.
+
+% - Koliko se često ažurira pogled?
+% - Koliko je efikasno njegovo ažuriranje?
+% - Šta sve developer treba da uradi kako bi se ažuriranje dogodilo?
+% - Koji su preduslovi koje strukture podataka moraju da ispune da bi se promena detektovala?
+
+% Dati odgovre na ova pitanja znači uporediti UI frejmvorke. 
+% ////
+
+S obzirom da se o frejmvorku za kreiranje \emph{veb}-aplikacija, način komunikacije sa korisnicima odvija se pomoću DOM-a.
+Brauzer kreira DOM na osnovu HTML-a poslatog sa servera, ali i pruža programski pristup istom pomoću JavaSkripta.
+Ideja korišćenja UI frejmvorka je da se zaobiđe ovaj proces
+Glavni zadatak Vejna je da pogled sa kojim korisnik interaguje održava sinhronizovanim sa modelom, tj. internim stanjem aplikacije.
+Ovo je omogućeno definisanjem oblika interfejsa kroz \emph{deklarativnu} sintaksu -- u pitanju je sintaksa koja podseća na HTML kako bi se developer osećao \textquote{kod kuće}, ali se zapravo radi o proizvoljnoj sintaksi.
+
+Termin \textquote{deklarativna} se odnosi na to da developer ne upravlja t\^okom izvršenja koda tokom pisanja šablona.
+Upravljanje tokom je redosled u kome računar izvršava izraze u skripti \cite{mdn:glossary:control-flow}.
+Umesto ovoga, developer samo \emph{deklariše} \textbf{šta} treba da bude prikazano na ekranu korisnika na osnovu stanja modela, a ne i \textbf{kako} se ovaj proces odvija.
+Ovo ne samo da olakšava pisanje šablona, već i omogućuje da se vrše interne promene u frejmvorku a da developer toga ne bude svestan -- drugim rečima, developer može prostim ažuriranjem verzije frejmvorka koju koristi da unapredi performanse aplikacije.
+
+Šablonska sintaksa je nadskup HTML-a\footnote{Šabloni predstavljaju isečke korisničkog interfejsa, tj. ne radi se o čitavom HTML dokumentu. Pod \textquote{podskupom HTML-a} se misli na podskup sintakse koja je dozvoljena tamo gde se očekuje tzv. \textsl{flow content}; v. sekciju 3.2.4.2.2. specifikacije HTML 5.2. U praksi ovi detalji ne predstavljaju prepreku u razumevanju sintakse šablona, pa se koristi termin \textquote{podskup HTML-a}.} -- to znači da svaki validan HTML predstavlja validan Vejn šablon.
+Ovo za posledicu ima mogućnost da se postojeći statički sajt vrlo brzo može integrisati u aplikaciju koja se piše u Vejnu, kao i da šablone mogu pisati ljudi koji nemaju iskustva sa pisanjem programa (npr. dizajneri, urednici).
+
+\subsection{Vezivna sintaksa}
+
+Proširenje sintakse HTML-a se ugleda u mogućnosti da se trenutno stanje modela sinhroniše sa pogledom, tj. da se korisnički interfejs osveži svaki put kada dođe do promene modela, u skladu sa pravilima definisanim u šablonima.
+Ovo je omogućeno vezivnom sintaksom.
+
+Vezivnom sintaksom se mogu definisati izrazi i iskazi.
+Izrazi su literali i reference na svojstva iz klase, a iskazi su pozivi metoda iz klase.
+
+\textbf{Literal} se definiše pukim navođenjem.
+Među literale spadaju stringovi (\code{"foo"}, \code{'foo'}), brojevi (\code{21}, \code{0x3}), logičke konstante (\code{true} i \code{false}), \code{null} i \code{undefined}.
+Mogu se referencirati \textbf{svojstva} sa klase za koju je šablon vezan ili alijasi koje izlaže direktiva u određenom opsegu, kao i \textbf{lanci pristupa} (\code{item}, \code{item.name}).
+Ispred svojstva i lanca pristupa se može dodati znak uzvika (\code{!}), što znači da će nad podatkom biti primenjen \textbf{operator negacije}.
+
+Od iskaza se mogu koristiti jedino \textbf{pozivi}. Argumenti se navode u malim zagradama, odvojeni zarezom -- kao i u Javaskriptu.
+Pored izraza, kao argument se može navesti i specijalan simbol \code{\#} koji označava preuzimanje reference koja se prosleđuje kroz događaj (iz HTML elementa) ili izlaz (iz komponente).
+
+Proizvoljni Javaskript izrazi nisu dozovljeni u vezivnoj sintaksi -- operator negacije predstavlja jedini vid manipulacije koji je moguć nad podacima u okviru definicije šablona.
+Na primer, za šablon se ne može vezati izraz kao \code{user \&\& user.name} ili \code{name.length > 0}.
+Ukoliko developer želi da u šablonu veže kompleksni izraz koji se računa na osnovu postojećih podataka iz modela, treba da koristi getere na klasi.
+
+% TODO: ovo ide u poređenju sa frejmvorcima
+% Na ovaj način šabloni ostaju čisti i povlači se jasna granica: s jedne strane se nalazi aplikaciona i biznis \emph{logika}, a sa druge strane se nalazi deklarativna definicija \emph{pogleda}.
+% jsx frejmvorci čak i nemaju deklarativne šablone, a oni koji imaju (vue i angular) imaju kompleksna pravila za to ŠTA je uopšte deklarativno (https://angular.io/guide/template-syntax#template-expressions) da bi zabranili sporedne efekte, ili pak ignorišu to što neko može da uradi to (https://jsfiddle.net/50wL7mdz/643256/)
+% ...a onda se jave zvanična linter pravila koja mogu da ograniče kompleksnost izraza (https://github.com/mgechev/codelyzer/pull/512, https://github.com/mgechev/codelyzer/pull/509), gde se koriste neke proizvoljne i subjektivne mere kao što je "predugačko", i sl.
+% osim toga, testiranje postaje komplikovano ako se previše stvari nađe u šablonu.
+% da bi se sve ovo izbeglo, Vejn nema to.
+
+\subsection{Interpolacija}
+
+Osnovni vid vezivanja modela jeste ispisivanje stringa direktno na korisnički interfejs.
+Ovaj vid komunikacije modela i pogleda naziva se interpolacija.
+Vezivna sintaksa se piše između para dvostrukih vitičastih zagrada.
+
+Na primer, na ekran se može ispisati korisničko ime prijavljenog korisnika.
+
+\begin{verbatim}
+Welcome, {{ username }}!
+\end{verbatim}
+
+\subsection{HTML elementi}
+
+Kao što je već rečeno, Vejn šabloni su nadskup HTML-a, pa se HTML elementi u šablonima mogu koristiti na standardan način.
+Ovo uključuje definiciju atributa, prazne elemente (\textsl{void elements}) i izostavljanje tagova.
+
+\begin{verbatim}
+<form>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name">
+</form>
+\end{verbatim}
+
+Slično parserima HTML-a kod modernih brauzera, parser šablona u Vejnu je otporan na greške -- na primer, nezatvoreni tagovi (koji moraju biti zatvoreni po specifikaciji) će se automatski zatvoriti, ali nije definisano tačno u kom trenutku (nailazak na sledeći element, kraj šablona, itd), pa se na ovo ponašanje ni u Vejn šablonima ne treba oslanjati.
+
+Navođenjem atributa u HTML-u se definiše koja će svojstva i koje atribute imati odgovarajući čvor u DOM-u.
+Svojstva i atributi se koriste da finije odrede semantiku i ponašanje elemenata.
+Na primer, svojstvo \code{type} na \code{<input>} elementu određuje kakav se unos očekuje od korisnika.
+
+Svojstva se mogu sinhronizovati sa modelom tako što se ime svojstva navede u uglastim zagradama.
+U tom slučaju se vrednost koja se navodi sa desne strane imena tumači kao izraz u vezivnoj sintaksi.
+
+\begin{verbatim}
+<p [id]="myParagraph.uniqueId">...</p>
+\end{verbatim}
+
+Mapiranje između atributa HTML-a i svojstava DOM čvorova nije uvek jedan-na-jedan.
+Na primer, mada je \code{<label for="anId">} validna definicija atributa \code{for}, ova informacija se sa čvora čita (i postavlja) preko svojstva \code{htmlFor}.
+Kako bi se napravila eksplicitna razlika između svojstava i atributa čvorova, za definisanje atributa koristi se prefiks \code{attr}.
+Ovo je slično razlici između korišćenja direktnog pristupa svojstvu (\code{element.svojstvo}) i korišćenju metode \code{setAttribute} nad čvorom.
+
+\begin{verbatim}
+<label [htmlFor]="anId">...</label>
+labelEl.htmlFor = anId
+
+<label [attr.for]="anId">...</label>
+labelEl.setAttribute('for', anId)
+\end{verbatim}
+
+U slučaju da ime atributa u šablonu sadrži crticu, ono se automatski tumači kao atribut čvora (a ne njegovo svojstvo) jer više ne postoji dvosmislenost -- ime svojstava HTML elemenata su izabrana tako da ne sadrže crtice.
+
+\begin{verbatim}
+<input [aria-label]="aLabel">
+\end{verbatim}
+
+Interpolacija, atributi i svojstva se koriste sa izrazima vezivne sintakse.
+Koriste se za vezivanje \emph{podataka} za poglede i očuvanje sinhronizacije.
+Da bi se delalo na korisnikovu interakciju sa interfejsom, potrebno je pretplatiti se na događaje koje emituju HTML elementi.
+Za ovo se koriste iskazi vezivne sintakse; dakle, definišu se pozivi metoda
+Drugima rečima, za šablon se vezuje \emph{ponašanje} aplikacije.
+
+Za vezivanje metoda koje treba da budu pozvane na određeni događaj, koristi se sličan zapis kao definisanje svojstava i atributa.
+Naime, ime događaja se omeđuje parom oblih zagrada, a s desne strane se navodi iskaz kojim se poziva metoda.
+
+\begin{verbatim}
+<button (click)="inc()">Increment</button>
+\end{verbatim}
+
+Za argumente funkcije se, osim iskaza, može navesti i poseban simbol \code{\#} -- \textsl{placeholder}.
+Njime se može pristupiti objektu koji emituje događaj kako bi se informacije koje on nosi sa sobom mogle iskoristiti u telu metode.
+
+\section{Komponente}
+
+Kao i kod svih UI frejmvorka, glavna gradivna jedinica u Vejnu je \emph{komponenta}.
+Komponente predstavljaju izolovane logičke celine koje se mogu smestiti u korisnički interfejs.
+
+Komponentu treba shvatiti kao prirodnu nadogradnju HTML postojećih HTML elemenata.
+Na primer, HTML element \code{HTMLInputElement} ima svoje \textbf{ime} na osnovu kojeg se prepoznaje u HTML kodu (string \code{input}), ima neka \textbf{svojstva} na osnovu kojih može da se kontrolišu finese njegovog ponašanja i izgleda koja se mogu specificirati navođenjem HTML atributa ili direktnom manipulacijom kad odgovarajućim propertijima JavaSkript objekta (npr. \code{type}), i emituje neke \textbf{događaje} uz informaciju o tim događajima na koje se potrošači mogu pretplati i reagovati na njih.
+
+Analogno tome, komponente dobijaju \textbf{ime} registrovanjem za druge komponente, \textbf{ulazi} (\textsl{inputs}) koji su sačinjeni od skupa svojstava klase koje je autor komponente proglasio kao delom njenog javnog API-ja, dok su \textbf{izlazi} događaji na koje se druge komponente mogu pretplatiti da bi se obavljala komunikacija između njih.
+
+\subsection{Deklaracija}
+
+Komponente se u Vejnu definišu klasom nad kojom je primenjen dekorator \code{@Template}, uvezen iz ulazne tačke modula \code{wane}.
+Prvi i jedini argument dekoratora je string literal kojim se definiše struktura korisničkog interfejsa komponente.
+
+Za stanje komponente koristi se telo klase, gde se standardno mogu definisati njena svojstva i metode.
+Sva svojstva i metode su dostupne za referenciranje u šablonu.
+
+\subsection{Pristupna komponenta}
+
+Kao što se HTML-om definiše stablo elemenata, u Vejnu se od komponenti pravi \emph{stablo komponenti}.
+U korenu takvog stabla leži posebna komponetna koja se naziva \textbf{pristupna komponenta} (\textsl{entry component}).
+
+Pristupnu komponetu treba smestiti u datoteku \code{index.ts} u folderu \code{src} i načiniti je podrazumevanim izvozom iz modula -- ovako će je Vejn prepoznati kao ulaznu tačku u aplikaciju.
+Kada se aplikacija pokrene, renderuje se ova komponenta, a ona za sobom povlači sve druge komponente kroz svoj šablon.
+
+\subsection{Korišćenje}
+
+Za razliku od HTML elemenata, koji su uvek globalno dostupni, komponente je potrebno \textbf{registrovati} za komponentu kako bi moglo da joj se pristupi iz šablona.
+Registracija se vrši navođenjem reference na odgovarajuću klasu među argumentima dekoratora \code{@Register} koji se navodi uz klasu.
+Ime simbola pod kojim se klasa registruje mora ima veliko početno slovo (tzv. \textsl{PascalCase}) kako bi se obezbedilo da neće doći do preklapanja sa imenima postojećih HTML elemenata i potencijalnih veb komponenti koje su registrovane na istoj stranici.
+
+Osim razlike u malim i velikim slovima, postoji još jedna bitna razlika kod korišćenja komponenti u šablonima: simbolička imena za istu klasu (pa samim tim istu komponentu) mogu da se razlikuje među upotrebama u različitim komponenatama.
+Drugim rečima, ime koje developer da simbolu prilikom registracije je ono pomoću koga komponenta može da se deklariše u šablonu.
+Na primer, klasa se može preimenovati alijasovanim importom; pored toga, klasa uopšte ne mora da ima ime ukoliko je iz modula izvezena kao podrazumevani simbol, već joj se simboličko ime dodeljuje tek prilikom uvoza.
+
+Registrovana komponenta se u šablon može postaviti kao bilo koji drugi HTML element.
+Pošto ne može da ima decu, može se koristiti i samo-zatvarajući tag.
+
+\begin{verbatim}
+<Component></Component>
+<Component/>
+\end{verbatim}
+
+\subsection{Ulazi}
+
+Da bi komponentu bilo moguće parametrizovati, uvodi se pojam  \textbf{ulaza} (\textsl{input}) u komponentu.
+Ovaj pojam je pandam svojstvima koje imaju HTML elementi.
+
+Ulazi u komponentu se definišu deklarisanjem javnog svojstva na klasi.
+
+Pošto se za proveru ispravnosti tipova u izvornom kodu koristi strogi režim TajpSkripta, ulazima za koje se očekuje da uvek dobiju vrednost iz šablona u kome se koriste dodaje se \code{!} -- stoga, ovo označava \textbf{obavezni ulaz}, pa Vejn prijavljuje grešku ukoliko mu se vrednost ne prosledi.
+Za bi se definisala podrazumevana vrednost ulaza, dovoljno je da se svojstvo jednostavno inicijalizuje.
+Ulazi sa podrazumevanom vrednošću ne mogu biti obavezni.
+
+\begin{verbatim}
+@Template(`...`)
+class ExampleComponent {
+  public input1!: number
+  public input2 = 2
+  input3: any
+  private prop1: any
+}
+\end{verbatim}
+
+U prethodnom primeru definisani su, redom: eksplicitno definisan obavezni ulaz; eksplicitno definisan opcioni ulaz sa podrazumevanom vrednošću \code{2}; implicitno definisan ulaz; obično svojstvo na klasi koje se može iskoristiti za čuvanje stanja komponente.
+
+U šablonima, ulazi se koriste kao da je u pitanju bilo koji HTML atribut, s tim što se ime ulaza omeđuje parom uglastih zagrada, a umesto konkretne vrednosti se očekuje \textbf{vezivna sintaksa}.
+
+Osim vezivanja za svojstva klase, veza se može ostvariti i sa alijasima, ukoliko se u šablonu koriste direktive koje ih stvaraju.
+Više reči o tome u odeljku o \code{w:for} direktivi.
+
+\subsection{Izlazi}
+
+HTML elementi imaju događaje, a Vejn komponente imaju \textbf{izlaze} (\textsl{output}).
+Izlaz se deklariše kao metoda bez tela u telu klase.
+Da bi se izlaz komponente osluškivao, dodaje se HTML atribut, pri čemu je ime izlaza omeđeno parom oblih zagrada, a umesto prosleđivanja konkretne vrednosti se očekuje \textbf{poziv funkcije}, tj. metode definisane u klasi.
+
+Da bi se pribavila referenca na vrednosti koje se emituju kroz izlaz, u šablonu se koristi specijalni znak \code{\#} kao argument funkcije.
+Pored njega, argumenti funkcije se mogu referencirati na svojstva klase ili mogu biti literali.
+
+\section{Direktive}
+
+Direktive su posebne naredbe koje se umeću u šablone u vidu HTML tagova.
+Primaju proizvoljan broj čvorova za decu i služe za parametrizaciju načina na koji će se taj sadržaj prikazati u rezultujućem DOM-u.
+
+Sintaksno, direktive se od HTML elemenata i Vejn komponenti razlikuju po prefiksu \code{w:}.
+Zbog svoje prirode, parametri se -- umesto navođenjem atributa u vidu parov ključ-vrednost -- definišu potpuno proizvoljnom sintaksom koja se piše u nastavku imena, a u sklopu otvarajućeg taga.
+
+\subsection{Uslovi}
+
+Prisustvo ili odsustvo dela šablona može se kontrolisati korišćenjem direktive \code{w:if}.
+Uslov na osnovu koga se određuje da li će se grupa elemenata naći u DOM-u ili ne se navodi u vidu izraza vezivne sintakse.
+
+\begin{verbatim}
+<w:if isLoggedIn>
+  Welcome, {{ user.name }}!
+  <img [src]="user.image" [alt]="user.name"/>
+</w:if>
+\end{verbatim}
+
+U prethodnom primeru se, u zavinosti od trenutne vrednosti dodeljene svojsvu klase \code{isLoggedIn}, isečak šablona unutar direktive \code{w:if} ili prikazuje ili ne.
+
+\subsection{Nizovi}
+
+Predstavnik struktura podataka za rad sa kolekcijama istorodnih elemenata u JavaSkriptu su nizovi, implementirani pomoću prototipa \code{Array}.
+U šablonima se može vršiti iteracija nad nizovima korišćenjem direktive \code{w:for}.
+
+U nastavku se navodi sintaksa oblika \code{(item, index) of items; key: id}, gde je
+
+\begin{itemize}
+\item \code{items} -- svojstvo ili lanac pristupa sa klase,
+\item \code{item} -- simboličko ime za jedan element iz niza \code{items},
+\item \code{index} -- simboličko ime za indeks elementa \code{item} iz niza \code{items},
+\item \code{id} -- lanac pristupa kojim se definiše način na koji se može preuzeti \textquote{ključ} po kome se semantički razlikuju elementi niza,
+\end{itemize}
+
+dok su \code{of}, \code{;} i \code{key:} ključne reči kojima se poboljšava čitljivost sintakse.
+
+Simbočko ime za indeks elementa nije obavezno navesti; u slučaju da se ono ne navede, zagrade koje omeđuju simboličko ime za vrednost elementa niza nisu obavezne.
+
+Deo šablona koji je naveden unutar direktive čini šablon koji će se koristiti za kreiranje DOM-a.
+Ovaj deo šablona parametrizovan je vrednošću elementa koji je trenutno posećen tokom iteracije (\code{item}) i, opciono, njegovom brojnom indeksu (\code{index}).
+U direktivi, ova imena postaju deo opsega koji se može koristiti za vezivnu sintaksu u šablonima (pored svojstava i metoda klase).
+
+\begin{verbatim}
+<ol>
+  <w:for user of users; key: id>
+    <li>{{ user.name }} ({{ user.score }})</li>
+  </w:for>
+</ol>
+\end{verbatim}
+
+\subsection{Skraćeni oblik}
+
+Vrlo je čest slučaj da se unutar direktive nađe samo jedan HTML element ili samo jedna komponenta.
+U tim slučajevima, način zapisa direktive se može skratiti tako što se direktiva navodi kao HTML atribut elementa ili komponente, pri čemu se za ključ koristi ime direktive (sa prefiksom \code{w:}), a kao vrednost se koristi sintaksa koju ta direktiva razume.
+
+\begin{verbatim}
+<span [w:if]="!isLoggedIn">Welcome, guest!</span>
+
+<ol>
+  <li [w:for]="user of users; key: id">
+    {{ user.name }} ({{ user.score }})
+  </li>
+</ol>
+\end{verbatim}
+
+Dve direktive se ne mogu istovremeno naći na jednom elementu ili jednoj komponenti.
+Ukoliko se javi potreba za ovakvom strukturom, barem jedna od direktiva se mora zapisati u regularnoj (dužoj) sintaksi.
+
+\subsection{}
+
+\section{Pokretanje}
+
+wane binexec iz nodemodules
+
+prod build, dist folder
+
+config fajl
+
+dev server

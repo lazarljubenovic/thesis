@@ -1,0 +1,132 @@
+\documentclass[twoside]{report}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[serbian]{babel}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage{biblatex}
+\usepackage{xcolor}
+
+\addbibresource{mdn.bib}
+
+% Custom font
+% https://tex.stackexchange.com/questions/5443/use-another-monospaced-font
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{beramono}
+% https://www.sharelatex.com/learn/Font_typefaces
+\usepackage{charter}
+
+% Remove "Chapter N" from chapter titles
+% https://tex.stackexchange.com/questions/120740/how-do-i-remove-chapter-n-from-the-chapter-titles-of-a-book
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+%% Command \code
+\newcommand{\code}[1]{\textcolor{black!80}{\texttt{#1}}}
+
+\title{Lernejaro}
+\author{Lazar Ljubenović}
+
+\DeclareQuoteStyle{serbian}% I looked it up on Wikipedia, no idea if it's right
+  {\quotedblbase}
+  {\textquotedblright}
+  [0.05em]
+  {\textquoteleft}
+  {\textquoteright}
+
+
+\begin{document}
+   
+\begin{titlepage}
+    \begin{center}
+    
+        % \includegraphics[width=2.6cm]{univerzitet_logo}%
+        \begin{minipage}[b]{0.7\textwidth}
+            \centering
+            \Large
+            \textbf{UNIVERZITET U NIŠU\\ ELEKTRONSKI FAKULTET}       
+            \large
+            \textbf{Katedra za računarstvo}
+        \end{minipage}%
+        % \includegraphics[width=2.6cm]{fakultet_logo}
+        
+              
+      
+        \vspace{5cm}
+        \Large
+        \textbf{Razvoj biblioteke u Angularu za kreiranje materijala za korišćenje u nastavi}
+        
+        \vspace{0.6cm}
+        \normalsize
+        \textls{ZAVRŠNI RAD}
+    \end{center}
+    
+    \vspace{1cm}
+   
+    \textbf{Zadatak:}
+    
+    \vspace{0.2cm}
+    
+    \setlength{\leftskip}{0.6cm}
+    \noindent
+    Upoznati se sa modernim alatima koji se koriste za razvoj veb-aplikacija. Detaljnije istražiti frejmvork Angular i u njemu implementirati biblioteku za za kreiranje materijala za korišćenje u nastavi.
+    
+    
+    \vspace{1cm}
+    
+    \noindent \begin{tabular}{@{}ll}
+        \textbf{Mentor:} Doc dr. Ivan Petković \\
+        \textbf{Kandidat:} Lazar Ljubenović 14722
+    \end{tabular}
+    
+    \vspace{0.4cm}    
+   
+   \noindent
+    Komisija:
+    
+    \vspace{0.1cm}
+    
+    \noindent
+    \begin{tabular}{@{}ll}  
+         \begin{tabular}{@{}ll}
+            %1. & \underline{\hspace{5cm}}\\
+            %2. & \underline{\hspace{5cm}}\\
+            %3. & \underline{\hspace{5cm}}
+            1. Doc dr. Ivan Petković \\
+            2. Prof dr. Suzana Stojković \\
+            3.
+        \end{tabular}  
+        
+    &
+   
+        \begin{tabular}{ll}
+            Datum prijave: & \underline{\hspace{2cm}}\\
+            Datum predaje: & \underline{\hspace{2cm}}\\
+            Datum odbrane: & \underline{\hspace{2cm}}
+        \end{tabular}
+  
+    \end{tabular}
+    
+    \vspace{1cm}
+    
+     \begin{center}
+        Niš, 2018.
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\subfile{ch01/main}
+
+\subfile{ch02/main}
+
+\subfile{ch04/main}
+
+\printbibliography
+
+\end{document}

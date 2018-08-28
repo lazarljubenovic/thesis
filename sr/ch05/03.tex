@@ -1,0 +1,97 @@
+\section{Anatomija fabrika komponenti}\label{sec:anatomija-fabrika-komponenti}
+
+Fabrika komponente je funkcija koja vraća objekat.
+Nad objektom su definisane neke metode koje se pozivaju tokom životnog ciklusa komponente, kao i neka svojstva u koja se smešta stanje komponente koje se koristi prilikom izvršenja metoda.
+
+Svaka fabrika ima najviše četiri glavne metode:
+
+\begin{itemize}
+\item \code{init}\footnote{Metoda \code{init} se u kodu generiše kao metoda \code{\_\_wane\_\_init}, kao i sve ostale metode i svojstva koja se pominju u ovom i drugim odeljcima. Prefiks \code{\_\_wane\_\_} koristi se da bi se omogućila minifikacija (v. \cref{subsec:bandlovanje}). Ovde se metode navode bez prefiksa radi lakšeg čitanja i pisanja.} -- poziva se jednom, tokom inicijalizacije komponente,
+\item \code{diff} -- poziva se posle inicijalizacije i svaki put u okviru metode za ažuriranje pogleda,
+\item \code{update} -- poziva se svaki put kada se primeti da je došlo do potencijalne promene u modelu, i
+\item \code{destroy} -- poziva se jednom, kada komponentu treba uništiti i ukloniti iz DOM-a.
+\end{itemize}
+
+U zavinosti od rezultata analize, neke metode se mogu izbaciti i time se smanjuje kod aplikacije.
+
+\subsection{Metoda \code{init}}
+
+Metoda \code{init} služi da kreira neophodne DOM čvorove i inicijalizuje instancu klase deklarisane od strane autora, kao i daprvim pozivom metode za traženje razlike \code{diff} omogući ažuriranje komponente.
+
+\subsubsection{Koren komponente}
+
+Koren komponente je čvor u DOM-u za koji se komponenta vezuje -- koreni čvorovi pogleda vezuju se za koren kao njegova deca.
+Smešta se u promenljivu \code{}
+
+U slučaju da se radi o pristupnoj komponenti (\cref{subsec:pristupna-komponenta}), za koren se koristi \code{body} element.
+
+\begin{lstlisting}
+this.root = document.body
+\end{lstlisting}
+
+U svim ostalim slučajevima, koren se uzima iz svojstva \code{domNodes} roditeljske fabrike (v. \cref{subsubsec:registrovanje-dece}), navođenjem odgovarajućeg indeksa.
+Indeks se dobija pribavljanjem sidra (v. \cref{sec:getSelfBindings}) i određivanjem njegovog indeksa (v. \cref{sec:getSingleIndexFor}).
+
+\begin{lstlisting}
+this.root = this.factoryParent.domNodes[0]
+\end{lstlisting}
+
+\subsubsection{Instanca klase}
+
+U instanci klase nalaze se metode koje vrše manipulaciju nad stanjem ili ispaljuju događaje na koje preci komponente u stablu mogu da se pretplate definisanjem poveza za njene izlaze.
+Fabrici je potrebna ova instanca kako bi bilo moguće odrediti razliku u stanju tokom procesa ažuriranja u metodu \code{diff} (v. \cref{subsec:metoda-diff}), kako bi se mogle čitati vrednosti, i kako bi mogle da se pozivaju metode definisane od strane autora.
+
+U najjednostavnijem slučaju se klasa jednostavno instancira korišćenjem operatora \code{new}.
+
+\begin{lstlisting}
+this.data = new Component()
+\end{lstlisting}
+
+Međutim, u slučaju da je potrebno ubrizgati fabriku u komponentu radi asinhronih ažuriranja (v. \cref{subsubsec:ubrizgavanje-fabrike}), konstruktor se može pozvati i sa argumentom \code{this}.
+
+\begin{lstlisting}
+this.data = new Component(this)
+\end{lstlisting}
+
+\subsubsection{Prihvatanje podataka kroz ulaze i izlaze}
+
+U komponentu se mogu proslediti podaci pomoću ulaza i mogu se osluškivati događaji pomoću izlaza.
+
+\subsubsection{Kreiranje DOM čvorova}
+
+\subsubsection{Sastavljanje DOM čvorova}
+
+\subsubsection{Registrovanje dece}
+\label{subsubsec:registrovanje-dece}
+
+\subsubsection{Inicijalizacija svojstava i atributa u DOM-u}
+
+\subsubsection{Pretplata na događaje iz DOM-a}
+
+\subsubsection{Deklaracija metoda za asinhrono ažuriranje}
+
+\subsubsection{Prva razlika}
+
+\subsection{Metoda \code{diff}}
+\label{subsec:metoda-diff}
+
+\subsection{Metoda \code{update}}
+
+\subsubsection{Ažuriranje DOM elemenata}
+
+\subsubsection{Ažuriranje potomaka}
+
+\subsection{Metoda \code{destroy}}
+
+\code{destroy} je jednostavna metoda koja najpre poziva ovu metodu za decu (kako bi se proces uništenja dogodio rekurzivno, počev od fabrika koje su listovi), a zatim prolazi kroz sve DOM elemente koji su direktni potomci korena i uklanja ih.
+
+\begin{lstlisting}
+destroy() {
+  this.factoryChildren.forEach(factoryChild => {
+    factoryChild.destroy();
+  });
+  while (this.root.firstChild !== null) {
+    this.root.removeChild(this.root.firstChild);
+  }
+},
+\end{lstlisting}

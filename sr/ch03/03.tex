@@ -1,0 +1,38 @@
+\section{Sintaksne vrste}
+
+\subsection{\code{CallExpression}}\label{sec:sk:call-expression}
+
+Odnosi se na izraze koji predstavljaju \textbf{pozive}.
+Prepoznaju se po prisustvu para oblih zagrada.
+
+\begin{verbatim}
+foo()
+this.foo(21)
+this[symbol]()
+(() => 21)()
+\end{verbatim}
+
+\subsection{Tokeni dodele}\label{sec:sk:tokeni-dodele}
+
+Mada se dodela najčešće vrši korišćenjem znaka jednakosti (\code{EqualsToken}), postoji ukupno trinaest tokena kojima se dodela može obaviti.
+U prvoj koloni sledeće tabele pobrojani su tokeni koji predstavljaju operatore koji se koriste u dodelama, a u drugoj koloni se nalazi po jedan ilustrativni primer za svaki token.
+
+\begin{tabularx}{\textwidth}{@{}ll@{}}
+  \toprule
+  \textbf{Vrsta sintakse}                             & \textbf{Primer} \\
+  \midrule
+  \code{EqualsToken}                                  & \code{state = 21} \\
+  \code{PlusEqualsToken}                              & \code{state += 21} \\
+  \code{MinusEqualsToken}                             & \code{state -= 21} \\
+  \code{AsteriskEqualsToken}                          & \code{state *= 21} \\
+  \code{SlashEqualsToken}                             & \code{state /= 21} \\
+  \code{PercentEqualsToken}                           & \code{state \%= 21} \\
+  \code{AsteriskAsteriskEqualsToken}                  & \code{state **= 21} \\
+  \code{LessThanLessThanEqualsToken}                  & \code{state <= 21} \\
+  \code{GreaterThanGreaterThanEqualsToken}            & \code{state >= 21} \\
+  \code{GreaterThanGreaterThanGreaterThanEqualsToken} & \code{state >{}>= 21} \\
+  \code{AmpersandEqualsToken}                         & \code{state \&= 21} \\
+  \code{CaretEqualsToken}                             & \code{state \^{}= 21} \\
+  \code{BarEqualsToken}                               & \code{state |= 21} \\
+  \bottomrule
+\end{tabularx}

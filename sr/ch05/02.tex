@@ -1,0 +1,150 @@
+\section{Proces generisanja koda}
+
+U fazi generisanja koda izdvaja se pet glavnih celina:
+
+\begin{itemize}
+  \item priprema,
+  \item preprocesiranje komponenti,
+  \item generisanje fabrika,
+  \item postprocesiranje komponenti i
+  \item bandlovanje.
+\end{itemize}
+
+\subsection{Priprema}
+
+U fazi pripreme generišu se neki generički fajlovi sa pomoćnim funkcijama koje se mogu koristiti tokom ostalih faza generisanja koda.
+
+\subsection{Preprocesiranje komponenti}
+
+U fazi preprocesiranja komponenti menja se k\^od klase napisan od strane autora.
+Pored vršenja transformacija koda, informacije o promenama dostavljaju se analizatoru kako bi dopunile dostupne informacije.
+
+Obavljene transformacije tiču se \textbf{asinhronih} delova koda.
+Naime, najčešće se promene u modelu dešavaju kao posledica pokretanja neke akcije korisnika tokom njegovog interagovanja sa korisničkim interfejsom.
+Međutim, postoje još dva inicijatora: tajmeri i mreža.
+
+U Javaskriptu se tajmeri postavljaju korišćenjem globalno dostupnih funk\-ci\-ja \code{set\-Time\-out} i~\code{set\-In\-ter\-val}.
+Mrežni zahtevi se mogu obaviti pomoću \code{XML\-Http\-Request}-a ili \code{fetch}-a.
+
+\subsubsection{Ubrizgavanje fabrike}
+\label{subsubsec:ubrizgavanje-fabrike}
+
+Da bi se omogućilo da se pogled ažurira nakon izvršenja asinhronog dela koda, potrebno je da se pozove metoda koja vrši njegovo osvežavanje.
+Međutim, metoda za osvežavanje nalazi se u fabrici komponente, a klasa nema pristup njoj.
+Zato je prvo neophodno da se obezbedi da referenca postoji.
+
+Referenca se prosleđuje kroz konstruktor.
+Ukoliko on postoji, dodaje se novi argument; inače se kreira konstruktor sa praznim telom i argumentom kojim se čuva referenca na fabriku.
+
+\begin{lstlisting}
+// pre
+class Foo { }
+
+// posle
+class Foo { 
+  constructor (private factory)
+}
+\end{lstlisting}
+
+\subsubsection{Normalizacija i umetanje koda}
+
+Obilaskom AST-a klase kojom je deklarisana komponenta traže se instance poziva funkcije \code{setTimeout} i funkcije \code{setInterval}, kao i pojave poziva metoda \code{.then} i \code{.catch} (nad instancama klase \code{Promise}).
+Sve ove funkcije i metode kao prvi argument primaju funkciju koju treba izvršiti kada se dogodi odgovarajući asinhroni događaj.
+
+Postoji nekoliko načina na koji se može proslediti ova funkcija.
+To može biti referenca na funkciju, a funkcija se može i direktno deklarisati; pri tome za drugi slučaj postoje dva načina: korišćenjem ključne reči \code{function} ili kao \textquote{streličastu} funckiju, korišćenjem tokena \code{=>}.
+Streličasta funkcija takođe ima više varijanti -- zagrade oko argumenata su opcione ako postoji samo jedan argument (a nije mu specificiran Tajpskript tip), a zagrade za telo funkcije i ključna reč \code{return} su takođe opcione u nekim slučajevima.
+
+% TODO
+% Primer
+
+Zbog velikog broja načina na koji se funkcija može definisati, pre nego što se u kod umetne poziv funkcije za ažuriranje pogleda, vrši se \textbf{normalizacija funkcije}.
+Funkcija se transformiše tako da se radi o streličastoj funkciji (ovime se izbegavaju greške ukoliko autorova funkcija koristi \code{this} koje treba da pokazuje na klasu, a ne na funkciju kreiranu ovom transformaciju), a autorov kod se pretvara u strukturu nalik na IIFE\footnote{\textsl{Immediately Invoked Function Expression}, često korišćeni obrazac u Javaskriptu gde se funkcija koja se definiše odmah i izvršava; na primer, \code{(() => 21)()}.}.
+Ovime je dobijen ekvivalentan kod, ali je napisan u obliku u kome je lako dodati sporedne efekte koji se neće mešati sa namerom koju ima autor funkcije.
+
+\begin{lstlisting}
+(...args: any[]) => {
+  const result = (/* autorov kod */)(...args)
+  /* umetnut kod */
+  return result
+}
+\end{lstlisting}
+
+Svaki asinhroni deo koda se obeležava nenegativnim celim brojem koji predstavlja indeks elementa u nizu.
+Umetnut kod poziva metodu iz fabrike koja se bavi ažuriranjem pogleda, pri čemu se pomenuti broj koristi za pristup potrebnoj metodi.
+
+\begin{lstlisting}
+/* umetnut kod */
+this.factory.updateAsync[0]()
+\end{lstlisting}
+
+\subsection{Generisanje fabrika}
+
+Fabrike se generišu u posebnim datotekama, obilaskom stabla analizatora fabrika.
+U ovoj fazi čvorovi više nisu međusobno zavisni, pa redosled obilaska nije od važnosti.
+Za svaki tip analizatora fabrika postoji odgovarajući generator koda koji se koristi.
+
+O samoj strukturi fabrika govori se u \cref{sec:anatomija-fabrika-komponenti}, \cref{sec:optimizacija-fabrika-komponenti}, \cref{sec:fabrike-uslovne-direktive} i \cref{sec:fabrike-direktive-za-ponavljanje}.
+
+\subsection{Postprocesiranje komponenti}
+
+U fazi postprocesiranja, autorov kod se dodatno obrađuje kako bi se pripremio za krajnji produkt.
+
+\subsubsection{Uklanjanje dekoratora}
+
+Kada autor koristi dekoratore u kodu, oni služe za kompilatoru dostave neke specifične informacije kako bi se u fazi generisanja fabrika generisao odgovarajući kod.
+Sami dekoratori nemaju nikakav uticaj na izvršenje koda.
+
+Zapravo, kada autor uveze simbole kao \code{Template} iz modula \code{wane}, uvoze se samo Tajpskript deklaracije.
+Kod dekoratora koji bi se izvršavao kada se aplikacija pokrene uopšte \textbf{ne postoji}.
+Ako bi se kod pokrenuo kao takav, došlo bi do greške \code{ReferenceError} jer se simboli kao \code{Template} ne bi pronašli.
+Zato se svi dekoratori u potpunosti brišu.
+
+\subsubsection{Izvoz klasa}
+
+Svaka klasa definisana od strane autora prebacuje se u posebnu datoteku koja se uvozi u odgovarajuće fabrike.
+Da bi se obezbedilo da je uvoz moguć, osim pukog kopiranja teksta koji čini deklaraciju klase, mora se dodati i ključna reč \code{export}, ukoliko ona ne postoji.
+
+\subsubsection{Uklanjanje konstanti}
+
+Na osnovu rezultata algoritma opisanog u \cref{sec:konstante}, poznato je koja se svojstva klase mogu ukloniti iz deklaracije klase i prebaciti u datoteku u kojoj se nalaze sve konstante.
+
+Pored pukog uklanjanja svojstava sa klase, važno je obraditi i delove koda gde se konstanta koristi i uvesti modul sa konstantama kako bi se njoj moglo pristupiti.
+
+\begin{lstlisting}
+// pre 
+class Component {
+  private constant = 21
+  private variable = 42
+  private get sum () {
+    return this.constant + this.variable
+  }
+  private mutate (val) {
+    this.variable = val
+  }
+}
+
+// posle
+Component$constant = 21
+class Component {
+  private variable = 42
+  private get sum () {
+    return Component$constant + this.varible
+  }
+  private mutate (val) {
+    this.variable = val
+  }
+}
+\end{lstlisting}
+
+\subsection{Bandlovanje}\label{subsec:bandlovanje}
+
+Nakon što se sve datoteke generišu, sledi vaza bandlovanja.
+Kao i ceo proces generisanja koda, i ovo je implementacioni detalj i ne treba da se tiče autora koda.
+Trenutno se koristi Rolap (\textsl{Rollup}) za sklapanje svih datoteka u jednu, ali se ovaj izbor može promeniti u bilo kom trenutku, i k\^od autor\=a neće morati da pretrpi nikakve promene, čak ni u konfiguracionim podešavanjima.
+
+U toku bandlovanja vrši se i minifikacija.
+Za minifikaciju koristi se Terzer (\textsl{terser})\footnote{Ranije Aglifaj-E-Es (\textsl{UglifyES}), najpopularniji alat za minifkaciju Javaskript modula.} u vidu plagina za Rolap.
+
+Kako bi se obezbedilo bolje menglovanje (\textsl{mangling}) imena svojstava u kodu (što nije uvek sigurna operacija prilikom minifikacije), sva interna imena koja Vejn generiše dobijaju prefiks \code{\_\_wane\_\_}.
+Sva imena koja počinju tako dobijaju kraće ime u procesu minifikacije.

@@ -1,0 +1,308 @@
+\section{Proces analize koda}
+
+Analiza koda počinje od podrazumevanog izvezenog simbola datoteke na putanji \code{src/index.ts}.
+Ukoliko se ne radi o klasi, ukoliko klasa nije obeležena dekoratorom \code{@Template} ili ukoliko je prosleđen šablon nevalidan, faza analize se prekida.
+
+\subsection{Stablo analizatora fabrika}
+
+Prvi korak u analizi je konstrukcija stabla analizatora fabrika komponenti i direktiva.
+\textbf{Fabrika} (\textsl{factory}) je funkcija koju generator treba da ispiše; ona treba da se koristi tokom izvršenja aplikacije kako bi se kreirala instanca komponente ili direktive.
+U fazi kompilacije, svaka fabrika je predstavljena svojim \textbf{analizatorom} (\textsl{factory analyzer}).
+Analizatori sagledavaju kod komponente, poziciju komponentu u stablu, njen API i druge osobine kako bi generator koda mogao da iskoristi ove informacije, na osnovu kojih će biti u mogućnosti da generiše kod u skladu sa namerom developera.
+
+U ovoj fazi analize je važno uspostaviti međusobni odnos komponenata i direktiva, ali i načina na koji su one povezane putem šablona.
+Na primer, nije dovoljno znati da komponenta~A ima za dete komponentu~B; važno je dobiti informaciju o tome gde se u \emph{pogledu} komponente~A nalazi mesto za koje je vezana komponenta~B.
+
+\textbf{Pogled} (\textsl{view}) komponente ili direktive je deo šablona kojim ona rukovodi.
+
+Mada struktura stabla koje čini pogled komponente može biti ekvivalentna strukturi samog šablona komponente, ovo nije slučaj ukoliko se u šablonu komponente nalaze direktive.
+U tom slučaju se pogled komponente završava na mestu gde počinje direktiva, a deo šablona koji se nalazi u unutrašnjosti direktive počinje obradu kao novi šablon.
+Pored moguće razlike u strukturi, pogled nosi sa sobom mnogo više informacija nego šablon.
+Može se reći da je šablon struktura koju developer definiše kako bi \textquote{objasnio} kompilatoru kako da kreira pogled.
+
+Komponente se prepoznaju po velikom početnom slovu, direktive po prefiksu~\code{w:}.
+Za ostalo se podrazumeva da se radi o HTML elementima, što znači da su pored postojećih HTML elemenata podržane i veb-komponente.
+Nailazak na HTML elemente se samo evidentira kao deo pogleda komponente ili direktive koja se trenutno obrađuje.
+S druge strane, kada se naiđe na HTML tag koji se prepozna kao komponenta ili direktiva, započinje se rekurzivni proces izgradnje stabla pogleda za novu komponentu ili direktivu.
+Po okončenju procesa, dobijeni analizator se beleži kao dete u analizatoru nad kojim se trenutno vrši obrada.
+
+Sem komponenti i direktiva, \textbf{tekst} i \textbf{interpolacija} su takođe vrste čvorova koje se nalaze u stablu pogleda.
+
+\begin{verbatim}
+@Template(`<div id="a"></div>`)
+class A { }
+
+@Template(`<div id="b"></div>`)
+class B { }
+
+@Register(A, B)
+@Template(`
+  <div id="c"></div>
+  <w:if cond>
+    <A/>
+  </w:if>
+  <B/>
+`)
+export default class C { }
+\end{verbatim}
+
+U primeru TODO, ulazna komponenta je~\code C; od nje počinje izgradnja stabla.
+Njenom pogledu pripadaju \code{div\#c}, uslovna direktiva \code{w:if:cond} kao struktura bez unutrašnjeg sadržaja i komponenta~\code{B} bez unutrašnjeg sadržaja.
+Struktura koja opsuje decu analizatora fabrike komponente~\code C definiše mapiranje čvora \code{w:if:cond} na analizator fabrike uslovne direkive, a čvora~\code{B} na analizator fabrike komponente~\code{B}, koji ima pogled iste strukture kao i šablon.
+
+Pogled analizatora fabrike uslovne direktive \code{w:if:cond} ima samo jedan čvor, i to komponentu~\code A.
+Slično komponenti~\code B iz šablona komponente~\code C, ovaj čvor pokazuje na analizator fabrike komponente~\code A.
+
+Tokom sagledavanja šablona radi generisanja pogleda, za svaki čvor se beleži u kojoj je fabrici \textbf{definisan} (\textsl{definition factory}) i koja je fabrika \textbf{odgovorna} za njega (\textsl{responsible factory}).
+Fabrika u kojoj je čvor definisan je ona fabrika u čijem se \textit{šablonu} nalazi čvor.
+Odgovorna fabrika je fabrika u čijem se \textit{pogledu} čvor nalazi.
+
+Čvorovi stabla koji sačinjavaju pogled nose sa sobom informaciju o svom tipu i o \textbf{povezima} (\textsl{binding}) koji su nad njim definisani.
+Povezi ukazuju na način na koji je postignuta veza između modela i šablona.
+Na primer, \code{<div id="a" [className]="b"{}>} je definicija čvora koji predstavlja HTML element sa dva poveza.
+Prvi povez se odnosi na svojstvo elementa pod nazivom~\code{id} i povezan je sa \textit{literalom}~\code{a} koji je tipa string.
+Ova inforamcija je implicitno zaključena i čvor pogleda bi izgledao isto da je umesto \code{id="a"} autor naveo \code{[id]="{}'a'{}"}.
+Drugi povez odnosi se na svojstvo~\code{className} i povezan je sa \textit{svojstvom}~\code{b}.
+
+Strukture koje opisuju \emph{vrednosti} u povezima (literale, svojstva, metode, itd), odnosno \textquote{stranu modela} (spram \textquote{strane šablona} koja je opisana čvorovima) nazivaju se \textbf{povezane vrednosti} (\textsl{bound values}).
+One igraju značajnu ulogu u fazi generisanja koda u kojoj se određuje \textit{opseg} iz kog se pribavljaju podaci iz modela.
+
+Proces generisanja stabla analizatora fabrika je jedini proces koji se implicitno pokreće u fazi analize.
+Analize u okviru struktura koje su kreirane ovim procesom su \textquote{lenje}, tj. biće pokrenute samo ako informaciju o tome zatraži generator ili sam proces generisanja stabla analizatora fabrika.
+Rezultati analize se keširaju pa ne postoji problem sa višestrukim pozivom iste funkcije, ma koliko ona bila komplikovana.
+
+\subsection{Analiza toka koda}
+
+Većina informacija koju analizatori fabrika mogu da pruže baziraju se na rezultatima analize toka koda.
+\textbf{Analiza toka koda} je tehnika statičke analize kojom se određuje zamišljena putanja kojom se prolazi prilikom izvršenja koda.
+Jedan od načina za analizu toka koda, koji se ovde koristi, naziva se \textbf{apstraktna interpretacija}.
+Ovom tehnikom se kod izvršava parcijalno -- samo onoliko koliko je dovoljno da bi se utvrdila osobina koja koja je od interesa.
+
+U ovom odeljku biće definisani neki značajni pomoćni algoritmi koji se koriste u analizi koda komponenti.
+
+Algoritmi se oslanjaju na obilazak i manipulaciju apstraktnog sintaksnog stabla (AST, \textsl{abstract syntax tree}) koda napisanog u Tajpskriptu.
+Mada se sintaksa programa predstavlja strukturom stabla, tok izvršenja se predstavlja proizvoljnim grafom.
+Na primer, metoda~$A$ može pozivati metodu~$B$, a metoda~$B$ metodu~$A$; metoda može pozivati i samu sebe.
+Zato se za obilazak toka koriste algoritmi za obilazak grafova.
+Pošto su veze između čvorova neoznačene, tj. ne postoji mera distance, svi algoritmi koriste jednostavne obilaske grafova kao što su pretraga po dubini (DFS, \textsl{depth-first search}) i pretraga po širini (BFS, \textsl{breadth-first search}).
+
+\subsubsection{Pribavljanje tela metoda koje se pozivaju iz bloka}\label{sec:algo:get-bodies-called-from}
+
+Da bi kontrola toka mogla da se prati neometano kroz pozive metoda u okviru klase, neophodno je poznavati koje sve funkcije i metode mogu da se pozove iz jednog bloka koda.
+Blok koda najčešće predstavlja metodu ili funkciju, mada to može biti i blok kao što je jedna od grana u uslovnom grananju korišćenjem izraza~\code{if}.
+
+U bloku za koji se pribavljaju tela vrši se iteracija nad svim potomcima sintaksne vrste \code{CallExpression} (\cref{sec:sk:call-expression}).
+Među izrazima se traže oni kod koji izraz koji se poziva pripada vrsti \code{PropertyAccessExpression} (\cref{sec:sk:property-access-expression}), i to takav da se na levoj strani nalazi ključna reč \code{this} (\cref{sec:sk:this-keyword}).
+
+Za izraze koji zadovoljavaju ove uslove beleži se ime pozvane metode.
+Vodeći se ovim imenom, pronalaze se tela tih metoda.
+Ona se dodaju u skup rezultata, a od njih proces počinje da se ponavlja rekurzivno.
+
+\subsubsection{Pribavljanje imena svojstava kojima se vrednost može promeniti izvršenjem bloka}\label{sec:algo:get-prop-names-which-can-be-modified-by}
+
+Kako bi se uvidela veza između modela i šablona, potrebno je razumevanje toga koje metode i kako mogu da utiču na promenu vrednosti svojstva u klasi.
+
+Ovaj algoritam se odvija kroz dve faze.
+U prvoj fazi se traže imena svojstava kojima se vrednost može promeniti \emph{direktnim} izvršenjem bloka.
+Drugim rečima, ne prolazi se kroz pozive metoda.
+Nakon što se prva daza okonča, postupak se rekurzivno ponavlja za sve metode koje se mogu pozvati iz bloka, korišćenjem algoritma opisanog u \cref{sec:algo:get-bodies-called-from}.
+
+Potraga za svojstvima obavlja se prolaskom kroz potomke sintaksne vrste \code{ExpressionStatement} (\cref{sec:sk:expression-statement}).
+Od interesa su binarni, prefiksni unarni i postfiksni unarni izrazi.
+
+Za binarne izraze od interesa su samo oni kod kojih je operator jedan od operatora dodele (\cref{sec:sk:tokeni-dodele}).
+Ovime se odstranjuju binarni izrazi -- na primer, \code{a < b}.
+Zatim se odstranjuju izrazi kod kojih leva strana binarnog izraza ne predstavlja pristup svojstvu (kao \code{a.b}), a potom se odstranjuju i oni kod kojih leva strana pristupa nije \code{ThisKeyword}.
+Preostali pristupi u sebi sadrže ime svojstva kojem se menja vrednost (npr. \code{this.foo}).
+
+Za perfiksne i postfiksne unarne izraze, pretraga je jednostavnija.
+Uzimaju se samo oni izrazi kod kojih važi da je operand pristup svojstvu, i to takvih da je prvi pristup ključna reč \code{this}.
+Kao i u slučaju binarnih izraza, iz njih se dobija ime svojstva kojem se menja vrednost.
+
+\subsection{Analizatori komponenti}
+
+Osnovne informacije o komponenti, nezavisno od njene konkretne upotrebe u stablu komponenti aplikacije, pribavljaju se iz analizatora komponente.
+U procesu izgradnje stabla analizatora fabrika, nailaskom na komponentu se najpre kreira njen analizator, pa se onda on koristi za kreiranje analizatora \emph{fabrike} komponente.
+
+\subsubsection{Ime komponente}
+
+Ime komponente ne igra značajnu ulogu u tokom razvića aplikacije jer se nigde ne koristi.
+Umesto imena komponente koriste se simboličko ime kojim je komponenta \emph{registrovana}, a ne \emph{definisana}.
+Ipak, \emph{neko} ime se mora dodeliti komponenti kada se ona umetne u DOM tokom izvršenja.
+
+Mada ime komponente može biti samo proizvoljan jedinstven string, radi preglednijeg rezultujućeg DOM-a sa boljom semantikom, Vejn koristi informacije kojima raspolaže da komponenti dodeli ime.
+
+Ako je definisano ime klase, ono se koristi kao ime komponente.
+Inače se radi o podrazumevano izvezenom simbolu iz modula, pa se koristi ime modula -- osim u slučaju kada je ime modula \code{index}: tada se koristi ime direktorijma u kome se nalazi modul.
+Ovako dobijeno ime komponente se za potrebe imena proizvoljnog HTML taga pretvara u \textit{param-case} oblik.
+
+Međutim, HTML standard nalaže da imena proizvoljno definisanih tagova ne samo da moraju da budu mala slova, već da \emph{moraju} sadržati bar jednu crticu kako bi se obezbedila kompatibilnost sa HTML elementima koji će u standard biti dodati u budućnosti (jer se za njih zna da nikad nemaju nijednu crticu).
+Ukoliko se ime komponente sastoji od dve reči, ovo ne predstavlja problem, ali imena od jedne reči neće moći da se koriste kao ime taga.
+
+Zato se, radi konzistentnosti, uvek dodaje prefiks~\code{w-} ispred imena HTML taga.
+Na primer, komponenta \code{Item} dobija tag \code{w-item}, dok \code{ListOfItems} dobija tag \code{w-list-of-items}, iako bi ime sadržalo crtice i bez perfiksa.
+
+\subsubsection{Konstante}\label{sec:konstante}
+
+Obilaskom koda se za svako svojstvo klase može odrediti da li se ono može smatrati svojstvom iz koga se podaci samo čitaju, a nikada ne menjaju.
+Za ovakvo svojstvo klase se kaže da je \textbf{konstanta}.
+
+Preduslov da se svojstvo prolagsi za konstantu jeste da nije ulaz u komponentu -- ovo se jednostavno određuje ispitivanjem modifikatora kojim je obeleženo svojstvo (bez modifikatora -- implicitno \code{public}, eksplicitno \code{public}, \code{protected}, \code{private}).
+Zatim se prolazi kroz sve blokove koji predstavljaju tela metoda klase i pribavljaju se imena svojstava koja se mogu modifikovati izvršenjem tog bloka, na osnovu algoritma opisanog u \cref{sec:algo:get-prop-names-which-can-be-modified-by}.
+Ukoliko se ime svojstva za koje se ispituje status konstante ne nađe u tako dobijenom skupu, radi se o konstanti.
+
+Ovo se koristi za optimizaciju opisanu u TODO.
+
+\subsection{Analizatori fabrika}
+
+Analizator fabrike služi da generatoru koda pruži neophodne inforamcije da bi mogao da obavi svoj zadatak.
+Nalaze se u čvorovima stabla analizatora fabrika.
+
+\subsubsection{Pribavljanje putanje do druge fabrike} % getPathTo
+
+Između svake dve fabrika postoji najkraća putanja.
+Pošto se radi o stablu, najkraća putanja je jedina putanja u kojoj se putanja ne \textquote{vraća unazad}, pa je dovoljno koristiti običan DFS ili BFS algoritam za pronalazak ove putanje.
+
+Putanja je predstavljena nizom susednih čvorova u stablu, onim redom kojim ih treba obići da bi se iz jedne fabrike \textquote{stiglo} u drugu.
+
+Ova funkcionalnost je važna za generisanje koda koji se tiče prenosa podataka iz jednog čvora u drugi (što se događa prilikom vezivanja vrednosti za šablon).
+
+\subsubsection{Pribavljanje stvarnog imena vezane vrednosti} % hasDefinedAndResolvesTo
+
+Autoru je u šablonima prilično intuitivno na koji opseg se odnose imena vezana za šablon, ali proces obračunavanja \emph{stvarne} vrednosti (ili putanje do vrednosti) je drugačiji, pogotovo kada se uzme u obzir činjenica da se na nekim mestima kod opitmizuje (v.~\cref{sec:konstante}).
+
+U slučaju \textbf{komponenti}, pristupni lanac se najpre razbija na delove.
+Među svojstvima, geterima i metodama se traži onaj sa istim imenom kao prvi deo lanca.
+Ukoliko se on ne pronađe, znači da se u njoj ne nalazi tražena referenca.
+Ovo je znak generatoru, koji poziva ovu metodu, da nastavi traženje dalje uz lanac roditelja duž grane u stablu analizatora, sve dok ne naiđe na prvi analizator koji se ne nalazi između definicione fabrike i odgovorne fabrike za čvor u kome je definisan povez (više u TODO).
+Ukoliko se u deklaraciji klase pronađe traženi simbol, onda se na osnovu~\cref{sec:konstante} određuje da li se radi o konstanti ili ne.
+
+\begin{lstlisting}
+@Template(`This is a /@\tikzmark{view-left}@/{{ value }}/@\tikzmark{view-right}@/.`)
+class Component {
+  /@\tikzmark{code-left}@/value/@\tikzmark{code-right}@/ = 21
+}
+\end{lstlisting}
+\begin{tikzpicture}[remember picture, overlay]
+  \node (view) at ($(view-left)!.5!(view-right)$) {};
+  \foreach \x/\y in {view-left/view-right, code-left/code-right} \WrapInBox{\x}{\y}
+  \draw [Circle-Stealth] (view) edge [bend left] (code-right);
+\end{tikzpicture}
+
+Kod \textbf{uslovnih direktiva}, proces je znatno jednostavaniji jer je \emph{nemoguće} da vrednost bude vezana za nju.
+Ova direktiva ne nudi nikakve simbole koje bi šablon mogao da iskoristi za povezivanje.
+
+\textbf{Direktive za ponavljanje}, s druge strane, pružaju jedan ili dva simbola koji se mogu iskoristiti.
+To su \textit{iterativna konstanta} (uvek) i \textit{iterativni indeks} (ukoliko se navede).
+Kao i u slučaju komponenti, lanac se razbija na delove, ali se poredi samo sa jednom ili dve gorenavedene vrednosti.
+Nijedan ni drugi simbol ne mogu biti konstante.
+U slučaju pogotka, generatoru se vraća informacija o tome koji iterativni simbol je u pitanju.
+Ova vrednost se zatim koristi da se pristupi \emph{pravom} imenu (umesto simboličkom koje developer zadaje radi razumevanja koda).
+
+\subsubsection{Povezi u pogledu i njihovo mapiranje}\label{sec:getPropsBoundToView}
+
+Postoji i inverzni način ispitivanja koji daje sličnu informaciju.
+Umesto da se za konkretan lanac pristupa ispituje da li pripada određenom analizatoru, mogu se dobiti sve instance poveza za koje bi pribavljanje stvarnog imena dalo pogodak.
+
+U ovo spadaju i povezi definisni nad \textquote{pravim} HTML elementima i nad komponentama i direktivama koji postoje samo prividno tokom pisanja Vejn aplikacije.
+Mogu se dobaviti i particije ovog skupa po ovoj osobini.
+
+\begin{lstlisting}
+@Register(B)
+@Template(`The value is {{ val1 }} and <B [b]="val2"/>.`)
+class A { private val1!: any; private val2!: any }
+\end{lstlisting}
+
+U gornjem primeru, za komponentu~\code{A}, to su
+
+\begin{itemize}
+  \item povez definisan inteprolacijom \code{\{\{~val1~\}\}} (interpolacija se obavlja nad \code{Text} čvorom koji je deo HTML-a) i
+  \item ulaz \code{ba]="val2"} (primenjen nad komponentom~\code B što je Vejn komponenta).
+\end{itemize}
+
+\subsubsection{Mape razlika}\label{sec:getDomDiffMap}\label{sec:getFaDiffMap}
+
+Od važnosti nije samo \emph{koji} povezi postoje, već i na kojim se elementima nalaze i koja je fabrika odgovorna za njihovo ažuriranje.
+U ovu svrhu definišu se mape razlika.
+Mape razlika sadrže preslikavanje elementa sistema koji se ažurira u niz poveza koje na njima treba ažurirati.
+Zovu se \textquote{mape razlika} jer pokazuju kako treba \emph{mapirati} dobijene \emph{razlike} prilikom pokretanja procesa ažuriranja unutar fabrike.
+Postoje \textbf{mape razlika u DOM-u} i \textbf{mape razlika u fabrikama}.
+Razlikuju se u tome o kom je elementu sistema reč -- o postojećim HTML elementima ili o elementima specifičnim za Vejn (tj. o komponentama i direktivama).
+
+\begin{lstlisting}
+@Template(`
+  <div [id]="a" [className]="b">{{ a }}</div>
+  <w:for foo of foos>
+    <span [className]="a">{{ foo }}</span>
+  </w:if>
+`)
+class Component {
+  a!: any
+  b!: any
+  foos!: any[]
+}
+\end{lstlisting}
+
+Na primer, u TODO isečku koda definisana je komponenta čija bi mapa razlika u DOM-u definisala sledeće preslikavanje.
+
+\begin{itemize}
+  \item Za čvor \code{<div>}: \code{[id]="a"} i \code{[className]="b"}.
+  \item Za tekstualni čvor u \code{div}-u: \code{\{\{ a \}\}}.
+  \item Za čvor \code{<span>} unutar uslovne direktive: \code{[className]="a"}.
+\end{itemize}
+
+Za razliku od \code{[className]="a"}, tekstualni čvor \code{\{\{ b \}\}} unutar \code{span}-a nije deo preslikavanja -- simbol \code{foo} nije definisan u komponenti \code{Component}, već u direktivi \code{w:for} kao alijas za trenutni element niza \code{foos} prilikom iteracije.
+
+S druge strane, mapa razlika u fabrikama bi sadržala samo jedno preslikavanje.
+
+\begin{itemize}
+  \item Za dikretivu \code{w:if}: svojstvo \code{a} vezano kao uslovna promenljiva.
+\end{itemize}
+
+\subsubsection{Indeksi čvorova u šablonima i pogledima}\label{sec:getIndexesFor}\label{sec:getSingleIndexFor}
+
+Mape indeksa bile bi beskorisne za generisanje koda ukoliko ne bi bilo poznato kako doći do odgovarajućih instanci tokom izvršenja programa.
+Pošto postoji jasno definisano uređenje čvorova, svakom je dodeljen indeks u skladu sa BFS obilaskom.
+Za čvor u šablonu ili pogledu se može pribaviti odgovarajući indeks u slučaju komponente ili odgovorajući indeksi u slučaju direktive.
+
+Direktive imaju dva indeksa jer su u realnom DOM-u predstavljene sa dva HTML čvora -- tačnije, dva komentara.
+Više u TODO.
+
+\subsubsection{Povezi definisani nad sidrom}\label{sec:getSelfBindings}
+
+\textbf{Sidro} (\textsl{anchor}) je čvor pogleda roditeljskom čvoru iz stabla analizatora zbog koje se analizator pojavio u stablu.
+Drugim rečima, sidro je inverzno mapiranje čvora pogleda na dete-analizator.
+Sidro se koristi da bi se pristupilo povezima definisanim nad komponentom ili direktivom.
+U sledećem primeru, sidro za komponentu~\code B je čvor~\code{<B/>} definisan u komponenti~\code A.
+
+\begin{lstlisting}
+@Template(`{{ b }}`)
+class B { public b!: any }
+
+@Register(A)
+@Template(`<B [b]="val"/>`)
+class A { private val!: any }
+\end{lstlisting}
+
+Analizator sa sidra može dovući listu svih poveza koji tu deklarisani.
+U prethodnom primeru, to je ulaz \code{[b]="val"}.
+
+Jedna od primena ovoga jeste pronalazak toga koji izlazi se koriste nad komponentom i koju metodu poziva u komponenti u kojoj je sidro definisano (v. TODO).
+
+\subsubsection{Određivanje fabrika na koje se može uticati izvršenjem bloka} % getFactoriesAffectedByCalling
+
+Osim određivanja metoda koje se mogu pozvati unutar jedne komponente, važno je odrediti i koje metode se mogu pozvati \emph{izvan} nje.
+Jedini način da metoda komponente pozove metodu druge komponente jeste ukoliko su komponente povezane izlazom.
+
+Nakon što se na osnovu algoritma~\cref{sec:algo:get-bodies-called-from} pronađu metode koje mogu biti pozvane određenim blokom, traže se one metode koje su obeležene kao javne, jer to znači da se mogu iskoristiti kao izlazi.
+Zatim se pomoću~\cref{sec:getSelfBindings} filtriraju metode koje zaista jesu iskorišćene kao izlaz, i pamte se imena metoda koja se pozivaju u komponenti-pretku.
+
+Za ovako dobijene metode traži se koja se unija svojstava koji se mogu promeniti u toj komponenti (na osnovu~\cref{sec:algo:get-prop-names-which-can-be-modified-by}).
+Za istu komponentu se traže i sva svojstva i/ili geteri definisani u klasi koja je upisuje (na osnovu~\cref{sec:getPropsBoundToView}).
+Ukoliko postoji presek između ova dva skupa, znači da se pozivom metode iz originalne komponente može javiti promena na pogledu roditeljske komponente.
+Ovo generator koda koristi kako bi se odredilo za koje fabrike treba pozvati metode ažuriranja (v. TODO).
+
+Postupak se zatim rekurzivno nastavlja, jer se iz komponente-pretka mogu dalje pozivati metode koje predstavljaju izlaze, koje su u nekom daljem pretku vezane za neku drugu metodu, itd.
+Po završetku obilaska, dobija se skup svih fabrika na čije poglede jedna metoda može uticati.
+
+% TODO: primer

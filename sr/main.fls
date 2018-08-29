@@ -282,8 +282,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/charter.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/charter.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/marginnote/marginnote.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/marginnote/marginnote.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT main.aux

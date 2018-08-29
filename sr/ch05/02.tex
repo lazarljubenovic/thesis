@@ -137,6 +137,8 @@ class Component {
 }
 \end{lstlisting}
 
+Ukoliko se ispostavi da se konstanta koristi samo jednom (ili dovoljno malo puta), minifikator može dodatno skratiti ovaj kod tako što će svako pojavljivanje pristupa konstanti zamenisi samom konstantom (v. \cref{subsec:bandlovanje}).
+
 \subsection{Bandlovanje}\label{subsec:bandlovanje}
 
 Nakon što se sve datoteke generišu, sledi vaza bandlovanja.
@@ -146,5 +148,36 @@ Trenutno se koristi Rolap (\textsl{Rollup}) za sklapanje svih datoteka u jednu, 
 U toku bandlovanja vrši se i minifikacija.
 Za minifikaciju koristi se Terzer (\textsl{terser})\footnote{Ranije Aglifaj-E-Es (\textsl{UglifyES}), najpopularniji alat za minifkaciju Javaskript modula.} u vidu plagina za Rolap.
 
-Kako bi se obezbedilo bolje menglovanje (\textsl{mangling}) imena svojstava u kodu (što nije uvek sigurna operacija prilikom minifikacije), sva interna imena koja Vejn generiše dobijaju prefiks \code{\_\_wane\_\_}.
-Sva imena koja počinju tako dobijaju kraće ime u procesu minifikacije.
+Jedna od najznačajnijih faza u procesu minifikacije pored uklanjanja znakova beline jeste menglovanje (\textsl{mangling}).
+Mada se imena u velikom broju slučajeva mogu bez problema promeniti, to nije slučaj sa imenima svojstva.
+Na primer, u sledećem isečku koda\footnote{Novi redovi u izlazu su dodati radi preglednost. Izlaz Terzera nema nove redove jer bez potrebe doprinose veličini koda.} se imena \code{longVariableName} i \code{sum} skraćuju na \code n i \code e, kao i simbolička imena argumenata \code{first} i \code{second} (ponovo na \code n i \code e).
+
+\begin{lstlisting}
+// ulaz
+const longVariableName = {
+  oneNumber: 21,
+  anotherOne: 3,
+}
+function sum (first, second) {
+  return first + second
+}
+console.log(sum(
+  longVariableName.oneNumber,
+  longVariableName.anotherOne))
+
+// izlaz
+const n={oneNumber:21,anotherOne:3};
+function e(n,e){return n+e}
+console.log(e(n.oneNumber,n.anotherOne));
+\end{lstlisting}
+
+Međutim, imena \code{oneNumber} i \code{anotherOne} nisu skraćena. 
+Terzer ne može da pretpostavi da je ova operacija sigurna jer se određeni deo koda može oslanjati na ovo ime -- to može biti deo javnog API-ja ili se možda takav format očekuje u JSON obliku sa servera.
+
+Da bi se ova imena skratila, potrebno je eksplicitno uključiti ovo podešavanje.
+Čak i kada se ono uključi, \textquote{poznata} imena kao \code{createElement} neće biti promenjena.
+Ako bi se ona promenila, pristup bilo kakvom javnom API-ju u okruženju (npr. \code{window} u brauzerima) ne bi bio moguć; na primer, \code{document.createElement('p')} bi postalo \code{document.e('p')} što nije moguće izvršiti.
+Međutim, kako Terzer ne zna za tipove podataka, \emph{svako} korišćenje imena \code{createElement} za pristup svojstvu će ostati nepromenjen, čak iako se ne radi o toj metodi definisanoj nad \code{document}; na primer, \code{myVar.createElement()} bi postalo \code{e.createElement()} jer Terzer ne vrši proveru tipa (i nema načina za to) pa ne zna da li je \code{e} tipa \code{Document}.
+
+Kako bi se obezbedilo bolje menglovanje imena svojstava u kodu (što nije uvek sigurna operacija prilikom minifikacije), sva interna imena koja Vejn generiše dobijaju prefiks \code{\_\_wane\_\_}.
+Sva imena koja počinju tako, iako su ime svojstva, dobijaju kraće ime u procesu minifikacije.

@@ -19,6 +19,15 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{hyperapp:patch}{online}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labeltitlesource}{title}
+      \field{title}{Funkcija \code{patch} u mikro-frejmvorku \textit{{Hyperapp}}}
+      \verb{url}
+      \verb https://github.com/lazarljubenovic/hyperapp/blob/3f7bc8029ae1f080a9c4c916668a3c816735ef2b/src/app.js#L171
+      \endverb
+    \endentry
     \entry{w3c:shadow-dom}{online}{}
       \name{author}{1}{}{%
         {{hash=f1d2795d173fdb9c5022a15a0095e900}{%

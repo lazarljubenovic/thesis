@@ -82,8 +82,8 @@
 \BOOKMARK [2][-]{subsection.5.3.2}{Metoda diff}{section.5.3}% 82
 \BOOKMARK [2][-]{subsection.5.3.3}{Metoda update}{section.5.3}% 83
 \BOOKMARK [2][-]{subsection.5.3.4}{Metoda destroy}{section.5.3}% 84
-\BOOKMARK [1][-]{section.5.4}{Optimizacija fabrika komponenti}{chapter.5}% 85
-\BOOKMARK [1][-]{section.5.5}{Fabrike uslovne direktive \(w:if\)}{chapter.5}% 86
-\BOOKMARK [1][-]{section.5.6}{Fabrike direktive za ponavljanje \(w:for\)}{chapter.5}% 87
-\BOOKMARK [1][-]{section.5.7}{Stilovi}{chapter.5}% 88
-\BOOKMARK [1][-]{section.5.8}{Hello, World! aplikacija}{chapter.5}% 89
+\BOOKMARK [1][-]{section.5.4}{Fabrike uslovne direktive \(w:if\)}{chapter.5}% 85
+\BOOKMARK [2][-]{subsection.5.4.1}{Uslovni pogled}{section.5.4}% 86
+\BOOKMARK [2][-]{subsection.5.4.2}{Parcijalni pogled}{section.5.4}% 87
+\BOOKMARK [1][-]{section.5.5}{Fabrike direktive za ponavljanje \(w:for\)}{chapter.5}% 88
+\BOOKMARK [1][-]{section.5.6}{Stilovi}{chapter.5}% 89

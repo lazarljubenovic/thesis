@@ -1,1 +1,57 @@
-\section{\textquote{Hello, World!} aplikacija}\label{sec:hello-world-aplikacija}
+% \section{Primeri}
+
+% \subsection{\textquote{Counter} aplikacija}
+% \label{subsec:counter-aplikacija}
+
+% \textquote{Counter} aplikacije su vrlo popularne za demonstraciju najosnovnijih osobina frejmvorka jer se na vrlo prirodan --ali istovremeno jednostavan i minimalan-- način mogu demonstrirati komponente, ulazi, izlazi i interpolacija.
+
+% \begin{lstlisting}
+% import { Template, Register } from 'wane'
+
+% @Template(`
+%   <button (click)="change(-1)">-</button>
+%   <span>{{ value }}</span>
+%   <button (click)="change(+1)">+</button>
+% `)
+% class Counter {
+
+%   public value!: number  
+
+%   public valueChange (val: number) { }
+
+%   private change (delta: number): void {
+%     const newValue = this.value + delta
+%     this.valueChange(newValue)
+%   }
+
+% }
+
+% @Register(Counter)
+% @Template(`
+%   <Counter
+%     [value]="count"
+%     (valueChange)="onCountChange(#)"
+%   />
+% `)
+% export default class {
+
+%   private count = 2103
+
+%   private onCountChange (newValue) {
+%     this.count = newValue
+%   }
+
+% }  
+% \end{lstlisting}
+
+% Dobijena minifikovana Javaskript datoteka ima 1162 bajta.
+% Kada se obavi brotli kompresija, dobija se datoteka od 422 bajta.
+
+% \begin{lstlisting}[breaklines=true,breakindent=0pt]
+% const t=t=>document.createElement(t),s=t=>document.createTextNode(t),i=(t,s)=>(s.forEach(s=>t.appendChild(s)),t),h=(t,s,i)=>t.addEventListener(s,i);var _=()=>({t:{},s(){this.i=this._.h[0],this.n=new class{valueChange(t){}change(t){const s=this.value+t;this.valueChange(s)}},this.n.value=this._.n.count,this.n.valueChange=(t=>{this._.n.onCountChange(t)}),this.h=[t("button"),t("span"),t("button"),s("-"),s(this.n.value),s("+")],i(this.i,[i(this.h[0],[this.h[3]]),i(this.h[1],[this.h[4]]),i(this.h[2],[this.h[5]])]),this.e=[],h(this.h[0],"click",()=>{this.n.change(-1),this._.a()}),h(this.h[2],"click",()=>{this.n.change(1),this._.a()}),this.c=[],this.u()},u(){return{value:this.t.value!==(this.t.value=this.n.value)}},a(){this.u().value&&(this.h[4].data=this.n.value)}});(()=>({t:{},s(){this.i=document.body,this.n=new class{constructor(){this.count=2103}onCountChange(t){this.count=t}},this.h=[t("w-counter")],i(this.i,[this.h[0]]),((t,s)=>(t.e=s,s.forEach(s=>{s._=t,s.s()}),t))(this,[_()]),this.c=[],this.u()},u(){return{count:this.t.count!==(this.t.count=this.n.count)}},a(){const t=this.u();t.count&&(this.e[0].n.value=this.n.count,this.e[0].a(t))}}))().s();
+% \end{lstlisting}
+
+% \subsection{\textquote{Hello, World!} aplikacija}
+% \label{subsec:hello-world-aplikacija}
+
+

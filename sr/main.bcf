@@ -2151,6 +2151,7 @@
     <bcf:citekey order="4">sojs:2017</bcf:citekey>
     <bcf:citekey order="5">mdn:glossary:css-preprocessor</bcf:citekey>
     <bcf:citekey order="6">toml:spec</bcf:citekey>
+    <bcf:citekey order="7">hyperapp:patch</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

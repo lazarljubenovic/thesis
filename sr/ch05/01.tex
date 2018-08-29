@@ -290,6 +290,7 @@ U prethodnom primeru, to je ulaz \code{[b]="val"}.
 Jedna od primena ovoga jeste pronalazak toga koji izlazi se koriste nad komponentom i koju metodu poziva u komponenti u kojoj je sidro definisano (v. TODO).
 
 \subsubsection{Određivanje fabrika na koje se može uticati izvršenjem bloka} % getFactoriesAffectedByCalling
+\label{fn:getFactoriesAffectedByCalling}
 
 Osim određivanja metoda koje se mogu pozvati unutar jedne komponente, važno je odrediti i koje metode se mogu pozvati \emph{izvan} nje.
 Jedini način da metoda komponente pozove metodu druge komponente jeste ukoliko su komponente povezane izlazom.
@@ -300,7 +301,7 @@ Zatim se pomoću~\cref{sec:getSelfBindings} filtriraju metode koje zaista jesu i
 Za ovako dobijene metode traži se koja se unija svojstava koji se mogu promeniti u toj komponenti (na osnovu~\cref{sec:algo:get-prop-names-which-can-be-modified-by}).
 Za istu komponentu se traže i sva svojstva i/ili geteri definisani u klasi koja je upisuje (na osnovu~\cref{sec:getPropsBoundToView}).
 Ukoliko postoji presek između ova dva skupa, znači da se pozivom metode iz originalne komponente može javiti promena na pogledu roditeljske komponente.
-Ovo generator koda koristi kako bi se odredilo za koje fabrike treba pozvati metode ažuriranja (v. TODO).
+Ovo generator koda koristi kako bi se odredilo za koje fabrike treba pozvati metode ažuriranja (v. \cref{subsubsec:pretplata-na-dogadjaje-iz-doma}).
 
 Postupak se zatim rekurzivno nastavlja, jer se iz komponente-pretka mogu dalje pozivati metode koje predstavljaju izlaze, koje su u nekom daljem pretku vezane za neku drugu metodu, itd.
 Po završetku obilaska, dobija se skup svih fabrika na čije poglede jedna metoda može uticati.

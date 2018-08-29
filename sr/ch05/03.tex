@@ -19,6 +19,8 @@ U zavinosti od rezultata analize, neke metode se mogu izbaciti i time se smanjuj
 Metoda \code{init} služi da kreira neophodne DOM čvorove i inicijalizuje instancu klase deklarisane od strane autora, kao i daprvim pozivom metode za traženje razlike \code{diff} omogući ažuriranje komponente.
 
 \subsubsection{Koren komponente}
+\label{subsubsec:koren-komponente}
+\label{subsubsec:init-part-1}
 
 Koren komponente je čvor u DOM-u za koji se komponenta vezuje -- koreni čvorovi pogleda vezuju se za koren kao njegova deca.
 Smešta se u promenljivu \code{}
@@ -37,6 +39,8 @@ this.root = this.factoryParent.domNodes[0]
 \end{lstlisting}
 
 \subsubsection{Instanca klase}
+\label{subsubsec:instanca-klase}
+\label{subsubsec:init-part-2}
 
 U instanci klase nalaze se metode koje vrše manipulaciju nad stanjem ili ispaljuju događaje na koje preci komponente u stablu mogu da se pretplate definisanjem poveza za njene izlaze.
 Fabrici je potrebna ova instanca kako bi bilo moguće odrediti razliku u stanju tokom procesa ažuriranja u metodu \code{diff} (v. \cref{subsec:metoda-diff}), kako bi se mogle čitati vrednosti, i kako bi mogle da se pozivaju metode definisane od strane autora.
@@ -54,44 +58,285 @@ this.data = new Component(this)
 \end{lstlisting}
 
 \subsubsection{Prihvatanje podataka kroz ulaze i izlaze}
+\label{subsubsec:init-part-3}
 
 U komponentu se mogu proslediti podaci pomoću ulaza i mogu se osluškivati događaji pomoću izlaza.
 
+Kada se kreira instanca klase koja predstavlja komponentu, pribavljaju se ulazni podaci od fabrika-predaka.
+Pribavljanje se obavlja jednostavnim operatorom dodele.
+
+\begin{lstlisting}
+// /@deo šablona@/
+<Component [a]="b"/>
+
+// generisan kod
+this.data.a = this.factoryParent.b
+\end{lstlisting}
+
+Mada sintaksno izlazi izgledaju drugačije od ulaza, i mada se nameće drugačija semantika, izlazi se interno tretiraju vrlo slično ulazima.
+Zapravo, jedini razlog zbog koga se ne treiraju apsolutno identično u slučaju da nema argumenata jeste ponašanje ključne reči \code{this} u Javaskriptu.
+Zato se umesto puke dodele uvek pravi streličasta funkcija.
+
+\begin{lstlisting}
+// /@deo šablona@/
+<Component (a)="b()"/>
+
+// generisan kod
+this.data.a = () => {
+  this.factoryParent.b()
+}
+\end{lstlisting}
+
+U slučaju da su pozivu funkcije u okviru poveza prosleđeni argumenti, i oni se obračunavaju kao i sva ostala svojstva i metode.
+
+\begin{lstlisting}
+// /@deo šablona@/
+<Component (a)="b(c)"/>
+
+// generisan kod
+this.data.a = () => {
+  this.factoryParent.b(this.factoryParent.c)
+}
+\end{lstlisting}
+
+Ukoliko se kao argument nađe \code{\#}, on se prosleđuje kao argument funkcija koja se dodeljuje izlazu.
+
+\begin{lstlisting}
+// /@deo šablona@/
+<Component (a)="b(#)"/>
+
+// generisan kod
+this.data.a = (palceholder) => {
+  this.factoryParent.b(placeholder)
+}
+\end{lstlisting}
+
 \subsubsection{Kreiranje DOM čvorova}
+\label{subsubsec:init-part-4}
+
+Svi DOM čvorovi koji su deklarisani šablonskom sintaksom u sklopu komponente instantiraju se i smeštaju u niz kako bi im se kasnije moglo pristupiti.
+
+Za njihovo instanciranje koriste se pomoćne metode koje samo delegiraju zadatak HTML metodama \code{createElement}, \code{createTextNode} i \code{createComment} definisanim nad tipom \code{Document} umesto direktnog pristupa.
+Ovime je omogućeno da se za njihova imena veže prefiks \code{\_\_wane\_\_} i time obavi minifikacija ovih imena (v. \cref{subsec:bandlovanje}).
+
+\begin{lstlisting}
+this.domNodes = [
+  /*0*/ createTextNode('No entered data.'),
+  /*1*/ createElement('button'),
+  /*2*/ createTextNode('Add some'),
+];
+\end{lstlisting}
 
 \subsubsection{Sastavljanje DOM čvorova}
+\label{subsubsec:init-part-5}
+
+Sada kada elementi postoje, treba ih sastaviti tako da oponašaju autorovu definiciju kroz šablone.
+Za ovo se takođe jednostavne pomoćne funkcije.
+Stablo pogleda se obilazi rekurzivno.
+
+\begin{lstlisting}
+appendChildren(this.root, [
+  this.domNodes[0],
+  appendChildren(this.domNodes[1], [
+    this.domNodes[2],
+  ])
+]);
+\end{lstlisting}
 
 \subsubsection{Registrovanje dece}
 \label{subsubsec:registrovanje-dece}
+\label{subsubsec:init-part-6}
+
+Registrovanje dece se obavlja pomoćnom funkcijom \code{createFactoryChildren}.
+Osim što se za tekuću fabriku vezuju prosleđena deca-fabrike, vrši se i povezivanje u obrnutom smeru -- deci se kao roditelj dodeljuje tekuća fabrika.
+
+\begin{lstlisting}
+createFactoryChildren(this, [
+  ChildComponentFactory(),
+])
+\end{lstlisting}
+
+Ukoliko fabrika nema decu i ukoliko fabrika nema \code{destroy} metodu (v. \cref{subsec:metoda-destroy}), ovaj deo koda se ne generiše.
+Ukoliko metoda \code{destroy} postoji, neophodno je da postoji prazan niz \code{this.factoryChildren = []} kako bi rekurzivni obilazak prilikom uništavanja radio.
 
 \subsubsection{Inicijalizacija svojstava i atributa u DOM-u}
+\label{subsubsec:init-part-7}
+
+Iako su HTML čvorovi kreirani, u opštem slučaju i dalje u potpunosti ne odgovaraju onome što je autor definisao jer nisu dodeljene vrednosti atributima i svojstvima u skladu sa deklaracijom šablona.
+
+Koristeći indekse za pristup DOM čvorovima (v. \cref{sec:getSingleIndexFor}), štampaju se odgovarajuće dodele (za svojstva) i pozivi metoda (za atribute).
+Ovo uključuje i obične deklaracije (\code{id="a"}) i poveze (\code{[id]="a"}).
+
+\begin{lstlisting}
+this.domNodes[3].type = 'text'
+this.domNodes[3].className = 'field'
+this.domNodes[3].setAttribute('aria-label', 'Name')
+\end{lstlisting}
 
 \subsubsection{Pretplata na događaje iz DOM-a}
+\label{subsubsec:pretplata-na-dogadjaje-iz-doma}
+\label{subsubsec:init-part-8}
+
+Za pretplatu na DOM događaje koristi se pomoćna metoda koja delegira poziv standardnoj metodi \code{addEventListener}.
+Osim poziva funkcije koju je autor definisao kroz šablon, dodaje se i niz poziva metod\=a \code{update} nad svim fabrikama nad kojim poziv autorove metode može uticati u skladu sa algoritmom definisanim u \cref{fn:getFactoriesAffectedByCalling}.
+
+\begin{lstlisting}
+addEventListener(this.domNodes[1], 'submit', (placeholder) => {
+  this.data.onSubmit(placeholder)
+  this.factoryParent.factoryParent.factoryParent.update()
+  this.factoryParent.update()
+});
+\end{lstlisting}
 
 \subsubsection{Deklaracija metoda za asinhrono ažuriranje}
+\label{subsubsec:init-part-9}
+
+Slično kao kod pretplate, generišu se pozivi metod\=a \code{update}, s tim što se u ovom slučaju smeštaju u niz kako bi se određena metoda pozvala iz samog koda klase (v. \cref{subsubsec:ubrizgavanje-fabrike}).
+
+\begin{lstlisting}
+this.updateAsync = [
+  /* 0 */ () => { this.update() },
+  /* 1 */ () => { this.factoryParent.update() },
+];
+\end{lstlisting}
+
+Ako asinhronog koda u komponenti nema, ovaj deo koda se u potpunosti izostavlja.
 
 \subsubsection{Prva razlika}
+\label{subsubsec:init-part-10}
+
+Kako bi se pokrenuo proces računanja razlika između \textquote{prethodnog} i trenutnog stanja, mora se populisati \code{prevData} odgovorajućim vrednostima.
+Najbrži način da se ovo uradi je prost poziv metode \code{diff} (v. \cref{subsec:metoda-diff}).
+
+U specijalnim slučajevima kada komponenta nema stanje (ili su svi njegovi elementi proglašeni kao konstantni, v. \cref{sec:konstante}), ovaj deo koda se ne generiše jer tada metoda \code{diff} ne postoji.
+
+\subsubsection{Primer}
+
+Primer čitave metode \code{init} dat je u nastavku.
+
+\begin{lstlisting}
+init() {
+  // /@\cref{subsubsec:init-part-1}: \nameref{subsubsec:init-part-1}@/
+  this.root = this.factoryParent.domNodes[0]
+
+  // /@\cref{subsubsec:init-part-2}: \nameref{subsubsec:init-part-2}@/
+  this.data = new EmptyState()
+
+  // /@\cref{subsubsec:init-part-3}: \nameref{subsubsec:init-part-3}@/
+  this.data.createNew = () => {
+    this.factoryParent.factoryParent.factoryParent
+      .data.onCreateNewClick()
+  };
+
+  // /@\cref{subsubsec:init-part-4}: \nameref{subsubsec:init-part-4}@/
+  this.domNodes = [
+    /*0*/ createTextNode('\n  No entered data. '),
+    /*1*/ createElement('button'),
+    /*2*/ createTextNode('Add some!'),
+  ]
+  
+  // /@\cref{subsubsec:init-part-5}: \nameref{subsubsec:init-part-5}@/
+  appendChildren(this.root, [
+    this.domNodes[0],
+    appendChildren(this.domNodes[1], [
+      this.domNodes[2],
+    ]),
+  ])
+
+  // /@\cref{subsubsec:init-part-6}: \nameref{subsubsec:init-part-6}@/
+  this.factoryChildren = [];
+
+  // /@\cref{subsubsec:init-part-7}: \nameref{subsubsec:init-part-7}@/
+  // Nema
+
+  // /@\cref{subsubsec:init-part-8}: \nameref{subsubsec:init-part-8}@/
+  addEventListener(this.domNodes[1], 'click', () => {
+    this.data.createNew();
+    this.factoryParent.factoryParent.factoryParent.update();
+  })
+
+  // /@\cref{subsubsec:init-part-9}: \nameref{subsubsec:init-part-9}@/
+  // Nema
+
+  // /@\cref{subsubsec:init-part-10}: \nameref{subsubsec:init-part-10}@/
+  this.diff();
+}
+\end{lstlisting}
 
 \subsection{Metoda \code{diff}}
 \label{subsec:metoda-diff}
 
+Metoda za traženje razlika jednostavno vraća objekat sa razlikama.
+U pitanju je objekat tipa \code{Record<keyof C, boolean>}, gde je \code C klasa pridružena komponenti.
+Drugim rečima, u pitanju je objekat kome su ključevi imena svojstava deklarisanih u klasi (odnosno neki njihov podskup), a vrednosti su \code{true} ili \code{false}.
+
+Računanje razlike oslanja se na prethodnu vrednost stanja sačuvanu u \code{prevData} i poredi vrednosti sa trenutnom vrednošću sačuvanu u \code{data}.
+Zahvaljujući jednom pokretanju funkcije \code{diff} \textquote{u prazno} (rezultat se odbacuje), ovaj pristup funkcioniše i prilikom prvom pokretanju ove metode.
+
+Računanje razlike i ažuriranje prethodne vrednosti obavlja se istovremeno.
+
+\begin{lstlisting}
+value: this.prevData.value !== (this.prevData.value = this.data.value),
+\end{lstlisting}
+
+Najpre se izvršava leva strana poređenja (\code{this.prevData.value}), i ta vrednost se poredi sa rezultatom izvršenja operatora \code{=} s desne strane (\code{this.prevData.value = this.data.value}).
+Taj rezultat je vrednost \code{this.data.value}, pa se poređenje vrši između prethodne i trenutne vrednost.
+Sporedni efekat primena operatora \code{=} je to što je sada u \code{this.prevData.value} upisana ternutna vrednost.
+Kako se tokom jednom poziva funkcije \code{diff} ista vrednost neće koristiti dvaputa, ovaj pristup funkcioniše.
+
+Metoda se koristi u okviru metode \code{update} (v. \cref{subsec:metoda-update}).
+Ne generiše se ukoliko nema stanja za koje ima potrebe računati razliku.
+
 \subsection{Metoda \code{update}}
+\label{subsec:metoda-update}
+
+Pre nego što se započne sa bilo kakvim ažuiranjem, preračunava se razlika trenutnog stanja u odnosu na prethodno.
+Ovo se obavlja pozivom metode \code{diff} (v. \cref{subsec:metoda-diff}).
+Rezultat se čuva u lokalnoj konstanti \code{diff}.
+
+Za generisanje koja koji vrši ažuriranje koriste se mape razlika (v. \cref{sec:getDomDiffMap}).
 
 \subsubsection{Ažuriranje DOM elemenata}
 
+Iz mape razlika čitaju se indeksi DOM čvorova za koje su vezani povezi.
+Zatim se vrši uslovno ažuriranje na osnovu imena svojstva iz klase i rezultata traženje razlika.
+
+\begin{lstlisting}
+if (diff.title) {
+  this.domNodes[2].data = this.data.title;
+}
+if (diff.value) {
+  this.domNodes[3].value = this.data.value;
+}
+\end{lstlisting}
+
 \subsubsection{Ažuriranje potomaka}
 
+Slično kao kod DOM elemenata, za fabrike se takođe dobavlja indeks i skup poveza.
+Nakon obavljenog ažuriranja, poziva se metoda \code{update} nad fabrikom čije je stanje ažurirano.
+
+Da bi se obezbedilo da se ažuriranje deteta obavlja samo jedno, vrši se grupisanje uslova operatorom \code{||}.
+
+\begin{lstlisting}
+if (diff.visibleItems || diff.items) {
+  this.factoryChildren[0].data.items = this.data.visibleItems;
+  this.factoryChildren[0].data.totalItemsCount = this.data.items.length;
+  this.factoryChildren[0].update();
+}
+\end{lstlisting}
+
 \subsection{Metoda \code{destroy}}
+\label{subsec:metoda-destroy}
 
 \code{destroy} je jednostavna metoda koja najpre poziva ovu metodu za decu (kako bi se proces uništenja dogodio rekurzivno, počev od fabrika koje su listovi), a zatim prolazi kroz sve DOM elemente koji su direktni potomci korena i uklanja ih.
 
 \begin{lstlisting}
 destroy() {
   this.factoryChildren.forEach(factoryChild => {
-    factoryChild.destroy();
+    factoryChild.destroy()
   });
   while (this.root.firstChild !== null) {
-    this.root.removeChild(this.root.firstChild);
+    this.root.removeChild(this.root.firstChild)
   }
-},
+}
 \end{lstlisting}

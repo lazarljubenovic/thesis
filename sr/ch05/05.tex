@@ -1,1 +1,160 @@
 \section{Fabrike uslovne direktive (\code{w:if})}\label{sec:fabrike-uslovne-direktive}
+
+Fabrike uslovne direktive sastoje se iz dva dela.
+Jedan deo se stara za to da se sadržaj unutar direktive stvori i uništi u trenutku kada se primeni vrednost vezana za \code{w:if}, a drugi deo se stara da sadržaj koji se stvori bude onaj sadržaj koji je autor definisao.
+
+Zajednički deo se naziva \textbf{uslovni pogled} (\textsl{conditional view}), a deo specifičan za svaku instancu direktive naziva se \textbf{parcijalni pogled} (\textsl{partil view}).
+
+\subsection{Uslovni pogled}
+
+Komponente imaju koreni čvor unutar koga se kreira njen sadržaj.
+Ovaj čvor slući da nedvosmisleno definiše početak i kraj komponente.
+Kada komponentu treba uništiti, jasno je određeno koji čvorovi treba da budu oklonjeni iz DOM-a.
+
+U slučaju direktiva, proizvoljan skup DOM čvorova može biti obuhvaćen direktivom.
+Ne samo da se može javiti više HTML elemenata, već neki čvorovi uopšte ne moraju da budu elementi -- mogu biti tekstualni čvorovi.
+
+Kako bi se znalo odakle počinje i gde se završava sadržaj direktive, u DOM se ubacuju dva \textbf{oluka} (\textsl{outlet}).
+Oluk služi da usmeri delove koda na to gde se tačno određeni deo pogleda (parcijalni pogled) nalazi.
+Prvi oluk (po redosledu dokumenta) naziva se \textbf{početni} a drugi \textbf{krajnji}.
+
+Četiri metode se definišu za uslovne poglede: metoda za inicijalizaciju, metoda za inicijalizaciju parcijalnog pogleda, metoda za ažuriranje i metoda za uništenje.
+
+\subsubsection{Metoda \code{init}}
+
+Prilikom inicijalizacije uslovnog pogleda, slično komponentama, najpre se dobavlja koren -- samo je u ovom slučaju to oluk koga čine dva komentara.
+Umesto dobavljanja jednog DOM čvora iz roditelja, dobavljaju se dva -- jedan je početni komentar, a drugi krajnji.
+
+\begin{lstlisting}
+this.openingCommentOutlet = this.factoryParent.domNodes[4]
+this.closingCommentOutlet = this.factoryParent.domNodes[5]
+\end{lstlisting}
+
+Za razliku od komponenti, gde se \code{data} fabrike određuje na osnovu autorovog koda (v. \cref{subsubsec:instanca-klase}), kod direktiva se unapred zna kog je oblika stanje.
+U slučaju \code{w:if}, to je jedna logička vrednost.
+Ona se čuva u promenljivu \code{data}.
+Prethodno stanje čuva se u promenljivoj \code{prevData}, isto kao i kod fabrika komponenti.
+U metodi \code{init} se ova dva svojstva inicijalizuju na vrednost koja im je prosleđena.
+
+\begin{lstlisting}
+this.data = this.prevData = !this.factoryParent.data.isEmpty
+\end{lstlisting}
+
+Zatim se, u slučaju da je vrednost \code{this.data} istinita, odmah poziva metoda za inicijalizaciju parcijalnog pogleda.
+Inače se proces inicijalizacije okončava.
+Sadržaj uslovne direktive pojaviće se kada se \code{this.data} promeni u istinitu vrednost pokretanjem metode \code{update}.
+
+\begin{lstlisting}
+if (this.data) {
+  this.initPartialView()
+}
+\end{lstlisting}
+
+\subsubsection{Metoda \code{initPartialView}}
+
+Za incijalizaciju samog pogleda unutar direktive, tj. parcijalnog pogleda koji je vezan za direktivu, koristi se metoda \code{initPartialView}.
+Kao prvo i jedino dete tekuće fabrike inicijalizuje se parcijalni pogled i prosleđuju mu se oluci.
+Zatim se inicijalizuje sâm parcijalni pogled pozivom njegove metode \code{init}.
+
+\begin{lstlisting}
+this.factoryChildren[0] = PartialView_ConditionalView_isEmpty_5_4()
+this.factoryChildren[0].factoryParent = this
+this.factoryChildren[0].openingCommentOutlet = this.openingCommentOutlet
+this.factoryChildren[0].closingCommentOutlet = this.closingCommentOutlet
+this.factoryChildren[0].init()
+\end{lstlisting}
+
+\subsubsection{Metoda \code{update}}
+
+Ažuriranje uslovnog pogleda svodi se na ispitivanje koja od četiri moguće kombinacije vrednosti svojstava \code{prevData} i \code{data} je u pitanju.
+
+Kada su obe vrednosti \code{false}, znači da se direktiva nalazila u \textquote{isključenom} stanju i da ostaje u njemu.
+U ovoj situaciji ne treba uraditi ništa.
+
+Prelazak iz \code{false} u \code{true} znači da je direktiva bila \textquote{isključena} i da se ovim ažuriranjem ona \textquote{uključuje}.
+Ovaj slučaj se obrađuje tako što se pokrene metoda \code{initPartialView} kojom se sadržaj direktive kreira i dodaje u DOM.
+
+Prelazak iz \code{true} u \code{false} znači da je direktiva bila \textquote{uključena} i da se ovim ažuriranjem ona \textquote{isključuje}.
+Tada se parcijalni pogled treba uništiti, pa se poziva ova metoda.
+
+Obe vrednosti \code{true} znači da samo treba ažurirati parcijalni pogled.
+
+\begin{lstlisting}
+update(diff) {
+  const prev = this.prevData;
+  this.prevData = this.data;
+  if (!prev && !this.data)
+    return;
+  if (!prev && this.data)
+    return this.initPartialView();
+  if (prev && !this.data)
+    return this.factoryChildren[0].destroy();
+  this.factoryChildren[0].update(diff);
+}
+\end{lstlisting}
+
+\subsubsection{Metoda \code{destroy}}
+
+Metoda za uništavanje delegira zadatak parcijalnom pogledu, ukoliko on postoji u trenutku kada se ova metoda pozove.
+
+\begin{lstlisting}
+destroy() {
+  if (this.factoryChildren[0] != null) {
+    this.factoryChildren[0].destroy();
+  }
+}
+\end{lstlisting}
+
+\subsection{Parcijalni pogled}
+
+Parcijalni pogled po mnogo čemu podseća na komponentu.
+Može se reći i da je komponenta je specijalni slučaj parcijalnog pogleda.
+Glavna razlika je u tome što ne postoji \code{data} svojstvo.
+Svi podaci koji se mogu iskoristiti u parcijalnom pogledu dolaze iz komponenti i direktiva (i to ne \code{w:if}) koje se nalaze iznad tekućeg čvora u stablu fabrika.
+
+Pored toga, razlikuje se način vezivanja kreiranih DOM čvorova za postojeći DOM, ali samo u prvom nivou.
+Pošto koren nije jedan element, umesto \code{appendChild} koristi se \code{insertBefore} nad krajnjim olukom.
+U skladu sa ovime razlikuje se i \code{destroy} metoda.
+
+Primer celog parcijalnog pogleda dat je u nastavku.
+
+\begin{lstlisting}
+var PartialView_ConditionalView_isEmpty_5_4 = () => ({
+  prevData: {},
+  init() {
+    this.domNodes = [
+        /*0*/ createElement('button'),
+        /*1*/ createTextNode('Save'),
+        // ...
+    ]
+    insertBefore(this.closingCommentOutlet, [
+        appendChildren(this.domNodes[0], [
+            this.domNodes[1],
+            // ...
+        ])
+    ])
+    this.factoryChildren = []
+    this.domNodes[0].type = 'submit'
+  },
+  diff() {
+      return {
+        // ...
+      }
+  },
+  update(diff) {
+      Object.assign(diff, this.diff())
+      // ...
+  },
+  destroy() {
+      this.factoryChildren.forEach(child => child.destroy())
+      let node = this.openingCommentOutlet.nextSibling
+      while (node != this.closingCommentOutlet) {
+          const nextNode = node.nextSibling
+          node.remove()
+          node = nextNode
+      }
+  },
+})
+\end{lstlisting}
+
+ 

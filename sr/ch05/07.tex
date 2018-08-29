@@ -1,1 +1,73 @@
-\section{Stilovi}\label{sec:stilovi}
+\section{Stilovi}\label{sec:ch05:stilovi}
+
+Kao što je već pomenuto u \cref{sec:ch04:stilovi}, stilovi se enkapsuliraju, tj. vezani su samo za komponentu kojoj su pridruženi.
+Ovo je implementirano tako što se svim HTML čvorovima dodeljuje isti atribut, jedinstven za svaku komponentu, a CSS se transformiše tako da se uz selektore doda taj atribut.
+
+\begin{lstlisting}
+// autorov kod
+@Template(`
+  <span className="one">
+    Some <strong>text</strong> here
+  </span>
+  <span className="two">
+    And <strong>more</strong>
+  </span>
+`)
+@Style(`
+  span { color: red }
+  .one { text-style: italic }
+  span.two > strong { text-decoration: underline }
+`)
+class Example { }
+
+// /@DOM tokom izvršenja@/
+<w-example>
+  <span className="one" data-w-1>
+    Some <strong data-w-1>text</strong> here
+  </span>
+  <span className="two" data-w-1>
+    And <strong data-w-1>more</strong>
+  </span>
+</w-example>
+
+// /@Stilovi tokom izvršenja@/
+span[data-w-1] { color: red }
+.one[data-w-1] { text-style: italic }
+span.two[data-w-1] > strong[data-w-1] {
+  text-decoration: underline
+}
+\end{lstlisting}
+
+Osim ovoga, transformiše se i ime komponente.
+
+\begin{lstlisting}
+// autorov kod
+@Register(Child)
+@Template(`
+  <span>Text</span>
+  <Child/>
+`)
+@Style(`
+  span  { background-color: red }
+  Child { background-color: blue }
+`)
+class Example { }
+
+// /@DOM tokom izvršenja@/
+<w-example>
+  <span data-w-1>Text</span>
+  <w-child data-w-1><!-- ... --></w-child>
+</w-example>
+
+// /@Stilovi tokom izvršenja@/
+span[data-w-1] { background-color: red }
+w-child[data-w-1] { background-color: blue }
+\end{lstlisting}
+
+Da bi se ovo obezbedilo, tokom inicijalizacije svojstava i atributa u DOM-u (v. \cref{subsubsec:init-part-7}) se dodaju i atributi oblika \code{data-w-N}, gde je \code N jedinstven broj za svaku komponentu.
+
+\begin{lstlisting}
+this.domNodes[0].setAttribute('data-w-1', '')
+this.domNodes[2].setAttribute('data-w-1', '')
+this.domNodes[3].setAttribute('data-w-1', '')
+\end{lstlisting}

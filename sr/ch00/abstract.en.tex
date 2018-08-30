@@ -1,0 +1,13 @@
+The main goal of this paper is demonstrating usage of static analysis as primary technique for code generation of single-page applications.
+In order to achieve this, a framework named \textit{Wane} has been developed, whose features and capabilities are herein described in detail.
+
+The paper begins with an overview of basic technologies used for building single-page applications, along with advantages and disadvantages of such approach against websites and desktop applications, including a short history of web as a platform and JavaScript as a language.
+The focus then shifts on TypeScript; its most essential feature, the type system, is firstly classified, after which its characteristics are described in greater detail.
+After that, the structure of abstract syntax tree which corresponds to TypeScript code is described, as well as a way of accessing it programmatically -- starting with the package \code{typescript} itself, and then leveraging \code{ts-simple-ast}, which is the main tool used to implement the framework.
+
+It is then shown that, both syntactically and semantically, the framework is, from the author's perspective, not very different from the existing solutions massively used in the industry, such as Angular and Vue.
+However, after examining the way the framework works, it becomes evident that a more precise term for Wane is a compiler instead of a framework.
+Namely, the source code is viewed as a specification or a definition of the application's desired behavior, and by analyzing it, an application-specific code is generated.
+The paper describes different patterns found in authors' code and presents ways in which they can be recognized by utilizing technique of control flow analysis, taking into account not only code written in TypeScript, but also definition of the way elements of the application should interact through the means of custom syntax used to declare templates which describe components' view.
+
+In the end, the built code of a simple ``todo'' application written in a few different frameworks (Angular, Vue, React, Preact, Mithril, Hyperapp, Wane) is compared using a few metrics, of which code size and view update time are of particular importance.

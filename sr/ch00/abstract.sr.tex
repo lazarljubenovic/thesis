@@ -1,0 +1,13 @@
+Glavni cilj ovog rada je da demonstrira korišćenje statičke analize kao primarne tehnike za generisanje koda jednostaničnih aplikacija.
+Radi postizanja ovog cilja, razvijen je frejmvork Vejn (\textsl{Wane}), čije su osobine i mogućnosti detaljno opisane u ovom radu.
+
+U radu je najpre izložen pregled osnovnih tehnologija koje se koriste prilikom izgradnje jednostraničnih aplikacija uz osvrt na prednosti i mane takvog pristupa spram veb-sajtova i desktop-aplikacija, kao i kratku istoriju veba kao platforme i Javaskripta kao jezika.
+Rad se zatim fokusira na Tajpskript; prvo se klasifikuje sistem tipova koji dolazi uz jezik i koji predstavlja njegovu najznačniju prednost, a potom se, uz navođenje kratkih primera, detaljnije opisuju njegova svojstva.
+Posle toga je opisan izgled apstraktnog sintaksnog stabla koje odgovara kodu napisanom u Tajpskriptu, kao i način na koji mu se programski može pristupiti -- prvo korišćenjem samog paketa \code{typescript}, a onda pomoću paketa \code{ts-simple-ast}, koji ujedno predstavlja i glavni alat koji se koristi u implementaciji frejmvorka.
+
+Zatim je pokazano da se sintaksno i semantički, iz ugla autora aplikacije, frejmvork po malo čemu izdvaja od postojećih rešenja koji se masovno koriste u industriji, kao što su Angular i Vue.
+Međutim, opisom načina rada ovog frejmvorka, ističe se činjenica da je preciznije o Vejnu govoriti kao o kompilatoru, a ne frejmvorku.
+Naime, izvorni kod se posmatra kao specifikacija ili definicija željenog ponašanja aplikacije i analizom istog se generiše kod specifičan za aplikaciju.
+Rad detaljno opisuje razne šablone koji se javljaju u kodu autor\=a i izlaže načine na koje se oni mogu prepoznati primenom tehnike analize toka kontrole koda, uzimajući pritom u obzir ne samo kod napisan u Tajpskriptu, već i definisan način interakcije elemenata aplikacije korišćenjem proizvoljne sintakse koja služi za deklaraciju šablona kojima se opisuje pogled komponenti.
+
+Na kraju se poredi izlazni kôd jednostavne \textquote{todo} aplikacije napisane u nekoliko različith frejmvorka (\textsl{Angular}, \textsl{Vue}, \textsl{React}, \textsl{Preact}, \textsl{Mithril}, \textsl{Hyperapp}, \textsl{Wane}) kroz nekoliko metrika, među kojima su veličina koda i brzina izvršenja ažuriranja pogleda posebno istaknute.

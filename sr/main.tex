@@ -1,7 +1,7 @@
 \documentclass[twoside]{report}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage[serbian]{babel}
+\usepackage[english,serbian]{babel}
 \usepackage{parskip}
 \usepackage{microtype}
 \usepackage{subfiles}
@@ -209,6 +209,19 @@ Tralala
 \tableofcontents
 
 \newpage
+
+\begin{abstract}
+  \subfile{ch00/abstract.sr}
+\end{abstract}
+
+\newpage
+
+\begin{otherlanguage}{english}
+  \begin{abstract}
+    \subfile{ch00/abstract.en}
+  \end{abstract}
+\end{otherlanguage}
+
 
 \subfile{ch01/main}
 

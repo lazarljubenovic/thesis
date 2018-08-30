@@ -10,7 +10,27 @@
 
 \usepackage{listings}
 \usepackage{tikz}
-\usetikzlibrary{calc, arrows.meta}
+\usetikzlibrary{calc, shapes, arrows, arrows.meta, positioning, fit}
+
+% https://tex.stackexchange.com/questions/172415/upside-down-syntax-trees-for-linguistics-with-horizontal-lines
+% \usepackage{forest}
+% % Node shape adapted from http://www.texample.net/tikz/examples/data-flow-diagram/
+% \makeatletter \pgfdeclareshape{myunderline}{
+%   \inheritsavedanchors[from=rectangle]
+%   \inheritanchorborder[from=rectangle]
+%   \foreach \from in
+%     {center,base,north,north east,east,south east,south,south west,west,north west}{
+%       \inheritanchor[from=rectangle]{\from}
+%   }
+%   \backgroundpath{
+%     \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+%     \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+%     % This can be improved by removing magic numbers
+%     \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya+1.75em}}
+%     \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya+1.75em}}
+%  }
+% } \makeatother
+
 
 % Watermark za draft verziju
 % \usepackage[printwatermark]{xwatermark}
@@ -85,6 +105,23 @@
 
 %% Command \code
 \newcommand{\code}[1]{\textcolor{black!80}{\texttt{#1}}}
+
+% Tikz definitions for a flowchart (FlowChart => fc)
+\tikzstyle{fc:block} = [
+  rectangle,
+  draw,
+  fill=black!5,
+  text centered,
+  rounded corners,
+  minimum height=2em,
+  inner sep=1em
+]
+\tikzstyle{fc:line} = [draw, -latex]
+
+% default text in tikz text
+\tikzset{
+  font=\small\sffamily
+}
 
 \title{Primena statičke analize za generisanje koda jednostraničnih veb-aplikacija}
 \author{Lazar Ljubenović}

@@ -19,6 +19,79 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{gh:ms:ts}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bf692b9b128a62a718ae9d2f5598b7c8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={TypeScript},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{fullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authornamehash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authorfullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \field{sortinit}{c}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TypeScript}
+      \verb{url}
+      \verb https://github.com/Microsoft/TypeScript
+      \endverb
+    \endentry
+    \entry{gh:ms:ts:wiki:using-the-compiler-api}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bf692b9b128a62a718ae9d2f5598b7c8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={TypeScript},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{fullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authornamehash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authorfullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \field{sortinit}{c}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{TypeScript}
+      \field{title}{Using the Compiler API}
+      \field{urlday}{30}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
+      \endverb
+    \endentry
+    \entry{wiki:ast}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={Wikipedia},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \field{sortinit}{c}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Abstract syntax tree --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{urlday}{30}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Abstract_syntax_tree&oldid=849296366
+      \endverb
+    \endentry
     \entry{hyperapp:patch}{online}{}
       \field{sortinit}{F}
       \field{sortinithash}{276475738cc058478c1677046f857703}
@@ -225,6 +298,34 @@
       \field{urldateera}{ce}
       \verb{url}
       \verb https://stateofjs.com/2017/
+      \endverb
+    \endentry
+    \entry{typescript-deep-dive}{online}{}
+      \name{author}{2}{}{%
+        {{hash=306b7ad33b3843bd3402fa4e37fcbe5f}{%
+           family={Syed},
+           familyi={S\bibinitperiod},
+           given={Basarat\bibnamedelima Ali},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=a8b2e39951bba535f313f563f6abaef6}{%
+           family={contributors},
+           familyi={c\bibinitperiod}}}%
+      }
+      \strng{namehash}{f31512e9434be38d5697507f2bf794a1}
+      \strng{fullhash}{f31512e9434be38d5697507f2bf794a1}
+      \strng{authornamehash}{f31512e9434be38d5697507f2bf794a1}
+      \strng{authorfullhash}{f31512e9434be38d5697507f2bf794a1}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TypeScript Deep Dive}
+      \field{urlday}{30}
+      \field{urlmonth}{8}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://legacy.gitbook.com/book/basarat/typescript
       \endverb
     \endentry
   \endsortlist

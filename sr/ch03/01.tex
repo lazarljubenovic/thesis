@@ -1,6 +1,37 @@
-\section{AST}
+\section{Tajpskriptov kompilator}
 
-\subsection{}
+Tajpskriptov kompajler se u izvornom kodu Tajpskripta \cite{gh:ms:ts} nalazi u direktorijumu \code{src/compiler}.
+Ključni delovi kompajlera su skener, parser, bajnder, čeker i emiter \cite{typescript-deep-dive}.
 
-% TODO
-TS API nudi ali je to mnogo smor i zato živeo \code{ts-simple-ast}.
+Izvorni kod programa pisanog u Tajpskriptu najpre se procesira od strane \textbf{skenera} (\textsl{scanner}, čitač).
+Izlaz faze skeniranja je niz skeniranih tokena.
+Ovako dobijeni tokeni se zatim obrađuju pomoću \textbf{parsera} (\textsl{parser}, raščlanjivač) i kao izlaz se dobija apstraktno sintaksno stablo.
+Da bi se iz AST-a dobili simboli, koristi se \textbf{bajnder} (\textsl{binder}, povezivač).
+Simboli su osnovni gradivni blok semantike koda -- na osnovu njih se, na primer, na osnovu upotrebe simbola prepoznati njegova deklaracija.
+
+Zatim se \textbf{čeker} (\textsl{checker}, proveravač) koristi kako bi se validirali tipovi podataka.
+Čeker koristi AST i simbole.
+\textbf{Emiter} (\textsl{emitter}, objavljivač) na osnovu AST-a na izlaz daje Javaskript datoteke.
+
+\begin{center}
+  \begin{tikzpicture}[node distance = 1.5cm, auto]
+    % Čvorovi
+    \node [fc:block]                         (izvorni-kod) {izvorni kod};
+    \node [fc:block, right = of izvorni-kod] (niz-tokena)  {niz tokena};
+    \node [fc:block, right = of niz-tokena]  (ast)         {AST};
+    \node [fc:block, right = of ast]         (simboli)     {simboli};
+
+    \node [fc:block, below = of simboli]     (valid) {validacija};
+    \node [fc:block, below = of ast]         (js)    {\code{.js}};
+
+    % Veze
+    \path [fc:line] (izvorni-kod) -- node {skener} (niz-tokena);
+    \path [fc:line] (niz-tokena) -- node {parser} (ast);
+    \path [fc:line] (ast) -- node {bajnder} (simboli);
+
+    \path [fc:line] (ast) -- (valid);
+    \path [fc:line] (simboli) -- node [left] {čeker} (valid);
+    \path [fc:line] (ast) -- node [left] {emiter} (js);
+    \path [fc:line, dashed] (valid) -- (js);
+  \end{tikzpicture}
+\end{center}

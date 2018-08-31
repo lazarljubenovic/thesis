@@ -8,80 +8,87 @@
 \BOOKMARK [2][-]{subsection.1.2.2}{Poku\235aji popravke}{section.1.2}% 8
 \BOOKMARK [2][-]{subsection.1.2.3}{Godi\235nji ciklusi}{section.1.2}% 9
 \BOOKMARK [2][-]{subsection.1.2.4}{Odbor TC39}{section.1.2}% 10
-\BOOKMARK [0][-]{chapter.2}{Tajpskript}{}% 11
-\BOOKMARK [1][-]{section.2.1}{Klasifikcija sistema tipova}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.1.1}{Podele}{section.2.1}% 13
-\BOOKMARK [2][-]{subsection.2.1.2}{Deklaracije}{section.2.1}% 14
-\BOOKMARK [2][-]{subsection.2.1.3}{Definisanje tipova}{section.2.1}% 15
-\BOOKMARK [2][-]{subsection.2.1.4}{Strukturalni sistem tipova}{section.2.1}% 16
-\BOOKMARK [1][-]{section.2.2}{Konfiguracija}{chapter.2}% 17
-\BOOKMARK [2][-]{subsection.2.2.1}{Izbor ES verzije}{section.2.2}% 18
-\BOOKMARK [2][-]{subsection.2.2.2}{Moduli}{section.2.2}% 19
-\BOOKMARK [2][-]{subsection.2.2.3}{Globalni tipovi}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.4}{Emitovanje koda}{section.2.2}% 21
-\BOOKMARK [2][-]{subsection.2.2.5}{Lintanje koda}{section.2.2}% 22
-\BOOKMARK [2][-]{subsection.2.2.6}{Strogi re\236im}{section.2.2}% 23
-\BOOKMARK [1][-]{section.2.3}{Tipovi}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.3.1}{Unija i presek}{section.2.3}% 25
-\BOOKMARK [2][-]{subsection.2.3.2}{Interfejsi i klase}{section.2.3}% 26
-\BOOKMARK [2][-]{subsection.2.3.3}{Osnovni tipovi}{section.2.3}% 27
-\BOOKMARK [2][-]{subsection.2.3.4}{Interfejsi}{section.2.3}% 28
-\BOOKMARK [2][-]{subsection.2.3.5}{Klase}{section.2.3}% 29
-\BOOKMARK [2][-]{subsection.2.3.6}{Cuvari tipova}{section.2.3}% 30
-\BOOKMARK [2][-]{subsection.2.3.7}{Tip never}{section.2.3}% 31
-\BOOKMARK [2][-]{subsection.2.3.8}{Preklapanje funkcija}{section.2.3}% 32
-\BOOKMARK [2][-]{subsection.2.3.9}{Genericki tipovi}{section.2.3}% 33
-\BOOKMARK [2][-]{subsection.2.3.10}{Uslovni tipovi}{section.2.3}% 34
-\BOOKMARK [2][-]{subsection.2.3.11}{Manipulacija tipovima}{section.2.3}% 35
-\BOOKMARK [2][-]{subsection.2.3.12}{Primeri tipova iz lib}{section.2.3}% 36
-\BOOKMARK [0][-]{chapter.3}{AST Tajpskripta}{}% 37
-\BOOKMARK [1][-]{section.3.1}{Tajpskriptov kompilator}{chapter.3}% 38
-\BOOKMARK [1][-]{section.3.2}{Struktura AST-a}{chapter.3}% 39
-\BOOKMARK [1][-]{section.3.3}{ts-simple-ast}{chapter.3}% 40
-\BOOKMARK [2][-]{subsection.3.3.1}{Sintaksne vrste}{section.3.3}% 41
-\BOOKMARK [2][-]{subsection.3.3.2}{Primer}{section.3.3}% 42
-\BOOKMARK [0][-]{chapter.4}{Mogucnosti Vejna}{}% 43
-\BOOKMARK [1][-]{section.4.1}{\227abloni}{chapter.4}% 44
-\BOOKMARK [2][-]{subsection.4.1.1}{Vezivna sintaksa}{section.4.1}% 45
-\BOOKMARK [2][-]{subsection.4.1.2}{Interpolacija}{section.4.1}% 46
-\BOOKMARK [2][-]{subsection.4.1.3}{HTML elementi}{section.4.1}% 47
-\BOOKMARK [1][-]{section.4.2}{Komponente}{chapter.4}% 48
-\BOOKMARK [2][-]{subsection.4.2.1}{Deklaracija}{section.4.2}% 49
-\BOOKMARK [2][-]{subsection.4.2.2}{Pristupna komponenta}{section.4.2}% 50
-\BOOKMARK [2][-]{subsection.4.2.3}{Kori\235cenje}{section.4.2}% 51
-\BOOKMARK [2][-]{subsection.4.2.4}{Ulazi}{section.4.2}% 52
-\BOOKMARK [2][-]{subsection.4.2.5}{Izlazi}{section.4.2}% 53
-\BOOKMARK [1][-]{section.4.3}{Direktive}{chapter.4}% 54
-\BOOKMARK [2][-]{subsection.4.3.1}{Uslovi}{section.4.3}% 55
-\BOOKMARK [2][-]{subsection.4.3.2}{Nizovi}{section.4.3}% 56
-\BOOKMARK [2][-]{subsection.4.3.3}{Skraceni oblik}{section.4.3}% 57
-\BOOKMARK [1][-]{section.4.4}{Stilovi}{chapter.4}% 58
-\BOOKMARK [2][-]{subsection.4.4.1}{Enkapsulacija}{section.4.4}% 59
-\BOOKMARK [2][-]{subsection.4.4.2}{Nadogradnja}{section.4.4}% 60
-\BOOKMARK [2][-]{subsection.4.4.3}{SCSS}{section.4.4}% 61
-\BOOKMARK [1][-]{section.4.5}{Pokretanje}{chapter.4}% 62
-\BOOKMARK [2][-]{subsection.4.5.1}{Produkcija}{section.4.5}% 63
-\BOOKMARK [2][-]{subsection.4.5.2}{Razvice}{section.4.5}% 64
-\BOOKMARK [1][-]{section.4.6}{Primer aplikacije}{chapter.4}% 65
-\BOOKMARK [0][-]{chapter.5}{Kompilacija Vejn aplikacije}{}% 66
-\BOOKMARK [1][-]{section.5.1}{Proces analize koda}{chapter.5}% 67
-\BOOKMARK [2][-]{subsection.5.1.1}{Stablo analizatora fabrika}{section.5.1}% 68
-\BOOKMARK [2][-]{subsection.5.1.2}{Analiza toka koda}{section.5.1}% 69
-\BOOKMARK [2][-]{subsection.5.1.3}{Analizatori komponenti}{section.5.1}% 70
-\BOOKMARK [2][-]{subsection.5.1.4}{Analizatori fabrika}{section.5.1}% 71
-\BOOKMARK [1][-]{section.5.2}{Proces generisanja koda}{chapter.5}% 72
-\BOOKMARK [2][-]{subsection.5.2.1}{Priprema}{section.5.2}% 73
-\BOOKMARK [2][-]{subsection.5.2.2}{Preprocesiranje komponenti}{section.5.2}% 74
-\BOOKMARK [2][-]{subsection.5.2.3}{Generisanje fabrika}{section.5.2}% 75
-\BOOKMARK [2][-]{subsection.5.2.4}{Postprocesiranje komponenti}{section.5.2}% 76
-\BOOKMARK [2][-]{subsection.5.2.5}{Bandlovanje}{section.5.2}% 77
-\BOOKMARK [1][-]{section.5.3}{Anatomija fabrika komponenti}{chapter.5}% 78
-\BOOKMARK [2][-]{subsection.5.3.1}{Metoda init}{section.5.3}% 79
-\BOOKMARK [2][-]{subsection.5.3.2}{Metoda diff}{section.5.3}% 80
-\BOOKMARK [2][-]{subsection.5.3.3}{Metoda update}{section.5.3}% 81
-\BOOKMARK [2][-]{subsection.5.3.4}{Metoda destroy}{section.5.3}% 82
-\BOOKMARK [1][-]{section.5.4}{Fabrike uslovne direktive \(w:if\)}{chapter.5}% 83
-\BOOKMARK [2][-]{subsection.5.4.1}{Uslovni pogled}{section.5.4}% 84
-\BOOKMARK [2][-]{subsection.5.4.2}{Parcijalni pogled}{section.5.4}% 85
-\BOOKMARK [1][-]{section.5.5}{Fabrike direktive za ponavljanje \(w:for\)}{chapter.5}% 86
-\BOOKMARK [1][-]{section.5.6}{Stilovi}{chapter.5}% 87
+\BOOKMARK [1][-]{section.1.3}{Biblioteke i frejmvorci}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.3.1}{Detekcija promena}{section.1.3}% 12
+\BOOKMARK [1][-]{section.1.4}{Pomocni alati i novi jezici}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.4.1}{Moduli u Javaskriptu}{section.1.4}% 14
+\BOOKMARK [2][-]{subsection.1.4.2}{Bandleri i minifikacija}{section.1.4}% 15
+\BOOKMARK [2][-]{subsection.1.4.3}{Javaskript kao asembler veba}{section.1.4}% 16
+\BOOKMARK [1][-]{section.1.5}{Vejn}{chapter.1}% 17
+\BOOKMARK [0][-]{chapter.2}{Tajpskript}{}% 18
+\BOOKMARK [1][-]{section.2.1}{Klasifikcija sistema tipova}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.1.1}{Podele}{section.2.1}% 20
+\BOOKMARK [2][-]{subsection.2.1.2}{Deklaracije}{section.2.1}% 21
+\BOOKMARK [2][-]{subsection.2.1.3}{Definisanje tipova}{section.2.1}% 22
+\BOOKMARK [2][-]{subsection.2.1.4}{Strukturalni sistem tipova}{section.2.1}% 23
+\BOOKMARK [1][-]{section.2.2}{Konfiguracija}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.1}{Izbor ES verzije}{section.2.2}% 25
+\BOOKMARK [2][-]{subsection.2.2.2}{Moduli}{section.2.2}% 26
+\BOOKMARK [2][-]{subsection.2.2.3}{Globalni tipovi}{section.2.2}% 27
+\BOOKMARK [2][-]{subsection.2.2.4}{Emitovanje koda}{section.2.2}% 28
+\BOOKMARK [2][-]{subsection.2.2.5}{Lintanje koda}{section.2.2}% 29
+\BOOKMARK [2][-]{subsection.2.2.6}{Strogi re\236im}{section.2.2}% 30
+\BOOKMARK [1][-]{section.2.3}{Tipovi}{chapter.2}% 31
+\BOOKMARK [2][-]{subsection.2.3.1}{Unija i presek}{section.2.3}% 32
+\BOOKMARK [2][-]{subsection.2.3.2}{Interfejsi i klase}{section.2.3}% 33
+\BOOKMARK [2][-]{subsection.2.3.3}{Osnovni tipovi}{section.2.3}% 34
+\BOOKMARK [2][-]{subsection.2.3.4}{Interfejsi}{section.2.3}% 35
+\BOOKMARK [2][-]{subsection.2.3.5}{Klase}{section.2.3}% 36
+\BOOKMARK [2][-]{subsection.2.3.6}{Cuvari tipova}{section.2.3}% 37
+\BOOKMARK [2][-]{subsection.2.3.7}{Tip never}{section.2.3}% 38
+\BOOKMARK [2][-]{subsection.2.3.8}{Preklapanje funkcija}{section.2.3}% 39
+\BOOKMARK [2][-]{subsection.2.3.9}{Genericki tipovi}{section.2.3}% 40
+\BOOKMARK [2][-]{subsection.2.3.10}{Uslovni tipovi}{section.2.3}% 41
+\BOOKMARK [2][-]{subsection.2.3.11}{Manipulacija tipovima}{section.2.3}% 42
+\BOOKMARK [2][-]{subsection.2.3.12}{Primeri tipova iz lib}{section.2.3}% 43
+\BOOKMARK [0][-]{chapter.3}{AST Tajpskripta}{}% 44
+\BOOKMARK [1][-]{section.3.1}{Tajpskriptov kompilator}{chapter.3}% 45
+\BOOKMARK [1][-]{section.3.2}{Struktura AST-a}{chapter.3}% 46
+\BOOKMARK [1][-]{section.3.3}{ts-simple-ast}{chapter.3}% 47
+\BOOKMARK [2][-]{subsection.3.3.1}{Sintaksne vrste}{section.3.3}% 48
+\BOOKMARK [2][-]{subsection.3.3.2}{Primer}{section.3.3}% 49
+\BOOKMARK [0][-]{chapter.4}{Mogucnosti Vejna}{}% 50
+\BOOKMARK [1][-]{section.4.1}{\227abloni}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.1.1}{Vezivna sintaksa}{section.4.1}% 52
+\BOOKMARK [2][-]{subsection.4.1.2}{Interpolacija}{section.4.1}% 53
+\BOOKMARK [2][-]{subsection.4.1.3}{HTML elementi}{section.4.1}% 54
+\BOOKMARK [1][-]{section.4.2}{Komponente}{chapter.4}% 55
+\BOOKMARK [2][-]{subsection.4.2.1}{Deklaracija}{section.4.2}% 56
+\BOOKMARK [2][-]{subsection.4.2.2}{Pristupna komponenta}{section.4.2}% 57
+\BOOKMARK [2][-]{subsection.4.2.3}{Kori\235cenje}{section.4.2}% 58
+\BOOKMARK [2][-]{subsection.4.2.4}{Ulazi}{section.4.2}% 59
+\BOOKMARK [2][-]{subsection.4.2.5}{Izlazi}{section.4.2}% 60
+\BOOKMARK [1][-]{section.4.3}{Direktive}{chapter.4}% 61
+\BOOKMARK [2][-]{subsection.4.3.1}{Uslovi}{section.4.3}% 62
+\BOOKMARK [2][-]{subsection.4.3.2}{Nizovi}{section.4.3}% 63
+\BOOKMARK [2][-]{subsection.4.3.3}{Skraceni oblik}{section.4.3}% 64
+\BOOKMARK [1][-]{section.4.4}{Stilovi}{chapter.4}% 65
+\BOOKMARK [2][-]{subsection.4.4.1}{Enkapsulacija}{section.4.4}% 66
+\BOOKMARK [2][-]{subsection.4.4.2}{Nadogradnja}{section.4.4}% 67
+\BOOKMARK [2][-]{subsection.4.4.3}{SCSS}{section.4.4}% 68
+\BOOKMARK [1][-]{section.4.5}{Pokretanje}{chapter.4}% 69
+\BOOKMARK [2][-]{subsection.4.5.1}{Produkcija}{section.4.5}% 70
+\BOOKMARK [2][-]{subsection.4.5.2}{Razvice}{section.4.5}% 71
+\BOOKMARK [1][-]{section.4.6}{Primer aplikacije}{chapter.4}% 72
+\BOOKMARK [0][-]{chapter.5}{Kompilacija Vejn aplikacije}{}% 73
+\BOOKMARK [1][-]{section.5.1}{Proces analize koda}{chapter.5}% 74
+\BOOKMARK [2][-]{subsection.5.1.1}{Stablo analizatora fabrika}{section.5.1}% 75
+\BOOKMARK [2][-]{subsection.5.1.2}{Analiza toka koda}{section.5.1}% 76
+\BOOKMARK [2][-]{subsection.5.1.3}{Analizatori komponenti}{section.5.1}% 77
+\BOOKMARK [2][-]{subsection.5.1.4}{Analizatori fabrika}{section.5.1}% 78
+\BOOKMARK [1][-]{section.5.2}{Proces generisanja koda}{chapter.5}% 79
+\BOOKMARK [2][-]{subsection.5.2.1}{Priprema}{section.5.2}% 80
+\BOOKMARK [2][-]{subsection.5.2.2}{Preprocesiranje komponenti}{section.5.2}% 81
+\BOOKMARK [2][-]{subsection.5.2.3}{Generisanje fabrika}{section.5.2}% 82
+\BOOKMARK [2][-]{subsection.5.2.4}{Postprocesiranje komponenti}{section.5.2}% 83
+\BOOKMARK [2][-]{subsection.5.2.5}{Bandlovanje}{section.5.2}% 84
+\BOOKMARK [1][-]{section.5.3}{Anatomija fabrika komponenti}{chapter.5}% 85
+\BOOKMARK [2][-]{subsection.5.3.1}{Metoda init}{section.5.3}% 86
+\BOOKMARK [2][-]{subsection.5.3.2}{Metoda diff}{section.5.3}% 87
+\BOOKMARK [2][-]{subsection.5.3.3}{Metoda update}{section.5.3}% 88
+\BOOKMARK [2][-]{subsection.5.3.4}{Metoda destroy}{section.5.3}% 89
+\BOOKMARK [1][-]{section.5.4}{Fabrike uslovne direktive \(w:if\)}{chapter.5}% 90
+\BOOKMARK [2][-]{subsection.5.4.1}{Uslovni pogled}{section.5.4}% 91
+\BOOKMARK [2][-]{subsection.5.4.2}{Parcijalni pogled}{section.5.4}% 92
+\BOOKMARK [1][-]{section.5.5}{Fabrike direktive za ponavljanje \(w:for\)}{chapter.5}% 93
+\BOOKMARK [1][-]{section.5.6}{Stilovi}{chapter.5}% 94

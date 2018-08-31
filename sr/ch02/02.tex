@@ -35,39 +35,7 @@ Ukoliko developer ne želi da se kod adaptira ni za jedan standard već da ostan
 
 \subsection{Moduli}
 
-Kao glavni nedostatak Javaskripta se često navodilo to što nema specifikaciju za podelu koda u manje datoteke.
-Najraniji alati koji su slućili da nadomeste ovaj nedostatak su radili jednostavnu konkatenaciju.
-Sa pojavom Noda se javio prvi formalni standard; koristi se funkcija \code{require} za uvoz datoteka i posebna globalna promenljiva \code{exports} za izvoz simbola iz njih.
-Ovaj standard je kasnije dobio ime \textbf{CJS} (\textsl{CommonJS}).
-Iako je ovaj standard bio specifičan za Nod i iako nije bio prihvaćen kao Javaskript standard, javili su se alati koji dopuštaju developerima da kod namenjen izvršenju u brauzerima (a ne u Nodu) pišu u odvojenim fajlovima i da reference na simbole definišu eksplicitno koristeći \code{require} i \code{exports} umesto da se oslanjaju na primitivne metode kao što je konkatenacija.
-Ovi alati su bili prvi \textbf{bandleri}.
-Kao izlaz su davali isključivo jednu \code{.js} datoteku, tako što su zavisnosti među izvornim datotekama praćene od jedne početne.
-
-Aplikacije su vremenom rasle a SPA metoda za izgradnju aplikacija se koristila sve češće.
-Postalo je jasno da se dobar deo koda koji se isporučuje korisnicima nikada ne izvrši, jer korisnik nikada ne dođe do određenog dela aplikacije.
-Da bi se ovaj problem premostio, zajednica je definisala specifikaciju poznatu kao \textbf{AMD} (\textsl{Asynchronous Module Definition}).
-Ovime je omogućeno da se definišu zavisnosti između datoteka u fazi izvršenja programa na klijentu i da se pribave asihrono, kada se za to javi potreba.
-Pošto su zavinosti eksplicitno definisane, dodatne zavisnosti se pribavljaju automatski, pa se s developera skida teret da mora ručno da definiše koje datoteke se prve moraju učitati da bi se učitala druga.
-
-Osim pisanja Javaskripta kroz AMD module, moguće je i pisati ih u odvojenim datotekama a prepustiti nekom devop alatu da ih pretvori u AMD module, bilo da su oni u jednoj datoteci ili u više njih.
-
-I CJS i AMD su dosegli dovoljnu popularnost da se smatraju "standardom" -- jedan za Node, a drugi za brauzere.
-Ali šta je sa modulima za koje ima smisla da istovremeno budu dostupni i u Nodu i u brauzeru; na primer, što su biblioteke sa pomoćnim funkcijama kao što je \textsl{lodash}?
-
-Kako ne bi postojale dve različite verzije datoteka, osmišljena je nova specifikacija, nazvana \textbf{UMD} (\textsl{Universal Module Definition}).
-UMD ne samo da je kompatibilan i sa CJS-om i sa AMD-om, već radi i sa globalno definisanim simbolima.
-
-Paralelno sa ovim, sa porastom popularnosti Javaskripta i veba kao vodeće platforme za razviće aplikacija, počinje da se intenzivnije radi se na specifikaciji Harmonije, nove verzije EkmaSkript specifikacije koja je danas poznata kao ES2015.
-Ovime je problem rada sa više fajlova formalno rešen.
-
-Međutim, postoje dva razloga zašto većina developera ne koristi ES2015 module u produkciji.
-Prvi je to što i dalje postoji određeni procenat ljudi koji koristi brauzere koji nisu implementirali ovaj standard.
-Drugi je to što se povećava broj zahteva i aplikacija se usporava.
-
-Osim toga što se zahteva više datoteka (što predstavlja više zahteva ka serveru pa samim tim dužu komunikaciju sa istim), ostaje problem minifikacije i drugih tehnika optimizacije koje ili nisu izvodljive ili nisu u dovoljnoj meri izražene.
-Zbog ovoga se i dalje koriste bandleri koji na složeni način obarđuju fajlove kako bi pronašli njihove međuzavisnosti i od njih stvorile jedan ili više izlaznih datoteka spremnih za produkciju.
-
-Da bi Tajpskript zadovoljio široke potrebe developera, podržava više načina na generiše module.
+Da bi Tajpskript zadovoljio široke potrebe developer\=a (v. \cref{subsec:js-moduli}), podržava više načina na generiše module.
 Opcija \code{module} prima jednu od sledećih vrednosti: \code{None}, \code{CommonJS}, \code{AMD}, \code{System}, \code{UMD}, i \code{ES2015}.
 
 Ovo polje je usko povezano sa poljem \code{target}; \code{ES2015} je moguće koristiti samo ako je \code{target} podešeno na \code{es5} ili niže.

@@ -1,4 +1,4 @@
-\documentclass[twoside]{report}
+\documentclass[twoside, openright]{report}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[english,serbian]{babel}
@@ -7,6 +7,7 @@
 \usepackage{subfiles}
 \usepackage{csquotes}
 \usepackage{xcolor}
+\usepackage{epigraph}
 
 \usepackage{listings}
 \usepackage{tikz}
@@ -31,6 +32,31 @@
 %  }
 % } \makeatother
 
+
+% front, main, back matter za report
+% https://tex.stackexchange.com/questions/154646/is-there-an-easy-way-to-get-the-frontmatter-mainmatter-and-backmatter-in-a-l
+\makeatletter
+
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+ % \@mainmatterfalse
+   }
+
+\makeatother
 
 % Watermark za draft verziju
 % \usepackage[printwatermark]{xwatermark}
@@ -135,6 +161,8 @@
 
 
 \begin{document}
+
+\pagenumbering{gobble}
    
 \begin{titlepage}
   \begin{center}
@@ -174,9 +202,11 @@
   \end{center}
 \end{titlepage}
 
-\newpage
+%\shipout\null
 
-\newpage
+\frontmatter
+
+\pagenumbering{gobble}
 
 \textbf{Zadatak:}
 
@@ -206,15 +236,11 @@ Tralala
 
 \end{tabular}
 
-\tableofcontents
-
 \newpage
 
 \begin{abstract}
   \subfile{ch00/abstract.sr}
 \end{abstract}
-
-\newpage
 
 \begin{otherlanguage}{english}
   \begin{abstract}
@@ -222,6 +248,9 @@ Tralala
   \end{abstract}
 \end{otherlanguage}
 
+\tableofcontents
+
+\mainmatter
 
 \subfile{ch01/main}
 
@@ -232,6 +261,8 @@ Tralala
 \subfile{ch04/main}
 
 \subfile{ch05/main}
+
+\appendix
 
 \printbibliography[title=Literatura]
 

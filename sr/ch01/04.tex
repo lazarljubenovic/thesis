@@ -1,0 +1,110 @@
+\section{Pomoćni alati i novi jezici}
+
+Osim frejmvorka, razvijaju se i alati koji pomažu autorima prilikom pisanja koda.
+
+\subsection{Moduli u Javaskriptu}
+\label{subsec:js-moduli}
+
+Kao glavni nedostatak Javaskripta se često navodilo to što nema specifikaciju za podelu koda u manje datoteke \cite[\S10]{eloquent-js}.
+Najraniji alati koji su služili da nadomeste ovaj nedostatak su radili jednostavnu konkatenaciju \cite{ancienct-concat}.
+Sa pojavom Noda se javio prvi formalni standard; koristi se funkcija \code{require} za uvoz datoteka i posebna globalna promenljiva \code{exports} za izvoz simbola iz njih.
+Ovaj standard je kasnije dobio ime \textbf{CJS} (\textsl{CommonJS}).
+Iako je ovaj standard bio specifičan za Nod i iako nije bio prihvaćen kao Javaskript standard, javili su se alati koji dopuštaju developerima da kod namenjen izvršenju u brauzerima (a ne u Nodu) pišu u odvojenim fajlovima i da reference na simbole definišu eksplicitno koristeći \code{require} i \code{exports} umesto da se oslanjaju na primitivne metode kao što je konkatenacija.
+Ovi alati su bili prvi \textbf{bandleri}.
+Kao izlaz su davali isključivo jednu \code{.js} datoteku, tako što su zavisnosti među izvornim datotekama praćene od jedne početne.
+
+Aplikacije su vremenom rasle a SPA metoda za izgradnju aplikacija se koristila sve češće.
+Postalo je jasno da se dobar deo koda koji se isporučuje korisnicima nikada ne izvrši, jer korisnik nikada ne dođe do određenog dela aplikacije.
+Da bi se ovaj problem premostio, zajednica je definisala specifikaciju poznatu kao \textbf{AMD} (\textsl{Asynchronous Module Definition}).
+Ovime je omogućeno da se definišu zavisnosti između datoteka u fazi izvršenja programa na klijentu i da se pribave asihrono, kada se za to javi potreba.
+Pošto su zavinosti eksplicitno definisane, dodatne zavisnosti se pribavljaju automatski, pa se s developera skida teret da mora ručno da definiše koje datoteke se prve moraju učitati da bi se učitala druga.
+
+Osim pisanja Javaskripta kroz AMD module, moguće je i pisati ih u odvojenim datotekama a prepustiti nekom devop alatu da ih pretvori u AMD module, bilo da su oni u jednoj datoteci ili u više njih.
+
+I CJS i AMD su dosegli dovoljnu popularnost da se smatraju \textquote{standardom} -- jedan za Node, a drugi za brauzere.
+Ali šta je sa modulima za koje ima smisla da istovremeno budu dostupni i u Nodu i u brauzeru; na primer, što su biblioteke sa pomoćnim funkcijama kao što je \textsl{lodash}?
+
+Kako ne bi postojale dve različite verzije datoteka, osmišljena je nova specifikacija, nazvana \textbf{UMD} (\textsl{Universal Module Definition}).
+UMD ne samo da je kompatibilan i sa CJS-om i sa AMD-om, već radi i sa globalno definisanim simbolima.
+
+Paralelno sa ovim, sa porastom popularnosti Javaskripta i veba kao vodeće platforme za razviće aplikacija, počinje da se intenzivnije radi se na specifikaciji Harmonije, nove verzije EkmaSkript specifikacije koja je danas poznata kao ES2015.
+Ovime je problem rada sa više fajlova formalno rešen.
+
+Međutim, postoje dva razloga zašto većina developera ne koristi ES2015 module u produkciji.
+Prvi je to što i dalje postoji određeni procenat ljudi koji koristi brauzere koji nisu implementirali ovaj standard.
+Drugi je to što se povećava broj zahteva i aplikacija se usporava.
+
+Osim toga što se zahteva više datoteka (što predstavlja više zahteva ka serveru pa samim tim dužu komunikaciju sa istim), ostaje problem minifikacije i drugih tehnika optimizacije koje ili nisu izvodljive ili nisu u dovoljnoj meri izražene.
+Zbog ovoga se i dalje koriste bandleri koji na složeni način obarđuju fajlove kako bi pronašli njihove međuzavisnosti i od njih stvorile jedan ili više izlaznih datoteka spremnih za produkciju.
+
+\subsection{Bandleri i minifikacija}
+
+Banlovanje u Javaskriptu je tehnika koja grupiše odvojene datoteke u cilju smanjenja broja HTTP zahteva koje je potrebno otpočeti kako bi se stranica učitala.
+
+Preteča bandlera su \textquote{izvršioci zadataka} (\textsl{task runners}), među kojima se ističu \textsl{gulp} i \textsl{grunt}.
+Rešenje koje oni nude je daleko od idealnog -- developer mora da u nekoj vrsti konfiguracionog fajla definiše redosled kojim fajlovi treba da se učitaju, a izvršilac jednostavno konkatenira sve datoteke, kao da su proizvoljni stringovi, u jedan fajl koji je developer uključivao u stranicu.
+
+Kao jedno od rešenja za ovaj problem nastaje \textbf{Vebpek} (\textsl{webpack}).
+Kada procesira aplikaciju, on je potpuno svestan Javaskripta kao jezika u kome je napisana.
+Kod se parsira, a u nekim slučajevima se delovi koda i interpretiraju; na osnovu toga se rekurzivno izgraduje graf zavisnosti koji sadrži svaki modul koji je potreban aplikaciji.
+Kao krajnji proizvod daje manji broj paketa (nekad i samo jedan) koje će brauzer učitati.
+Veoma je konfigurabilan, što omogućuje granularnije podešavanje veličine i
+izgleda bandlova, kao i lenjo učitavanje tek kada ih korisnička aplikacija zahteva, čime se ubrzava inicijalno učitavanje aplikacije.
+
+Sličan alat je \textbf{Rolap} (\textsl{Rollup}), mada je nastao iz drugačijih razloga.
+Naime, Rolap je prvi bandler koji je prihvatio ES2015 module kao prvoklasni način za učitavanje modula, omogućivši pritom tzv. \textit{tree-shaking} \cite{rollup-guide}.
+U pitanju je proces kojim se iz modula dovlače samo simboli koji se koriste, umesto celog modula.
+Ovo znatno smanjuje veličinu koda prilikom korišćenja eksternih modula, pogotovo modula koji pružaju veliki broj pomoćnih funkcija (kao što je \textit{lodash}).
+
+Zbog koncepta klijenta na vebu, Javaskript ima specifične zahteve kada su performanse u pitanju.
+Kod desktop aplikacija, pažnja se retko obraća na veličinu izvršne datoteke jer nije od važnosti -- korisnici su svesni da mora da prođe određeno vreme kada prvi put preuzimaju aplikaciju i kada je instaliraju, i razlika između sto i dvesta megabajta prolazi nezapaženo.
+Performanse desktop aplikacija mere su vremenu potrebnom za izvršenje zadatka za koje su namenjene ili u brzini odziva tokom navigacije kroz korisnički interfejs.
+
+Međutim, na vebu su stvari drugačije.
+Pored istih mera performansi koje imaju desktop aplikacije, ključni faktor za performanse koje će korisnik doživeti je i veličina koda.
+Da stvar bude komplikovanija, Javaskript je jezik koji se interpretira, što znači da se izvorni kod šalje direktno klijentu.
+Ukoliko bi autor koda ručno probao da ga učini optimalnim za transfer preko mreže, posle svega nekoliko minuta bi bio neodrživ -- bilo bi potrebno ukloniti sve nepotrebne znake beline, što znači da bi se kod pisao u jednoj liniji, a sva imena promenljivih imala bi jedno ili dva slova.
+
+Kako bi se rešio ovaj problem, razvijeni su \textbf{minifikatori}.
+Tehnički, u pitanju su kompilatori koda, ali prevode Javaskript nazad \emph{u Javaskript}.
+Autor može da tokom razvića aplikacije koristi neminifikovanu verziju, što pomaže prilikom debagiranja, a da pred slanja na produkciju pokrene minifikator.
+Ipak, ovo je mukotrpan posao pa se minifikatori ugrađuju u bild-proces, obično u vidu plagina za bandlere kao što su Vebpek i Rolap.
+
+Najpopularniji minifikator za Ekmaskript je \textbf{Terser} (\textsl{terser}).
+Sastoji se od parsera, generatora koda, optimizatora, menglera, analizatora opsega, šetača stabla i transformera stabla \cite{uglify}.
+Parser služi za kreirnje apstraktnog sintaksnog stabla (AST) na osnovu Javaskript koda, koji se dalje koristi od strane optimizatora, što je primarni transformer stabla.
+Njime se obilazi dobijeni AST i vrše se transformacije nad njima na osnovu unapred utvrđenih pravila, sa ciljem sa se veličina stabla smanji.
+Na primer: čvorovi koji predstavljaju konstantne izrazi kao što je \code{1 + 2} mogu biti sračunati od strane optimizatora i zamenjeni literalom koji predstavlja dobijenu vrednosti; ukoliko se u uslovu naredbe \code{if} nađe konstanta \code{true}, cela negativna grana i sama naredba \code{if} se mogu ukloniti.
+
+Neke optimizacije nisu \textquote{sigurne}, odnosno mogu potencijalno da \textquote{slome} kod ukoliko se obave.
+Jedna takva je promena imena promenljivih (ređe) i imena ključeva u svojstvima objekta (češće), koja se naziva menglovanje.
+Ukoliko se ovi uslovi ispune, prolazak menglera kroz kod može drastično da smanji veličinu koda pukim prepisivanjem imena.
+
+\subsection{Javaskript kao asembler veba}
+
+Jezici koji se kompajliraju u Javaskript postaju popularni zajedno sa pojavom SPA kao obrasca za izradu aplikacija.
+Prvi široko rasprostranjen takav jezik je \textbf{Kofiskript} (\textsl{CoffeeScript}) \cite{coffeescript-homepage}.
+Nastao je 2009, a najveću popularnost ima od 2011 do 2014, kada polako počinje da pada u zaborav.
+U SOJS anketi iz 2016, 60\% ispitanika je reklo da je \textquote{čulo za njega, ali ne želi da ga uči}, dok 25\% kaže da su \textquote{ga koristili ranije, ali više ne} -- samo 6\% je bilo zadovoljno jezikom.
+
+Pad Kofiskripta može da se protumači kao pozitivna stvar, kada se uzme u obzir vreme i razlog zbog koga je on nastao.
+Naime, razlog zbog koga je postao popularan bile su one strukture koje su kasnije došle uz Ekmaskript 2015.
+Razlika je u tome što Kofiskript nije \textit{standard}, niti se oslanja na njega -- radi se o potpuno proizvoljnoj sintaksi, inspirisanoj Rubijem, Pajtonom i Haskelom.
+Uz dolazak novih standarda, novih alata i novih jezika, Kofiskript nema šta da pruži.
+Bez načina za definisanje tipova podataka, nema prednost u ranijem otklanjanju grešaka iz koda, a bez novih osobina u odnosu na novi ES standard, nema razloga za korišćenje.
+Konciznija i kraća sintaksa, umesto prednosti, počinje da bude dodatni korak koji developeri moraju da savladaju pre nego što mogu da počnu sa radom \cite{gh:coffeescript-future}.
+
+Ipak, Kofiskript igra značajnu ulogu u razviću samog Javaskripta.
+Daglas Krokford izjavio je 2012. da je Kofiskript \textquote{lep, elegantan i minimalan} i da bi \textquote{voleo da je Javaskript više nalik Kofiskriptu}, nazivajući ga \textquote{ljupkim malim jezikom} \cite{crockford:java-was-failure}.
+Brendan Ajk bio je šampion predloga za \textquote{debele streličaste funkcije} u Javaskriptu (\code{=>}), a deo ideje za konciznu sintaksu je dobio upravo od Kofiskripta \cite{hn:brendan-eich-dart-coffee-es6}.
+
+Još jedan popularan jezik koji se pojavljuje je \textbf{Dart}; u pitanju je Guglov proizvod iz 2011. godine.
+Kasnije dobija zvaničnu Ekma specifikaciju i poseban komitet, TC52.
+Slično Kofiskriptu, ima proizvoljnu sintaksu -- ovog puta, inspirisanu C-olikim jezicima.
+Umesto kraćeg zapisa Javaskript konstrukcija, Dart se osvrće na prvoklasnu podršku za obrasce kao što su klase, miksini, apstraktne klase, itd.
+Pored ovoga, uvodi i sistem tipova -- sistem koji naziva \textquote{sigurnim}: koristi \textquote{kombinaciju statičke provere tipova i provere tokom izvršenja kako bi se postarao da vrednost koja je dodeljena promenljivoj uvek odgovara statičkom tipu promenljive} \cite{dart}.
+
+Istovremeno, Majkrosoft radi na projektu pod kodnim imenom \textquote{Strada}.
+Među timom od oko 50 ljudi koji su radili na projektu, ističe se ime Anders Hajlzberg -- autor Turbo Paskala i Delfija, i glavni arhitekta u timu za C$\sharp$ u Majkrosoftu.
+Jezik je prvog oktobra 2012. godine objavljen pod nazivom \textbf{TajpSkript}, u verziji 0.8.
+Prva stabilna verzija (1.0) objavljena je 2014. godine.

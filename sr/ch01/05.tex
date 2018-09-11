@@ -1,5 +1,18 @@
 \section{Vejn}
 
-U prethodna dva poglavlja dat je pregled frejmvorka, sa posebnim osvrtom na neke tehnike na osnovu kojih se može detektovati da došlo promene u modelu i tu promenu odraziti na pogled; zatim su pomenuti neki alati i jezici koji omogućavaju da se vrši transformacija koda, a na visokom nivou je dat opis načina funkcionisanja minifikatora.
+U prethodna dva poglavlja dat je pregled frejmvork\=a, sa posebnim osvrtom na neke tehnike na osnovu kojih se može detektovati da je došlo do promene u modelu i tu promenu odraziti na pogled; zatim su pomenuti neki alati i jezici koji omogućavaju da se vrši transformacija koda, a na visokom nivou je dat opis načina funkcionisanja minifikatora.
 
-TODO
+Ideja ovog rada je spojiti ta dva koraka u jedan.
+Umesto da se kôd frejmvorka i kôd autora minifikuje alatom opšte namene, može se napraviti minifikator koji je svestan postojanja frejmvorka.
+Pošto se sužava skup ulaza u minifikator, moguće je detaljnije obraditi obrasce u kodu i bolje optimizovati izvršnu verziju.
+
+Radi demonstriranja ove tehnike, razvijen je frejmvork Vejn (\textsl{Wane}).
+Ideja o minifikatoru i frejmvorku spojenim u jedno je proširena korak dalje -- ako je minifikator svestan koda frejmvorka, da li ima potrebe da kod frejmvorka uopšte postoji?
+Može li da se umesto minifikatora koji menja \emph{postojeći} izvršni kod razviti minifikator koji kreira optimizovan kod \emph{od nule}, na osnovu specifikacije zadate od strane autora?
+
+Odgovor na sva pitanja je \emph{da}, a Vejn je primer takve implementacije.
+
+Autor koji za razvoj aplikacije koristi Vejn piše kod u Tajpskriptu.
+Ova odluka u trenutnoj verziji implementacije nije od velikog značaja, ali se tip podataka potencijalno može iskoristiti u kasnijim fazama razvića frejmvorka kako bi se načinile neke inače nemoguće optimizacije (na sličan način na koji to izvodi \textsl{Google Closure Compiler}).
+
+U narednim poglavljima će prvo biti reči o Tajpskriptu, a potom o samom Vejnu -- kako iz ugla autora, tako i iz ugla internih odluka i načina rada.

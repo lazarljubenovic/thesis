@@ -1,7 +1,7 @@
 \section{Biblioteke i frejmvorci}
 
 Teško je govoriti o jednostraničnim aplikacijama a ne pomenuti biblioteke i frejmvorke koji su nastali kako bi autorima olakšali njihovo razviće, a definisati koji frejmvork je prvi napravljen konkretno za razviće SPA aplikacija nije nimalo lakši zadatak.
-Ne samo da je termin \textquote{\textsl{single page application}} postao rasprostranjen mnogo kasnije nego što se javili alati koji su se koristili za njih, već se i očekivanja od SPA frejmvorka vremenom menjaju -- neke osobine frejmvorka koje se danas smatraju standardom (npr. SSR) u vreme prvih frejmvorka nisu ni bile razmatrane.
+Ne samo da je termin \textquote{\textsl{single-page application}} postao rasprostranjen mnogo kasnije nego što se javili alati koji su se koristili za njih, već se i očekivanja od SPA frejmvorka vremenom menjaju -- neke osobine frejmvorka koje se danas smatraju standardom (npr. SSR) u vreme prvih frejmvorka nisu ni bile razmatrane.
 
 Posle Džesi Džejms Garetove objave članka \textquote{\textsl{Ajax: A New Approach to Web Applications}}iz 2005. godine \cite{ajax-a-new-approach}, gde je opisao kako su aplikacije --u to vreme revolucionarne verzije \textsl{Gmail}-a i \textsl{Google Maps}-a koje su vršile navigacije ne zahtevajući novu stranicu sa servera-- razvijene u Guglu \cite{aaronsw:ajax-history}, termin \textquote{Ajaks} se brzo prihvata i javljaju se biblioteke koje omogućavaju jednostavnije korišćenje skupa tehnologija koje čine Ajaks.
 U ovo vreme koristi se termin \textquote{Ajaks frejmvork} za novonastale biblioteke.
@@ -10,22 +10,22 @@ Među njima se neosporivo kao predvodvnik izdvaja \textsl{jQuery}, nastao počet
 Koristi ga preko devedeset miliona sajtova, pritom preko 80\% od milion najposećenijih sajtova \cite{built-with-jquery}.
 
 \textsl{jQuery} prate biblioteke sa sličnim ciljem -- na primer, \textsl{Dojo Toolkit} (2005), \textsl{YUI} (2006), \textsl{Ext JS} (2006).
-Najpopularniji konkurent \textsl{jQuery}-ju bio je \textsl{MooTools} (2006), koji je menjao prototip postojećim Javaskript objektima.
-Jedna od dodatih funkcija bila je metoda \code{contains} nad \code{String}, što je kasnije prouzrokovalo probleme kada se ista funkcija pojavila u ES2015 standardu, ali sa drugačijim potpisom.
-Fajerfoks je u verziji 18 dodao standardu metodu, ali to je prouzrokovalo da dođe do greške na sajtovima koji koriste \textsl{Mootools}.
-Iako je \textsl{MooTools} promenio potpis u verziji 1.5, ranije verzije su ostale dovoljno rasprostranjene na internetu, pa je donesena odluka da se \code{contains} u standardu preimenuje u \code{includes} \cite{mdn:string-includes}.
+Najpopularniji konkurent \textsl{jQuery}-ju bio je \textsl{MooTools} (2006), danas uglavnom poznat po tome što je menjao prototip postojećim Javaskript objektima, što se smatra lošom praksom -- i to s razlogom.
+Naime, jedna od dodatih funkcija bila je metoda \code{contains} nad \code{String}, što je kasnije prouzrokovalo probleme kada se ista funkcija pojavila u ES2015 standardu, ali sa drugačijim potpisom.
+Fajerfoks je u verziji 18 dodao standardu metodu, ali to je prouzrokovalo da dođe do greške na sajtovima koji koriste \textsl{Mootools} \cite{mdn:string-includes}.
+Iako je \textsl{MooTools} promenio potpis u verziji 1.5, ranije verzije su ostale dovoljno rasprostranjene na internetu, pa je donesena odluka da se \code{contains} u standardu preimenuje u \code{includes}.
 
 Miško Heveri je tokom 2009. predstavio svetu na svom blogu projekat pod imenom \code{<angular/>} \cite{misko:hello-world}, uz prateće predavanje sledeće godine pod imenom \textquote{\code{<angular/>}: potpuno drugačiji način za razviće ajaks aplikacija} \cite{misko-radically-different-ajax-apps}.
-Biblioteka kao \textsl{jQuery} koristile su se za olakšan rad sa DOM-om.
-\code{<angular/>}, kasnije preimnovan u \textsl{\textbf{AngularJS}} omogućio je sinhronizaciju \textquote{prave} vrednosti podataka (modela) i DOM-a (pogleda).
+Biblioteke kao \textsl{jQuery} koristile su se za olakšan rad sa DOM-om.
+\code{<angular/>}, kasnije preimnovan u \textsl{\textbf{AngularJS}} omogućio je jednostavnu sinhronizaciju \textquote{prave} vrednosti podataka (modela) i DOM-a (pogleda).
 AngularJS aplikacije sastoje se od kontrolera i šablona -- kontroleri su odgovorni za manipulaciju stanjem modela, a šabloni za prikaz korisniku.
 
-Ubrzo je u usledilo još frejmvorka sa sličnom idejom, svaki uglavnom tvrdeći da rešava probleme ostalih -- među najpopularnijim se izdvajaju \textsl{Backbone} (2010), \textsl{Knockout} (2010), \textsl{Ember} (2011).
+Ubrzo je u usledilo još frejmvorka sa sličnom idejom -- među najpopularnijim se izdvajaju \textsl{Backbone} (2010), \textsl{Knockout} (2010), \textsl{Ember} (2011).
 
 Početkom 2010, Marsel Laverdet, inženjer iz Fejsbuka, objavio je članak \textquote{XHP: novi način za pisanje PHP-a}, u kome XHP opisuje kao \textquote{proširenje PHP-a koje nadograđuje sintaksu jezika kako bi front-end kod bio jednostavniji za razumevanje i kako bi se smanjio rizik od XSS napada} \cite{facebook:xhp}.
 Sintaksa koju XHP nudi inspirisana je (u međuvremenu odbačenim) Ekmaskript predlogom E4X (\textsl{ECMAScript for XML}) -- u pitanju je sintaksa koja dozvoljava mešanje XML-a i Ekmaskript koda.
 
-Fejsbuk je već u to vreme koristio frejmvork \textsl{\textbf{React}} razvijen za interne potrebe, ali kupovinom Instagrama 2012. dobija dobar razlog da izdvoji kod frejmvorka u posebni paket kako bi Instagram mogao da bude razvijen istom metodeom.
+Fejsbuk je već u to vreme koristio frejmvork \textsl{\textbf{React}} razvijen za interne potrebe, ali kupovinom Instagrama 2012. dobija dobar razlog da izdvoji kôd frejmvorka u posebni paket kako bi Instagram mogao da bude razvijen istom metodom.
 Na konferenciji \textit{JS ConfUS} 2013, Džordan Vok je predstavio \textsl{React} i objavio da će biti otvorenog koda.
 
 Paralelno, JavaSkript kao jezik prolazi kroz revoluciju (v. \cref{sec:sazrevanje-javaskripta}), pa se javlja i veliki broj alata koji nisu frejmvorci, ali pomažu u pisanju Javaskritpa.
@@ -95,7 +95,7 @@ Na slici \ref{fig:frameworks} prikazani su neki Javaskript frejmvoci.
   \end{center}
 \end{figure}
 
-Problem izbora frejmvorka ne prolazi nezapaženo od strane zajednice; najčešće se pominje pod terminom \textquote{zamor od Javaskripta (\textsl{JavaScript fatigue})}, navodeći da srž problema leži u tzv. paralizi izbora \cite{teropa:overcoming-javascript-framework-fatigue, auth0:fatigue, addy:choice-paralysis}.
+Problem izbora frejmvorka ne prolazi nezapaženo od strane zajednice; najčešće se pominje pod terminom \textquote{zamor od Javaskripta} (\textsl{JavaScript fatigue}), navodeći da srž problema leži u tzv. paralizi izbora \cite{teropa:overcoming-javascript-framework-fatigue, auth0:fatigue, addy:choice-paralysis}.
 Ekipa koja stoji iza projekta \textsl{TodoMVC} ovaj fenomen naziva YAFS (\textsl{Yet Another Framework Syndrome}, sindrom još jednog frejmvorka) \cite{tastejs:yafs}.
 
 Ipak, i pored veoma raznovrsnog ekosistema i razlika kojima se svaki frejmvork ponaosob ističe, svi oni dele isti cilj: olakšati način ažuriranja pogleda kada dođe do promene stanja.
@@ -112,7 +112,7 @@ Stvari postaju zanimljive kada se postavi pitanje \emph{promene} pogleda.
 
 Promena pogleda nema trivijalno rešenje.
 Postoji nekoliko glavnih pristupa, a svaki pristup može da ima više varijacija.
-Detalji izbora algoritma za \textbf{detekciju promena}, odnosno algoritma kojim frejmvork garantuje da će pogled uvek biti sinhronizovan sa pogledom, kao i način na koji autor koda obaveštava frejmvork da je došlo do promene -- predstavljaju osnovnu metriku na osnovu koje se frejmvorci mogu porediti.
+Detalji izbora algoritma za \textbf{detekciju promena}, odnosno algoritma kojim frejmvork garantuje (ili ne) da će pogled uvek biti sinhronizovan sa pogledom, kao i način na koji autor koda obaveštava frejmvork da je došlo do promene -- predstavljaju osnovnu metriku na osnovu koje se frejmvorci mogu porediti.
 Neka od pitanja koja se mogu postaviti su sledeća.
 
 \begin{itemize}
@@ -130,22 +130,22 @@ Ovako detaljno upravljanje aplikacijom značilo je da su performanse aplikacije 
 Kada aplikacija postane dovoljno velika, ručni pozivi funkcija za ažuriranje nesumnjivo dovode do povećanja kompleknosti.
 Svi frejmvorci koji se javljaju posle prve generacije za cilj imaju da reše problem sinrhonizacije.
 Jedan od njih je \textsl{Ember.js}, koji omogućuje \textbf{definisanje veza} između konkretnog dela stanja i dela pogleda.
-Slično frejmvorcima prve generacije, kada se stanje promeni, emituje se neki događaj -- ali umesto da se prepusti developeru da na taj događaj odreaguje na ogovarajući način, \textsl{Ember} ga interno osluškuje i umesto developera automatski poziva metodu za ažuriranje pogleda.%
+Slično frejmvorcima prve generacije, kada se stanje promeni, emituje se neki događaj -- ali umesto da se prepusti developeru da na taj događaj odreaguje pozivom metode za renderovanje nad nekim delom pogleda, \textsl{Ember} ga interno osluškuje i umesto developera automatski poziva odgovarajuću metodu.%
 \footnote{Što se \textsl{Ember}-a konkretno tiče, \textquote{automatski} poziv se postiže tako što se od developera očekuje da ne koristi operator \code{=} (jednako) za promenu modela, već da koristi posebnu metodu \code{set}. Ovo nije jedino moguće rešenje -- na primer, \textsl{Vue.js} koristi sličan način detekcije promene ali se oslanja na getere i setere \cite{matt:vue-code}. Korišćenje \code{Proxy} objekta (ES2015) je još jedna od alternativa ukoliko nije potrebna podrška za starije brauzere (jer ne postoji način da se simulira konzistentno ponašanje u brauzerima koji nemaju odgovarajuću podršku).}
 
-Veoma sličan --a opet potpuno suprotan-- pristup ima \textsl{AngularJS}.
+Veoma sličan --a opet na neki način potpuno suprotan-- pristup ima \textsl{AngularJS}.
 Rešenje ovog frejmvorka takođe se bazira na ideji da se metoda za re-renderovanje treba pozvati samo kada dođe do promene.
-Međutim, logika je suprotna: kreiraju se \textquote{nadgledatelji} za svaku promenljivu koja je referencirana u šablonu.
-Kada kog se za tim ukaže potreba, frejmvork proverava da li se vrednost promenila od prošlog puta -- ako jeste, vrši se ažuriranje DOM-a.
+Međutim, logika je inverzna: kreiraju se \textquote{nadgledatelji} (\textsl{watcher}) za svaku promenljivu koja je referencirana u šablonu.
+Kada god se za tim ukaže potreba, frejmvork proverava da li se vrednost promenila od prošlog puta -- ako jeste, vrši se ažuriranje DOM-a.
 Ovaj proces je \textsl{AngularJS} nazvao \textbf{prljava provera} (\textsl{dirty check}), misleći na izmene u modelu kao na \textquote{prljave} delove modela koje treba \textquote{očistiti} reagovanjem na njih.
 Glavna mana ovog modela jeste određivanje trenutka \emph{kada} treba pokrenuti takav algoritam.
-Neophodno je obezbediti da se presretnu\footnote{\textsl{AngularJS} je u sličnoj sitauciji kao \textsl{Ember.js} i \textsl{Vue.js}. Opisani pristup koji  sa presretanjem određenih funkcija je imlpementacioni detalj i postoji zbog nedostatka Javaskripta u to vreme. Postojao je ES predlog baš za ovaj slučaj korišćenja (\code{Object.observe}), ali je u potom odbačen u korist predloga \code{Proxy} kojim se može postići isti efekat. U tom smislu su algoritmi za detekciju promena koje implementiraju \textsl{AngularJS}, \textsl{Vue.js} i \textsl{Ember.js} veoma slični -- iako je ugao posmatranja problema malo drugačiji među njima, na kraju se razlika svodi na implementacione detalje i imenovanje faza u ciklusima detekcije.} svi pozivi metodama zbog kojih \textit{može} doći do promene u modelu -- ovo je bilo koja interakcija sa UI-jem, časovnici i HTTP odgovori.
+Neophodno je obezbediti da se presretnu\footnote{\textsl{AngularJS} je u sličnoj sitauciji kao \textsl{Ember.js} i \textsl{Vue.js}. Opisani pristup (sa presretanjem određenih funkcija) je imlpementacioni detalj i postoji zbog nedostatka Javaskripta u to vreme. Postojao je ES predlog baš za ovaj slučaj korišćenja (\code{Object.observe}), ali je u potom odbačen u korist predloga \code{Proxy} kojim se može postići isti efekat. U tom smislu su algoritmi za detekciju promena koje implementiraju \textsl{AngularJS}, \textsl{Vue.js} i \textsl{Ember.js} veoma slični; iako je ugao posmatranja problema malo drugačiji među njima, na kraju se razlika svodi na implementacione detalje i imenovanje faza u ciklusima detekcije.} svi pozivi metoda zbog kojih \textit{može} doći do promene u modelu -- ovo je bilo koja interakcija sa UI-jem, časovnici i HTTP odgovori.
 \textsl{Angular}, nova verija frejmvorka \textsl{AngularJS} napisana iznova, ponaša se konceptualno slično (mada uz potpuno drugačiju implementaciju \cite{ng-uni:cd, milosz:ng-cd}), ali developer ima mogućnost da određene delove koda optimizuje ukoliko može da garantuje neke preduslove koji postoje u podacima \cite{savkin:cd, thoughtram:cd}.
 
 Potpuno drugačiji pogled na problem detekcije promena ima \textsl{React}.
 Umesto da traži razlike u \emph{modelu}, \textsl{React} traži razlike u \emph{pogledu}.
 Svaki put kada dođe do promene u modelu, \textsl{React} iznova renderuje celo ili deo stabla koji predstavlja pogled -- ali, umesto da promene upisuje direktno u DOM (što bi bilo uzuzetno sporo i nepotpuno funkcionalno), pogled se najpre renderuje kao jednostavna struktura podataka u memoriji aplikacije: kao Javaskript objekat.
-Kada se nova verzija korisničkog interfejsa izrenderuje u ovu strukturu, koja se naziva \textbf{virtuelni DOM}, traže se razlike\footnote{Tačan način funkcionisanja traženja razlika je implementacioni detalj, ali činjenica da se koristi virtuelni DOM nije. Zapravo, \textsl{React} nema šablonsku sintaksu (koja je u slučaju frejmvork\=a kao \textsl{Ember.js} i \textsl{AngularJS} neophodna kako bi veza sa DOM-om mogla da se uspostavi bez dodatne konfiguracije od strane autora), već se UI definiše pozivima funkcija koje primaju određene parametre u skladu sa reprezentacijom virtuelnih čvorova. Zapravo, \textsl{React} je za verziju 16 napisan ponovo \cite{what-is-react-fiber}, koristeći novu strategiju traženja razlika u virtuelnom DOM-u, nazvanu \textit{Fiber}, a API je ostao kompatibilan sa prethodnom verzijom.} između stare i nove verzije.
+Kada se nova verzija korisničkog interfejsa izrenderuje u ovu strukturu, koja se naziva \textbf{virtuelni DOM}, traže se razlike\footnote{Tačan način funkcionisanja traženja razlika je implementacioni detalj, ali činjenica da se koristi virtuelni DOM nije. Zapravo, \textsl{React} nema šablonsku sintaksu (koja je u slučaju frejmvork\=a kao \textsl{Ember.js} i \textsl{AngularJS} neophodna kako bi veza sa DOM-om mogla da se uspostavi bez dodatne konfiguracije od strane autora), već se UI definiše pozivima funkcija koje primaju određene parametre u skladu sa reprezentacijom virtuelnih čvorova. Zapravo, \textsl{React} je za verziju 16 napisan iznova \cite{what-is-react-fiber}, koristeći novu strategiju traženja razlika u virtuelnom DOM-u, nazvanu \textit{Fiber}, a API je ostao kompatibilan sa prethodnom verzijom.} između stare i nove verzije.
 U skladu sa rezultatima te razlike, ažurira se samo određeni deo stvarnog DOM-a.
 \textsl{React} zna da je došlo do promene stanja pozivom posebne metode iz klase koju sve komponente moraju da nasleđuju.
  

@@ -9,7 +9,7 @@ Kao glavni nedostatak Javaskripta se često navodilo to što nema specifikaciju 
 Najraniji alati koji su služili da nadomeste ovaj nedostatak su radili jednostavnu konkatenaciju \cite{ancienct-concat}.
 Sa pojavom Noda se javio prvi formalni standard; koristi se funkcija \code{require} za uvoz datoteka i posebna globalna promenljiva \code{exports} za izvoz simbola iz njih.
 Ovaj standard je kasnije dobio ime \textbf{CJS} (\textsl{CommonJS}).
-Iako je ovaj standard bio specifičan za Nod i iako nije bio prihvaćen kao Javaskript standard, javili su se alati koji dopuštaju developerima da kod namenjen izvršenju u brauzerima (a ne u Nodu) pišu u odvojenim fajlovima i da reference na simbole definišu eksplicitno koristeći \code{require} i \code{exports} umesto da se oslanjaju na primitivne metode kao što je konkatenacija.
+Iako je ovaj standard bio specifičan za Nod i iako nije bio prihvaćen kao Ekmaskript standard, javili su se alati koji dopuštaju developerima da kod namenjen izvršenju u brauzerima (a ne u Nodu) pišu u odvojenim fajlovima i da reference na simbole definišu eksplicitno koristeći \code{require} i \code{exports} umesto da se oslanjaju na primitivne metode kao što je konkatenacija.
 Ovi alati su bili prvi \textbf{bandleri}.
 Kao izlaz su davali isključivo jednu \code{.js} datoteku, tako što su zavisnosti među izvornim datotekama praćene od jedne početne.
 
@@ -52,7 +52,7 @@ Veoma je konfigurabilan, što omogućuje granularnije podešavanje veličine i
 izgleda bandlova, kao i lenjo učitavanje tek kada ih korisnička aplikacija zahteva, čime se ubrzava inicijalno učitavanje aplikacije.
 
 Sličan alat je \textbf{Rolap} (\textsl{Rollup}), mada je nastao iz drugačijih razloga.
-Naime, Rolap je prvi bandler koji je prihvatio ES2015 module kao prvoklasni način za učitavanje modula, omogućivši pritom tzv. \textit{tree-shaking} \cite{rollup-guide}.
+Naime, Rolap je prvi bandler koji je prihvatio ES2015 module kao prvoklasni način za učitavanje modula, omogućivši pritom tzv. \textit{tree-shaking}~\cite{rollup-guide}.
 U pitanju je proces kojim se iz modula dovlače samo simboli koji se koriste, umesto celog modula.
 Ovo znatno smanjuje veličinu koda prilikom korišćenja eksternih modula, pogotovo modula koji pružaju veliki broj pomoćnih funkcija (kao što je \textit{lodash}).
 

@@ -64,33 +64,29 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.5}Lintanje koda}{23}{subsection.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.6}Strogi re\IeC {\v z}im}{23}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.6}Strogi re\IeC {\v z}im}{24}{subsection.2.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Tipovi}{23}{section.2.3}
+\contentsline {section}{\numberline {2.3}Tipovi}{24}{section.2.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.1}Unija i presek}{26}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}Interfejsi i klase}{26}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}Osnovni tipovi}{26}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}Osnovni tipovi}{27}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}Interfejsi}{27}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.4}\IeC {\v C}uvari tipova}{28}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.5}Klase}{27}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.5}Tip \leavevmode {\color {black!80}\texttt {never}}}{30}{subsection.2.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.6}\IeC {\v C}uvari tipova}{27}{subsection.2.3.6}
+\contentsline {subsection}{\numberline {2.3.6}Preklapanje funkcija}{30}{subsection.2.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.7}Tip \leavevmode {\color {black!80}\texttt {never}}}{29}{subsection.2.3.7}
+\contentsline {subsection}{\numberline {2.3.7}Generi\IeC {\v c}ki tipovi}{31}{subsection.2.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.8}Preklapanje funkcija}{29}{subsection.2.3.8}
+\contentsline {subsection}{\numberline {2.3.8}Uslovni tipovi}{32}{subsection.2.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.9}Generi\IeC {\v c}ki tipovi}{30}{subsection.2.3.9}
+\contentsline {subsection}{\numberline {2.3.9}Manipulacija tipovima}{32}{subsection.2.3.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.10}Uslovni tipovi}{31}{subsection.2.3.10}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.11}Manipulacija tipovima}{31}{subsection.2.3.11}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.12}Primeri tipova iz \leavevmode {\color {black!80}\texttt {lib}}}{32}{subsection.2.3.12}
+\contentsline {subsection}{\numberline {2.3.10}Primeri tipova iz \leavevmode {\color {black!80}\texttt {lib}}}{33}{subsection.2.3.10}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}AST Tajpskripta}{35}{chapter.3}
 \defcounter {refsection}{0}\relax 

@@ -19,14 +19,14 @@ Opcija \code{files} je specifičnija od opcije \code{include} jer prima samo put
 
 Ponašanje sistema tipa podatka i način na koji će Tajpskript generisati izlaznu datoteku ili datoteke definiše se u sklopu objekta \code{compilerOptions}.
 Ovaj ključ prima objekat od preko osamdeset podešavanja.
-U nastavku će biti iznesene samo najznačajnije; cela lista se može naći na % TODO https://www.typescriptlang.org/docs/handbook/compiler-options.html[_Compiler Options_ sekciji dokumentacije Tajpskripta].
+U nastavku će biti iznesene samo najznačajnije. % TODO https://www.typescriptlang.org/docs/handbook/compiler-options.html[_Compiler Options_ sekciji dokumentacije Tajpskripta].
 
 \subsection{Izbor ES verzije}
 
 Osim što uvodi tipove podataka u Javaskript, Tajpskript služi i za izbor standarda koji aplikacija treba da podrži.
 Kod je moguće pisati ne samo u tekućoj verziji standarda, već i koristiti predloge koji još uvek nisu ušli u standard.
 
-Kako ne podržavaju svi brauzeri sve TC39 predloge, developer treba da odluči po kom standardu treba da bude napisan emitovan kod.
+Kako ne podržavaju svi brauzeri sve TC39 predloge, autor treba da odluči po kom standardu treba da bude napisan emitovan kod.
 Ovo se određuje poljem \code{target}.
 
 Najstariji podržani standard je \code{es3}, i ovo je podrazumevana vrednost za \code{target}.
@@ -35,7 +35,7 @@ Ukoliko developer ne želi da se kod adaptira ni za jedan standard već da ostan
 
 \subsection{Moduli}
 
-Da bi Tajpskript zadovoljio široke potrebe developer\=a (v. \cref{subsec:js-moduli}), podržava više načina na generiše module.
+Da bi Tajpskript zadovoljio široke potrebe autor\=a (v. \cref{subsec:js-moduli}), podržava više načina da generiše module.
 Opcija \code{module} prima jednu od sledećih vrednosti: \code{None}, \code{CommonJS}, \code{AMD}, \code{System}, \code{UMD}, i \code{ES2015}.
 
 Ovo polje je usko povezano sa poljem \code{target}; \code{ES2015} je moguće koristiti samo ako je \code{target} podešeno na \code{es5} ili niže.
@@ -43,8 +43,8 @@ S druge strane, jedino ako se izabere \code{AMD} ili \code{System} je moguće de
 
 \subsection{Globalni tipovi}
 
-Osim jezičkih konstrukcija, novi ES standardi u jezik uvode i nove globalne promenljive ili nove metode i propertije nad postojećim prototipima.
-Da bi se Tajpskript kompajlirao bez greške i da bi pružio podršku u vidu tipova podataka za sve metode, developer mora da naglasi koje tipove ili koje grupe tipova želi da vidi globalno dostupne, odnosno za šta očekuje da postoji tokom izvršenja koda u okruženju za koje piše softver.
+Osim jezičkih konstrukcija, novi ES standardi u jezik uvode i nove globalne promenljive ili nove metode i svojstva nad postojećim prototipovima.
+Da bi se Tajpskript kompajlirao bez greške i da bi pružio podršku u vidu tipova podataka za sve metode, autor mora da naglasi koje tipove ili koje grupe tipova želi da vidi globalno dostupne, odnosno za šta očekuje da postoji tokom izvršenja koda u okruženju za koje piše softver.
 
 U ovu svrhu se opciji \code{lib} prosleđuje niz stringova.
 Pored celih standarda (od \code{ES5} do \code{ES2018}), mogu se uključiti i \code{ESNext} (kojim se pokrivaju deklaracije za predloge koji još uvek nisu postali standard), \code{WebWorker} (deklaracije za pokretanje koda u okviru veb-vorkera), kao i određene deklaracije iz standard\=a pojedinačno: na primer, \code{ES2015.Core} (osnovni skup funkcionalnosti), \code{ES2015.Promise} (deklaracije za objekte tipa \code{Promise} iz 2015), \code{ES2016.Array.Include} (dodata metoda \code{include} nad prototipom globalnog objekta \code{Array}), \code{ES2018.Promise} (deklaracije za novi \code{Promise} gde je uključena metoda \code{finally}), itd.
@@ -53,11 +53,11 @@ Pored celih standarda (od \code{ES5} do \code{ES2018}), mogu se uključiti i \co
 
 Sem izbora načina na koji se kod parsira i ciljne verzije standarda, moguće je definisati i \textit{šta} treba da se emituje.
 
-Ukoliko je Tajpskript potrebno koristiti samo da bi se proverili da li su zadovoljeni tipovi podataka, postavlja se fleg \code{noEmit}; ovime kompilator neće generisati niejdan fajl ali će izvršiti sve provere nad kodom o tome da li bi se kompilacija završila uspešno ili ne.
+Ukoliko je Tajpskript potrebno koristiti samo da bi se proverili da li su zadovoljeni tipovi podataka, postavlja se fleg \code{noEmit}; ovime kompilator neće generisati nijedan fajl ali će izvršiti sve provere nad kodom o tome da li bi se kompilacija završila uspešno ili ne.
 Slično, fleg \code{emitDeclarationOnly} se koristi da bi se generisale samo \code{.d.ts} datoteke -- izlaz neće biti kod koji je moguće pokrenuti već će biti kod kojim je moguće obećati Tajpskriptu da postoji neki kod.
 Ovaj način kompilacije se koristi kada se \code{.js} datoteke generišu od strane nekog eksternog alata kao što je Babel.
 
-Ukoliko se u kodu koriste određene konstukcije koje nisu dostupne u EkmaSkript verziji koja je navedena u \code{target} opciji, Tajpskript može emitovati enke pomoćne funkcije kojim premošćava njihov nedostatak, a koje imaju isti ili dovoljno sličan efekat na kod kao konstrukcija iz novog standarda koju developer koristi u kodu.
+Ukoliko se u kodu koriste određene konstukcije koje nisu dostupne u Ekmaskript verziji koja je navedena u \code{target} opciji, Tajpskript može emitovati neke pomoćne funkcije kojim premošćava njihov nedostatak, a koje imaju isti ili dovoljno sličan efekat na kod kao konstrukcija iz novog standarda koju developer koristi u kodu.
 Na primer, definisanje klase koja nasleđuje neku drugu klasu koristi ključne reči \code{class} i \code{extend}, ali ES5 ne podržava nijednu od njih.
 Iako je klasu lako imitirati funkcijom, nasleđivanje nije tako trivijalno, pa kompilator dodaje pomoćnu funkciju \code{\_\_extends} koja prima dva argumenta: izvedenu i osnovnu klasu.
 Slično, ukoliko se koriste generatorske funkcije, umeće se pomoćna funkcija \code{\_\_generator}, a ukoliko se koriste ključne reči \code{async} i \code{await} onda se pored \code{\_\_generator} umeće i \code{\_\_awaiter}.
@@ -69,18 +69,31 @@ Kada je ova opcija uključena, Tajpskript i dalje generiše \textit{pozive} ovih
 
 Međutim, sada je na developeru da definiše ove pomoćne funkcije -- Tajpskript podrazumeva da su globalno definisane.
 Kako developer ne bi morao ručno da ih definiše, a kako ne bi bile ni generisane u svakoj datoteci, u verziji 2.1 dolazi fleg \code{importHelpers} sa kojim će generisani kod importovati potrebne module iz biblioteke \code{tslib}.
-Ova biblioteka je dostupna na npm repozitorijumu i dovoljno je da je developer instalira u projekat kao zavinosti da bi generisani kod radio.
+Ova biblioteka je dostupna na npm repozitorijumu i dovoljno je da je developer instalira u projekat kao zavinost da bi generisani kod radio.
 
 Greške prilikom kompilacije Tajpskript koda se mogu svrstati u dve grupe.
-Jedna su greške zbog kojih ni Javaskript ne bi bio sintaksični ispravan, i zbog njih se kompilacija uvek obustavlja neuspešno, bez emitovanja datoteka.
-Drugu grupu čine semantičke greške u vidu nelegalnih operacija u vezi s tipovima podataka.
-Iako je dodela stringa broju nemoguća, ovo je moguće kompajliarti u validan Javaskript.
+Jedna su greške zbog kojih ni Javaskript ne bi bio sintaksno ispravan, i zbog njih se kompilacija uvek obustavlja neuspešno, bez emitovanja datoteka.
+Drugu grupu čine semantičke greške u vidu nelegalnih operacija u vezi s tipovima podataka -- iako je dodela stringa broju nemoguća, ovo je moguće kompajliarti u validan Javaskript.
 Postavkom flega \code{noEmitOnError}, ponašanje prilikom nailaska na drugi tip greške se može promeniti, tj. moguće je zabraniti da se emituju \code{.js} datoteke sve dok ima bilo kakvih grešaka u \code{.ts} kodu.
 Ova opcija se obično ostavlja isključena prilikom migracije sa Javaskript projekta na Tajpskript, ali i prilikom developmenta -- nekada je korisno da se pokrene kod iako nije u potpunosti ispravan, kako bi se nešto brzo testiralo.
 
 \subsection{Lintanje koda}
 
-Iako za to postoji poseban alat
+Iako za to postoji poseban alat pod nazivom \code{tslint}, i sam Tajpskript kompajler nudi neka osnovna podešavanja u vezi s lintanjem koda.
+Na primer, ukoliko se uključi fleg \code{noFallthroughCasesInSwitch}, kompilator će prijaviti grešku ukoliko naiđe na \code{case} segment koji se pretapa u sledeći (odnosno ne završava se sa \code{break}, \code{return} ili \code{throw}).
+
+Flegovi \code{noUnusedLocals} i \code{noUnusedParameters} služe da bi autor koda bio obavešten o tome da postoje definicije lokalnih promenljivih ili konstanti, odnosno parametara funkcije, a da su one neiskorišćene u ostatku koda.
+Ovakve pojave obično znače da postoji logička greška u kodu ili da postoji zaostatak iz neke ranije verzije koda.
 
 \subsection{Strogi režim}
 
+Kao što je već rečeno, Tajpskript je nadskup Javaskripta i zamišljen je tako da migracija sa Javaskripta bude izuzetno jednostavna.
+Međutim, za projekte koji se otpočetka pišu u Tajpskriptu (ili za projekte koji su u potpunosti migrirani), često se javlja potreba za strožim proveravama.
+
+Na primer, u slučaju da kompilator ne može da zaključi o kom je tipu reč, automatski mu se dodeljuje univerzalni tip \code{any}.
+Ovakvo ponašanje je korisno prilikom migracije, ali zapravo može dovesti do greške prilikom izvršenja koda ukoliko se autor nije postarao da vodi računa o tipu takvog simbola.
+Kako bi se ovakve situacije izbegle, koristi se fleg \code{noImplicitAny}.
+
+Postoji čitav skup opcija sličnih ovoj: \code{no\-Implicit\-Any}, \code{no\-Implicit\-This}, \code{always\-Strict}, \code{strict\-Null\-Checks}, \code{strict\-Function\-Types} i \code{strict\-Property\-Initiali\-zation}.
+Navedena lista je vezana za verziju 3.0, ali se može promeniti u budućim verzijama.
+Kako autor koji želi da provera tipova bude što stroža ne bi morao da prilikom svakog ažuriranja verzije Tajpskripta vodi računa o tome da istraži novododata podešavanja i uključi nove flegove, postoji omni-opcija \code{strict} kojom se uključuju svi flegovi koji se tiču strogog režima.

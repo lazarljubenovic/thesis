@@ -1,6 +1,6 @@
 \section{Tipovi}
 
-U Javaskriptu, podatak koji nije objekat i nema nijednu metodu naziva se **primitivni tip**.
+U Javaskriptu, podatak koji nije objekat i nema nijednu metodu naziva se \code{primitivni tip}.
 Ima ih šest: \code{string}, \code{number}, \code{boolean}, \code{null}, \code{undefined} i \code{symbol}.
 Za svaki od ovih tipova postoji i odgovarajući statički tip u Tajpskriptu, sa istim imenom.
 
@@ -13,14 +13,14 @@ const aBoolean: boolean = true
 Kao kontrast primitivnim tipovima, svi neprimitivni tipovi pripadaju tipu \code{object} (od verzije 2.2).
 
 Osim primtivnih tipova, Tajpskript nudi i neke ambijentalne tipove, u zavinosti od izabranih opcija kroz polje \code{lib} u konfiguracionom fajlu.
-Ambijentalni tipovi vezani za postojeće globalne Javaskript objekte, što znači da postoji tipovi \code{Object} i \code{Function}.
-Na primer, neke od metoda definisanim nad tipom \code{Object} su \code{toString (): string} i \code{hasOwnProperty (v: string): boolean}.
+Ambijentalni tipovi vezani za postojeće globalne Javaskript objekte, što znači da postoje tipovi poput \code{Object} i \code{Function}.
+Na primer, neke od metoda definisane nad tipom \code{Object} su \code{toString (): string} i \code{hasOwnProperty (v: string): boolean}.
 Kada se kaže da je u JavaSkritu sve objekat, misli se na to da se u svakom prototipskom lancu na vrhu nalazi \code{Object}, što znači da su metode kao \code{toString} i \code{hasOwnProperty} dostupne svakoj vrednosti, bilo da se radi o primitivnim ili neprimitivnim tipovima.
 
-Prema tome, \code{Object} opisuje ono što je zajedničko za svaki objekat u Javaskriptu (uključujući i primitivne vrednosti kao što su brojevi); \code{object} odgovara užem skupu jer iksljučuje pritmivne tipove.
+Prema tome, \code{Object} opisuje ono što je zajedničko za svaki objekat u Javaskriptu (uključujući i primitivne vrednosti kao što su brojevi); \code{object} odgovara užem skupu jer isključuje pritmivne tipove.
 
 Za preciznije definisanje objekata koristi se posebna sintaksa, koja podseća na inicijalizaciju objekata.
-Unutar para vitičastih zagrada navode se ključevi za koje se očekuje da postoje, a zatim se, posle dvotačke, navodi njihov tip
+Unutar para vitičastih zagrada navode se ključevi za koje se očekuje da postoje, a zatim se, posle dvotačke, navodi njihov tip.
 Ova lista se odvaja zarezima.
 
 \begin{verbatim}
@@ -38,13 +38,13 @@ type MyObject = { foo: number, bar: string }
 const anObject: MyObject = { foo: 2103, bar: 'hello' }
 \end{verbatim}
 
-Properti u definicije strukture objekta se može označiti kao opcioni.
+Svojstvo u definiciji strukture objekta se može označiti kao opcioni pomožu simbola \code ? koji se dodaje ispred dvotačke.
 
-Od verzije 2.0 se ispred imena propertija može dodati modifikator \code{readonly}.
-Ukoliko on postoji, dodela vrednosti tom propertiju je moguća samo prilikom inicijalizacije.
+Od verzije 2.0 se ispred imena svojstva može dodati modifikator \code{readonly}.
+Ukoliko on postoji, dodela vrednosti tom svojstvu je moguća samo prilikom inicijalizacije.
 
-Mada se za tipiziranje funkcija može koristiti tip \code{Function}, ovo je retko dovoljno jer ne pruža uvid u to koliko argumenata ima funkcija, kog su oni tipa i koja im je povratna vrednost.
-Za preciznije definjsanje tipa funkcije koristi se posebna sintaksa koja podseća na streličanstu funkciju u Javaskriptu.
+Mada se za tipiziranje funkcija može koristiti tip \code{Function}, ovo je retko dovoljno jer ne pruža uvid u to koliko argumenata funkcija ima, kog su oni tipa i koja im je povratna vrednost.
+Za preciznije definisanje tipa funkcije koristi se posebna sintaksa koja podseća na streličastu funkciju u Javaskriptu.
 Argumenti funkcije su oblika \code{arg: Tip}, razdvojeni zarezom i omeđeni oblim zagradama.
 Desno od ove liste se, nakon debele strelice ( \code{=>}), daje tip povratne vrednosti.
 
@@ -61,9 +61,9 @@ const myFn = (foo: number, bar: stirng): boolean => {
 }
 \end{verbatim}
 
-U gornjem primeru bi tip \code{boolean} kao tip povratne vrednosti mogao i sam analizator da zaključi na osnovu poznavanja tipa kojia vraćaju operator \code{\&\&}, \code{>} i \code{<}, pa ga nije neophodno definisati.
+U gornjem primeru bi tip \code{boolean} kao tip povratne vrednosti mogao i sâm analizator da zaključi na osnovu poznavanja tipova koje vraćaju operatori \code{\&\&}, \code{>} i \code{<}, pa ga nije neophodno definisati.
 Prednost definisanja tipova jeste što predstavlja dokumentaciju čitljivu ljudima, pa čovek može brže ustanoviti koji je povratni tip (ne mora da analizira telo fukcije, već je dovoljno da pročita samo potpis).
-Eksplicitno navođenje tipa povratne vrednosti je korisno i zbog provere tipa povratne vrednosti u samo celu funkcije.
+Eksplicitno navođenje tipa povratne vrednosti je korisno i zbog provere tipa povratne vrednosti u samom telu funkcije.
 
 Osim streličastih funkcija, ovaj način se koristi i kod klasične definicije funkcije pomoću ključne reči \code{function}.
 
@@ -78,6 +78,8 @@ Javaskript nema ograničenje po pitanju broja argumenata sa kojima se funkcija m
 
 U Tajpskriptu se na broj argumenata može uticati na dva načina.
 Proizvoljan broj argumenata zdesna se može označiti kao opcioni, dodavanjem simbola \code{?} posle simboličnog imena argumenta.
+Svi opcioni argumenti moraju biti uzastopni i jedan od njih mora biti poslednji.
+Ovime je sprečeno da se obavezan argument nađe posle opcionog.
 S druge strane, broj argumenata se može povećati na beskonačnost ukoliko se ispred simboličnog imena poslednjeg argumenta doda token \code{...}.
 
 Na primer, globalno dostupna funkcija \code{parseInt} kao prvi parametar prima string koji treba parsirati, a drugi parametar, koji je opcioni, predstavlja brojnu osnovu.
@@ -96,7 +98,7 @@ interface Array<T> {
 
 \subsection{Unija i presek}
 
-Čest slučaj je da se nekoj promenljivoj mogu dodeliti može dodeliti vrednost koja može bit različitog tipa.
+Čest slučaj je da se nekoj promenljivoj mogu dodeliti može dodeliti vrednost koja može biti različitog tipa.
 Ovaj slučaj se u Tajpskriptu iskazuje pomoću \textbf{unija}.
 Mogući tipovi se navode razdvojeni simbolom \code{|}.
 
@@ -105,7 +107,7 @@ const a: number | string = 2103
 const b: number | string = 'hello'
 \end{verbatim}
 
-Kada se pristupa propertijima sa unije, moguće je pristupiti samo onim propertijima koji postoje nad oba tipa.
+Kada se pristupa svojstvima sa unije, moguće je pristupiti samo onim koji postoje nad oba tipa.
 U opštem slučaju je ovo \code{Object}, ali u zavinosti od tipova koji se nalaze u uniji ih može biti više.
 Na primer, i nizovi i stringovi imaju svojstvo \code{length}.
 
@@ -131,23 +133,24 @@ class User {
 }
 \end{verbatim}
 
-Mada se mogu koristiti na sličan način...% TODO
+Mada se mogu koristiti na sličan način kao interfejsi, suštinska razlika između klasa i interfejsa je to što klasa postoji tokom izvršenja programa, a interfejs je samo tip podatka koji služi Tajpskriptovom kompilatoru za proveru.
+Interfejs ni na koji način nije odražen u kodu tokom izvršenja, pa je nemoguće koristiti operatore kao \code{instanceof} da bi se proverilo da li objekat implementira neki interfejs.
 
 \subsection{Osnovni tipovi}
 
 Pored šest tipova izvedenih iz primitivnih tipova koje opisuju Javaskript objekte i jednog tipa za sve neprimitivne vrednosti, Tajpskript definše još četiri osnovna tipa: \code{unknown} (od 3.0), \code{any}, \code{void} i \code{never} (od 2.0).
 
 Jedan od glavnih dodataka koji dolaze uz verziju 3.0 jeste \textbf{tip \code{unknown}}.
-Pomoću \code{unknown} se opisuju tipovi promenljivih za koje je tip nepoznat, odnosno za promenljive za koje se ne može garntovati kakva će se vrednost naći u njima.
+Pomoću \code{unknown} se opisuju simboli za koje je tip nepoznat, odnosno za simbole za koje se ne može garantovati kakva će se vrednost naći u njima.
 Tip \code{unknown} se najčešće koristi za dinamički učitane podatke, kao što su odgovori sa servera.
-\code{unknown} je vršni tip (\textit{top type}).
+\code{unknown} je \textbf{vršni tip} (\textit{top type}).
 Vršni tip je tip kojem se može dodeliti bilo koji drugi tip, ali se on ne može dodeliti nijednom drugom tipu.
 
-\textbf{Tip \code{any}} je univerzalni tip.
+\textbf{Tip \code{any}} je \textbf{univerzalni tip}.
 Koristi se za opis tipa promenljivih za koje tip nije od važnosti.
 Najčešće se koristi tokom migracije ili kada bi pisanje tipa oduzelo previše vremena, a učinak bi bio previše mali.
 Na primer, ako za neku biblioteku ne postoje deklaracije, programer može najjednostavnije deklarisati globalnu promenljivu kao \code{declare const foo: any}.
-Sa ovime, pokušaji pristupa \code{foo} neće prouzrokovati Tajpskript grešku; s druge strane, kako Tajpskript ne zna o kom je tipu reč, sve operacije nad njime će bit dozvoljene tokom kompjaliranja -- Tajpskriptova statička analiza se u ovmo slučaju ne može koristiti kao garancija da neće doći do greške tokom izvršenja programa.
+Sa ovime, pokušaji pristupa \code{foo} neće prouzrokovati Tajpskript grešku; s druge strane, kako Tajpskript ne zna o kom je tipu reč, sve operacije nad njime će bit dozvoljene tokom kompajliranja -- Tajpskriptova statička analiza se u ovom slučaju ne može koristiti kao garancija da neće doći do greške tokom izvršenja programa.
 
 Svaka funkcija u Javaskriptu, pod uslovom da se uspešno okonča njeno izvršenje (nema beskonačne petlje i ne dođe do greške pre kraja funkcije), mora da vrati neku vrednost.
 Povratna vrednost navodi se u istom redu posle ključne reči \code{return}.
@@ -155,20 +158,14 @@ Ukoliko se \code{return} ne navede (ili se kontrolom toka zaobiđe), funkcija se
 U tom slučaju se implicitno iz funkcije vraća vrednost \code{undefined}.
 
 Međutim, Tajpskript ipak uvodi \textbf{tip \code{void}} koji se koristi za povratne vrednosti funkcije koje ne vraćaju ništa (izostavljanjem ključne reči \code{return}).
-Ovime se naglašava da potrošač ne treba da očekuje nikakvu povratnu vrednost od funkcije ili metode, već da se njenim pozivom očekuje neki sporedni efekat.
+Ovime se naglašava da potrošač ne treba da očekuje nikakvu povratnu vrednost od funkcije ili metode, već da se njenim pozivom dešava neki sporedni efekat.
 Na ovaj način je moguće razlikovati slučaj kada je povratna vrednost funkcije eksplicitno \code{undefined} (na primer, kada se u nizu ne nađe traženi rezulta pozivom \code{Array\#find}) i kada nju treba zanemariti (na primer, \code{Array\#forEach} samo implicitno vraća \code{undefined}, a sporedni efekat se definiše funkcijom koja se prosleđuje kao argument).
-
-\subsection{Interfejsi}
-
-% Opcioni (razlika između \code{undefined} i \code{?}), readonly, razlika između interfejsa i alijasa (https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c)
-
-\subsection{Klase}
 
 \subsection{Čuvari tipova}
 
 Kako je Tajpskript jezik koji se oslanja na Javaskript, mnoge osobine Tajpskripta su prouzrokovane obrascima i čestim šablonima koje developeri koriste dok pišu JavaScript kod.
 
-Na primer, često se na osnovu nekog propertija utvrđuje o kom tipu objekta je reč.
+Na primer, često se na osnovu nekog svojstva utvrđuje o kom tipu objekta je reč.
 
 \begin{verbatim}
 const pointOnPlane = { x: 1, y: 2 }
@@ -193,12 +190,12 @@ function getHalfPoint (p: PlanePoint | SpacePoint): PlanePoint
 }
 \end{verbatim}
 
-U prethodnom primeru, verzija 2.6 Tajpskripta prijavljuje grešku na pretposlednjoj liniji prilikom pristupa \code{p.z}, sa greškom \textquote{Property \textquote{ \code{z}} does not exist on type \textquote{ \code{PlanePoint}}}.
+U prethodnom primeru, verzija 2.6 Tajpskripta prijavljuje grešku na pretposlednjoj liniji prilikom pristupa \code{p.z}, sa greškom \textquote{Property \textquote{\code{z}} does not exist on type \textquote{\code{PlanePoint}}}.
 Zaista, pošto \code{p} može da ima bilo koji od dva navedena tipa, u slučaju da se pristupa \code{p.z} nad tipom \code{PlanePoint}, dolazi do greške.
 Kompilator ne može da zaključi da je uslovom \code{'z' in p} zapravo napravljena razlika između tipova.
 
-Da bi se ovaj čest način pisanja koda u Javaskriptu podržao, Tajpskript u verziji 1.6 dodaje mogućnost da se developer definiše funkciju koja vraća \code{true} ili \code{false}, ali kao tip ima defisan \textbf{čuvar tipa} (\textsl{type guard}).
-Čuvari se pišu u formi \code{x is T}, gde je \code{x} deklarisan perametar u potpisu funkcije, a \code{T} je bilo koji tip.
+Da bi se ovaj čest način pisanja koda u Javaskriptu podržao, Tajpskript u verziji 1.6 dodaje mogućnost da autor definiše funkciju koja vraća \code{true} ili \code{false}, ali kao tip ima defisan \textbf{čuvar tipa} (\textsl{type guard}).
+Čuvari se pišu u formi \code{x is T}, gde je \code{x} deklarisan parametar u potpisu funkcije, a \code{T} je bilo koji tip.
 
 \begin{verbatim}
 function isSpacePoint (p: PlanePoint
@@ -208,9 +205,10 @@ function isSpacePoint (p: PlanePoint
 \end{verbatim}
 
 Ako se \code{'z' in p} iz funkcije \code{getHalfPoint} iz primera zameni pozivom funkcije-čuvara \code{isSpacePoint(p)}, Tajpskript više ne prijavljuje grešku; sada može da zaključi da je promenljiva \code{p} u pozitivnoj grani tipa \code{PlanePoint}, a u negaitvnoj grani ono što ostaje kada se iz \code{PlanePoint | SpacePoint} odbaci \code{PlanePoint}, dakle \code{SpacePoint}.
+Naravno, ovo se oslanja na to je autor dobro definisao čuvara.
 
-U određenim delovima koda, Tajpskript može implicitno da zaključi da se radi o čuvaru i da na taj načini poboljša tipove podataka na mestima u kodu gde se dešava granajne.
-Iz verzije u verziju je ovih tačaka u kodu sve više; najpre samo u uslovima kod \code{if} konstrukcije nad pozitivnom i negativnom granom i kod ternarnog operatora, zatim u \code{switch} naredbama, da bi se na kraju došlo do toga da se radi potpuna kontrola toka gde su uključeni i rani izlasci iz funkcije.
+U određenim delovima koda, Tajpskript može implicitno da zaključi da se radi o čuvaru i da na taj način poboljša tipove podataka na mestima u kodu gde se dešava grananje.
+Iz verzije u verziju je ovih tačaka u kodu sve više; najpre samo u uslovima kod \code{if} konstrukcije nad pozitivnom i negativnom granom i kod ternarnog operatora, zatim u \code{switch} naredbama, da bi se na kraju došlo do toga da se radi potpuna analiza kontrole toka gde su uključeni i rani izlasci iz funkcija i operatori kao \code{throw}.
 Sem toga, vremenom se sve više načina pisanja koda prepoznaje kao čuvar.
 
 Dva osnovna i najstarija načina za definisanje čuvara jesu korišćenje \code{typeof} i \code{instanceof} operatora.
@@ -230,7 +228,7 @@ function inc (n: number | null) {
 }
 \end{verbatim}
 
-Počev of verzije 2.7, operator \code{in} se takođe može koristiti kao čuvar, pa se sa ovim dodatkom primer koda TODOREF uspešno kompajlira jer se na osnovu \code{z' in p} može napraviti jasna razlika između dva tipa iz unije. 
+Počev of verzije 2.7, operator \code{in} se takođe može koristiti kao čuvar, pa se sa ovim dodatkom primer koda za funkciju \code{getHalfPoint} uspešno kompajlira jer se na osnovu \code{'z' in p} može napraviti jasna razlika između dva tipa iz unije. 
 
 \subsection{Tip \code{never}}
 
@@ -257,7 +255,7 @@ function doSomething (x: number | string): any {
 
 U jezicima sa jakim tipovima podataka se često dozvoljava da funkcije imaju isto ime, a da se na osnovu broja i tipa argumenata određuje koju od njih treba pozvati.
 Međutim, kako je Javaskript jezik sa izuzetno slabim tipovima podataka, ovaj način preklapanja funkcija nije moguć.
-Kod koji ispituje broj i topve argumenata mora da definiše developer.
+Kod koji ispituje broj i topve argumenata mora da definiše autor.
 
 Kako Tajpskript nije u stanju da uvek automatski zaključi o kom je tipu reč, i kako bi bilo potrebno previše menjati izvorni kod i izvoditi zaključke o tome koja je bila developerova namera (što se kosi sa ideologijom Tajpskripta), ovakav kod se i dalje mora pisati u telu funkcije, čak i u Tajpskriptu.
 Ipak, Tajpskript prepoznaje ovaj šablon i omogućuje da se dobro definišu tipovi ovakvih funkcija; ovo se zove \textbf{preklapanje funkcije} (\textsl{function overloading}, \textsl{function overloads}).
@@ -280,7 +278,7 @@ Na ovaj način je obezbeđeno da tip povratne vrednosti funkcije bude isti kao t
 
 \subsection{Generički tipovi}
 
-Generički tipovi omogućuju da se ista funkcija koristi za više različitih tipova, pri čemu je moguće biti eksplicitan o kome se tipu radi.
+Generički tipovi omogućuju da se ista funkcija koristi sa više različitih tipova, pri čemu je moguće biti eksplicitan o kome se tipu radi.
 U prethodnom primeru su deklarisana dva potpisa-preklopa kojima se ovo omogućava, ali je istu funkciju moguće zapisati i kraće, korišćejnjem generičkih tipova prilikom definicije funkcije.
 
 \begin{verbatim}
@@ -325,7 +323,7 @@ Na primer, \code{Array} je generički tip, pa se umesto kraćeg zapisa \code{T[]
 \subsection{Uslovni tipovi}
 
 Veliki pomak u mogućnostima koje pruža Tajpskript načinjen je verzijom 2.8 uz koju dolaze uslovni tipovi.
-Uslovni tipovi omogućavaju developeru da bude izabran jedan od dva tipa na osnovu ispunjenja uslova postavljenim kao test veze između uslova sa \code{extends}.
+Uslovni tipovi omogućavaju autoru da bude izabran jedan od dva tipa na osnovu ispunjenja uslova postavljenim kao test veze sa \code{extends}.
 Imaju oblik \code{T extends U ? X : Y} -- kada se \code{T} može dodeliti \code{U}, tada je tip \code{X} a inače je tip \code{Y}.
 
 Kada je tip koji se proverava \textquote{go}, odnosno nije upleten deo nekog tipa-omotača, tada se za uslovni tip kaže da je \textbf{distributivan}.

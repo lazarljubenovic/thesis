@@ -1,6 +1,6 @@
 \section{Klasifikcija sistema tipova}
 
-Skup pravila na osnovu kojih se svojstvo poznato kao \textbf{tip podatka} dodeljuje zaličitim delovima kompjuterskog programa (promenljive, izrazi, funkcije, moduli, itd) naziva se \textbf{sistem topiva podataka}.
+Skup pravila na osnovu kojih se svojstvo poznato kao \textbf{tip podatka} dodeljuje različitim delovima kompjuterskog programa (promenljive, izrazi, funkcije, moduli, itd) naziva se \textbf{sistem tipova podataka}.
 Služe da bi se formalizovali koncepti koje programeri koriste za algebarske vrednosti, strukture podataka i druge komponente programa, kao što su \textquote{logička vrednost}, \textquote{niz stringova} i \textquote{funkcija koja vraća broj}.
 
 Glavna namera postojanja tipova podataka jeste da minimizuje šanse za pojavu bagova u programima i pruži mogućnost za bolje isksutvo tokom razvoja softvera, ali se može koristiti i kao sredstvo za sprovođenje optimizacije.
@@ -11,7 +11,7 @@ Postoji nekoliko osobina na osnovu kojih se može izvršiti podela načina na ko
 
 Prvo pitanje koje se nameće jeste \textit{kada} se dešava provera: da li tokom kompilacije ili tokom izvršenja programa.
 Za jezike koji se interpretiraju (Javaskript, Pajton, Rubi) ne postoji faza kompilacije pa je jedino mesto gde se može vršiti provera tipova -- tokom izvršenja.
-Za ovakve jezike -- u kojima se provera tipova sprovodi tokom izvršenja -- kaže se da imaju \textbf{dinamičku} proveru tipova.
+Za ovakve jezike -- u kojima se provera tipova sprovodi tokom izvršenja -- se kaže da imaju \textbf{dinamičku} proveru tipova.
 Interpretatori za ovakve jezike obično svakom objektu dodeljuju oznaku tipa u kojoj se nalaze informacije o tipu.
 Ukoliko se provera vrši tokom kompjaliranja, radi se o \textbf{statičkoj} proveri.
 Ako program zadovolji uslove koje nameće analizator kod jezika sa statičkom proverom tipova, onda to daje garanciju da program tokom izvršenja neće da naiđe na određeni skup mogućih grešaka u vezi sa tipovima podataka.
@@ -31,8 +31,8 @@ Glavna prednost Tajpskripta je uvođenje tipova podataka u Javaskript, ali samo 
 
 Tajpskript ni na koji način ne utiče na fazu interpretiranja i izvršenja koda.
 Tajpskript dolazi uz kompajler koji postojeći Tajpskript kod kompajlira u Javaskript.
-Dobijeni Javaskript kod ne sadrži nikakve informacije i tipovima podataka; ne postoje nikakvi uslovi koji će dovesti do greške ukoliko se promenljivoj dodeli drugačiji tip od navedenog.
-Umesto toga, Tajpskript ima zadatak da tokom kompajliranja utvrdi tipove i da se postara da developera obavesti o nastaloj nekonzistentnosti tako emituje grešku.
+Dobijeni Javaskript kod ne sadrži nikakve informacije o tipovima podataka; ne postoje nikakvi uslovi koji će dovesti do greške ukoliko se promenljivoj dodeli drugačiji tip od navedenog.
+Umesto toga, Tajpskript ima zadatak da tokom kompajliranja utvrdi tipove i da se postara da developera obavesti o nastaloj nekonzistentnosti tako što emituje grešku.
 
 Da bi se ovo postiglo, Tajpskriptov kompajler obavlja statičku analizu koda tokom koje zaključuje tipove i proverava da li su određeni operatori izvodljivi nad njima.
 Na primer, iako je se Javaskript interpretator ne buni za pokušaj sabiranja praznog niza i praznog objekta (\code{[] + \{\}}), Tajpskript će prijaviti grešku \textquote{Operator \textquote{\code{+}} cannot be applied to types \textquote{\code{undefined[]}} and \textquote{\code{\{\}}}}.
@@ -40,7 +40,7 @@ Na primer, iako je se Javaskript interpretator ne buni za pokušaj sabiranja pra
 \subsection{Deklaracije}
 
 Kako bi bilo moguće da se koriste postojeće biblioteke pisane u Javaskriptu, u Tajpskript je uveden pojam \textit{deklaracije}.
-Na primer, TajpSkipt ne može automatski da bude svestan postojanja eksterne biblioteke učitane kroz \code{script} tag u \code{head} sekciji HTML dokumenta za koju se piše Tajpskript kod.
+Na primer, Tajpskript ne može automatski da bude svestan postojanja eksterne biblioteke učitane kroz \code{script} tag u \code{head} sekciji HTML dokumenta za koju se piše Tajpskript kod.
 Deklaracija promenljive ili nekog drugog simbola navodi se ili u posebnom fajlu sa ekstenzijom \code{.d.ts} ili direktno u postojeći fajl, uz prefiks \code{declare}.
 
 Deklaracije za mnoge postojeće Javaskript biblioteke se mogu naći na GitHab repozitorijumu Majkrosoftovog projekta \textsl{DefinitelyTyped} koji održava zajednica.
@@ -55,7 +55,7 @@ Ovako Tajpskriptov kompajler zna gde da pronađe potrebne deklaracije.
 \subsection{Definisanje tipova}
 
 Neki stariji jezici sa statičkim tipovima podataka od developera zahtevaju da se tipovi uvek definišu eksplicitno.
-Tajpskript je specifičan po tome što su se njegovi stvaraoci postarani da održe barijeru prelaska od Javaskripta na TajkSkript izuzetno niskom.
+Tajpskript je specifičan po tome što su se njegovi stvaraoci postarali da održe barijeru prelaska od Javaskripta na TajkSkript izuzetno niskom.
 To je postignuto skroz nekoliko osobina.
 
 Uz odgovarajuća podešavanja kompajlera, migracija na Tajpskript se sastoji od samo jednog koraka: promeniti ekstenziju svim \code{.js} datotekama u \code{.ts}.

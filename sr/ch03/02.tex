@@ -1,7 +1,171 @@
-\section{Struktura AST-a}
-
-Osnovni gradivni blok AST-a je \textbf{čvor}; čvorovi implementiraju interfejs \code{ts.Node}.
-Osnovni atribut koji karakteriše čvor je \textbf{vrsta sintakse} -- \code{SyntaxKind}.
+\section{\code{ts-simple-ast}}
+\label{sec:ts-simple-ast}
 
 Tajpskript od verzije 1.6 nudi mogućnost za programsko korišćenje API-ja kompilatora \cite{gh:ms:ts:wiki:using-the-compiler-api}.
 Međutim, ovaj API je još uvek eksperimentalan i prilično nestabilan; u svakoj verziji se javlja veliki broj izmena koje nisu kompatibilne sa prethodnim.
+Osim toga, veliki broj funkcija je dostupan javno iako nije dokumentovan.
+Funkcije često zahtevaju da njeni argumenti ili interno stanje kompilatora ispuni neke preduslove koji nisu očigledni iz imena.
+
+Pored ovoga, funkcije su veoma niskog nivoa i često je za neke naizgled jednostavne operacije potrebno pisati veće isečke koda za rekurzivni obilazak stabla.
+Kako bi nadomestio ove nedostatke, \textbf{David Šeret} je započeo implementaciju omotača oko Tajpskriptovog AST API-ja kao modul \code{ts-simple-ast}, koji je zatim sa zajednicom podelio u vidu biblioteke otvorenog koda.
+Ovaj omotač pruža vrlo jednostavan i intuitivan API za obilazak i modifikaciju AST-a, po cenu neznatnog pada performansi.
+
+\subsection{Vrste sintakse}
+
+Osnovni gradivni blok AST-a je \textbf{čvor}; čvorovi implementiraju interfejs \code{Node}.
+Osnovni atribut koji karakteriše čvor je \textbf{vrsta sintakse} -- \code{SyntaxKind}.
+
+U ovom odeljku iznesene su neke karakteristične sintaksne vrste koje se javljaju u AST-u Tajpskript koda i ključne su za razumevanje poglavlja 5.
+
+\subsubsection{\code{Identifier}}
+\label{ast:Identifier}
+
+Identifikatori se često pojavljuju u AST-u kao listovi.
+Koriste se prilikom deklaracije i definicije, kao i prilikom pristupa.
+Na primer, definicija funkcije oblika \code{function foo () {}} posle ključne reči \code{function} (\code{FunctionKeyword}) ima identifikator (\code{Identifier}).
+
+Jedna od najznačajnijih metoda kad instancom identifikatora je \code{getText}.
+Ova metoda služi za dobavljanje teksta koji se koristi za identifikator, tj. njegovog imena.
+
+U narednom primeru identifikatori su podvučeni.
+\code{this} nije identifikator jer je predstavljen posebnim tokenom \code{ThisKeyword}.
+
+\begin{lstlisting}[keywords={baz, window, global, foo, bar, val, toString},keywordstyle={\underbar}]
+const baz = window.global
+function foo (bar) {
+  const val = bar + baz + this.toString()
+  return val
+}
+\end{lstlisting}
+
+\subsubsection{\code{PropertyAccessExpression} i \code{ElementAccessExpression}}
+\label{ast:PropertyAccessExpression}
+\label{ast:ElementAccessExpression}
+
+U Javaskriptu postoje dva osnovna načina da se \textbf{pristupi vrednosti} definisanoj u objektu.
+Pristup se uvek vrši na osnovu ključa, ali se to sintaksno može zapisati na dva načina.
+U velikom broju slučajeva koristi se operator \code{.} (tačka, \code{DotToken}), ali postoji i alternativni način kojim se pokriva mnogo veći broj slučajeva korišćenja, a to je korišćenje para uglastih zagrada (\code{[} -- \code{OpenBracketToken}, \code{]} -- \code{CloseBracketToken}).
+
+Korišćenje tačke predstavljeno je čvorom \code{PropertyAccessExpression}, a korišćenje zagrada -- čvorom \code{ElementAccessExpression}.
+
+\code{PropertyAccessExpression} ima metode \code{getExpression} i \code{getName}.
+\code{getName} se odnosi na desnu stranu i povratna vrednost ove metode je uvek \code{Identifier} (v.~\cref{ast:Identifier}).
+Leva strana dobija se pozivom \code{getExpression} i može da bude predstavljena različitim tipovima, uključujući i \code{Identifier} -- na primer, u slučaju lanca poziva, može biti ponovo \code{Property\-Access\-Expression}, u opštem slučaju može biti bilo kakav izraz ukoliko se smesti u zagrade (\code{Parenthesized\-Expression}).
+
+S druge strane, \code{Element\-Access\-Expression} i sa desne ima mnogo veći spektar potencijalnih čvorova, jer se u paru uglasnih zagrada može naći bilo kakav izraz (kome se pristupa metodom \code{getArgumentExpression}).
+
+\subsubsection{\code{CallExpression}}
+\label{sec:sk:call-expression}
+
+Odnosi se na izraze koji predstavljaju \textbf{pozive} funkcija i metoda.
+Prepoznaju se po prisustvu para oblih zagrada unutar kojih se može naći proizvoljan broj argumenata.
+
+\code{ts-simple-ast} nudi metodu \code{getExperssion} kojom se jednostavno može pribaviti čvor izraza s leve strane zagrada.
+Najjednostavniji primer je poziv funkcije definisan direktno na osnovu identifikatora i u ovom slučaju je rezultat poziva metode \code{getExpression} čvor tipa \code{Identifier}, nad kojim se može pozvati \code{getText()} za pribavljanje imena čvora.
+\code{getExpression} može biti i \code{Property\-Access\-Expression} kada se za pristup funkcije koristi operator \code{.} (tačka) i \code{Element\-Access\-Expression} kada se koristi \code{[]} (par uglih zagrada između kojih se navodi izraz čijom se evaluacijom dobija pristup funkciji).
+Pored toga, izraz sa leve strane može biti i potpuno proizvoljan \code{Expression} -- na primer, to može biti novi \code{CallExpression} (za kari-stil izvršenja funkcija) ili pak čitava deklaracija funkcije, koja može biti proizvoljno složena.
+
+\begin{verbatim}
+foo()
+this.foo(21)
+this[symbol]()
+foo()()()
+(() => 21)()
+\end{verbatim}
+
+\subsubsection{Tokeni dodele}\label{sec:sk:tokeni-dodele}
+
+Mada se dodela najčešće vrši korišćenjem znaka jednakosti (\code{EqualsToken}), postoji ukupno trinaest tokena kojima se dodela može obaviti.
+U prvoj koloni sledeće tabele pobrojani su tokeni koji predstavljaju operatore koji se koriste u dodelama, a u drugoj koloni se nalazi po jedan ilustrativni primer za svaki token.
+
+\begin{tabularx}{\textwidth}{@{}ll@{}}
+  \toprule
+  \textbf{Vrsta sintakse}                             & \textbf{Primer} \\
+  \midrule
+  \code{EqualsToken}                                  & \code{state = 21} \\
+  \code{PlusEqualsToken}                              & \code{state += 21} \\
+  \code{MinusEqualsToken}                             & \code{state -= 21} \\
+  \code{AsteriskEqualsToken}                          & \code{state *= 21} \\
+  \code{SlashEqualsToken}                             & \code{state /= 21} \\
+  \code{PercentEqualsToken}                           & \code{state \%= 21} \\
+  \code{AsteriskAsteriskEqualsToken}                  & \code{state **= 21} \\
+  \code{LessThanLessThanEqualsToken}                  & \code{state <= 21} \\
+  \code{GreaterThanGreaterThanEqualsToken}            & \code{state >= 21} \\
+  \code{GreaterThanGreaterThanGreaterThanEqualsToken} & \code{state >{}>= 21} \\
+  \code{AmpersandEqualsToken}                         & \code{state \&= 21} \\
+  \code{CaretEqualsToken}                             & \code{state \^{}= 21} \\
+  \code{BarEqualsToken}                               & \code{state |= 21} \\
+  \bottomrule
+\end{tabularx}
+
+% \subsection{Primer}
+
+% \begin{verbatim}
+% class C {
+%   private m () {
+%     this.m()
+%   }
+% }
+% \end{verbatim}
+
+% \begin{forest}
+%   for tree={
+%     font=\ttfamily\footnotesize,
+%     grow'=0,
+%     child anchor=west,
+%     parent anchor=south,
+%     anchor=west,
+%     calign=first,
+%     edge path={
+%       \noexpand\path [draw, \forestoption{edge}]
+%       (!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+%     },
+%     before typesetting nodes={
+%       if n=1
+%         {insert before={[,phantom]}}
+%         {}
+%     },
+%     fit=band,
+%     before computing xy={l=15pt},
+%   }
+% [SourceFile
+%   [SyntaxList
+%     [ClassDeclaration
+%       [ClassKeyword]
+%       [Identifier]
+%       [OpenBraceToken]
+%       [SyntaxList
+%         [MethodDeclaration
+%           [SyntaxList
+%             [PrivateKeyword]
+%           ]
+%           [Identifier]
+%           [OpenParanToken]
+%           [SyntaxList]
+%           [CloseParanToken]
+%           [Block
+%             [OpenBraceToken]
+%             [SyntaxList
+%               [ExpressionStatement
+%                 [CallExpression
+%                   [PropertyAccessExpression
+%                     [ThisKeyword]
+%                     [DotToken]
+%                     [Identifier]
+%                   ]
+%                   [OpenParanToken]
+%                   [SyntaxList]
+%                   [CloseParanToken]
+%                 ]
+%               ]
+%             ]
+%             [CloseBraceToken]
+%           ]
+%         ]
+%       ]
+%       [CloseBraceToken]
+%     ]
+%   ]
+%   [EndOfFileToken]
+% ]
+% \end{forest}

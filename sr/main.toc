@@ -92,174 +92,170 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Tajpskriptov kompilator}{35}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Struktura AST-a}{36}{section.3.2}
+\contentsline {section}{\numberline {3.2}\leavevmode {\color {black!80}\texttt {ts-simple-ast}}}{36}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}\leavevmode {\color {black!80}\texttt {ts-simple-ast}}}{36}{section.3.3}
+\contentsline {subsection}{\numberline {3.2.1}Vrste sintakse}{36}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Sintaksne vrste}{36}{subsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}\leavevmode {\color {black!80}\texttt {Identifier}}}{36}{subsubsection.3.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1.1}\leavevmode {\color {black!80}\texttt {Identifier}}}{36}{subsubsection.3.3.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.2}\leavevmode {\color {black!80}\texttt {PropertyAccessExpression}} i \leavevmode {\color {black!80}\texttt {ElementAccessExpression}}}{37}{subsubsection.3.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1.2}\leavevmode {\color {black!80}\texttt {PropertyAccessExpression}} i \leavevmode {\color {black!80}\texttt {ElementAccessExpression}}}{37}{subsubsection.3.3.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}\leavevmode {\color {black!80}\texttt {CallExpression}}}{37}{subsubsection.3.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1.3}\leavevmode {\color {black!80}\texttt {CallExpression}}}{37}{subsubsection.3.3.1.3}
+\contentsline {subsubsection}{\numberline {3.2.1.4}Tokeni dodele}{38}{subsubsection.3.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1.4}Tokeni dodele}{38}{subsubsection.3.3.1.4}
+\contentsline {chapter}{\numberline {4}Mogu\IeC {\'c}nosti Vejna}{39}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Primer}{38}{subsection.3.3.2}
+\contentsline {section}{\numberline {4.1}\IeC {\v S}abloni}{39}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Mogu\IeC {\'c}nosti Vejna}{41}{chapter.4}
+\contentsline {subsection}{\numberline {4.1.1}Vezivna sintaksa}{40}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}\IeC {\v S}abloni}{41}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.2}Interpolacija}{40}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Vezivna sintaksa}{42}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.3}HTML elementi}{41}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Interpolacija}{42}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Komponente}{42}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}HTML elementi}{43}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2.1}Deklaracija}{42}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Komponente}{44}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.2}Pristupna komponenta}{43}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Deklaracija}{44}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.3}Kori\IeC {\v s}\IeC {\'c}enje}{43}{subsection.4.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Pristupna komponenta}{45}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.4}Ulazi}{43}{subsection.4.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}Kori\IeC {\v s}\IeC {\'c}enje}{45}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.5}Izlazi}{44}{subsection.4.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.4}Ulazi}{45}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}Direktive}{44}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.5}Izlazi}{46}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.3.1}Uslovi}{45}{subsection.4.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Direktive}{46}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.2}Nizovi}{45}{subsection.4.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Uslovi}{47}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.3}Skra\IeC {\'c}eni oblik}{46}{subsection.4.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}Nizovi}{47}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Stilovi}{46}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.3}Skra\IeC {\'c}eni oblik}{48}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.4.1}Enkapsulacija}{46}{subsection.4.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Stilovi}{48}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.2}Nadogradnja}{47}{subsection.4.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}Enkapsulacija}{48}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.3}SCSS}{48}{subsection.4.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Nadogradnja}{49}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Pokretanje}{48}{section.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.3}SCSS}{50}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.5.1}Produkcija}{48}{subsection.4.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Pokretanje}{50}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.2}Razvi\IeC {\'c}e}{49}{subsection.4.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.1}Produkcija}{50}{subsection.4.5.1}
+\contentsline {section}{\numberline {4.6}Primer aplikacije}{49}{section.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.2}Razvi\IeC {\'c}e}{51}{subsection.4.5.2}
+\contentsline {chapter}{\numberline {5}Kompilacija Vejn aplikacije}{51}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Primer aplikacije}{51}{section.4.6}
+\contentsline {section}{\numberline {5.1}Proces analize koda}{51}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Kompilacija Vejn aplikacije}{53}{chapter.5}
+\contentsline {subsection}{\numberline {5.1.1}Stablo analizatora fabrika}{51}{subsection.5.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Proces analize koda}{53}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.2}Analiza toka koda}{53}{subsection.5.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Stablo analizatora fabrika}{53}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2.1}Pribavljanje tela metoda koje se pozivaju iz bloka}{54}{subsubsection.5.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.2}Analiza toka koda}{55}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.2}Pribavljanje imena svojstava kojima se vrednost mo\IeC {\v z}e promeniti izvr\IeC {\v s}enjem bloka}{54}{subsubsection.5.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.2.1}Pribavljanje tela metoda koje se pozivaju iz bloka}{56}{subsubsection.5.1.2.1}
+\contentsline {subsection}{\numberline {5.1.3}Analizatori komponenti}{55}{subsection.5.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.2.2}Pribavljanje imena svojstava kojima se vrednost mo\IeC {\v z}e promeniti izvr\IeC {\v s}enjem bloka}{56}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.3.1}Ime komponente}{55}{subsubsection.5.1.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.3}Analizatori komponenti}{57}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.2}Konstante}{56}{subsubsection.5.1.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.3.1}Ime komponente}{57}{subsubsection.5.1.3.1}
+\contentsline {subsection}{\numberline {5.1.4}Analizatori fabrika}{56}{subsection.5.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.3.2}Konstante}{58}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.4.1}Pribavljanje putanje do druge fabrike}{56}{subsubsection.5.1.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.4}Analizatori fabrika}{58}{subsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.4.2}Pribavljanje stvarnog imena vezane vrednosti}{56}{subsubsection.5.1.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.1}Pribavljanje putanje do druge fabrike}{58}{subsubsection.5.1.4.1}
+\contentsline {subsubsection}{\numberline {5.1.4.3}Povezi u pogledu i njihovo mapiranje}{57}{subsubsection.5.1.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.2}Pribavljanje stvarnog imena vezane vrednosti}{58}{subsubsection.5.1.4.2}
+\contentsline {subsubsection}{\numberline {5.1.4.4}Mape razlika}{57}{subsubsection.5.1.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.3}Povezi u pogledu i njihovo mapiranje}{59}{subsubsection.5.1.4.3}
+\contentsline {subsubsection}{\numberline {5.1.4.5}Indeksi \IeC {\v c}vorova u \IeC {\v s}ablonima i pogledima}{58}{subsubsection.5.1.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.4}Mape razlika}{59}{subsubsection.5.1.4.4}
+\contentsline {subsubsection}{\numberline {5.1.4.6}Povezi definisani nad sidrom}{59}{subsubsection.5.1.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.5}Indeksi \IeC {\v c}vorova u \IeC {\v s}ablonima i pogledima}{60}{subsubsection.5.1.4.5}
+\contentsline {subsubsection}{\numberline {5.1.4.7}Odre\IeC {\dj }ivanje fabrika na koje se mo\IeC {\v z}e uticati izvr\IeC {\v s}enjem bloka}{59}{subsubsection.5.1.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.6}Povezi definisani nad sidrom}{61}{subsubsection.5.1.4.6}
+\contentsline {section}{\numberline {5.2}Proces generisanja koda}{60}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.4.7}Odre\IeC {\dj }ivanje fabrika na koje se mo\IeC {\v z}e uticati izvr\IeC {\v s}enjem bloka}{61}{subsubsection.5.1.4.7}
+\contentsline {subsection}{\numberline {5.2.1}Priprema}{60}{subsection.5.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Proces generisanja koda}{62}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.2}Preprocesiranje komponenti}{60}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}Priprema}{62}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.1}Ubrizgavanje fabrike}{60}{subsubsection.5.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}Preprocesiranje komponenti}{62}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Normalizacija i umetanje koda}{61}{subsubsection.5.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2.1}Ubrizgavanje fabrike}{62}{subsubsection.5.2.2.1}
+\contentsline {subsection}{\numberline {5.2.3}Generisanje fabrika}{62}{subsection.5.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2.2}Normalizacija i umetanje koda}{63}{subsubsection.5.2.2.2}
+\contentsline {subsection}{\numberline {5.2.4}Postprocesiranje komponenti}{62}{subsection.5.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.3}Generisanje fabrika}{64}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4.1}Uklanjanje dekoratora}{62}{subsubsection.5.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.4}Postprocesiranje komponenti}{64}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.2}Izvoz klasa}{62}{subsubsection.5.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.4.1}Uklanjanje dekoratora}{64}{subsubsection.5.2.4.1}
+\contentsline {subsubsection}{\numberline {5.2.4.3}Uklanjanje konstanti}{62}{subsubsection.5.2.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.4.2}Izvoz klasa}{64}{subsubsection.5.2.4.2}
+\contentsline {subsection}{\numberline {5.2.5}Bandlovanje}{63}{subsection.5.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.4.3}Uklanjanje konstanti}{64}{subsubsection.5.2.4.3}
+\contentsline {section}{\numberline {5.3}Anatomija fabrika komponenti}{64}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.5}Bandlovanje}{65}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.3.1}Metoda \leavevmode {\color {black!80}\texttt {init}}}{65}{subsection.5.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Anatomija fabrika komponenti}{66}{section.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1.1}Koren komponente}{65}{subsubsection.5.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.1}Metoda \leavevmode {\color {black!80}\texttt {init}}}{67}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}Instanca klase}{65}{subsubsection.5.3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.1}Koren komponente}{67}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.3}Prihvatanje podataka kroz ulaze i izlaze}{66}{subsubsection.5.3.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.2}Instanca klase}{67}{subsubsection.5.3.1.2}
+\contentsline {subsubsection}{\numberline {5.3.1.4}Kreiranje DOM \IeC {\v c}vorova}{67}{subsubsection.5.3.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.3}Prihvatanje podataka kroz ulaze i izlaze}{68}{subsubsection.5.3.1.3}
+\contentsline {subsubsection}{\numberline {5.3.1.5}Sastavljanje DOM \IeC {\v c}vorova}{67}{subsubsection.5.3.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.4}Kreiranje DOM \IeC {\v c}vorova}{69}{subsubsection.5.3.1.4}
+\contentsline {subsubsection}{\numberline {5.3.1.6}Registrovanje dece}{67}{subsubsection.5.3.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.5}Sastavljanje DOM \IeC {\v c}vorova}{69}{subsubsection.5.3.1.5}
+\contentsline {subsubsection}{\numberline {5.3.1.7}Inicijalizacija svojstava i atributa u DOM-u}{68}{subsubsection.5.3.1.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.6}Registrovanje dece}{69}{subsubsection.5.3.1.6}
+\contentsline {subsubsection}{\numberline {5.3.1.8}Pretplata na doga\IeC {\dj }aje iz DOM-a}{68}{subsubsection.5.3.1.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.7}Inicijalizacija svojstava i atributa u DOM-u}{70}{subsubsection.5.3.1.7}
+\contentsline {subsubsection}{\numberline {5.3.1.9}Deklaracija metoda za asinhrono a\IeC {\v z}uriranje}{68}{subsubsection.5.3.1.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.8}Pretplata na doga\IeC {\dj }aje iz DOM-a}{70}{subsubsection.5.3.1.8}
+\contentsline {subsubsection}{\numberline {5.3.1.10}Prva razlika}{69}{subsubsection.5.3.1.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.9}Deklaracija metoda za asinhrono a\IeC {\v z}uriranje}{70}{subsubsection.5.3.1.9}
+\contentsline {subsubsection}{\numberline {5.3.1.11}Primer}{69}{subsubsection.5.3.1.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.10}Prva razlika}{71}{subsubsection.5.3.1.10}
+\contentsline {subsection}{\numberline {5.3.2}Metoda \leavevmode {\color {black!80}\texttt {diff}}}{70}{subsection.5.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1.11}Primer}{71}{subsubsection.5.3.1.11}
+\contentsline {subsection}{\numberline {5.3.3}Metoda \leavevmode {\color {black!80}\texttt {update}}}{71}{subsection.5.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.2}Metoda \leavevmode {\color {black!80}\texttt {diff}}}{72}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3.1}A\IeC {\v z}uriranje DOM elemenata}{71}{subsubsection.5.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.3}Metoda \leavevmode {\color {black!80}\texttt {update}}}{73}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.2}A\IeC {\v z}uriranje potomaka}{71}{subsubsection.5.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.3.1}A\IeC {\v z}uriranje DOM elemenata}{73}{subsubsection.5.3.3.1}
+\contentsline {subsection}{\numberline {5.3.4}Metoda \leavevmode {\color {black!80}\texttt {destroy}}}{71}{subsection.5.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.3.2}A\IeC {\v z}uriranje potomaka}{73}{subsubsection.5.3.3.2}
+\contentsline {section}{\numberline {5.4}Fabrike uslovne direktive (\leavevmode {\color {black!80}\texttt {w:if}})}{72}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.4}Metoda \leavevmode {\color {black!80}\texttt {destroy}}}{73}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.4.1}Uslovni pogled}{72}{subsection.5.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Fabrike uslovne direktive (\leavevmode {\color {black!80}\texttt {w:if}})}{74}{section.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1.1}Metoda \leavevmode {\color {black!80}\texttt {init}}}{72}{subsubsection.5.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}Uslovni pogled}{74}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}Metoda \leavevmode {\color {black!80}\texttt {initPartialView}}}{73}{subsubsection.5.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.1.1}Metoda \leavevmode {\color {black!80}\texttt {init}}}{74}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.3}Metoda \leavevmode {\color {black!80}\texttt {update}}}{73}{subsubsection.5.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.1.2}Metoda \leavevmode {\color {black!80}\texttt {initPartialView}}}{75}{subsubsection.5.4.1.2}
+\contentsline {subsubsection}{\numberline {5.4.1.4}Metoda \leavevmode {\color {black!80}\texttt {destroy}}}{74}{subsubsection.5.4.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.1.3}Metoda \leavevmode {\color {black!80}\texttt {update}}}{75}{subsubsection.5.4.1.3}
+\contentsline {subsection}{\numberline {5.4.2}Parcijalni pogled}{74}{subsection.5.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.1.4}Metoda \leavevmode {\color {black!80}\texttt {destroy}}}{76}{subsubsection.5.4.1.4}
+\contentsline {section}{\numberline {5.5}Fabrike direktive za ponavljanje (\leavevmode {\color {black!80}\texttt {w:for}})}{75}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}Parcijalni pogled}{76}{subsection.5.4.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Fabrike direktive za ponavljanje (\leavevmode {\color {black!80}\texttt {w:for}})}{77}{section.5.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.6}Stilovi}{78}{section.5.6}
+\contentsline {section}{\numberline {5.6}Stilovi}{76}{section.5.6}

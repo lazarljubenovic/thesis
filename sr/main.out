@@ -41,52 +41,50 @@
 \BOOKMARK [2][-]{subsection.2.3.10}{Primeri tipova iz lib}{section.2.3}% 41
 \BOOKMARK [0][-]{chapter.3}{AST Tajpskripta}{}% 42
 \BOOKMARK [1][-]{section.3.1}{Tajpskriptov kompilator}{chapter.3}% 43
-\BOOKMARK [1][-]{section.3.2}{Struktura AST-a}{chapter.3}% 44
-\BOOKMARK [1][-]{section.3.3}{ts-simple-ast}{chapter.3}% 45
-\BOOKMARK [2][-]{subsection.3.3.1}{Sintaksne vrste}{section.3.3}% 46
-\BOOKMARK [2][-]{subsection.3.3.2}{Primer}{section.3.3}% 47
-\BOOKMARK [0][-]{chapter.4}{Mogucnosti Vejna}{}% 48
-\BOOKMARK [1][-]{section.4.1}{\227abloni}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.1.1}{Vezivna sintaksa}{section.4.1}% 50
-\BOOKMARK [2][-]{subsection.4.1.2}{Interpolacija}{section.4.1}% 51
-\BOOKMARK [2][-]{subsection.4.1.3}{HTML elementi}{section.4.1}% 52
-\BOOKMARK [1][-]{section.4.2}{Komponente}{chapter.4}% 53
-\BOOKMARK [2][-]{subsection.4.2.1}{Deklaracija}{section.4.2}% 54
-\BOOKMARK [2][-]{subsection.4.2.2}{Pristupna komponenta}{section.4.2}% 55
-\BOOKMARK [2][-]{subsection.4.2.3}{Kori\235cenje}{section.4.2}% 56
-\BOOKMARK [2][-]{subsection.4.2.4}{Ulazi}{section.4.2}% 57
-\BOOKMARK [2][-]{subsection.4.2.5}{Izlazi}{section.4.2}% 58
-\BOOKMARK [1][-]{section.4.3}{Direktive}{chapter.4}% 59
-\BOOKMARK [2][-]{subsection.4.3.1}{Uslovi}{section.4.3}% 60
-\BOOKMARK [2][-]{subsection.4.3.2}{Nizovi}{section.4.3}% 61
-\BOOKMARK [2][-]{subsection.4.3.3}{Skraceni oblik}{section.4.3}% 62
-\BOOKMARK [1][-]{section.4.4}{Stilovi}{chapter.4}% 63
-\BOOKMARK [2][-]{subsection.4.4.1}{Enkapsulacija}{section.4.4}% 64
-\BOOKMARK [2][-]{subsection.4.4.2}{Nadogradnja}{section.4.4}% 65
-\BOOKMARK [2][-]{subsection.4.4.3}{SCSS}{section.4.4}% 66
-\BOOKMARK [1][-]{section.4.5}{Pokretanje}{chapter.4}% 67
-\BOOKMARK [2][-]{subsection.4.5.1}{Produkcija}{section.4.5}% 68
-\BOOKMARK [2][-]{subsection.4.5.2}{Razvice}{section.4.5}% 69
-\BOOKMARK [1][-]{section.4.6}{Primer aplikacije}{chapter.4}% 70
-\BOOKMARK [0][-]{chapter.5}{Kompilacija Vejn aplikacije}{}% 71
-\BOOKMARK [1][-]{section.5.1}{Proces analize koda}{chapter.5}% 72
-\BOOKMARK [2][-]{subsection.5.1.1}{Stablo analizatora fabrika}{section.5.1}% 73
-\BOOKMARK [2][-]{subsection.5.1.2}{Analiza toka koda}{section.5.1}% 74
-\BOOKMARK [2][-]{subsection.5.1.3}{Analizatori komponenti}{section.5.1}% 75
-\BOOKMARK [2][-]{subsection.5.1.4}{Analizatori fabrika}{section.5.1}% 76
-\BOOKMARK [1][-]{section.5.2}{Proces generisanja koda}{chapter.5}% 77
-\BOOKMARK [2][-]{subsection.5.2.1}{Priprema}{section.5.2}% 78
-\BOOKMARK [2][-]{subsection.5.2.2}{Preprocesiranje komponenti}{section.5.2}% 79
-\BOOKMARK [2][-]{subsection.5.2.3}{Generisanje fabrika}{section.5.2}% 80
-\BOOKMARK [2][-]{subsection.5.2.4}{Postprocesiranje komponenti}{section.5.2}% 81
-\BOOKMARK [2][-]{subsection.5.2.5}{Bandlovanje}{section.5.2}% 82
-\BOOKMARK [1][-]{section.5.3}{Anatomija fabrika komponenti}{chapter.5}% 83
-\BOOKMARK [2][-]{subsection.5.3.1}{Metoda init}{section.5.3}% 84
-\BOOKMARK [2][-]{subsection.5.3.2}{Metoda diff}{section.5.3}% 85
-\BOOKMARK [2][-]{subsection.5.3.3}{Metoda update}{section.5.3}% 86
-\BOOKMARK [2][-]{subsection.5.3.4}{Metoda destroy}{section.5.3}% 87
-\BOOKMARK [1][-]{section.5.4}{Fabrike uslovne direktive \(w:if\)}{chapter.5}% 88
-\BOOKMARK [2][-]{subsection.5.4.1}{Uslovni pogled}{section.5.4}% 89
-\BOOKMARK [2][-]{subsection.5.4.2}{Parcijalni pogled}{section.5.4}% 90
-\BOOKMARK [1][-]{section.5.5}{Fabrike direktive za ponavljanje \(w:for\)}{chapter.5}% 91
-\BOOKMARK [1][-]{section.5.6}{Stilovi}{chapter.5}% 92
+\BOOKMARK [1][-]{section.3.2}{ts-simple-ast}{chapter.3}% 44
+\BOOKMARK [2][-]{subsection.3.2.1}{Vrste sintakse}{section.3.2}% 45
+\BOOKMARK [0][-]{chapter.4}{Mogucnosti Vejna}{}% 46
+\BOOKMARK [1][-]{section.4.1}{\227abloni}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.1.1}{Vezivna sintaksa}{section.4.1}% 48
+\BOOKMARK [2][-]{subsection.4.1.2}{Interpolacija}{section.4.1}% 49
+\BOOKMARK [2][-]{subsection.4.1.3}{HTML elementi}{section.4.1}% 50
+\BOOKMARK [1][-]{section.4.2}{Komponente}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.2.1}{Deklaracija}{section.4.2}% 52
+\BOOKMARK [2][-]{subsection.4.2.2}{Pristupna komponenta}{section.4.2}% 53
+\BOOKMARK [2][-]{subsection.4.2.3}{Kori\235cenje}{section.4.2}% 54
+\BOOKMARK [2][-]{subsection.4.2.4}{Ulazi}{section.4.2}% 55
+\BOOKMARK [2][-]{subsection.4.2.5}{Izlazi}{section.4.2}% 56
+\BOOKMARK [1][-]{section.4.3}{Direktive}{chapter.4}% 57
+\BOOKMARK [2][-]{subsection.4.3.1}{Uslovi}{section.4.3}% 58
+\BOOKMARK [2][-]{subsection.4.3.2}{Nizovi}{section.4.3}% 59
+\BOOKMARK [2][-]{subsection.4.3.3}{Skraceni oblik}{section.4.3}% 60
+\BOOKMARK [1][-]{section.4.4}{Stilovi}{chapter.4}% 61
+\BOOKMARK [2][-]{subsection.4.4.1}{Enkapsulacija}{section.4.4}% 62
+\BOOKMARK [2][-]{subsection.4.4.2}{Nadogradnja}{section.4.4}% 63
+\BOOKMARK [2][-]{subsection.4.4.3}{SCSS}{section.4.4}% 64
+\BOOKMARK [1][-]{section.4.5}{Pokretanje}{chapter.4}% 65
+\BOOKMARK [2][-]{subsection.4.5.1}{Produkcija}{section.4.5}% 66
+\BOOKMARK [2][-]{subsection.4.5.2}{Razvice}{section.4.5}% 67
+\BOOKMARK [1][-]{section.4.6}{Primer aplikacije}{chapter.4}% 68
+\BOOKMARK [0][-]{chapter.5}{Kompilacija Vejn aplikacije}{}% 69
+\BOOKMARK [1][-]{section.5.1}{Proces analize koda}{chapter.5}% 70
+\BOOKMARK [2][-]{subsection.5.1.1}{Stablo analizatora fabrika}{section.5.1}% 71
+\BOOKMARK [2][-]{subsection.5.1.2}{Analiza toka koda}{section.5.1}% 72
+\BOOKMARK [2][-]{subsection.5.1.3}{Analizatori komponenti}{section.5.1}% 73
+\BOOKMARK [2][-]{subsection.5.1.4}{Analizatori fabrika}{section.5.1}% 74
+\BOOKMARK [1][-]{section.5.2}{Proces generisanja koda}{chapter.5}% 75
+\BOOKMARK [2][-]{subsection.5.2.1}{Priprema}{section.5.2}% 76
+\BOOKMARK [2][-]{subsection.5.2.2}{Preprocesiranje komponenti}{section.5.2}% 77
+\BOOKMARK [2][-]{subsection.5.2.3}{Generisanje fabrika}{section.5.2}% 78
+\BOOKMARK [2][-]{subsection.5.2.4}{Postprocesiranje komponenti}{section.5.2}% 79
+\BOOKMARK [2][-]{subsection.5.2.5}{Bandlovanje}{section.5.2}% 80
+\BOOKMARK [1][-]{section.5.3}{Anatomija fabrika komponenti}{chapter.5}% 81
+\BOOKMARK [2][-]{subsection.5.3.1}{Metoda init}{section.5.3}% 82
+\BOOKMARK [2][-]{subsection.5.3.2}{Metoda diff}{section.5.3}% 83
+\BOOKMARK [2][-]{subsection.5.3.3}{Metoda update}{section.5.3}% 84
+\BOOKMARK [2][-]{subsection.5.3.4}{Metoda destroy}{section.5.3}% 85
+\BOOKMARK [1][-]{section.5.4}{Fabrike uslovne direktive \(w:if\)}{chapter.5}% 86
+\BOOKMARK [2][-]{subsection.5.4.1}{Uslovni pogled}{section.5.4}% 87
+\BOOKMARK [2][-]{subsection.5.4.2}{Parcijalni pogled}{section.5.4}% 88
+\BOOKMARK [1][-]{section.5.5}{Fabrike direktive za ponavljanje \(w:for\)}{chapter.5}% 89
+\BOOKMARK [1][-]{section.5.6}{Stilovi}{chapter.5}% 90

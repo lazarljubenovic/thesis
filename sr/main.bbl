@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.6 $
+% $ biblatex bbl format version 2.8 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,38 +18,42 @@
 
 
 \refsection{0}
-  \sortlist[entry]{nty/global}
+  \sortlist[entry]{nty/global/}
     \entry{tastejs:yafs}{online}{}
       \name{author}{5}{}{%
         {{hash=ba0b5548d0dbb77d6d54212dc56a2aa9}{%
            family={Addy},
-           family_i={A\bibinitperiod}}}%
+           familyi={A\bibinitperiod}}}%
         {{hash=149c511b321fdca0d12e42f046a987b8}{%
            family={Sindre},
-           family_i={S\bibinitperiod}}}%
+           familyi={S\bibinitperiod}}}%
         {{hash=ca693a8ccfa2cd3464d532afdfab31c5}{%
            family={Pascal},
-           family_i={P\bibinitperiod}}}%
+           familyi={P\bibinitperiod}}}%
         {{hash=a36e5df6089966dca4b38397aae00efd}{%
            family={Stephen},
-           family_i={S\bibinitperiod}}}%
+           familyi={S\bibinitperiod}}}%
         {{hash=291755357c76c19359d59bd1e756a8a9}{%
            family={Colin},
-           family_i={C\bibinitperiod}}}%
+           familyi={C\bibinitperiod}}}%
       }
       \strng{namehash}{550654454aa6bf3a5bdf826a6d6abf25}
       \strng{fullhash}{4f21ed61b1f67223dd6f46126d7fd9c0}
+      \strng{authornamehash}{550654454aa6bf3a5bdf826a6d6abf25}
+      \strng{authorfullhash}{4f21ed61b1f67223dd6f46126d7fd9c0}
       \field{sortinit}{A}
-      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{03}
-      \field{month}{02}
+      \field{day}{3}
+      \field{month}{2}
       \field{title}{Yet Another Framework Syndrome (YAFS)}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://medium.com/tastejs-blog/yet-another-framework-syndrome-yafs-cf5f694ee070
       \endverb
@@ -58,23 +62,27 @@
       \name{author}{1}{}{%
         {{hash=5757d7686534ec5ae6390b470fb9264c}{%
            family={Aguinaga},
-           family_i={A\bibinitperiod},
+           familyi={A\bibinitperiod},
            given={Jose},
-           given_i={J\bibinitperiod}}}%
+           giveni={J\bibinitperiod}}}%
       }
       \strng{namehash}{5757d7686534ec5ae6390b470fb9264c}
       \strng{fullhash}{5757d7686534ec5ae6390b470fb9264c}
+      \strng{authornamehash}{5757d7686534ec5ae6390b470fb9264c}
+      \strng{authorfullhash}{5757d7686534ec5ae6390b470fb9264c}
       \field{sortinit}{A}
-      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{03}
+      \field{day}{3}
       \field{month}{10}
       \field{title}{How it feels to learn JavaScript in 2016}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f
       \endverb
@@ -83,23 +91,27 @@
       \name{author}{1}{}{%
         {{hash=3364d0ca9f7612dd4b2e686e410df6ec}{%
            family={Aston},
-           family_i={A\bibinitperiod},
+           familyi={A\bibinitperiod},
            given={Ben},
-           given_i={B\bibinitperiod}}}%
+           giveni={B\bibinitperiod}}}%
       }
       \strng{namehash}{3364d0ca9f7612dd4b2e686e410df6ec}
       \strng{fullhash}{3364d0ca9f7612dd4b2e686e410df6ec}
+      \strng{authornamehash}{3364d0ca9f7612dd4b2e686e410df6ec}
+      \strng{authorfullhash}{3364d0ca9f7612dd4b2e686e410df6ec}
       \field{sortinit}{A}
-      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{01}
-      \field{month}{04}
+      \field{day}{1}
+      \field{month}{4}
       \field{title}{A brief history of JavaScript}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://medium.com/@benastontweet/lesson-1a-the-history-of-javascript-8c1ce3bffb17
       \endverb
@@ -108,20 +120,23 @@
       \name{author}{1}{}{%
         {{hash=7a4016bfbe99601f9e66dc4d12a6e236}{%
            family={Bazon},
-           family_i={B\bibinitperiod},
+           familyi={B\bibinitperiod},
            given={Mihai},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{7a4016bfbe99601f9e66dc4d12a6e236}
       \strng{fullhash}{7a4016bfbe99601f9e66dc4d12a6e236}
+      \strng{authornamehash}{7a4016bfbe99601f9e66dc4d12a6e236}
+      \strng{authorfullhash}{7a4016bfbe99601f9e66dc4d12a6e236}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{UglifyJS -- JavaScript parser, compressor, minifier written in JS}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://lisperator.net/uglifyjs/
       \endverb
@@ -130,20 +145,23 @@
       \name{author}{1}{}{%
         {{hash=d469e0df304c98f67b55d087ea6187a1}{%
            family={Berners-Lee},
-           family_i={B\bibinithyphendelim L\bibinitperiod},
+           familyi={B\bibinithyphendelim L\bibinitperiod},
            given={Tim},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{d469e0df304c98f67b55d087ea6187a1}
       \strng{fullhash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authornamehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authorfullhash}{d469e0df304c98f67b55d087ea6187a1}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Answers for Young People}
       \field{urlday}{30}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.w3.org/People/Berners-Lee/Kids.html#invent
       \endverb
@@ -152,23 +170,27 @@
       \name{author}{1}{}{%
         {{hash=d469e0df304c98f67b55d087ea6187a1}{%
            family={Berners-Lee},
-           family_i={B\bibinithyphendelim L\bibinitperiod},
+           familyi={B\bibinithyphendelim L\bibinitperiod},
            given={Tim},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{d469e0df304c98f67b55d087ea6187a1}
       \strng{fullhash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authornamehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authorfullhash}{d469e0df304c98f67b55d087ea6187a1}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{03}
+      \field{day}{3}
       \field{month}{11}
       \field{title}{HTML tags}
       \field{urlday}{30}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{1992}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html
       \endverb
@@ -177,20 +199,23 @@
       \name{author}{1}{}{%
         {{hash=d469e0df304c98f67b55d087ea6187a1}{%
            family={Berners-Lee},
-           family_i={B\bibinithyphendelim L\bibinitperiod},
+           familyi={B\bibinithyphendelim L\bibinitperiod},
            given={Tim},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{d469e0df304c98f67b55d087ea6187a1}
       \strng{fullhash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authornamehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authorfullhash}{d469e0df304c98f67b55d087ea6187a1}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The WorldWideWeb browser}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.w3.org/People/Berners-Lee/WorldWideWeb.html
       \endverb
@@ -199,23 +224,27 @@
       \name{author}{1}{}{%
         {{hash=8eff2c5eb056eac7ac23791f5af4afc3}{%
            family={Brophy},
-           family_i={B\bibinitperiod},
+           familyi={B\bibinitperiod},
            given={Matt},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{8eff2c5eb056eac7ac23791f5af4afc3}
       \strng{fullhash}{8eff2c5eb056eac7ac23791f5af4afc3}
+      \strng{authornamehash}{8eff2c5eb056eac7ac23791f5af4afc3}
+      \strng{authorfullhash}{8eff2c5eb056eac7ac23791f5af4afc3}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{15}
       \field{month}{11}
       \field{title}{A Look Inside Vue's Change Detection}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://brophy.org/post/a-look-inside-vues-change-detection
       \endverb
@@ -224,23 +253,27 @@
       \name{author}{1}{}{%
         {{hash=52272a06cd218e4b825c78fedfe334cb}{%
            family={Buecheler},
-           family_i={B\bibinitperiod},
+           familyi={B\bibinitperiod},
            given={Christopher},
-           given_i={C\bibinitperiod}}}%
+           giveni={C\bibinitperiod}}}%
       }
       \strng{namehash}{52272a06cd218e4b825c78fedfe334cb}
       \strng{fullhash}{52272a06cd218e4b825c78fedfe334cb}
+      \strng{authornamehash}{52272a06cd218e4b825c78fedfe334cb}
+      \strng{authorfullhash}{52272a06cd218e4b825c78fedfe334cb}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{11}
-      \field{month}{09}
+      \field{month}{9}
       \field{title}{A brief, incomplete}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://closebrace.com/articles/2017-09-11/a-brief-incomplete-history-of-javascript
       \endverb
@@ -249,35 +282,40 @@
       \name{author}{1}{}{%
         {{hash=09403b32bb1f5ddb8229695885d66f46}{%
            family={Buoncristiani},
-           family_i={B\bibinitperiod},
+           familyi={B\bibinitperiod},
            given={Giamir},
-           given_i={G\bibinitperiod}}}%
+           giveni={G\bibinitperiod}}}%
       }
       \strng{namehash}{09403b32bb1f5ddb8229695885d66f46}
       \strng{fullhash}{09403b32bb1f5ddb8229695885d66f46}
+      \strng{authornamehash}{09403b32bb1f5ddb8229695885d66f46}
+      \strng{authorfullhash}{09403b32bb1f5ddb8229695885d66f46}
       \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{23}
-      \field{month}{04}
+      \field{month}{4}
       \field{title}{What is React Fiber?}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://giamir.com/what-is-react-fiber
       \endverb
     \endentry
     \entry{coffeescript-homepage}{oneline}{}
       \field{sortinit}{C}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labeltitlesource}{title}
       \field{title}{CoffeeScript}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://coffeescript.org/
       \endverb
@@ -286,20 +324,23 @@
       \name{author}{1}{}{%
         {{hash=303851339356ad7602c5090a946c9926}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={CoffeScript},
-           given_i={C\bibinitperiod}}}%
+           giveni={C\bibinitperiod}}}%
       }
       \strng{namehash}{303851339356ad7602c5090a946c9926}
       \strng{fullhash}{303851339356ad7602c5090a946c9926}
+      \strng{authornamehash}{303851339356ad7602c5090a946c9926}
+      \strng{authorfullhash}{303851339356ad7602c5090a946c9926}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{What is the future of coffeescript?}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://github.com/jashkenas/coffeescript/issues/4288
       \endverb
@@ -308,20 +349,23 @@
       \name{author}{1}{}{%
         {{hash=9015f967328820518f292ffd68817bc1}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={Dart},
-           given_i={D\bibinitperiod}}}%
+           giveni={D\bibinitperiod}}}%
       }
       \strng{namehash}{9015f967328820518f292ffd68817bc1}
       \strng{fullhash}{9015f967328820518f292ffd68817bc1}
+      \strng{authornamehash}{9015f967328820518f292ffd68817bc1}
+      \strng{authorfullhash}{9015f967328820518f292ffd68817bc1}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Dart's Type System}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.dartlang.org/guides/language/sound-dart
       \endverb
@@ -330,24 +374,27 @@
       \name{author}{1}{}{%
         {{hash=5f69f46e482f6a40a09f01b00eb908c9}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={MDN},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \list{organization}{1}{%
         {Mozilla}%
       }
       \strng{namehash}{5f69f46e482f6a40a09f01b00eb908c9}
       \strng{fullhash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authornamehash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authorfullhash}{5f69f46e482f6a40a09f01b00eb908c9}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{series}{MDN Web Docs Glossary: Definitions of Web-related terms}
       \field{title}{Control flow}
       \field{urlday}{24}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://developer.mozilla.org/en-US/docs/Glossary/Control_flow
       \endverb
@@ -356,24 +403,27 @@
       \name{author}{1}{}{%
         {{hash=5f69f46e482f6a40a09f01b00eb908c9}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={MDN},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \list{organization}{1}{%
         {Mozilla}%
       }
       \strng{namehash}{5f69f46e482f6a40a09f01b00eb908c9}
       \strng{fullhash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authornamehash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authorfullhash}{5f69f46e482f6a40a09f01b00eb908c9}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{series}{MDN Web Docs Glossary: Definitions of Web-related terms}
       \field{title}{CSS preprocessor}
       \field{urlday}{25}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor
       \endverb
@@ -382,24 +432,27 @@
       \name{author}{1}{}{%
         {{hash=5f69f46e482f6a40a09f01b00eb908c9}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={MDN},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \list{organization}{1}{%
         {Mozilla}%
       }
       \strng{namehash}{5f69f46e482f6a40a09f01b00eb908c9}
       \strng{fullhash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authornamehash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authorfullhash}{5f69f46e482f6a40a09f01b00eb908c9}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{series}{MDN: Learn Web Development}
       \field{title}{Getting staretd with the Web}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
       \endverb
@@ -408,21 +461,24 @@
       \name{author}{1}{}{%
         {{hash=5f69f46e482f6a40a09f01b00eb908c9}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={MDN},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{5f69f46e482f6a40a09f01b00eb908c9}
       \strng{fullhash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authornamehash}{5f69f46e482f6a40a09f01b00eb908c9}
+      \strng{authorfullhash}{5f69f46e482f6a40a09f01b00eb908c9}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{series}{MDN: JavaScript}
       \field{title}{\code{String.prototype.includes()}}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
       \endverb
@@ -431,20 +487,23 @@
       \name{author}{1}{}{%
         {{hash=952b785480c4b8ebcc67b956925d9d18}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={Rollup},
-           given_i={R\bibinitperiod}}}%
+           giveni={R\bibinitperiod}}}%
       }
       \strng{namehash}{952b785480c4b8ebcc67b956925d9d18}
       \strng{fullhash}{952b785480c4b8ebcc67b956925d9d18}
+      \strng{authornamehash}{952b785480c4b8ebcc67b956925d9d18}
+      \strng{authorfullhash}{952b785480c4b8ebcc67b956925d9d18}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Rollup: Guide}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://rollupjs.org/guide/en
       \endverb
@@ -453,14 +512,16 @@
       \name{author}{1}{}{%
         {{hash=bf692b9b128a62a718ae9d2f5598b7c8}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={TypeScript},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{bf692b9b128a62a718ae9d2f5598b7c8}
       \strng{fullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authornamehash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authorfullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{TypeScript}
@@ -472,21 +533,24 @@
       \name{author}{1}{}{%
         {{hash=bf692b9b128a62a718ae9d2f5598b7c8}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={TypeScript},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{bf692b9b128a62a718ae9d2f5598b7c8}
       \strng{fullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authornamehash}{bf692b9b128a62a718ae9d2f5598b7c8}
+      \strng{authorfullhash}{bf692b9b128a62a718ae9d2f5598b7c8}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{TypeScript}
       \field{title}{Using the Compiler API}
       \field{urlday}{30}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
       \endverb
@@ -495,21 +559,24 @@
       \name{author}{1}{}{%
         {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
            family={contributors},
-           family_i={c\bibinitperiod},
+           familyi={c\bibinitperiod},
            given={Wikipedia},
-           given_i={W\bibinitperiod}}}%
+           giveni={W\bibinitperiod}}}%
       }
       \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
       \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
       \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Abstract syntax tree --- {Wikipedia}{,} The Free Encyclopedia}
       \field{urlday}{30}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://en.wikipedia.org/w/index.php?title=Abstract_syntax_tree&oldid=849296366
       \endverb
@@ -518,28 +585,32 @@
       \name{author}{2}{}{%
         {{hash=e289d8e4f4648ab33fb5d884998637aa}{%
            family={Crockford},
-           family_i={C\bibinitperiod},
+           familyi={C\bibinitperiod},
            given={Douglas},
-           given_i={D\bibinitperiod}}}%
+           giveni={D\bibinitperiod}}}%
         {{hash=f6ac71e84847e95985b38c37d7d8229c}{%
            family={Wei{ß}eckel},
-           family_i={W\bibinitperiod},
+           familyi={W\bibinitperiod},
            given={Tom},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{b9fdb97a0cf082f8f0c54ebb10d9f98e}
       \strng{fullhash}{b9fdb97a0cf082f8f0c54ebb10d9f98e}
+      \strng{authornamehash}{b9fdb97a0cf082f8f0c54ebb10d9f98e}
+      \strng{authorfullhash}{b9fdb97a0cf082f8f0c54ebb10d9f98e}
       \field{sortinit}{C}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{24}
       \field{month}{12}
       \field{title}{Douglas Crockford: \textquote{Java was a colossal failure; JavaScript is succeeding because it works}}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2012}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://jaxenter.com/douglas-crockford-java-was-a-colossal-failure-javascript-is-succeeding-because-it-works-105395.html
       \endverb
@@ -548,22 +619,26 @@
       \name{author}{1}{}{%
         {{hash=c669ae39e4262fb31a4df5b29bc678ae}{%
            family={Eich},
-           family_i={E\bibinitperiod},
+           familyi={E\bibinitperiod},
            given={Brendan},
-           given_i={B\bibinitperiod}}}%
+           giveni={B\bibinitperiod}}}%
       }
       \strng{namehash}{c669ae39e4262fb31a4df5b29bc678ae}
       \strng{fullhash}{c669ae39e4262fb31a4df5b29bc678ae}
+      \strng{authornamehash}{c669ae39e4262fb31a4df5b29bc678ae}
+      \strng{authorfullhash}{c669ae39e4262fb31a4df5b29bc678ae}
       \field{sortinit}{E}
-      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
       \field{labelnamesource}{author}
       \field{day}{25}
-      \field{month}{03}
+      \field{month}{3}
       \field{note}{Komentar na sajtu \textsl{Hacker News}}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://news.ycombinator.com/item?id=9266517
       \endverb
@@ -572,30 +647,34 @@
       \name{author}{1}{}{%
         {{hash=4e849f95fd4027eddc857f747c08a500}{%
            family={Elliot},
-           family_i={E\bibinitperiod},
+           familyi={E\bibinitperiod},
            given={Ian},
-           given_i={I\bibinitperiod}}}%
+           giveni={I\bibinitperiod}}}%
       }
       \strng{namehash}{4e849f95fd4027eddc857f747c08a500}
       \strng{fullhash}{4e849f95fd4027eddc857f747c08a500}
+      \strng{authornamehash}{4e849f95fd4027eddc857f747c08a500}
+      \strng{authorfullhash}{4e849f95fd4027eddc857f747c08a500}
       \field{sortinit}{E}
-      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{14}
-      \field{month}{07}
+      \field{month}{7}
       \field{title}{Death of Flash and Java Applets}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.i-programmer.info/news/86-browsers/8783-death-of-flash-and-java.html
       \endverb
     \endentry
     \entry{hyperapp:patch}{online}{}
       \field{sortinit}{F}
-      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
       \field{labeltitlesource}{title}
       \field{title}{Funkcija \code{patch} u mikro-frejmvorku \textit{{Hyperapp}}}
       \verb{url}
@@ -606,34 +685,38 @@
       \name{author}{3}{}{%
         {{hash=78eef6679cc36f8c2cea5304636e6e02}{%
            family={Galli},
-           family_i={G\bibinitperiod},
+           familyi={G\bibinitperiod},
            given={Marcio},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
         {{hash=15debd441781015b4de6f12577e1fa0e}{%
            family={Soares},
-           family_i={S\bibinitperiod},
+           familyi={S\bibinitperiod},
            given={Roger},
-           given_i={R\bibinitperiod}}}%
+           giveni={R\bibinitperiod}}}%
         {{hash=d77fda8709e81f9b56a5446d90eb8efd}{%
            family={Oeschger},
-           family_i={O\bibinitperiod},
+           familyi={O\bibinitperiod},
            given={Ian},
-           given_i={I\bibinitperiod}}}%
+           giveni={I\bibinitperiod}}}%
       }
       \strng{namehash}{247ed0fc665696cb35c5443c5e95c151}
       \strng{fullhash}{247ed0fc665696cb35c5443c5e95c151}
+      \strng{authornamehash}{247ed0fc665696cb35c5443c5e95c151}
+      \strng{authorfullhash}{247ed0fc665696cb35c5443c5e95c151}
       \field{sortinit}{G}
-      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{16}
-      \field{month}{05}
+      \field{month}{5}
       \field{series}{Archives od MDN}
       \field{title}{Inner-browsing extending the browser navigation paradigm}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2003}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://developer.mozilla.org/en-US/docs/Archive/Inner-browsing_extending_the_browser_navigation_paradigm
       \endverb
@@ -642,23 +725,27 @@
       \name{author}{1}{}{%
         {{hash=c9b3afd44b6d0982660da2e0b573ad63}{%
            family={Garret},
-           family_i={G\bibinitperiod},
+           familyi={G\bibinitperiod},
            given={Jesse\bibnamedelima James},
-           given_i={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
       }
       \strng{namehash}{c9b3afd44b6d0982660da2e0b573ad63}
       \strng{fullhash}{c9b3afd44b6d0982660da2e0b573ad63}
+      \strng{authornamehash}{c9b3afd44b6d0982660da2e0b573ad63}
+      \strng{authorfullhash}{c9b3afd44b6d0982660da2e0b573ad63}
       \field{sortinit}{G}
-      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{18}
-      \field{month}{02}
+      \field{month}{2}
       \field{title}{Ajax: A New Approach to Web Applications}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2005}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://adaptivepath.org/ideas/ajax-new-approach-web-applications/
       \endverb
@@ -667,23 +754,27 @@
       \name{author}{1}{}{%
         {{hash=af69c44d884e54bd8093622f3ba75fc6}{%
            family={Hamilton},
-           family_i={H\bibinitperiod},
+           familyi={H\bibinitperiod},
            given={Naomi},
-           given_i={N\bibinitperiod}}}%
+           giveni={N\bibinitperiod}}}%
       }
       \strng{namehash}{af69c44d884e54bd8093622f3ba75fc6}
       \strng{fullhash}{af69c44d884e54bd8093622f3ba75fc6}
+      \strng{authornamehash}{af69c44d884e54bd8093622f3ba75fc6}
+      \strng{authorfullhash}{af69c44d884e54bd8093622f3ba75fc6}
       \field{sortinit}{H}
-      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{31}
-      \field{month}{07}
+      \field{month}{7}
       \field{title}{The A-Z of Programming Languages: JavaScript}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2008}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.computerworld.com.au/article/255293/a-z_programming_languages_javascript/
       \endverb
@@ -692,21 +783,25 @@
       \name{author}{1}{}{%
         {{hash=129098e814fb9141e381f6b3068dd41c}{%
            family={Haverbeke},
-           family_i={H\bibinitperiod},
+           familyi={H\bibinitperiod},
            given={Marijn},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{129098e814fb9141e381f6b3068dd41c}
       \strng{fullhash}{129098e814fb9141e381f6b3068dd41c}
+      \strng{authornamehash}{129098e814fb9141e381f6b3068dd41c}
+      \strng{authorfullhash}{129098e814fb9141e381f6b3068dd41c}
       \field{sortinit}{H}
-      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Eloquent JavaScript, 3\textsuperscript{rd} edition}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://eloquentjavascript.net/index.html
       \endverb
@@ -715,23 +810,27 @@
       \name{author}{1}{}{%
         {{hash=99e90854b3370f24324eda82a9312ce6}{%
            family={Hevery},
-           family_i={H\bibinitperiod},
+           familyi={H\bibinitperiod},
            given={Miško},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{99e90854b3370f24324eda82a9312ce6}
       \strng{fullhash}{99e90854b3370f24324eda82a9312ce6}
+      \strng{authornamehash}{99e90854b3370f24324eda82a9312ce6}
+      \strng{authorfullhash}{99e90854b3370f24324eda82a9312ce6}
       \field{sortinit}{H}
-      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{29}
-      \field{month}{07}
+      \field{month}{7}
       \field{title}{<angular/>: A Radically Different Way of Building AJAX Apps}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2010}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://misko.hevery.com/2010/07/29/a-radically-different-way-of-building-ajax-apps/
       \endverb
@@ -740,23 +839,27 @@
       \name{author}{1}{}{%
         {{hash=99e90854b3370f24324eda82a9312ce6}{%
            family={Hevery},
-           family_i={H\bibinitperiod},
+           familyi={H\bibinitperiod},
            given={Miško},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{99e90854b3370f24324eda82a9312ce6}
       \strng{fullhash}{99e90854b3370f24324eda82a9312ce6}
+      \strng{authornamehash}{99e90854b3370f24324eda82a9312ce6}
+      \strng{authorfullhash}{99e90854b3370f24324eda82a9312ce6}
       \field{sortinit}{H}
-      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{28}
       \field{month}{11}
       \field{title}{Hello World, <angular/> is here}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://misko.hevery.com/2009/09/28/hello-world-angular-is-here/
       \endverb
@@ -765,41 +868,47 @@
       \name{author}{1}{}{%
         {{hash=f1d2795d173fdb9c5022a15a0095e900}{%
            family={Ito},
-           family_i={I\bibinitperiod},
+           familyi={I\bibinitperiod},
            given={Hayato},
-           given_i={H\bibinitperiod}}}%
+           giveni={H\bibinitperiod}}}%
       }
       \list{institution}{1}{%
         {W3C}%
       }
       \strng{namehash}{f1d2795d173fdb9c5022a15a0095e900}
       \strng{fullhash}{f1d2795d173fdb9c5022a15a0095e900}
+      \strng{authornamehash}{f1d2795d173fdb9c5022a15a0095e900}
+      \strng{authorfullhash}{f1d2795d173fdb9c5022a15a0095e900}
       \field{sortinit}{I}
-      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{01}
-      \field{month}{03}
+      \field{day}{1}
+      \field{month}{3}
       \field{title}{Shadow {DOM}}
       \field{urlday}{25}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.w3.org/TR/shadow-dom/
       \endverb
     \endentry
     \entry{built-with-jquery}{online}{}
       \field{sortinit}{j}
-      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
       \field{labeltitlesource}{title}
       \field{day}{31}
-      \field{month}{08}
+      \field{month}{8}
       \field{title}{jQuery Usage Statistics}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://trends.builtwith.com/javascript/jQuery
       \endverb
@@ -808,30 +917,34 @@
       \name{author}{2}{}{%
         {{hash=cb5388be542029c38a0451092494beb3}{%
            family={Jr.},
-           family_i={J\bibinitperiod},
+           familyi={J\bibinitperiod},
            given={Tab\bibnamedelima Atkins},
-           given_i={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
         {{hash=5c8dc425b6dbbcb4a7ec0309a0ed197a}{%
            family={Etemad},
-           family_i={E\bibinitperiod},
+           familyi={E\bibinitperiod},
            given={Elika},
-           given_i={E\bibinitperiod}}}%
+           giveni={E\bibinitperiod}}}%
       }
       \list{institution}{1}{%
         {W3C}%
       }
       \strng{namehash}{b3a49e3ccb0a54193e4a0366077e41a3}
       \strng{fullhash}{b3a49e3ccb0a54193e4a0366077e41a3}
+      \strng{authornamehash}{b3a49e3ccb0a54193e4a0366077e41a3}
+      \strng{authorfullhash}{b3a49e3ccb0a54193e4a0366077e41a3}
       \field{sortinit}{J}
-      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{04}
+      \field{month}{4}
       \field{title}{{CSS} Scopring Module Level 1}
       \field{urlday}{25}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.w3.org/TR/shadow-dom
       \endverb
@@ -840,17 +953,19 @@
       \name{author}{1}{}{%
         {{hash=a4d36b5ff06eaaea0dfd2082ecc2b8c0}{%
            family={Kim},
-           family_i={K\bibinitperiod},
+           familyi={K\bibinitperiod},
            given={Byung-Keun},
-           given_i={B\bibinithyphendelim K\bibinitperiod}}}%
+           giveni={B\bibinithyphendelim K\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Edward Elgar Publishing}%
       }
       \strng{namehash}{a4d36b5ff06eaaea0dfd2082ecc2b8c0}
       \strng{fullhash}{a4d36b5ff06eaaea0dfd2082ecc2b8c0}
+      \strng{authornamehash}{a4d36b5ff06eaaea0dfd2082ecc2b8c0}
+      \strng{authorfullhash}{a4d36b5ff06eaaea0dfd2082ecc2b8c0}
       \field{sortinit}{K}
-      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9781843764977}
@@ -862,23 +977,27 @@
       \name{author}{1}{}{%
         {{hash=2c6b6f01a00fa0da6391fd46a1fa16f4}{%
            family={Laverdet},
-           family_i={L\bibinitperiod},
+           familyi={L\bibinitperiod},
            given={Marcel},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{2c6b6f01a00fa0da6391fd46a1fa16f4}
       \strng{fullhash}{2c6b6f01a00fa0da6391fd46a1fa16f4}
+      \strng{authornamehash}{2c6b6f01a00fa0da6391fd46a1fa16f4}
+      \strng{authorfullhash}{2c6b6f01a00fa0da6391fd46a1fa16f4}
       \field{sortinit}{L}
-      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{10}
-      \field{month}{02}
+      \field{month}{2}
       \field{title}{XHP: A New Way to Write PHP}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2010}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.facebook.com/notes/facebook-engineering/xhp-a-new-way-to-write-php/294003943919/
       \endverb
@@ -887,23 +1006,27 @@
       \name{author}{1}{}{%
         {{hash=8904719f6299d59f4cc4b5a93f80d357}{%
            family={Leenheer},
-           family_i={L\bibinitperiod},
+           familyi={L\bibinitperiod},
            given={Niels},
-           given_i={N\bibinitperiod}}}%
+           giveni={N\bibinitperiod}}}%
       }
       \strng{namehash}{8904719f6299d59f4cc4b5a93f80d357}
       \strng{fullhash}{8904719f6299d59f4cc4b5a93f80d357}
+      \strng{authornamehash}{8904719f6299d59f4cc4b5a93f80d357}
+      \strng{authorfullhash}{8904719f6299d59f4cc4b5a93f80d357}
       \field{sortinit}{L}
-      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{18}
       \field{month}{12}
       \field{title}{make your pages load faster by combining and compressing javascript and css files}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2006}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://rakaz.nl/2006/12/make-your-pages-load-faster-by-combining-and-compressing-javascript-and-css-files.html
       \endverb
@@ -912,23 +1035,27 @@
       \name{author}{1}{}{%
         {{hash=3a7c79922475e280844ffbe5ee9bc6d0}{%
            family={Maida},
-           family_i={M\bibinitperiod},
+           familyi={M\bibinitperiod},
            given={Kim},
-           given_i={K\bibinitperiod}}}%
+           giveni={K\bibinitperiod}}}%
       }
       \strng{namehash}{3a7c79922475e280844ffbe5ee9bc6d0}
       \strng{fullhash}{3a7c79922475e280844ffbe5ee9bc6d0}
+      \strng{authornamehash}{3a7c79922475e280844ffbe5ee9bc6d0}
+      \strng{authorfullhash}{3a7c79922475e280844ffbe5ee9bc6d0}
       \field{sortinit}{M}
-      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{22}
-      \field{month}{03}
+      \field{month}{3}
       \field{title}{How to Manage JavaScript Fatigue}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://auth0.com/blog/how-to-manage-javascript-fatigue/
       \endverb
@@ -937,23 +1064,27 @@
       \name{author}{1}{}{%
         {{hash=d44fced3055604fd09c4e99476a58f00}{%
            family={Osmani},
-           family_i={O\bibinitperiod},
+           familyi={O\bibinitperiod},
            given={Addy},
-           given_i={A\bibinitperiod}}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{d44fced3055604fd09c4e99476a58f00}
       \strng{fullhash}{d44fced3055604fd09c4e99476a58f00}
+      \strng{authornamehash}{d44fced3055604fd09c4e99476a58f00}
+      \strng{authorfullhash}{d44fced3055604fd09c4e99476a58f00}
       \field{sortinit}{O}
-      \field{sortinithash}{7803d2715d5e795e70382b084ab8d00e}
+      \field{sortinithash}{f5d80ef71b5b58852663ecfd775b175a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{19}
-      \field{month}{01}
+      \field{month}{1}
       \field{title}{Front-end Choice Paralysis}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://the-pastry-box-project.net/addy-osmani/2014-January-19
       \endverb
@@ -962,23 +1093,27 @@
       \name{author}{1}{}{%
         {{hash=2d74bad8495e3416be02d9390cea80f7}{%
            family={Parviainen},
-           family_i={P\bibinitperiod},
+           familyi={P\bibinitperiod},
            given={Tero},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{2d74bad8495e3416be02d9390cea80f7}
       \strng{fullhash}{2d74bad8495e3416be02d9390cea80f7}
+      \strng{authornamehash}{2d74bad8495e3416be02d9390cea80f7}
+      \strng{authorfullhash}{2d74bad8495e3416be02d9390cea80f7}
       \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{02}
-      \field{month}{03}
+      \field{day}{2}
+      \field{month}{3}
       \field{title}{Change And Its Detection In JavaScript Frameworks}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html
       \endverb
@@ -987,23 +1122,27 @@
       \name{author}{1}{}{%
         {{hash=2d74bad8495e3416be02d9390cea80f7}{%
            family={Parviainen},
-           family_i={P\bibinitperiod},
+           familyi={P\bibinitperiod},
            given={Tero},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{2d74bad8495e3416be02d9390cea80f7}
       \strng{fullhash}{2d74bad8495e3416be02d9390cea80f7}
+      \strng{authornamehash}{2d74bad8495e3416be02d9390cea80f7}
+      \strng{authorfullhash}{2d74bad8495e3416be02d9390cea80f7}
       \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{15}
-      \field{month}{07}
+      \field{month}{7}
       \field{title}{Overcoming JavaScript Framework Fatigue}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://teropa.info/blog/2015/07/15/overcoming-javascript-framework-fatigue.html
       \endverb
@@ -1012,23 +1151,27 @@
       \name{author}{1}{}{%
         {{hash=b215260735aa99aac939ae531264b9ed}{%
            family={Piechocki},
-           family_i={P\bibinitperiod},
+           familyi={P\bibinitperiod},
            given={Miłosz},
-           given_i={M\bibinitperiod}}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{b215260735aa99aac939ae531264b9ed}
       \strng{fullhash}{b215260735aa99aac939ae531264b9ed}
+      \strng{authornamehash}{b215260735aa99aac939ae531264b9ed}
+      \strng{authorfullhash}{b215260735aa99aac939ae531264b9ed}
       \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{08}
+      \field{day}{8}
       \field{month}{11}
       \field{title}{Change detection in Angular versus AngularJS}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://codewithstyle.info/change-detection-angular-versus-angularjs/
       \endverb
@@ -1037,23 +1180,27 @@
       \name{author}{1}{}{%
         {{hash=09387c621c3a4f3e02a2fe7481a9aa09}{%
            family={Precht},
-           family_i={P\bibinitperiod},
+           familyi={P\bibinitperiod},
            given={Pascal},
-           given_i={P\bibinitperiod}}}%
+           giveni={P\bibinitperiod}}}%
       }
       \strng{namehash}{09387c621c3a4f3e02a2fe7481a9aa09}
       \strng{fullhash}{09387c621c3a4f3e02a2fe7481a9aa09}
+      \strng{authornamehash}{09387c621c3a4f3e02a2fe7481a9aa09}
+      \strng{authorfullhash}{09387c621c3a4f3e02a2fe7481a9aa09}
       \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{18}
       \field{month}{12}
       \field{title}{Angular Change Detection Explained}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html
       \endverb
@@ -1062,21 +1209,24 @@
       \name{author}{1}{}{%
         {{hash=86c590c4ef15d0078286562a483eb052}{%
            family={Preston-Werner},
-           family_i={P\bibinithyphendelim W\bibinitperiod},
+           familyi={P\bibinithyphendelim W\bibinitperiod},
            given={Tom},
-           given_i={T\bibinitperiod}}}%
+           giveni={T\bibinitperiod}}}%
       }
       \strng{namehash}{86c590c4ef15d0078286562a483eb052}
       \strng{fullhash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authornamehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authorfullhash}{86c590c4ef15d0078286562a483eb052}
       \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{Tom's Obvious, Minimal Language}
       \field{title}{TOML}
       \field{urlday}{25}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://github.com/toml-lang/toml
       \endverb
@@ -1085,20 +1235,23 @@
       \name{author}{1}{}{%
         {{hash=e233a52ae34baa92533a77e95ab2fd10}{%
            family={Rauschmayer},
-           family_i={R\bibinitperiod},
+           familyi={R\bibinitperiod},
            given={Dr.\bibnamedelimi Axel},
-           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \strng{namehash}{e233a52ae34baa92533a77e95ab2fd10}
       \strng{fullhash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authornamehash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authorfullhash}{e233a52ae34baa92533a77e95ab2fd10}
       \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Exploring ES2016 and ES2017}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://exploringjs.com/es2016-es2017.html
       \endverb
@@ -1107,20 +1260,23 @@
       \name{author}{1}{}{%
         {{hash=e233a52ae34baa92533a77e95ab2fd10}{%
            family={Rauschmayer},
-           family_i={R\bibinitperiod},
+           familyi={R\bibinitperiod},
            given={Dr.\bibnamedelimi Axel},
-           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \strng{namehash}{e233a52ae34baa92533a77e95ab2fd10}
       \strng{fullhash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authornamehash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authorfullhash}{e233a52ae34baa92533a77e95ab2fd10}
       \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Exploring ES2018 and ES2019}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://exploringjs.com/es2018-es2019/index.html
       \endverb
@@ -1129,20 +1285,23 @@
       \name{author}{1}{}{%
         {{hash=e233a52ae34baa92533a77e95ab2fd10}{%
            family={Rauschmayer},
-           family_i={R\bibinitperiod},
+           familyi={R\bibinitperiod},
            given={Dr.\bibnamedelimi Axel},
-           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \strng{namehash}{e233a52ae34baa92533a77e95ab2fd10}
       \strng{fullhash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authornamehash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authorfullhash}{e233a52ae34baa92533a77e95ab2fd10}
       \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Exploring ES6}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://exploringjs.com/es6.html
       \endverb
@@ -1151,20 +1310,23 @@
       \name{author}{1}{}{%
         {{hash=e233a52ae34baa92533a77e95ab2fd10}{%
            family={Rauschmayer},
-           family_i={R\bibinitperiod},
+           familyi={R\bibinitperiod},
            given={Dr.\bibnamedelimi Axel},
-           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \strng{namehash}{e233a52ae34baa92533a77e95ab2fd10}
       \strng{fullhash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authornamehash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authorfullhash}{e233a52ae34baa92533a77e95ab2fd10}
       \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{http://2ality.com/2015/11/tc39-process.html}
       \field{urlday}{11}
-      \field{urlmonth}{09}
+      \field{urlmonth}{9}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://2ality.com/2015/11/tc39-process.html
       \endverb
@@ -1173,20 +1335,23 @@
       \name{author}{1}{}{%
         {{hash=e233a52ae34baa92533a77e95ab2fd10}{%
            family={Rauschmayer},
-           family_i={R\bibinitperiod},
+           familyi={R\bibinitperiod},
            given={Dr.\bibnamedelimi Axel},
-           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \strng{namehash}{e233a52ae34baa92533a77e95ab2fd10}
       \strng{fullhash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authornamehash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authorfullhash}{e233a52ae34baa92533a77e95ab2fd10}
       \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{JavaScript for impatient programmers}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://exploringjs.com/impatient-js/index.html
       \endverb
@@ -1195,23 +1360,26 @@
       \name{author}{1}{}{%
         {{hash=e233a52ae34baa92533a77e95ab2fd10}{%
            family={Rauschmayer},
-           family_i={R\bibinitperiod},
+           familyi={R\bibinitperiod},
            given={Dr.\bibnamedelimi Axel},
-           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {O'Reilly}%
       }
       \strng{namehash}{e233a52ae34baa92533a77e95ab2fd10}
       \strng{fullhash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authornamehash}{e233a52ae34baa92533a77e95ab2fd10}
+      \strng{authorfullhash}{e233a52ae34baa92533a77e95ab2fd10}
       \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Speaking JavaScript}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://speakingjs.com/
       \endverb
@@ -1220,25 +1388,28 @@
       \name{author}{3}{}{%
         {{hash=d9fa428dd3e986c39b7458de8e5d66a9}{%
            family={Sacha},
-           family_i={S\bibinitperiod}}}%
+           familyi={S\bibinitperiod}}}%
         {{hash=28ce382d14f1307b2eff2f1f3f720d3e}{%
            family={Raphaël},
-           family_i={R\bibinitperiod}}}%
+           familyi={R\bibinitperiod}}}%
         {{hash=3e06fa3927cbdf4e9d93ba4541acce86}{%
            family={Michael},
-           family_i={M\bibinitperiod}}}%
+           familyi={M\bibinitperiod}}}%
       }
       \strng{namehash}{8c7ede6c95c143094f7acbc6bf5067af}
       \strng{fullhash}{8c7ede6c95c143094f7acbc6bf5067af}
+      \strng{authornamehash}{8c7ede6c95c143094f7acbc6bf5067af}
+      \strng{authorfullhash}{8c7ede6c95c143094f7acbc6bf5067af}
       \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{Survey Results}
       \field{title}{The State of JavaScript (2017)}
       \field{urlday}{25}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://stateofjs.com/2017/
       \endverb
@@ -1247,23 +1418,27 @@
       \name{author}{1}{}{%
         {{hash=9182503fe3f974ac14d7479f8a5a35f7}{%
            family={Savkin},
-           family_i={S\bibinitperiod},
+           familyi={S\bibinitperiod},
            given={Victor},
-           given_i={V\bibinitperiod}}}%
+           giveni={V\bibinitperiod}}}%
       }
       \strng{namehash}{9182503fe3f974ac14d7479f8a5a35f7}
       \strng{fullhash}{9182503fe3f974ac14d7479f8a5a35f7}
+      \strng{authornamehash}{9182503fe3f974ac14d7479f8a5a35f7}
+      \strng{authorfullhash}{9182503fe3f974ac14d7479f8a5a35f7}
       \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{13}
-      \field{month}{07}
+      \field{month}{7}
       \field{title}{Change Detection in Angular}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://vsavkin.com/change-detection-in-angular-2-4f216b855d4c
       \endverb
@@ -1272,20 +1447,24 @@
       \name{author}{1}{}{%
         {{hash=099250251750058aae807f82da92aeb4}{%
            family={stunix},
-           family_i={s\bibinitperiod}}}%
+           familyi={s\bibinitperiod}}}%
       }
       \strng{namehash}{099250251750058aae807f82da92aeb4}
       \strng{fullhash}{099250251750058aae807f82da92aeb4}
+      \strng{authornamehash}{099250251750058aae807f82da92aeb4}
+      \strng{authorfullhash}{099250251750058aae807f82da92aeb4}
       \field{sortinit}{s}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{04}
+      \field{month}{4}
       \field{title}{The story of www.slashdotslash.com}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2012}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://stunix.outanet.com/?p=slash
       \endverb
@@ -1294,23 +1473,27 @@
       \name{author}{1}{}{%
         {{hash=044176fb833c1638f7abe20cde6a3077}{%
            family={Swartz},
-           family_i={S\bibinitperiod},
+           familyi={S\bibinitperiod},
            given={Aaron},
-           given_i={A\bibinitperiod}}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{044176fb833c1638f7abe20cde6a3077}
       \strng{fullhash}{044176fb833c1638f7abe20cde6a3077}
+      \strng{authornamehash}{044176fb833c1638f7abe20cde6a3077}
+      \strng{authorfullhash}{044176fb833c1638f7abe20cde6a3077}
       \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{22}
       \field{month}{12}
       \field{title}{A Brief History of Ajax}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2005}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://www.aaronsw.com/weblog/ajaxhistory
       \endverb
@@ -1319,23 +1502,26 @@
       \name{author}{2}{}{%
         {{hash=306b7ad33b3843bd3402fa4e37fcbe5f}{%
            family={Syed},
-           family_i={S\bibinitperiod},
+           familyi={S\bibinitperiod},
            given={Basarat\bibnamedelima Ali},
-           given_i={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
         {{hash=a8b2e39951bba535f313f563f6abaef6}{%
            family={contributors},
-           family_i={c\bibinitperiod}}}%
+           familyi={c\bibinitperiod}}}%
       }
       \strng{namehash}{f31512e9434be38d5697507f2bf794a1}
       \strng{fullhash}{f31512e9434be38d5697507f2bf794a1}
+      \strng{authornamehash}{f31512e9434be38d5697507f2bf794a1}
+      \strng{authorfullhash}{f31512e9434be38d5697507f2bf794a1}
       \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{TypeScript Deep Dive}
       \field{urlday}{30}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://legacy.gitbook.com/book/basarat/typescript
       \endverb
@@ -1344,23 +1530,27 @@
       \name{author}{1}{}{%
         {{hash=5542ab6b70aac934ea43331d18885af9}{%
            family={Tunru},
-           family_i={T\bibinitperiod},
+           familyi={T\bibinitperiod},
            given={Vincent},
-           given_i={V\bibinitperiod}}}%
+           giveni={V\bibinitperiod}}}%
       }
       \strng{namehash}{5542ab6b70aac934ea43331d18885af9}
       \strng{fullhash}{5542ab6b70aac934ea43331d18885af9}
+      \strng{authornamehash}{5542ab6b70aac934ea43331d18885af9}
+      \strng{authorfullhash}{5542ab6b70aac934ea43331d18885af9}
       \field{sortinit}{T}
-      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{28}
-      \field{month}{06}
+      \field{month}{6}
       \field{title}{A short history of Javascript Frameworks: a comparison of JQuery, AngularJS and React}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://vincenttunru.com/A-short-history-of-Javascript-frameworks-a-comparison-of-JQuery-AngularJS-and-React/
       \endverb
@@ -1369,23 +1559,27 @@
       \name{author}{1}{}{%
         {{hash=60abadcd9096ab9aa75b223a2ed1d381}{%
            family={University},
-           family_i={U\bibinitperiod},
+           familyi={U\bibinitperiod},
            given={Angular},
-           given_i={A\bibinitperiod}}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{60abadcd9096ab9aa75b223a2ed1d381}
       \strng{fullhash}{60abadcd9096ab9aa75b223a2ed1d381}
+      \strng{authornamehash}{60abadcd9096ab9aa75b223a2ed1d381}
+      \strng{authorfullhash}{60abadcd9096ab9aa75b223a2ed1d381}
       \field{sortinit}{U}
-      \field{sortinithash}{8145509bd2718876fc77d31fd2cde117}
+      \field{sortinithash}{1554584e7f69d2b4fe0a645e73d50194}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{18}
-      \field{month}{07}
+      \field{month}{7}
       \field{title}{Angular Change Detection -- How Does It Really Work?}
       \field{urlday}{31}
-      \field{urlmonth}{08}
+      \field{urlmonth}{8}
       \field{urlyear}{2018}
       \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://blog.angular-university.io/how-does-angular-2-change-detection-really-work/
       \endverb

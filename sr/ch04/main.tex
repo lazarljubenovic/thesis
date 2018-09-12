@@ -11,14 +11,14 @@ Uz frejmvork dolazi CLI i bandler sa optimizatorom, pa se ne javlja potreba za i
 
 \section{Šabloni}
 
-S obzirom da se o frejmvorku za kreiranje \emph{veb}-aplikacija, način komunikacije sa korisnicima odvija se pomoću DOM-a.
+S obzirom da se o frejmvorku za kreiranje \emph{veb}-aplikacija, način komunikacije sa krajnjim korisnicima odvija se pomoću DOM-a.
 Brauzer kreira DOM na osnovu HTML-a poslatog sa servera, ali i pruža programski pristup istom pomoću Javaskripta.
-Ideja korišćenja UI frejmvorka je da se zaobiđe ovaj proces
-Glavni zadatak Vejna je da pogled sa kojim korisnik interaguje održava sinhronizovanim sa modelom, tj. internim stanjem aplikacije.
+Ideja korišćenja UI frejmvorka je da se zaobiđe ovaj proces.
+Glavni zadatak Vejna je da pogled sa kojim krajnji korisnik interaguje održava sinhronizovanim sa modelom, tj. internim stanjem aplikacije definisanim od strane autora.
 Ovo je omogućeno definisanjem oblika interfejsa kroz \emph{deklarativnu} sintaksu -- u pitanju je sintaksa koja podseća na HTML kako bi se developer osećao \textquote{kod kuće}, ali se zapravo radi o proizvoljnoj sintaksi.
 
 Termin \textquote{deklarativna} se odnosi na to da developer ne upravlja t\^okom izvršenja koda tokom pisanja šablona.
-Upravljanje tokom je redosled u kome računar izvršava izraze u skripti \cite{mdn:glossary:control-flow}.
+Upravljanje tôkom je redosled u kome računar izvršava izraze u skripti \cite{mdn:glossary:control-flow}.
 Umesto ovoga, developer samo \emph{deklariše} \textbf{šta} treba da bude prikazano na ekranu korisnika na osnovu stanja modela, a ne i \textbf{kako} se ovaj proces odvija.
 Ovo ne samo da olakšava pisanje šablona, već i omogućuje da se vrše interne promene u frejmvorku a da developer toga ne bude svestan -- drugim rečima, developer može prostim ažuriranjem verzije frejmvorka koju koristi da unapredi performanse aplikacije.
 
@@ -27,7 +27,7 @@ Ovo za posledicu ima mogućnost da se postojeći statički sajt vrlo brzo može 
 
 \subsection{Vezivna sintaksa}
 
-Proširenje sintakse HTML-a se ugleda u mogućnosti da se trenutno stanje modela sinhroniše sa pogledom, tj. da se korisnički interfejs osveži svaki put kada dođe do promene modela, u skladu sa pravilima definisanim u šablonima.
+Proširenje sintakse HTML-a se ogleda u mogućnosti da se trenutno stanje modela sinhroniše sa pogledom, tj. da se korisnički interfejs osveži svaki put kada dođe do promene modela, u skladu sa pravilima definisanim u šablonima.
 Ovo je omogućeno vezivnom sintaksom.
 
 Vezivnom sintaksom se mogu definisati izrazi i iskazi.
@@ -38,7 +38,8 @@ Među literale spadaju stringovi (\code{"foo"}, \code{'foo'}), brojevi (\code{21
 Mogu se referencirati \textbf{svojstva} sa klase za koju je šablon vezan ili alijasi koje izlaže direktiva u određenom opsegu, kao i \textbf{lanci pristupa} (\code{item}, \code{item.name}).
 Ispred svojstva i lanca pristupa se može dodati znak uzvika (\code{!}), što znači da će nad podatkom biti primenjen \textbf{operator negacije}.
 
-Od iskaza se mogu koristiti jedino \textbf{pozivi}. Argumenti se navode u malim zagradama, odvojeni zarezom -- kao i u Javaskriptu.
+Od iskaza se mogu koristiti jedino \textbf{pozivi}.
+Argumenti se navode u malim zagradama, odvojeni zarezom -- kao i u Javaskriptu.
 Pored izraza, kao argument se može navesti i specijalan simbol \code{\#} koji označava preuzimanje reference koja se prosleđuje kroz događaj (iz HTML elementa) ili izlaz (iz komponente).
 
 Proizvoljni Javaskript izrazi nisu dozovljeni u vezivnoj sintaksi -- operator negacije predstavlja jedini vid manipulacije koji je moguć nad podacima u okviru definicije šablona.
@@ -92,7 +93,7 @@ U tom slučaju se vrednost koja se navodi sa desne strane imena tumači kao izra
 Mapiranje između atributa HTML-a i svojstava DOM čvorova nije uvek jedan-na-jedan.
 Na primer, mada je \code{<label for="anId">} validna definicija atributa \code{for}, ova informacija se sa čvora čita (i postavlja) preko svojstva \code{htmlFor}.
 Kako bi se napravila eksplicitna razlika između svojstava i atributa čvorova, za definisanje atributa koristi se prefiks \code{attr}.
-Ovo je slično razlici između korišćenja direktnog pristupa svojstvu (\code{element.svojstvo}) i korišćenju metode \code{setAttribute} nad čvorom.
+Ovo je slično razlici između korišćenja direktnog pristupa svojstvu (\code{element.svojstvo = vrednost}) i korišćenju metode \code{setAttribute('atribut', vrednost)} nad čvorom.
 
 \begin{verbatim}
 <label [htmlFor]="anId">...</label>
@@ -106,11 +107,12 @@ U slučaju da ime atributa u šablonu sadrži crticu, ono se automatski tumači 
 
 \begin{verbatim}
 <input [aria-label]="aLabel">
+inputEl.setAttribute('ariaLabel', aLabel)
 \end{verbatim}
 
 Interpolacija, atributi i svojstva se koriste sa izrazima vezivne sintakse.
 Koriste se za vezivanje \emph{podataka} za poglede i očuvanje sinhronizacije.
-Da bi se delalo na korisnikovu interakciju sa interfejsom, potrebno je pretplatiti se na događaje koje emituju HTML elementi.
+Da bi se delalo na korisnikovu \emph{interakciju} sa interfejsom, potrebno je pretplatiti se na događaje koje emituju HTML elementi.
 Za ovo se koriste iskazi vezivne sintakse; dakle, definišu se pozivi metoda
 Drugima rečima, za šablon se vezuje \emph{ponašanje} aplikacije.
 
@@ -129,10 +131,10 @@ Njime se može pristupiti objektu koji emituje događaj kako bi se informacije k
 Kao i kod svih UI frejmvorka, glavna gradivna jedinica u Vejnu je \emph{komponenta}.
 Komponente predstavljaju izolovane logičke celine koje se mogu smestiti u korisnički interfejs.
 
-Komponentu treba shvatiti kao prirodnu nadogradnju HTML postojećih HTML elemenata.
-Na primer, HTML element \code{HTMLInputElement} ima svoje \textbf{ime} na osnovu kojeg se prepoznaje u HTML kodu (string \code{input}), ima neka \textbf{svojstva} na osnovu kojih može da se kontrolišu finese njegovog ponašanja i izgleda koja se mogu specificirati navođenjem HTML atributa ili direktnom manipulacijom kad odgovarajućim propertijima Javaskript objekta (npr. \code{type}), i emituje neke \textbf{događaje} uz informaciju o tim događajima na koje se potrošači mogu pretplati i reagovati na njih.
+Komponentu treba shvatiti kao prirodnu nadogradnju postojećih HTML elemenata.
+Na primer, HTML element \code{HTMLInputElement} ima svoje \textbf{ime} na osnovu kojeg se prepoznaje u HTML kodu (string \code{input}), ima neka \textbf{svojstva} na osnovu kojih može da se kontrolišu finese njegovog ponašanja i izgleda koja se mogu specificirati navođenjem HTML atributa ili direktnom manipulacijom nad odgovarajućim svojstvima Javaskript objekta (npr. \code{type}), i emituje neke \textbf{događaje} uz informaciju o tim događajima na koje se potrošači mogu pretplati i reagovati na njih.
 
-Analogno tome, komponente dobijaju \textbf{ime} registrovanjem za druge komponente, \textbf{ulazi} (\textsl{inputs}) koji su sačinjeni od skupa svojstava klase koje je autor komponente proglasio kao delom njenog javnog API-ja, dok su \textbf{izlazi} događaji na koje se druge komponente mogu pretplatiti da bi se obavljala komunikacija između njih.
+Analogno tome, komponente dobijaju \textbf{ime} registrovanjem za druge komponente, imaju \textbf{ulaze} (\textsl{inputs}) koji su sačinjeni od skupa svojstava klase koje je autor komponente proglasio kao delom njenog javnog API-ja, dok su \textbf{izlazi} događaji na koje se druge komponente mogu pretplatiti da bi se obavljala komunikacija između njih.
 
 \subsection{Deklaracija}
 
@@ -155,11 +157,11 @@ Kada se aplikacija pokrene, renderuje se ova komponenta, a ona za sobom povlači
 
 Za razliku od HTML elemenata, koji su uvek globalno dostupni, komponente je potrebno \textbf{registrovati} za komponentu kako bi moglo da joj se pristupi iz šablona.
 Registracija se vrši navođenjem reference na odgovarajuću klasu među argumentima dekoratora \code{@Register} koji se navodi uz klasu.
-Ime simbola pod kojim se klasa registruje mora ima veliko početno slovo (tzv. \textsl{PascalCase}) kako bi se obezbedilo da neće doći do preklapanja sa imenima postojećih HTML elemenata i potencijalnih veb komponenti koje su registrovane na istoj stranici.
+Ime simbola pod kojim se klasa registruje mora da ima veliko početno slovo (tzv. \textsl{PascalCase}) kako bi se obezbedilo da neće doći do preklapanja sa imenima postojećih HTML elemenata i potencijalnih veb komponenti koje su registrovane na istoj stranici.
 
-Osim razlike u malim i velikim slovima, postoji još jedna bitna razlika kod korišćenja komponenti u šablonima: simbolička imena za istu klasu (pa samim tim istu komponentu) mogu da se razlikuje među upotrebama u različitim komponenatama.
-Drugim rečima, ime koje developer da simbolu prilikom registracije je ono pomoću koga komponenta može da se deklariše u šablonu.
-Na primer, klasa se može preimenovati alijasovanim importom; pored toga, klasa uopšte ne mora da ima ime ukoliko je iz modula izvezena kao podrazumevani simbol, već joj se simboličko ime dodeljuje tek prilikom uvoza.
+Osim razlike u malim i velikim slovima, postoji još jedna bitna razlika kod korišćenja komponenti u šablonima: simbolička imena za istu klasu (pa samim tim istu komponentu) mogu da se razlikuju među upotrebama u različitim komponenatama.%
+\footnote{Drugim rečima, ime koje developer da simbolu prilikom registracije je ono pomoću koga komponenta može da se deklariše u šablonu.
+Na primer, klasa se može preimenovati alijasovanim importom; pored toga, klasa uopšte ne mora da ima ime ukoliko je iz modula izvezena kao podrazumevani simbol, već joj se simboličko ime dodeljuje tek prilikom uvoza.}
 
 Registrovana komponenta se u šablon može postaviti kao bilo koji drugi HTML element.
 Pošto ne može da ima decu, može se koristiti i samo-zatvarajući tag.
@@ -172,12 +174,12 @@ Pošto ne može da ima decu, može se koristiti i samo-zatvarajući tag.
 \subsection{Ulazi}
 
 Da bi komponentu bilo moguće parametrizovati, uvodi se pojam  \textbf{ulaza} (\textsl{input}) u komponentu.
-Ovaj pojam je pandam svojstvima koje imaju HTML elementi.
+Ovaj pojam je pandam \emph{svojstvima} koje imaju HTML elementi.
 
 Ulazi u komponentu se definišu deklarisanjem javnog svojstva na klasi.
 
 Pošto se za proveru ispravnosti tipova u izvornom kodu koristi strogi režim Tajpskripta, ulazima za koje se očekuje da uvek dobiju vrednost iz šablona u kome se koriste dodaje se \code{!} -- stoga, ovo označava \textbf{obavezni ulaz}, pa Vejn prijavljuje grešku ukoliko mu se vrednost ne prosledi.
-Za bi se definisala podrazumevana vrednost ulaza, dovoljno je da se svojstvo jednostavno inicijalizuje.
+Da bi se definisala podrazumevana vrednost ulaza, dovoljno je da se svojstvo jednostavno inicijalizuje.
 Ulazi sa podrazumevanom vrednošću ne mogu biti obavezni.
 
 \begin{verbatim}
@@ -199,7 +201,7 @@ Više reči o tome u odeljku o \code{w:for} direktivi.
 
 \subsection{Izlazi}
 
-HTML elementi imaju događaje, a Vejn komponente imaju \textbf{izlaze} (\textsl{output}).
+HTML elementi imaju \emph{događaje}, a Vejn komponente imaju \textbf{izlaze} (\textsl{output}).
 Izlaz se deklariše kao metoda bez tela u telu klase.
 Da bi se izlaz komponente osluškivao, dodaje se HTML atribut, pri čemu je ime izlaza omeđeno parom oblih zagrada, a umesto prosleđivanja konkretne vrednosti se očekuje \textbf{poziv funkcije}, tj. metode definisane u klasi.
 
@@ -212,7 +214,7 @@ Direktive su posebne naredbe koje se umeću u šablone u vidu HTML tagova.
 Primaju proizvoljan broj čvorova za decu i služe za parametrizaciju načina na koji će se taj sadržaj prikazati u rezultujućem DOM-u.
 
 Sintaksno, direktive se od HTML elemenata i Vejn komponenti razlikuju po prefiksu \code{w:}.
-Zbog svoje prirode, parametri se -- umesto navođenjem atributa u vidu parov ključ-vrednost -- definišu potpuno proizvoljnom sintaksom koja se piše u nastavku imena, a u sklopu otvarajućeg taga.
+Zbog svoje prirode, parametri se -- umesto navođenjem atributa u vidu parova ključ-vrednost -- definišu potpuno proizvoljnom sintaksom koja se piše u nastavku imena, a u sklopu otvarajućeg taga.
 
 Developer nema mogućnost da definiše proizvoljne direktive; sve direktive su sastavni deo Vejna.
 
@@ -367,7 +369,7 @@ $ yarn wane build
 \end{verbatim}
 
 Ova komanda pokreće kompilator.
-Ukoliko aplikacija prođe proces kompilacije uspešno, na standardni izlaz se ispisuju informacije o veličini izlaznih datoteka, a u \code{dist} folderu se pojavljuju datoteke spremne da bude prebačene na server.
+Ukoliko aplikacija prođe proces kompilacije uspešno, na standardni izlaz se ispisuju informacije o veličini izlaznih datoteka, a u \code{dist} folderu se pojavljuju datoteke spremne da budu prebačene na server.
 
 Proces kompilacije izvornog koda se može kontrolisati pomoću konfiguracione datoteke.
 Ova datoteka treba biti smeštena u korenom direktorijumu Vejn projekta, sačuvana pod imenom \code{wane.toml}.
@@ -379,8 +381,8 @@ Sadržaj datoteke treba da bude validna TOML sintaksa\footnote{TOML (\textsl{Tom
   Ukoliko postoji, njegov sadržaj će biti obrisan.
   Ako vrednost nije podešena, podrazumeva se \code{dist}.
 \item \code{debug.pretty} je fleg kojim se kontroliše da li izlazne datoteke treba da prođu proces minifikacije.
-  Na šta se tačno odnosi \textquote{minifikacija} nije definisano i nije deo javnog API-ja.
-  Ovime je omogućeno da se ovaj proces unapređuje u narednim verzijama Vejna bez poterbe da developer čini promene u kodu.
+  Na šta se tačno odnosi \textquote{minifikacija} nije definisano i nije deo javnog API-ja Vejna.
+  Ovime je omogućeno da se ovaj proces unapređuje u narednim verzijama bez poterbe da developer čini promene u kodu.
   Služi za debagiranje izlaznog koda.
   Ako vrednost nije podešena, podrazumeva se \code{false}.
 \end{itemize}
@@ -392,5 +394,40 @@ Ovime će biti automatski kreiran dev-server, a \code{src} direktorijum u kome s
 Svaki put kada se promena detektuje, proces kompilacije će biti pokrenut iznova, a stranica u brauzeru će biti osvežena kako bi developer mogao da vidi izmene koje su načinjene.
 
 \section{Primer aplikacije}
+
+Isečak koda \ref{lst:primer-aplikacije} prikazuje potpunu Vejn aplikaciju.
+Klasa \code{Counter} predstavlja komponentu koja služi kao brojač, a pristupna komponenta je koristi.
+\code{Counter} ima ulaz \code{value} i izlaz \code{valueChange}.
+
+\begin{figure}
+  \begin{lstlisting}
+import { Template, Register } from 'wane'
+
+@Template(`
+  <button (click)="dec()"> - </button>
+  <span> {{ value }} </span>
+  <button (click)="inc()"> + </button>
+`)
+class Counter {
+  public value: number
+  public valueChange (value: number) {}
+  private inc () { this.valueChange(this.value + 1) }
+  private dec () { this.valueChange(this.value - 1) }
+}
+
+@Register(Counter)
+@Template(`
+  <Counter [value]="age" (valueChange)="onAgeChange(#)"/>
+  <br>
+  Chosen value age {{ age }}.
+`)
+export default class {
+  private age: number = 23
+  private onAgeChange (newAge: number) { this.age = newAge }
+}
+  \end{lstlisting}
+  \caption{Primer potpune Vejn aplikacije.}
+  \label{lst:primer-aplikacije}
+\end{figure}
 
 % TODO nešto jednostavno što pokazuje sve

@@ -1,20 +1,20 @@
 [0] Config.pm:340> INFO - This is Biber 2.4
 [0] Config.pm:343> INFO - Logfile is 'main.blg'
-[39] biber:287> INFO - === сре сеп 12, 2018, 00:18:01
+[38] biber:287> INFO - === сре сеп 12, 2018, 01:09:36
 [124] Biber.pm:348> INFO - Reading 'main.bcf'
 [259] Biber.pm:742> INFO - Found 57 citekeys in bib section 0
-[264] Biber.pm:3151> INFO - Processing section 0
-[293] Biber.pm:3308> INFO - Looking for bibtex format file 'mdn.bib' for section 0
-[300] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
-[306] bibtex.pm:974> INFO - Found BibTeX data source 'mdn.bib'
-[348] Biber.pm:3308> INFO - Looking for bibtex format file 'w3c.bib' for section 0
-[350] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
-[352] bibtex.pm:974> INFO - Found BibTeX data source 'w3c.bib'
-[366] Biber.pm:3308> INFO - Looking for bibtex format file 'other.bib' for section 0
-[418] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
-[463] bibtex.pm:974> INFO - Found BibTeX data source 'other.bib'
-[1218] UCollate.pm:65> INFO - Overriding locale 'sr-Cyrl' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1219] UCollate.pm:65> INFO - Overriding locale 'sr-Cyrl' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1219] Biber.pm:3028> INFO - Sorting list 'nty/global' of type 'entry' with scheme 'nty' and locale 'sr-Cyrl'
-[1322] bbl.pm:519> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1460] bbl.pm:615> INFO - Output to main.bbl
+[266] Biber.pm:3151> INFO - Processing section 0
+[294] Biber.pm:3308> INFO - Looking for bibtex format file 'mdn.bib' for section 0
+[301] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
+[307] bibtex.pm:974> INFO - Found BibTeX data source 'mdn.bib'
+[380] Biber.pm:3308> INFO - Looking for bibtex format file 'w3c.bib' for section 0
+[385] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
+[389] bibtex.pm:974> INFO - Found BibTeX data source 'w3c.bib'
+[443] Biber.pm:3308> INFO - Looking for bibtex format file 'other.bib' for section 0
+[517] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
+[565] bibtex.pm:974> INFO - Found BibTeX data source 'other.bib'
+[1363] UCollate.pm:65> INFO - Overriding locale 'sr-Cyrl' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1363] UCollate.pm:65> INFO - Overriding locale 'sr-Cyrl' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1363] Biber.pm:3028> INFO - Sorting list 'nty/global' of type 'entry' with scheme 'nty' and locale 'sr-Cyrl'
+[1462] bbl.pm:519> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1604] bbl.pm:615> INFO - Output to main.bbl

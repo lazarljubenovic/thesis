@@ -110,23 +110,23 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.1}Vezivna sintaksa}{40}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Interpolacija}{40}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.2}Interpolacija}{41}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.3}HTML elementi}{41}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}Komponente}{42}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Deklaracija}{42}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Deklaracija}{43}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.2}Pristupna komponenta}{43}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.3}Kori\IeC {\v s}\IeC {\'c}enje}{43}{subsection.4.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.4}Ulazi}{43}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.4}Ulazi}{44}{subsection.4.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.5}Izlazi}{44}{subsection.4.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Direktive}{44}{section.4.3}
+\contentsline {section}{\numberline {4.3}Direktive}{45}{section.4.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3.1}Uslovi}{45}{subsection.4.3.1}
 \defcounter {refsection}{0}\relax 
@@ -136,7 +136,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Stilovi}{46}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}Enkapsulacija}{46}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.1}Enkapsulacija}{47}{subsection.4.4.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4.2}Nadogradnja}{47}{subsection.4.4.2}
 \defcounter {refsection}{0}\relax 

@@ -96,13 +96,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.1}Vrste sintakse}{36}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1.1}\leavevmode {\color {black!80}\texttt {Identifier}}}{36}{subsubsection.3.2.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}\leavevmode {\color {black!80}\texttt {Identifier}} i \leavevmode {\color {black!80}\texttt {ThisKeyword}}}{36}{subsubsection.3.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1.2}\leavevmode {\color {black!80}\texttt {PropertyAccessExpression}} i \leavevmode {\color {black!80}\texttt {ElementAccessExpression}}}{37}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.2}\leavevmode {\color {black!80}\texttt {ExpressionStatement}}}{37}{subsubsection.3.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1.3}\leavevmode {\color {black!80}\texttt {CallExpression}}}{37}{subsubsection.3.2.1.3}
+\contentsline {subsubsection}{\numberline {3.2.1.3}\leavevmode {\color {black!80}\texttt {PropertyAccessExpression}} i \leavevmode {\color {black!80}\texttt {ElementAccessExpression}}}{37}{subsubsection.3.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1.4}Tokeni dodele}{38}{subsubsection.3.2.1.4}
+\contentsline {subsubsection}{\numberline {3.2.1.4}\leavevmode {\color {black!80}\texttt {CallExpression}}}{38}{subsubsection.3.2.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.1.5}Tokeni dodele}{38}{subsubsection.3.2.1.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Mogu\IeC {\'c}nosti Vejna}{39}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -160,7 +162,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.1.2.1}Pribavljanje tela metoda koje se pozivaju iz bloka}{54}{subsubsection.5.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.2.2}Pribavljanje imena svojstava kojima se vrednost mo\IeC {\v z}e promeniti izvr\IeC {\v s}enjem bloka}{54}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.2}Imena svojstava kojima se vrednost mo\IeC {\v z}e menjati izvr\IeC {\v s}enjem bloka}{54}{subsubsection.5.1.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.3}Analizatori komponenti}{55}{subsection.5.1.3}
 \defcounter {refsection}{0}\relax 

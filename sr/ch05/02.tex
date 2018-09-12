@@ -84,7 +84,7 @@ Fabrike se generišu u posebnim datotekama, obilaskom stabla analizatora fabrika
 U ovoj fazi čvorovi više nisu međusobno zavisni, pa redosled obilaska nije od važnosti.
 Za svaki tip analizatora fabrika postoji odgovarajući generator koda koji se koristi.
 
-O samoj strukturi fabrika govori se u \cref{sec:anatomija-fabrika-komponenti}, \cref{sec:optimizacija-fabrika-komponenti}, \cref{sec:fabrike-uslovne-direktive} i \cref{sec:fabrike-direktive-za-ponavljanje}.
+O samoj strukturi fabrika govori se u \cref{sec:anatomija-fabrika-komponenti}, \cref{sec:fabrike-uslovne-direktive} i \cref{sec:fabrike-direktive-za-ponavljanje}.
 
 \subsection{Postprocesiranje komponenti}
 
@@ -106,6 +106,7 @@ Svaka klasa definisana od strane autora prebacuje se u posebnu datoteku koja se 
 Da bi se obezbedilo da je uvoz moguć, osim pukog kopiranja teksta koji čini deklaraciju klase, mora se dodati i ključna reč \code{export}, ukoliko ona ne postoji.
 
 \subsubsection{Uklanjanje konstanti}
+\label{subsec:uklanjanje-konstanti}
 
 Na osnovu rezultata algoritma opisanog u \cref{sec:konstante}, poznato je koja se svojstva klase mogu ukloniti iz deklaracije klase i prebaciti u datoteku u kojoj se nalaze sve konstante.
 

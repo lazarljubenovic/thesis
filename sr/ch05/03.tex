@@ -12,18 +12,18 @@ Svaka fabrika ima najviše četiri glavne metode:
 \item \code{destroy} -- poziva se jednom, kada komponentu treba uništiti i ukloniti iz DOM-a.
 \end{itemize}
 
-U zavinosti od rezultata analize, neke metode se mogu izbaciti i time se smanjuje kod aplikacije.
+U zavinosti od rezultata analize, neke metode se mogu izbaciti i time se smanjuje kôd aplikacije.
 
 \subsection{Metoda \code{init}}
 
-Metoda \code{init} služi da kreira neophodne DOM čvorove i inicijalizuje instancu klase deklarisane od strane autora, kao i daprvim pozivom metode za traženje razlike \code{diff} omogući ažuriranje komponente.
+Metoda \code{init} služi da kreira neophodne DOM čvorove i inicijalizuje instancu klase deklarisane od strane autora, kao i da prvim pozivom metode za traženje razlike \code{diff} omogući ažuriranje komponente.
 
 \subsubsection{Koren komponente}
 \label{subsubsec:koren-komponente}
 \label{subsubsec:init-part-1}
 
 Koren komponente je čvor u DOM-u za koji se komponenta vezuje -- koreni čvorovi pogleda vezuju se za koren kao njegova deca.
-Smešta se u promenljivu \code{}
+Smešta se u promenljivu \code{root}.
 
 U slučaju da se radi o pristupnoj komponenti (\cref{subsec:pristupna-komponenta}), za koren se koristi \code{body} element.
 
@@ -106,7 +106,7 @@ Ukoliko se kao argument nađe \code{\#}, on se prosleđuje kao argument funkcija
 <Component (a)="b(#)"/>
 
 // generisan kod
-this.data.a = (palceholder) => {
+this.data.a = (placeholder) => {
   this.factoryParent.b(placeholder)
 }
 \end{lstlisting}
@@ -117,7 +117,7 @@ this.data.a = (palceholder) => {
 Svi DOM čvorovi koji su deklarisani šablonskom sintaksom u sklopu komponente instantiraju se i smeštaju u niz kako bi im se kasnije moglo pristupiti.
 
 Za njihovo instanciranje koriste se pomoćne metode koje samo delegiraju zadatak HTML metodama \code{createElement}, \code{createTextNode} i \code{createComment} definisanim nad tipom \code{Document} umesto direktnog pristupa.
-Ovime je omogućeno da se za njihova imena veže prefiks \code{\_\_wane\_\_} i time obavi minifikacija ovih imena (v. \cref{subsec:bandlovanje}).
+Ovime je omogućeno da se za njihova imena veže prefiks~\code{\_\_wane\_\_} i time obavi minifikacija ovih imena~(v.~\cref{subsec:bandlovanje}).
 
 \begin{lstlisting}
 this.domNodes = [
@@ -178,7 +178,7 @@ this.domNodes[3].setAttribute('aria-label', 'Name')
 \label{subsubsec:init-part-8}
 
 Za pretplatu na DOM događaje koristi se pomoćna metoda koja delegira poziv standardnoj metodi \code{addEventListener}.
-Osim poziva funkcije koju je autor definisao kroz šablon, dodaje se i niz poziva metod\=a \code{update} nad svim fabrikama nad kojim poziv autorove metode može uticati u skladu sa algoritmom definisanim u \cref{fn:getFactoriesAffectedByCalling}.
+Osim poziva funkcije koju je autor definisao kroz šablon, dodaje se i niz poziva metod\=a \code{update} nad svim fabrikama nad kojim poziv autorove metode može uticati u skladu sa algoritmom definisanim u~\cref{fn:getFactoriesAffectedByCalling}.
 
 \begin{lstlisting}
 addEventListener(this.domNodes[1], 'submit', (placeholder) => {
@@ -191,7 +191,7 @@ addEventListener(this.domNodes[1], 'submit', (placeholder) => {
 \subsubsection{Deklaracija metoda za asinhrono ažuriranje}
 \label{subsubsec:init-part-9}
 
-Slično kao kod pretplate, generišu se pozivi metod\=a \code{update}, s tim što se u ovom slučaju smeštaju u niz kako bi se određena metoda pozvala iz samog koda klase (v. \cref{subsubsec:ubrizgavanje-fabrike}).
+Slično kao kod pretplate, generišu se pozivi metod\=a \code{update}, s tim što se u ovom slučaju smeštaju u niz kako bi se određena metoda pozvala iz samog koda klase~(v.~\cref{subsubsec:ubrizgavanje-fabrike}).
 
 \begin{lstlisting}
 this.updateAsync = [
@@ -279,10 +279,10 @@ Računanje razlike i ažuriranje prethodne vrednosti obavlja se istovremeno.
 value: this.prevData.value !== (this.prevData.value = this.data.value),
 \end{lstlisting}
 
-Najpre se izvršava leva strana poređenja (\code{this.prevData.value}), i ta vrednost se poredi sa rezultatom izvršenja operatora \code{=} s desne strane (\code{this.prevData.value = this.data.value}).
-Taj rezultat je vrednost \code{this.data.value}, pa se poređenje vrši između prethodne i trenutne vrednost.
-Sporedni efekat primena operatora \code{=} je to što je sada u \code{this.prevData.value} upisana ternutna vrednost.
-Kako se tokom jednom poziva funkcije \code{diff} ista vrednost neće koristiti dvaputa, ovaj pristup funkcioniše.
+Najpre se izvršava leva strana poređenja (\code{this.prevData.value}), i ta vrednost se poredi sa rezultatom izvršenja operatora dodele (\code{=}) s desne strane (\code{this.prevData.value = this.data.value}).
+Taj rezultat je vrednost upisana u \code{this.data.value}, pa se poređenje vrši između prethodne i trenutne vrednost.
+Sporedni efekat primena operatora dodele je to što je sada trenutna vrednost upisana u \code{this.prevData.value}.
+Kako se tokom jednog poziva funkcije \code{diff} ista vrednost neće koristiti dvaput, ovaj pristup funkcioniše.
 
 Metoda se koristi u okviru metode \code{update} (v. \cref{subsec:metoda-update}).
 Ne generiše se ukoliko nema stanja za koje ima potrebe računati razliku.
@@ -320,7 +320,7 @@ Da bi se obezbedilo da se ažuriranje deteta obavlja samo jedno, vrši se grupis
 \begin{lstlisting}
 if (diff.visibleItems || diff.items) {
   this.factoryChildren[0].data.items = this.data.visibleItems;
-  this.factoryChildren[0].data.totalItemsCount = this.data.items.length;
+  this.factoryChildren[0].data.totalCount = this.data.items.length;
   this.factoryChildren[0].update();
 }
 \end{lstlisting}

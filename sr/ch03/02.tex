@@ -17,11 +17,12 @@ Osnovni atribut koji karakteriše čvor je \textbf{vrsta sintakse} -- \code{Synt
 
 U ovom odeljku iznesene su neke karakteristične sintaksne vrste koje se javljaju u AST-u Tajpskript koda i ključne su za razumevanje poglavlja 5.
 
-\subsubsection{\code{Identifier}}
+\subsubsection{\code{Identifier} i \code{ThisKeyword}}
 \label{ast:Identifier}
+\label{ast:ThisKeyword}
 
 Identifikatori se često pojavljuju u AST-u kao listovi.
-Koriste se prilikom deklaracije i definicije, kao i prilikom pristupa.
+Koriste se prilikom deklaracij i definicije, kao i prilikom pristupa.
 Na primer, definicija funkcije oblika \code{function foo () {}} posle ključne reči \code{function} (\code{FunctionKeyword}) ima identifikator (\code{Identifier}).
 
 Jedna od najznačajnijih metoda kad instancom identifikatora je \code{getText}.
@@ -37,6 +38,16 @@ function foo (bar) {
   return val
 }
 \end{lstlisting}
+
+\subsubsection{\code{ExpressionStatement}}
+\label{ast:ExpressionStatement}
+
+Iskazi su predstavljeni vrstom \code{Expression\-Statement}.
+Obično sami po sebi nisu od interesa, ali su oni osnovna vrsta u koju se smeštaju druge vrste.
+Predstavljaju \textquote{jedan red} u kodu.
+Na primer, \code{1~+~2} je \code{Expression\-Statement} koji u sebi sadrži jedan \code{Binary\-Expression}.
+
+S druge strane, \code{const~x~=~1~+~2} nije \code{Expression\-Statement} već \code{Variable\-Statement} jer se njime deklariše konstanta (uz inicijalizaciju).
 
 \subsubsection{\code{PropertyAccessExpression} i \code{ElementAccessExpression}}
 \label{ast:PropertyAccessExpression}
@@ -55,7 +66,7 @@ Leva strana dobija se pozivom \code{getExpression} i može da bude predstavljena
 S druge strane, \code{Element\-Access\-Expression} i sa desne ima mnogo veći spektar potencijalnih čvorova, jer se u paru uglasnih zagrada može naći bilo kakav izraz (kome se pristupa metodom \code{getArgumentExpression}).
 
 \subsubsection{\code{CallExpression}}
-\label{sec:sk:call-expression}
+\label{ast:CallExpression}
 
 Odnosi se na izraze koji predstavljaju \textbf{pozive} funkcija i metoda.
 Prepoznaju se po prisustvu para oblih zagrada unutar kojih se može naći proizvoljan broj argumenata.

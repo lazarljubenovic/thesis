@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.14)  12 SEP 2018 19:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.14)  14 SEP 2018 00:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -568,51 +568,6 @@ Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
 \epigraphwidth=\skip47
 \epigraphrule=\skip48
 )
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count109
-\lst@gtempboxa=\box26
-\lst@token=\toks21
-\lst@length=\count110
-\lst@currlwidth=\dimen109
-\lst@column=\count111
-\lst@pos=\count112
-\lst@lostspace=\dimen110
-\lst@width=\dimen111
-\lst@newlines=\count113
-\lst@lineno=\count114
-\lst@maxwidth=\dimen112
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count115
-\lst@skipnumbers=\count116
-\lst@framebox=\box27
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
-))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks22
-\pgfutil@tempdima=\dimen113
-\pgfutil@tempdimb=\dimen114
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
-ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box28
-(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
-))
-Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
-
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -627,38 +582,64 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 )
-\Gin@req@height=\dimen115
-\Gin@req@width=\dimen116
+\Gin@req@height=\dimen109
+\Gin@req@width=\dimen110
 )
+(/usr/share/texlive/texmf-dist/tex/latex/bchart/bchart.sty
+Package: bchart 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks21
+\pgfutil@tempdima=\dimen111
+\pgfutil@tempdimb=\dimen112
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box26
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks23
-\pgfkeys@temptoks=\toks24
+\pgfkeys@pathtoks=\toks22
+\pgfkeys@temptoks=\toks23
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks25
+\pgfkeys@tmptoks=\toks24
 ))
-\pgf@x=\dimen117
-\pgf@y=\dimen118
-\pgf@xa=\dimen119
-\pgf@ya=\dimen120
-\pgf@xb=\dimen121
-\pgf@yb=\dimen122
-\pgf@xc=\dimen123
-\pgf@yc=\dimen124
+\pgf@x=\dimen113
+\pgf@y=\dimen114
+\pgf@xa=\dimen115
+\pgf@ya=\dimen116
+\pgf@xb=\dimen117
+\pgf@yb=\dimen118
+\pgf@xc=\dimen119
+\pgf@yc=\dimen120
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count117
-\c@pgf@countb=\count118
-\c@pgf@countc=\count119
-\c@pgf@countd=\count120
-\t@pgf@toka=\toks26
-\t@pgf@tokb=\toks27
-\t@pgf@tokc=\toks28
+\c@pgf@counta=\count109
+\c@pgf@countb=\count110
+\c@pgf@countc=\count111
+\c@pgf@countd=\count112
+\t@pgf@toka=\toks25
+\t@pgf@tokb=\toks26
+\t@pgf@tokc=\toks27
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
@@ -674,8 +655,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count121
-\pgfsyssoftpath@bigbuffer@items=\count122
+\pgfsyssoftpath@smallbuffer@items=\count113
+\pgfsyssoftpath@bigbuffer@items=\count114
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -688,12 +669,12 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen125
-\pgfmath@count=\count123
-\pgfmath@box=\box29
-\pgfmath@toks=\toks29
-\pgfmath@stack@operand=\toks30
-\pgfmath@stack@operation=\toks31
+\pgfmath@dimen=\dimen121
+\pgfmath@count=\count115
+\pgfmath@box=\box27
+\pgfmath@toks=\toks28
+\pgfmath@stack@operand=\toks29
+\pgfmath@stack@operation=\toks30
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -713,57 +694,57 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count124
+\c@pgfmathroundto@lastzeros=\count116
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen126
-\pgf@picmaxx=\dimen127
-\pgf@picminy=\dimen128
-\pgf@picmaxy=\dimen129
-\pgf@pathminx=\dimen130
-\pgf@pathmaxx=\dimen131
-\pgf@pathminy=\dimen132
-\pgf@pathmaxy=\dimen133
-\pgf@xx=\dimen134
-\pgf@xy=\dimen135
-\pgf@yx=\dimen136
-\pgf@yy=\dimen137
-\pgf@zx=\dimen138
-\pgf@zy=\dimen139
+\pgf@picminx=\dimen122
+\pgf@picmaxx=\dimen123
+\pgf@picminy=\dimen124
+\pgf@picmaxy=\dimen125
+\pgf@pathminx=\dimen126
+\pgf@pathmaxx=\dimen127
+\pgf@pathminy=\dimen128
+\pgf@pathmaxy=\dimen129
+\pgf@xx=\dimen130
+\pgf@xy=\dimen131
+\pgf@yx=\dimen132
+\pgf@yy=\dimen133
+\pgf@zx=\dimen134
+\pgf@zy=\dimen135
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen140
-\pgf@path@lasty=\dimen141
+\pgf@path@lastx=\dimen136
+\pgf@path@lasty=\dimen137
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen142
-\pgf@shorten@start@additional=\dimen143
+\pgf@shorten@end@additional=\dimen138
+\pgf@shorten@start@additional=\dimen139
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
-\pgfpic=\box30
-\pgf@hbox=\box31
-\pgf@layerbox@main=\box32
-\pgf@picture@serial@count=\count125
+\pgfpic=\box28
+\pgf@hbox=\box29
+\pgf@layerbox@main=\box30
+\pgf@picture@serial@count=\count117
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen144
+\pgflinewidth=\dimen140
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen145
-\pgf@pt@y=\dimen146
-\pgf@pt@temp=\dimen147
+\pgf@pt@x=\dimen141
+\pgf@pt@y=\dimen142
+\pgf@pt@temp=\dimen143
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -779,12 +760,12 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen148
+\pgfarrowsep=\dimen144
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen149
-\pgf@sys@shading@range@num=\count126
+\pgf@max=\dimen145
+\pgf@sys@shading@range@num=\count118
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -792,7 +773,7 @@ File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
-\pgfexternal@startupbox=\box33
+\pgfexternal@startupbox=\box31
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
 x
@@ -808,15 +789,15 @@ File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
-\pgfnodeparttextbox=\box34
+\pgfnodeparttextbox=\box32
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen150
-\pgf@nodesepend=\dimen151
+\pgf@nodesepstart=\dimen146
+\pgf@nodesepend=\dimen147
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -830,10 +811,10 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen152
-\pgffor@skip=\dimen153
-\pgffor@stack=\toks32
-\pgffor@toks=\toks33
+\pgffor@iter=\dimen148
+\pgffor@skip=\dimen149
+\pgffor@stack=\toks31
+\pgffor@toks=\toks32
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
@@ -841,31 +822,31 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count127
-\pgfplotmarksize=\dimen154
+\pgf@plot@mark@count=\count119
+\pgfplotmarksize=\dimen150
 )
-\tikz@lastx=\dimen155
-\tikz@lasty=\dimen156
-\tikz@lastxsaved=\dimen157
-\tikz@lastysaved=\dimen158
-\tikzleveldistance=\dimen159
-\tikzsiblingdistance=\dimen160
-\tikz@figbox=\box35
-\tikz@figbox@bg=\box36
-\tikz@tempbox=\box37
-\tikz@tempbox@bg=\box38
-\tikztreelevel=\count128
-\tikznumberofchildren=\count129
-\tikznumberofcurrentchild=\count130
-\tikz@fig@count=\count131
+\tikz@lastx=\dimen151
+\tikz@lasty=\dimen152
+\tikz@lastxsaved=\dimen153
+\tikz@lastysaved=\dimen154
+\tikzleveldistance=\dimen155
+\tikzsiblingdistance=\dimen156
+\tikz@figbox=\box33
+\tikz@figbox@bg=\box34
+\tikz@tempbox=\box35
+\tikz@tempbox@bg=\box36
+\tikztreelevel=\count120
+\tikznumberofchildren=\count121
+\tikznumberofcurrentchild=\count122
+\tikz@fig@count=\count123
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count132
-\pgfmatrixcurrentcolumn=\count133
-\pgf@matrix@numberofcolumns=\count134
+\pgfmatrixcurrentrow=\count124
+\pgfmatrixcurrentcolumn=\count125
+\pgf@matrix@numberofcolumns=\count126
 )
-\tikz@expandcount=\count135
+\tikz@expandcount=\count127
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -875,6 +856,34 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 )
+\bcpos=\skip49
+\bcwidth=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count128
+\lst@gtempboxa=\box37
+\lst@token=\toks33
+\lst@length=\count129
+\lst@currlwidth=\dimen157
+\lst@column=\count130
+\lst@pos=\count131
+\lst@lostspace=\dimen158
+\lst@width=\dimen159
+\lst@newlines=\count132
+\lst@lineno=\count133
+\lst@maxwidth=\dimen160
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count134
+\lst@skipnumbers=\count135
+\lst@framebox=\box38
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
@@ -982,9 +991,6 @@ Package: logreq 2010/08/04 v1.0 xml request logger
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write4
@@ -1031,14 +1037,14 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 \blx@parenlevel@text=\count174
 \blx@parenlevel@foot=\count175
 \blx@sectionciteorder@0=\count176
-\labelnumberwidth=\skip49
-\labelalphawidth=\skip50
-\biblabelsep=\skip51
-\bibitemsep=\skip52
-\bibnamesep=\skip53
-\bibinitsep=\skip54
-\bibparsep=\skip55
-\bibhang=\skip56
+\labelnumberwidth=\skip51
+\labelalphawidth=\skip52
+\biblabelsep=\skip53
+\bibitemsep=\skip54
+\bibnamesep=\skip55
+\bibinitsep=\skip56
+\bibparsep=\skip57
+\bibhang=\skip58
 \blx@bcfin=\read3
 \blx@bcfout=\write5
 \c@mincomprange=\count177
@@ -1116,12 +1122,12 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedlanguage=\count309
 \c@pageref=\count310
 \c@savedpageref=\count311
-\shorthandwidth=\skip57
-\shortjournalwidth=\skip58
-\shortserieswidth=\skip59
-\shorttitlewidth=\skip60
-\shortauthorwidth=\skip61
-\shorteditorwidth=\skip62
+\shorthandwidth=\skip59
+\shortjournalwidth=\skip60
+\shortserieswidth=\skip61
+\shorttitlewidth=\skip62
+\shortauthorwidth=\skip63
+\shorteditorwidth=\skip64
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1205,8 +1211,8 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen179
 \extrarowheight=\dimen180
 \NC@list=\toks34
-\extratabsurround=\skip63
-\backup@length=\skip64
+\extratabsurround=\skip65
+\backup@length=\skip66
 )
 \TX@col@width=\dimen181
 \TX@old@table=\dimen182
@@ -1279,12 +1285,12 @@ L3 Module: l3skip 2016/08/19 v6692 L3 Dimensions and skips
 \l_tmpb_dim=\dimen189
 \g_tmpa_dim=\dimen190
 \g_tmpb_dim=\dimen191
-\c_zero_skip=\skip65
-\c_max_skip=\skip66
-\l_tmpa_skip=\skip67
-\l_tmpb_skip=\skip68
-\g_tmpa_skip=\skip69
-\g_tmpb_skip=\skip70
+\c_zero_skip=\skip67
+\c_max_skip=\skip68
+\l_tmpa_skip=\skip69
+\l_tmpb_skip=\skip70
+\g_tmpa_skip=\skip71
+\g_tmpb_skip=\skip72
 \c_zero_muskip=\muskip11
 \c_max_muskip=\muskip12
 \l_tmpa_muskip=\muskip13
@@ -1471,8 +1477,8 @@ Package: charter 2005/04/12 PSNFSS-v9.2a (P.Dyballa)
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box76
-\beforetitleunit=\skip71
-\aftertitleunit=\skip72
+\beforetitleunit=\skip73
+\aftertitleunit=\skip74
 \ttl@plus=\dimen279
 \ttl@minus=\dimen280
 \ttl@toksa=\toks47
@@ -1489,7 +1495,7 @@ Package biblatex Info: ... file 'serbian.lbx' not found.
 
 
 Package biblatex Warning: Language 'serbian' not supported.
-(biblatex)                Using fallback language 'english' on input line 163.
+(biblatex)                Using fallback language 'english' on input line 165.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
@@ -1498,26 +1504,26 @@ File: english.lbx 2016/12/05 v3.7 biblatex localization (PK/JW/AB)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Try loading font information for T1+bch on input line 163.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Try loading font information for T1+bch on input line 165.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
 \AtBeginShipoutBox=\box77
-Package hyperref Info: Link coloring OFF on input line 163.
+Package hyperref Info: Link coloring OFF on input line 165.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1527,15 +1533,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count381
 )
-LaTeX Info: Redefining \ref on input line 163.
-LaTeX Info: Redefining \pageref on input line 163.
-LaTeX Info: Redefining \nameref on input line 163.
+LaTeX Info: Redefining \ref on input line 165.
+LaTeX Info: Redefining \pageref on input line 165.
+LaTeX Info: Redefining \nameref on input line 165.
 
 (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 163.
+LaTeX Info: Redefining \microtypecontext on input line 165.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1580,9 +1586,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count388
-
 ABD: EveryShipout initializing macros
+\c@lstlisting=\count388
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1591,8 +1596,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 163.
-Package biblatex Info: Reference segment=0 on input line 163.
+Package biblatex Info: Reference section=0 on input line 165.
+Package biblatex Info: Reference segment=0 on input line 165.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg) [1
 
@@ -1601,14 +1606,14 @@ ination with the same identifier (name{page.}) has been already used, duplicate
  ignored
 <to be read again> 
                    \relax 
-l.207 \frontmatter
+l.209 \frontmatter
                    [2
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.239 \newpage
+l.241 \newpage
                [1] (./ch00/abstract.sr.tex
 LaTeX Font Info:    Try loading font information for T1+fvm on input line 6.
 
@@ -1625,18 +1630,18 @@ Package microtype Info: Loading generic settings for font family
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.243 \end{abstract}
+l.245 \end{abstract}
                      [1] (./ch00/abstract.en.tex)pdfTeX warning (ext4): destina
 tion with the same identifier (name{page.}) has been already used, duplicate ig
 nored
 <to be read again> 
                    \relax 
-l.248   \end{abstract}
+l.250   \end{abstract}
                        [1]pdfTeX warning (ext4): destination with the same iden
 tifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.251 \tableofcontents
+l.253 \tableofcontents
                        [2
 
 ] (./main.tocpdfTeX warning (ext4): destination with the same identifier (name{
@@ -1658,12 +1663,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.253 \mainmatter
+l.255 \mainmatter
                   [5]pdfTeX warning (ext4): destination with the same identifie
 r (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.253 \mainmatter
+l.255 \mainmatter
                   [6
 
 ] (./ch01/main.tex
@@ -1813,130 +1818,153 @@ Overfull \hbox (6.0835pt too wide) in paragraph at lines 63--64
 [][][][][][][][][][][][][][] 
  []
 
-[73] [74]) (./ch05/06.tex [75]) (./ch05/07.tex [76]) (./ch05/08.tex)) [77]
-[78
+[73] [74]) (./ch05/06.tex [75]) (./ch05/07.tex [76]) (./ch05/08.tex))
+(./ch06/main.tex [77] [78
 
 ]
-Overfull \hbox (20.74411pt too wide) in paragraph at lines 267--267
+Glava 6.
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\dj' on input line 1.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\dj' on input line 8.
+
+[79] [80]
+LaTeX Font Info:    Font shape `OMS/bch/m/sl' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ <ch06/app.png, id=1543, 314.17375pt x 142.5325pt>
+File: ch06/app.png Graphic file (type png)
+ <use ch06/app.png>
+Package pdftex.def Info: ch06/app.png used on input line 75.
+(pdftex.def)             Requested size: 157.08649pt x 71.26607pt.
+
+Underfull \vbox (badness 1194) has occurred while \output is active []
+
+ [81 <./ch06/app.png>] [82] [83] [84] [85]) [86] [87] [88
+
+]
+Overfull \hbox (20.74411pt too wide) in paragraph at lines 271--271
 \T1/fvm/m/n/10 medium . com / @benastontweet / lesson -[] 1a -[] the -[] histor
 y -[] of -[] javascript -[]
  []
 
 
-Overfull \hbox (9.05331pt too wide) in paragraph at lines 267--267
+Overfull \hbox (9.05331pt too wide) in paragraph at lines 271--271
 \T1/fvm/m/n/10 org / People / Berners -[] Lee / WorldWideWeb . html$[] \T1/bch/
 m/n/10 (-20) (vi-si-ted on 08/31/2018). 
  []
 
 
-Overfull \hbox (6.69923pt too wide) in paragraph at lines 267--267
+Overfull \hbox (6.69923pt too wide) in paragraph at lines 271--271
 []$\T1/fvm/m/n/10 https : / / brophy . org / post / a -[] look -[] inside -[] v
 ues -[] change -[] detection$[]
  []
 
 
 Package biblatex Warning: No driver for entry type 'oneline'.
-(biblatex)                Using fallback driver on input line 267.
+(biblatex)                Using fallback driver on input line 271.
 
 
-Overfull \hbox (2.44325pt too wide) in paragraph at lines 267--267
+Overfull \hbox (2.44325pt too wide) in paragraph at lines 271--271
 []\T1/bch/m/it/10 (-20) CoffeeScript\T1/bch/m/n/10 (-20) . \T1/bch/m/sc/10 (-20
 ) url\T1/bch/m/n/10 (-20) : []$\T1/fvm/m/n/10 https : / / coffeescript . org/$[
 ] \T1/bch/m/n/10 (-20) (vi-si-ted on 08/31/2018). 
  []
 
-[79]
+[89]
 LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 267.
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 271.
 LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 267.
+(Font)              scaled to size 8.99994pt on input line 271.
 
-Overfull \hbox (13.50067pt too wide) in paragraph at lines 267--267
+Overfull \hbox (13.50067pt too wide) in paragraph at lines 271--271
 []\T1/bch/m/n/10 (-20) TypeScript con-tri-bu-tors. \T1/bch/m/it/10 (-20) TypeSc
 ript\T1/bch/m/n/10 (-20) . \T1/bch/m/sc/10 (-20) url\T1/bch/m/n/10 (-20) : []$\
 T1/fvm/m/n/10 https : / / github . com / Microsoft /
  []
 
 
-Overfull \hbox (89.8065pt too wide) in paragraph at lines 267--267
+Overfull \hbox (89.8065pt too wide) in paragraph at lines 271--271
 \T1/fvm/m/n/10 com / lazarljubenovic / hyperapp / blob / 3f7bc8029ae1f080a9c4c9
 16668a3c816735ef2b /
  []
 
-[80]
-Overfull \hbox (4.21947pt too wide) in paragraph at lines 267--267
+[90]
+Overfull \hbox (4.21947pt too wide) in paragraph at lines 271--271
 \T1/bch/m/it/10 (-20) ence and Tech-no-logy\T1/bch/m/n/10 (-20) . Edward El-gar
  Pu-blis-hing, 2005. \T1/bch/m/sc/10 (-20) isbn\T1/bch/m/n/10 (-20) : 978184376
 4977. 
  []
 
 
-Overfull \hbox (18.36383pt too wide) in paragraph at lines 267--267
+Overfull \hbox (18.36383pt too wide) in paragraph at lines 271--271
 \T1/bch/m/sc/10 (-20) url\T1/bch/m/n/10 (-20) : []$\T1/fvm/m/n/10 https : / / t
 eropa . info / blog / 2015 / 07 / 15 / overcoming -[] javascript -[]
  []
 
 
-Overfull \hbox (12.70967pt too wide) in paragraph at lines 267--267
+Overfull \hbox (12.70967pt too wide) in paragraph at lines 271--271
 \T1/bch/m/n/10 (-20) 2017. \T1/bch/m/sc/10 (-20) url\T1/bch/m/n/10 (-20) : []$\
 T1/fvm/m/n/10 https : / / codewithstyle . info / change -[] detection -[] angul
 ar -[]
  []
 
 
-Overfull \hbox (1.64485pt too wide) in paragraph at lines 267--267
+Overfull \hbox (1.64485pt too wide) in paragraph at lines 271--271
 []\T1/bch/m/n/10 (-20) Tom Preston-Werner. \T1/bch/m/it/10 (-20) TOML. Tom's Ob
 -vi-ous, Mi-ni-mal Lan-gu-age\T1/bch/m/n/10 (-20) . \T1/bch/m/sc/10 (-20) url\T
 1/bch/m/n/10 (-20) : []$\T1/fvm/m/n/10 https :
  []
 
-[81]
-Overfull \hbox (9.05331pt too wide) in paragraph at lines 267--267
+[91]
+Overfull \hbox (9.05331pt too wide) in paragraph at lines 271--271
 \T1/fvm/m/n/10 exploringjs . com / es2018 -[] es2019 / index . html$[] \T1/bch/
 m/n/10 (-20) (vi-si-ted on 08/31/2018). 
  []
 
 
-Overfull \hbox (13.93127pt too wide) in paragraph at lines 267--267
+Overfull \hbox (13.93127pt too wide) in paragraph at lines 271--271
 \T1/fvm/m/n/10 / / exploringjs . com / impatient -[] js / index . html$[] \T1/b
 ch/m/n/10 (-20) (vi-si-ted on 08/31/2018). 
  []
 
 
-Overfull \hbox (21.48817pt too wide) in paragraph at lines 267--267
+Overfull \hbox (21.48817pt too wide) in paragraph at lines 271--271
 []\T1/bch/m/n/10 (-20) Dr. Axel Ra-usch-ma-yer. \T1/bch/m/it/10 (-20) Spe-a-kin
 g Ja-vaScript\T1/bch/m/n/10 (-20) . O'Reilly. \T1/bch/m/sc/10 (-20) url\T1/bch/
 m/n/10 (-20) : []$\T1/fvm/m/n/10 http : / / speakingjs .
  []
 
 
-Overfull \hbox (4.10432pt too wide) in paragraph at lines 267--267
+Overfull \hbox (4.10432pt too wide) in paragraph at lines 271--271
 \T1/bch/m/it/10 (-20) JQu-ery, An-gu-larJS and Re-act\T1/bch/m/n/10 (-20) . Jun
 e 28, 2016. \T1/bch/m/sc/10 (-20) url\T1/bch/m/n/10 (-20) : []$\T1/fvm/m/n/10 h
 ttps : / / vincenttunru .
  []
 
-[82]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
+[92]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 273.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 273.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 273.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 273.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C31AF8E3D65AC50CE74758FB003B34C;6016.
+(rerunfilecheck)             Checksum: 614D07504B07F77D4CEE62BEDA592976;6611.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 273.
  ) 
 Here is how much of TeX's memory you used:
- 47362 strings out of 493013
- 994610 string characters out of 6135682
- 1431785 words of memory out of 5000000
- 49135 multiletter control sequences out of 15000+600000
- 128814 words of font info for 400 fonts, out of 8000000 for 9000
+ 47580 strings out of 493013
+ 998002 string characters out of 6135682
+ 1435069 words of memory out of 5000000
+ 49299 multiletter control sequences out of 15000+600000
+ 133336 words of font info for 412 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,15n,71p,10378b,2121s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,15n,71p,10378b,2121s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
 fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/t
 ype1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bit
@@ -1950,10 +1978,10 @@ ve/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/bera/fvmro8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.
 pfb>
-Output written on main.pdf (92 pages, 408579 bytes).
+Output written on main.pdf (102 pages, 457466 bytes).
 PDF statistics:
- 1807 PDF objects out of 2073 (max. 8388607)
- 1684 compressed objects within 17 object streams
- 676 named destinations out of 1000 (max. 500000)
- 55517 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1938 PDF objects out of 2073 (max. 8388607)
+ 1799 compressed objects within 18 object streams
+ 705 named destinations out of 1000 (max. 500000)
+ 56114 words of extra memory for PDF output out of 61914 (max. 10000000)
 

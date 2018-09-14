@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.14)  14 SEP 2018 18:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.14)  14 SEP 2018 19:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1837,9 +1837,7 @@ File: ch06/app.png Graphic file (type png)
 Package pdftex.def Info: ch06/app.png used on input line 77.
 (pdftex.def)             Requested size: 157.08649pt x 71.26607pt.
 
-Underfull \vbox (badness 1303) has occurred while \output is active []
-
- [81 <./ch06/app.png>] [82] [83] [84] [85]) (./ch07/main.tex [86] [87] [88
+[81 <./ch06/app.png>] [82] [83] [84] [85]) (./ch07/main.tex [86] [87] [88
 
 ]
 Glava 7.
@@ -1959,11 +1957,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 275.
  ) 
 Here is how much of TeX's memory you used:
- 47606 strings out of 493013
- 998240 string characters out of 6135682
+ 47609 strings out of 493013
+ 998264 string characters out of 6135682
  1564186 words of memory out of 5000000
  49309 multiletter control sequences out of 15000+600000
- 133837 words of font info for 412 fonts, out of 8000000 for 9000
+ 134189 words of font info for 414 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,15n,71p,10378b,2121s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
@@ -1979,7 +1977,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 bera/fvmro8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on main.pdf (106 pages, 474442 bytes).
+Output written on main.pdf (106 pages, 475133 bytes).
 PDF statistics:
  1993 PDF objects out of 2073 (max. 8388607)
  1848 compressed objects within 19 object streams

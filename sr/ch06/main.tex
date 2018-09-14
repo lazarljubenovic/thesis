@@ -7,7 +7,7 @@
 Kao što je već diskutovano u prvom poglavlju, postoji mnogo Javaskript frejmvorka za razviće jednostraničnih veb-aplikacija.
 Sem toga, pojam generisanja koda nije nov i masovno se koristi u industriji, prvenstveno kroz bandlere kao što su Vebpek i Rolap.
 
-U ovom odeljku izabrano je nekoliko frejmvorka u kojima je implementirana identična \textquote{Todo} aplikacija kako bi se uporedile neki aspekti performansi postojećih frejmvorka sa Vejnom.
+U ovom odeljku izabrano je nekoliko frejmvorka u kojima je implementirana identična \textquote{Todo} aplikacija kako bi se uporedili neki aspekti performansi postojećih frejmvorka sa Vejnom.
 
 \section{O poređenju}
 
@@ -29,7 +29,7 @@ Međutim, poslednjih godina se javlja pojam PWA (\textsl{Progressive Web Applica
 Ovo je u neku ruku optimizacija iz ugla korisničkog iskustva i iz ugla većih šansi da se korisik vrati na aplikaciju.
 
 Nakon iniciranja zahteva, treba \textbf{pribaviti određene asete}.
-Već ovaj korak prourokuje probleme prilikom definisanja performansi, jer nije jasno određeno \emph{koji} aseti treba da budu dostupni.
+Već ovaj korak prouzrokuje probleme prilikom definisanja performansi, jer nije jasno određeno \emph{koji} aseti treba da budu dostupni.
 Da li je dovoljno da se na ekranu prikaže bilo šta?
 Odgovor na ovo pitanje je još teži kada se uzme u obzir da bandleri danas nude mogućnost \textit{deljenja koda} na manje delove, uglavnom po rutama kroz koje se korisnik kreće.
 Osim toga, važno je uzeti u obzir tehnike kompresije kao što su \textit{gzip} i \textit{brotli} koje takođe utiču na količinu podataka koju je potrebno prenesti od servera do klijenta.
@@ -41,7 +41,7 @@ Osim toga, takav HTML može odmah biti interaktivan u potpunosti, delimično int
 Da li treba prikazati \textit{ceo} interfejs?
 Kao jedna od metrika se često navodi \textbf{prvo crtanje} (\textsl{first paint}) na ekran, ali se takvi rezultati mogu pogrešno protumačiti jer ne govore ništa o interaktivnosti.
 
-Zbog svega ovoga, nije moguće jasno definisati \textquote{pobednika} nad identičnom aplikacijom, što znači da je apsolutno nemoguće govoriti o \textquote{najboljem frejmvorku}, pogotovo kada se uzme u obzir da onda uz performanse pridodaje i iskustvo autora aplikacije (developera) tokom njegovog razvića, što je individualna procena i zavisi od znanja koje je developer ranije stekao, kao i od ličnih preferenci.
+Zbog svega ovoga, nije moguće jasno definisati \textquote{pobednika} nad identičnom aplikacijom, što znači da je apsolutno nemoguće govoriti o \textquote{najboljem frejmvorku} generalno, pogotovo kada se uzme u obzir da se onda uz performanse pridodaje i iskustvo koje ima autor aplikacije (developer) tokom njenog razvića, što je individualna procena i zavisi od znanja koje je developer ranije stekao, kao i od ličnih preferenci.
 
 Osim toga, frejmvorci mogu biti namenjeni različitim tipovima aplikacija, pa njen izbor može značajno uticati na privid rezultata bilo kakvog poređenja.
 Osim tipa, frejmvoci mogu očekivati različite veličine aplikacija i šablona i pristupa koje se od developera očekuje da koristi -- na primer, \textsl{Angular} dolazi uz \textsl{RxJS}, što je biblioteka koja nudi mogućnost rada sa tokovima podataka koristeći šablone funkcionalnog programiranja.
@@ -55,16 +55,16 @@ Postoje frejmvorci koji mogu da se koriste dirketno pomoću \code{script} taga b
 Ovo su samo neke od osobina koje mogu uticati na izbor frejmvorka.
 Cilj ovog poglavlja \textbf{nije da izabere \textquote{najbolji} frejmvork} već da se prilikom poređenja oslikaju sličnosti i razlike sa drugim frejmvorcima, njihovi nedostaci u odnosu na Vejn i njihove prednosti.
 
-Osim toga, nije ulagano vreme u detaljnu analizu izlaznih aseta radi sofisticirane optimizacije promenom načina generisanja izlaznih fajlova.
-Za frejmvorke koji dolaze uz CLI koriste se podrazumevana podešavanja, a za one koji ga nemaju iskorišćen je neki od popularnijih startera koji su \textquote{overeni} od strane zajednice.
+Osim toga, nije ulagano vreme u detaljnu analizu izlaznih aseta radi sofisticirane optimizacije promenom načina generisanja izlaznih datoteka.
+Za frejmvorke koji dolaze uz zvaničan CLI koriste se podrazumevana podešavanja, a za one koji ga nemaju iskorišćen je neki od popularnijih startera koji su \textquote{overeni} od strane zajednice.
 
-Imajući ovo u vidu, ostatak poglavlja se bavi isključivo \textbf{veličinom koda} kao metrikom, uz posvrt na -- što je objektivnije moguće -- iskustva developera prilikom razvića aplikacije.
+Imajući ovo u vidu, ostatak poglavlja se bavi isključivo \textbf{veličinom koda} kao metrikom, uz osvrt na -- što je objektivnije moguće -- iskustva developera prilikom razvića aplikacije.
 
 \section{Aplikacija}
 \label{subsec:app}
 
 \textquote{Todo} je klasičan primer aplikacije na kome se demonstriraju neke osnovne osobine frejmvorka.
-Korisnik na aplikaciji može zabeležiti stavke u listi zadataka koje treba da obavi, svaki od njih može obeležiti kao završen ili opovrgnuti tu naredbu.
+Korisnik na aplikaciji može zabeležiti stavke u listi zadataka koje treba da obavi; svaki od njih može obeležiti kao završen ili opovrgnuti tu naredbu.
 Pored toga, moguće je filtrirati listu na osnovu toga da li su zadaci obavljeni ili ne.
 
 Dok nijedna stavka nije dodata u listu, prikazuje se odgovarajuća poruka.
@@ -86,7 +86,7 @@ Nameće Tajpskript kao jedini zvanični način pisanja aplikacija.
 U pitanju je Guglov proizvod.
 
 Osnovna jedinica za izgradnju interfejsa je komponenta, koja se registruje u module iz kojih se može izvesti da bi se koristila u drugim modulima.
-Za biznis-logiku i komunikaciju između komponenti koje nisu u predefinisanom roditelj-dete odnosu iz šablona koriste se servisi, koji se koriste u komponentama upotrebom šablona ubrzigavanja zavisnosti (\textsl{dependency injection}.
+Za biznis-logiku i komunikaciju između komponenti koje nisu u predefinisanom roditelj-dete odnosu iz šablona koriste se servisi, koji se koriste u komponentama upotrebom šablona ubrzigavanja zavisnosti (\textsl{dependency injection}).
 
 Komponenta je predstavljena klasom i dekoratorom \code{@Component} u kome se navode meta-podaci o klasi koje \textsl{Angular} koristi da bi \textquote{razumeo} kako komponenta treba da se ponaša u šablonima.
 
@@ -94,7 +94,7 @@ Koristi posebnu šablonsku sintaksu nalik na HTML za definisanje šablona, što 
 Dolazi uz svoj kompajler, \code{ngc}, koji je omotač oko \code{tsc} i služi za generisanje koda za šablone.
 Ne bavi se detaljnom analizom koda, već se proces kompilacije koristi kako se parser i kompilator šablona ne bi slao klijentu.
 
-Šablonskom sintaksom se definiše kako javni interfejs komponent komunicira sa tekućom komponentom, a unutar same klase se koriste dekoratori \code{@Input} i \code{@Output} da bi se taj interfejs definisao.
+Šablonskom sintaksom se definiše kako javni interfejs komponente komunicira sa tekućom komponentom, a unutar same klase se koriste dekoratori \code{@Input} i \code{@Output} da bi se taj interfejs definisao.
 
 Ima svoj zvaničan CLI koji enkapsulira neophodna podešavanja za okruženje prilikom razvića kao i za produkcioni bild.
 Za ovo interno koristi Vebpek, ali je ideja njegove ekapsulacije to da može da se zameni bez uticaja na autore koda.
@@ -102,13 +102,13 @@ Postoje planovi da se umesto njega koristi \textsl{Bazel} uz \textsl{Closure Com
 
 Iniciranje novog projekta svodi se na jednostavno pokretanje komande, a zahvaljujući \textsl{Schematics} sistemu, nude se i komande kojima se mogu generisati potrebne datoteke za kreiranje komponenti.
 
-Korišćenjem šablona ubrizgavanja zavisnosti dobija se kod gde se lako mogu mokovati zavisnosti u testovima.
+Korišćenjem obrasca ubrizgavanja zavisnosti dobija se kod gde se lako mogu mokovati zavisnosti u testovima.
 Postavka testova je već podešena zahvaljujući CLI-ju i uz svaku komponentu generiše se i po jedan podrazumevani junit-test.
 Mogu se pisati i sistemski testovi.
 
 Stilovi su automatski enkapsulirani, tj. ograničeni na komponentu.
-CLI dolazi uz podršku za \textsl{Sass} koja se može uključiti promenom podešavanja u konfiguracionom fajlu.
-Postoji mogućnost deljenja koda na delove na osnovu ruta kako se čitava apilkacija ne bi dovlačila odmah, već po zahtevu korisnika.
+CLI dolazi uz podršku za \textsl{Sass} koja se može uključiti promenom podešavanja u konfiguracionoj datoteci.
+Postoji mogućnost deljenja koda na delove na osnovu ruta kako se čitava apilkacija ne bi dovlačila sa servera odmah, već po zahtevu korisnika.
 
 Veličina izlaznih Javaskript fajlova je $244741\,\mathrm{b}$ bez kompresije, odnosno $71600\,\mathrm{b}$ i $62670\,\mathrm{b}$ kada se koriste kompresije \textsl{gzip} i \textsl{brotli}, redom.\footnote{\url{https://github.com/lazarljubenovic/todo-app-comparison-angular}} Kompresija daje $3.9$ puta manji kod.
 
@@ -117,10 +117,10 @@ Veličina izlaznih Javaskript fajlova je $244741\,\mathrm{b}$ bez kompresije, od
 \textsl{React} je najpopularnija i u industiji najtraženija biblioteka za razviće korisničkih interfejsa.
 Iza nje stoji Fejsbuk.
 
-Interfejs se gradi od komponenti koji se predstavljaju klasom koja nasleđuje klasu \code{React.Component} i implementira metodu \code{render} koja vraća virtuelni čvor.
+Interfejs se gradi od komponenti koje se predstavljaju klasom koja nasleđuje klasu \code{React.Component} i implementira metodu \code{render} koja vraća virtuelni čvor.
 Za jednostavne komponente može se koristiti i obična funkcija koja direktno vraća virtuelni čvor.
 
-Virtuelni čvorovi mogu se graditi korišćenjem funkcije \code{createElement} (koja se često preimenuje na \code{h} radi kraćeg pisanja).
+Virtuelni čvorovi mogu se graditi korišćenjem funkcije \code{createElement} (koja se često preimenuje u \code{h} radi kraćeg pisanja).
 Međutim, češće se koristi specijalna sintaksa za pisanje šablona koja se naziva JSX.
 Ova sintaksa omogućava da se poziv funkcije definiše nalik na definisanje taga u XML-u, što šablonu daje izgled koji podseća na HTML umesto na pozive funkcija.
 Ipak, mnogo detalja se razlikuje u odnosu na HTML što zna da dovede do zabune.
@@ -134,7 +134,7 @@ Komponenta se parametrizuje svojstvima koji se prenose kao objekat.
 Ne postoji posebna sintaksa za definisanje događaja (\textquote{izlazi} u Vejnu), već se funkcija jednostavno prosleđuje kao svojstvo (slično \textquote{ulazima} u Vejnu).
 
 Kako se radi o biblioteci a ne frejmvorku, sve odluke o organizaciji koda i strukture datoteka prepuštene su developeru.
-Sem toga, \textsl{React} sam po sebi nije dovoljno rešenje za pisanje velikih aplikacija, pa se oslanja na eksterne biblioteke koje ga dopunjuju; na primer: za upravljanje stanjem koriste \textsl{Redux} i \textsl{MobX}, za stilove mogu se koristi \textsl{CSS modules}, \textsl{styled-components}, \textsl{emotion}, \textsl{classnames}.
+Sem toga, \textsl{React} sam po sebi nije dovoljno rešenje za pisanje velikih aplikacija, pa se oslanja na eksterne biblioteke koje ga dopunjuju; na primer: za upravljanje stanjem koriste se \textsl{Redux} i \textsl{MobX}, za stilove se mogu koristi \textsl{CSS modules}, \textsl{styled-components}, \textsl{emotion}, \textsl{classnames}.
 Ne postoji ni zvaničan ruter, već se koristi rešenje zajednice \textsl{React Router}, mada i tu postoje alternative.
 
 Postoji zvaničan CLI pod imenom \textsl{Create React App} kojim se projekat postavlja, ali nema naredbe za generisanje koda za dodatne komponente.
@@ -159,7 +159,7 @@ Izlazi se ne kreiraju, već se događaji ispaljuju korišćenjem metode \code{\$
 
 Stilovi se mogu enkapsulirati, tj. ograničiti na komponentu.
 
-Komponente se pišu u posebnim SFC datotekama (\textsl{Single File Component}, komponenta u jednoj datoteci), gde su šablon, kod i stilovi u jednoj datoteci, omeđeni XML tagovima \code{template}, \code{script} i \code{style}.
+Komponente se pišu u posebnim SFC datotekama (\textsl{Single File Component}, komponenta u jednoj datoteci), gde su šablon, kod i stilovi u istoj datoteci, omeđeni XML tagovima \code{template}, \code{script} i \code{style}, redom.
 
 Za implementaciju \textquote{Todo} aplikacije \textsl{Vue} je korišćen kao frejmvork.
 Veličina izlaznih Javaskript fajlova je $93980\,\mathrm{b}$ bez kompresije, odnosno $33793\,\mathrm{b}$ i $30177\,\mathrm{b}$ kada se koriste kompresije \textsl{gzip} i \textsl{brotli}, redom.\footnote{\url{https://github.com/lazarljubenovic/todo-app-comparison-vue}} Kompresija daje $3.1$ puta manji kod.
@@ -167,7 +167,7 @@ Veličina izlaznih Javaskript fajlova je $93980\,\mathrm{b}$ bez kompresije, odn
 \subsection{Preact}
 
 \textsl{Preact} je \textquote{brza alternativa za \textsl{React} od $3\,\mathrm{kb}$ sa istim modernim API-jem}.
-U pitanju je biblioteka koja je nastala sa idejom da iz \textsl{React}-a odbaci neke delove kako bi ostala samo srž, svedena na minimum.
+U pitanju je biblioteka koja je nastala sa idejom da iz \textsl{React}-a odbaci neke delove kako bi ostala samo njegova srž, svedena na minimum.
 Zbog ovoga deli sve tehničke osobine sa \textsl{React}-om.
 
 Na zvaničnom sajtu nalaze se detaljna upustva za migraciju \textsl{React} koda, što se uglavnom svodi na zamenu imena i nekih jednostavnih transformacija kako bi se zaobišli neki delovi API-ja koje \textsl{Preact} ne podržava.
@@ -185,9 +185,9 @@ Veličina izlaznih Javaskript fajlova je $29408\,\mathrm{b}$ bez kompresije, odn
 Veličina koda frejmvorka iznosi svega $1.5\,\mathrm{kb}$.
 
 Kao i \textsl{React}, koristi virtuelni DOM kompatibilan sa JSX sintaksom, ali su ovde komponente isključivo funkcije (ne i klase).
-Koncept stanja komponenti ne postoji, već se stanje čuva u skladištu koje je globalno za celu aplikaciju, odakle komponente mogu uzimati delove stanje koje su neophodne za renderovanje korisničkog interfejsa.
+Koncept stanja komponenti ne postoji, već se stanje čuva u skladištu koje je globalno za celu aplikaciju, odakle komponente mogu uzimati delove stanja koja su neophodna za renderovanje korisničkog interfejsa.
 Takođe, komponente mogu ispaliti akcije kojima se skladište ažurira na \textit{immutable} način.
-Suštinski se radi o kombinaciji \textit{React}-a i \textit{Redux}-a u jednom.
+Suštinski se radi o kombinaciji \textit{React}-a i \textit{Redux}-a u jednom, ali sa mnogo puta manjom bibliotekom.
 
 Zbog svoje jednostavnosti, ne postoji zvaničan CLI.
 Dokumentacija frejmvorka je dovoljna da se brzo izvrši optimalna postavka.
@@ -205,7 +205,7 @@ Veličina izlaznih Javaskript fajlova je $16904\,\mathrm{b}$ bez kompresije, odn
 Rezultati su, jednom rečju, \emph{očekivani}.
 Tabelarno i grafički su prikazani u tabeli~\ref{tab:analiza} i na slici~\ref{fig:analiza}.
 
-\textsl{Angular}, kao najglomazniji frejmvork koji nudi sve što je neophodno za razviće ozbiljne jednostranične aplikacije.
+\textsl{Angular}, kao najglomazniji frejmvork koji nudi sve što je neophodno za razviće ozbiljne jednostranične aplikacijek, daje najveći kod.
 Nije zamišljen da se koristi za izgradnju jednostavnih aplikacija kao što je ova, što se ogleda i u veličini koda.
 
 Prate ga \textsl{React} i \textsl{Vue}, pri čemu je veličina React koda nešto veća, što možda dovodi u njegovu pitanje \textquote{minimalnost}, s obzirom da se radi o biblioteci a ne o frejmvorku.
@@ -215,12 +215,12 @@ Prate ga \textsl{React} i \textsl{Vue}, pri čemu je veličina React koda nešto
 \textsl{Hyperapp} pokazuje najmanju veličinu koda.
 Takođe, on je jedini primer frejmvorka u kome je autorov kod dominantan nad kodom frejmvorka, što znači da je jedino u ovom slučaju načinjen pravi izbor po pitanju izbora frejmvorka za ovako jednostavnu aplikaciju.
 
-\textsl{Wane} pokazuje izuzetno mali kod, ali ne manji od onog koji se dobija iz \textsl{Hyperapp} koda, što znači da i pored svog potencijala, \textsl{Wane} trenutno nije spobodan da dovoljno optimizuje kod, što bi posebno došlo do izražaja u većoj aplikaciji kod kojih rast veličine koda \textsl{Hyperapp} aplikacije može da bude samo linearano srazmeran veličini autorovog koda, dok se kod \textsl{Wane} aplikacije očekuje strmiji rast (mada ovo nije lako predvideti u praksi zbog korišćenja kompresije koja je mnogo izraženija u \textsl{Wane} aplikacije -- postoji mogućnost da će rast \textsl{Wane} bandla sa porastom aplikacije biti logaritamski i da će u nekom ternutku nadmašiti \textsl{Hyperapp} koji ima manjih šansi za grublju kompresiju).
+\textsl{Wane} pokazuje izuzetno mali kod, ali ne manji od onog koji se dobija iz \textsl{Hyperapp} koda, što znači da i pored svog potencijala, \textsl{Wane} trenutno nije spobodan da dovoljno optimizuje kod, što bi posebno došlo do izražaja u većoj aplikaciji kod kojih rast veličine koda \textsl{Hyperapp} aplikacije može da bude samo linearano srazmeran veličini autorovog koda, dok se kod \textsl{Wane} aplikacije očekuje strmiji rast (mada ovo nije lako predvideti u praksi zbog korišćenja kompresije koja je mnogo izraženija u \textsl{Wane} aplikaciji -- postoji mogućnost da će rast \textsl{Wane} bandla sa porastom aplikacije biti logaritamski i da će u nekom trenutku nadmašiti \textsl{Hyperapp} koji ima manjih šansi za grublju kompresiju).
 
-Zanimljivo je zapaziti kako je izlazni kod svih frejmvorka kompresija dala oko tri puta manji kod, osim u slučaju kada je za pisanje aplikacije korišćen \textsl{Wane}, kod koga je odnos kompresije veći od pet.
+Zanimljivo je zapaziti kako je za izlazni kôd svih frejmvorka kompresija dala oko tri puta manji kod, osim u slučaju kada je za pisanje aplikacije korišćen \textsl{Wane}, kod koga je odnos kompresije veći od pet.
 Ovo je posledica toga što je u \textsl{Wane} aplikaciji kod generisan, što znači da često ima ponavljanja.
 Osim toga, za jednostavne slučajeve \textsl{Wane} kompilator generiše odmotane petlje; na primer, prilikom generisanja enkapsulacije za stilove, ne pušta se petlja već se ispiše nekoliko izraza koji se razlikuju samo po indeksu.
-Ovo daje veći kôd nego da je korišćena generalna funkcija ili \code{for} petlja, ali zato daje bolju kompresiju i u teroiji bolje performanse jer se pozivi funkcjia retko mogu nagomilati (mada je ova prednost u praksi najčešće potpuno zanemarljiva).
+Ovo daje veći kôd nego da je korišćena generalna funkcija ili \code{for} petlja, ali zato daje bolju kompresiju i u teoriji bolje performanse jer se pozivi funkcija retko mogu nagomilati (mada je ova prednost u praksi najčešće potpuno zanemarljiva).
 
 \begin{table}[p]
   \centering

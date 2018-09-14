@@ -23,10 +23,10 @@ Vejn trenutno ne nudi \textbf{životni ciklus} komponente kao deo javnog API-ja.
 Drugim rečima, developer nema načina da osluškuje događaje kao što su kreiranje, ažuriranje ili uništenje komponenti što ume da bude od velike koristi za inicijalizaciju logike i logike za \textquote{čišćenje} za komponentom.
 Neki deo inicijalizacione logike može se smestiti u konstruktor, ali ne sav -- vrednosti koje komponenta dobija od roditeljske komponente ili direktive putem ulaza nisu upisane u komponente u trenutku kada se izvršava konstruktor, već kasnije.
 
-Uvođenje mogućnost da se autor pretplati na ovakve događaje bio bi bezbolan za one delove koda koji tako nešto ne bi koristili.
+Uvođenje mogućnosti da se autor pretplati na ovakve događaje bio bi bezbolan za one delove koda koji tako nešto ne bi koristili.
 Pošto se vrši statička analiza, ne samo da se neće izvršiti funkcija koju developer nije napisao, već neće biti ni generisan kod za njeno potencijalno izvršenje (nema uslova, nema \textsl{no-operation} funkcija).
 
-\textbf{Prosleđivanje delova šablona} komponenti-detetu je takođe jako važna frejmvorka za izgradnju korisničkih interfejsa jer se na ovaj način postiže veoma reupotrebljiv kod.
+\textbf{Prosleđivanje delova šablona} komponenti-detetu je takođe jako važna osobina frejmvorka za izgradnju korisničkih interfejsa jer se na ovaj način postiže veoma reupotrebljiv kod.
 Postoje neke situacije kada su ulazi u komponentu previše ograničeni jer mogu primiti samo Javaskript objekte, a ne i proizvoljne šablone.
 Na primer, može se napisati komponenta koja postavlja stilove dugmetu, ali dopušta bilo kakav sadržaj, pa onaj koji koristi komponentu u nju može proslediti tekst, ikonice, animacije, itd.
 
@@ -38,17 +38,17 @@ Drugim rečima, nema potrebe da razdvajanjem API-ja na manje delove i strahom za
 
 Zbog ovakvog pristupa, \textbf{regersije su nemoguće}.
 Svaki put kada Vejn generiše ispravni kod za aplikaciju, ne postoji razlog zašto bi proširenje Vejna narušilo postojeće rešenje -- moguće je jedino poboljšati ga.
-Zato se sa svakim smanjenim bajtom i svakom novom mikrooptimizacijom dolazi, korak po korak, do teoretskog minumuma u veličini datoteke koji aplikacija jednostavno \emph{mora} da ima zbog sadržaja.
+Zato se sa svakim smanjenim bajtom i svakom novom mikrooptimizacijom dolazi, korak po korak, do teoretskog minumuma u veličini datoteke koji aplikacija jednostavno \emph{mora} da ima zbog svog sadržaja.
 
 \section{Dalja budućnost}
 
 Sem navedenih očiglednih nedostataka, potencijal generisanja koda se može iskoristiti na mnogo kreativnije načine.
 
-Na primer, ukoliko se u proces generisanja aplikacije ubaci koncept \textbf{međukoda} koji služi da na struktuni način opiše što je više detalja moguće o kodu aplikacije, otvara se mogućnost da postoji više analizatora, odnosno da postoje \textbf{različiti analizatori} koji mogu da razumeju različite sintakse pisanja koda.
-Drugim rečima, bilo bi moguće uzeti kod postojeće apliakcije napisane u \textsl{Angular}-u, \textsl{React}-u, \textsl{Vue}-u, ili bilo kom drugom frejmvorku, i dobiti isti kod koji bi se dobio da je aplikacija pisana u Vejnu.
+Na primer, ukoliko se u proces generisanja aplikacije ubaci koncept \textbf{međukoda} koji služi da na strukturni način opiše što je više detalja moguće o kodu aplikacije, otvara se mogućnost da postoji više analizatora, odnosno da postoje \textbf{različiti analizatori} koji mogu da razumeju različite sintakse pisanja koda.
+Drugim rečima, bilo bi moguće uzeti kod postojeće aplikacije napisane u \textsl{Angular}-u, \textsl{React}-u, \textsl{Vue}-u, ili bilo kom drugom frejmvorku, i dobiti isti kod koji bi se dobio da je aplikacija pisana u Vejnu.
 
 Ova ideja se može proširiti i na drugu stranu: uz odgovarajuće mapiranje pojmova specifičnih za DOM i brauzere na neke druge pojmove, mogu se razviti \textbf{različiti generatori} koda koji bi mogli da generišu kod za druge platforme.
-Drugim rečima, bilo bi moguće uzeti kod Vejn aplikacije i dobiti kod za, na primer, Android ili iOS aplikaciju.
+Drugim rečima, bilo bi moguće uzeti kôd Vejn aplikacije i dobiti kod za, na primer, Android ili iOS aplikaciju.
 
 \section{Cilj}
 
@@ -58,11 +58,11 @@ Ipak, postoji \emph{jedna osobina} koja je zapravo bila početna tačka prilikom
 
 Radi se o ideji povezanoj sa \textbf{statičkim renderovanjem na serveru} (SSSR, \textsl{Static Server-Side Rendering}).
 U pitanju je poznata tehnika gde se neke stranice aplikacije unapred generišu kao statičke HTML datoteke.
-Kada korisnik zahteva određenu stranicu, on dobija HTML koji već ima odgovarajuću strukturu i stilove, a za interaktivnos čeka da se preuzme i izvrši Javaskript kod koji je blago izmenjen u odnosu na regularnu verziju: umesto da se stranica renderuje iznova, kod treba da bude svestan kako da se \textquote{uklopi} u postojeću strukturu i da se aplikacija u nastavku ponaša kao svaka jednostranična aplikacija, odnosno da se više nijedna statički generisana stranica ne dovlači sa servera sve dok korisnik navigira kroz aplikaciju bez osvežavanja stranice.
+Kada korisnik zahteva određenu stranicu, on dobija HTML koji već ima odgovarajuću strukturu i stilove, a za interaktivnost čeka da se preuzme i izvrši Javaskript kod koji je blago izmenjen u odnosu na regularnu verziju: umesto da se stranica renderuje iznova, kod treba da bude svestan kako da se \textquote{uklopi} u postojeću strukturu i da se aplikacija u nastavku ponaša kao svaka jednostranična aplikacija, odnosno da se više nijedna statički generisana stranica ne dovlači sa servera sve dok korisnik navigira kroz aplikaciju bez osvežavanja stranice.
 
-Iako je tehnika dobro poznata, svi frejmvorci je implementiraju kao \emph{dodatak} na postojeći kod i obično postoje neka dodatna ograničenja o kojima developer mora da vodi računa dok piše kod aplikacije kako bi ova osobina funkcionisala.
+Iako je tehnika dobro poznata, svi frejmvorci je implementiraju kao \emph{dodatak} na postojeći kod i obično postoje neka dodatna ograničenja o kojima developer mora da vodi računa dok piše kôd aplikacije kako bi ova osobina funkcionisala.
 Ideja je da statičko renderovanje na serveru bude prvoklasno u Vejnu, i da se podrazumevano generiše takav kod.
-Da bi se ovo izvelo, potrebno je statičkom analizom utvrditi koji deo aplikacije je vidljiv kada se prvi put renderuje ulazna komponenta, što je u praksi vrlo često moguće uraditi za dobar deo ekrana -- čak i najdinamičnije aplikacije obično imaju konstanta zaglavlja i odeljke za navigaciju.
+Da bi se ovo izvelo, potrebno je statičkom analizom utvrditi koji deo aplikacije je vidljiv kada se prvi put renderuje ulazna komponenta, što je u praksi vrlo često moguće uraditi za dobar deo ekrana -- čak i najdinamičnije aplikacije obično imaju konstantna zaglavlja i odeljke za navigaciju.
 
 Ovom metodom se može postići da se generiše aplikacija koja \textbf{ima \emph{nula} bajta Javaskripta}, a da developer ni ne bude svestan takve odluke koju je frejmvork doneo umesto njega.
 
@@ -70,3 +70,6 @@ Naravno, ova tehnika ne znači \textquote{sve ili ništa}.
 Masa aplikacija neće imati stoprocentno statičku strukturu, ali se u praksi često javljaju mnoge stranice koje imaju samo male delove koji su dinamični.
 Na primer, na većini početnih stranica ili stranica za marketing se nalazi samo statički sadržaj, eventualno sa registracionom formom ili poljem za unos mejl adrese radi pretplate na obaveštenja.
 U pokušaju da se aplikacija svede na statičku, mnogi njeni delovi će biti prepoznati kao statički, pa se procesom utapanja komponenti u jednu i izbacivanja njenih nepotrebnih delova kod može zaista svesti na teoretski minimum koji je neophodan da bi tražena interakcija funkcionisala.
+
+\textit{Zbog svega navedenog, autor rada smatra da je pristup koji Vejn ima optimalan i da se problem velikog nepotrebnog koda u veb-aplikacijama može u potpunosti rešiti jedino na ovaj način, a da se iskustvo autor\=a ne naruši.
+Da li će konkretno Vejn uspeti da se dovoljno \textquote{probije} sa ovom idejom može samo da se nagađa, ali principi kojima se vodi pokazuju dovoljno prednosti da nema razloga zašto se ove ideje ne bi iskoristile u nekom drugom frejmvorku, bilo da se radi o unapređenju postojećeg ili o potpuno novom rešenju.}

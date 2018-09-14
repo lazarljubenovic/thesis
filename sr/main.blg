@@ -1,20 +1,9 @@
 [0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'main.blg'
-[21] biber:303> INFO - === pet sep 14, 2018, 23:56:11
-[31] Biber.pm:360> INFO - Reading 'main.bcf'
-[96] Biber.pm:836> INFO - Found 57 citekeys in bib section 0
-[107] Biber.pm:3671> INFO - Processing section 0
-[116] Biber.pm:3841> INFO - Looking for bibtex format file 'mdn.bib' for section 0
-[116] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[119] bibtex.pm:1281> INFO - Found BibTeX data source 'mdn.bib'
-[128] Biber.pm:3841> INFO - Looking for bibtex format file 'w3c.bib' for section 0
-[128] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[129] bibtex.pm:1281> INFO - Found BibTeX data source 'w3c.bib'
-[131] Biber.pm:3841> INFO - Looking for bibtex format file 'other.bib' for section 0
-[133] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[135] bibtex.pm:1281> INFO - Found BibTeX data source 'other.bib'
-[223] UCollate.pm:68> INFO - Overriding locale 'sr-Latn' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[224] UCollate.pm:68> INFO - Overriding locale 'sr-Latn' defaults 'variable = shifted' with 'variable = non-ignorable'
-[224] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'sr-Latn'
-[255] bbl.pm:608> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[262] bbl.pm:712> INFO - Output to main.bbl
+[20] biber:303> INFO - === sub sep 15, 2018, 00:26:23
+[30] Biber.pm:360> INFO - Reading 'main.bcf'
+[84] Biber.pm:836> INFO - Found 0 citekeys in bib section 0
+[90] Utils.pm:164> WARN - The file 'main.bcf' does not contain any citations!
+[95] bbl.pm:608> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[95] bbl.pm:712> INFO - Output to main.bbl
+[95] Biber.pm:110> INFO - WARNINGS: 1

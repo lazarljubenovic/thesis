@@ -2145,66 +2145,6 @@
     <bcf:datasource type="file" datatype="bibtex">other.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">hose:how-js-feels-2016</bcf:citekey>
-    <bcf:citekey order="2">history:internet</bcf:citekey>
-    <bcf:citekey order="3">lee:answers-for-young-people</bcf:citekey>
-    <bcf:citekey order="4">lee:html-tags</bcf:citekey>
-    <bcf:citekey order="5">lee:www-browser</bcf:citekey>
-    <bcf:citekey order="6">lee:answers-for-young-people</bcf:citekey>
-    <bcf:citekey order="7">mdn:getting-started-with-the-web</bcf:citekey>
-    <bcf:citekey order="8">death-of-flash</bcf:citekey>
-    <bcf:citekey order="9">mdn:inner-browsing</bcf:citekey>
-    <bcf:citekey order="10">slashdotslash</bcf:citekey>
-    <bcf:citekey order="11">aaronsw:ajax-history</bcf:citekey>
-    <bcf:citekey order="12">computerworld:a-z-of-js</bcf:citekey>
-    <bcf:citekey order="13">axel-rauschmayer:impatient</bcf:citekey>
-    <bcf:citekey order="14">a-brief-history-of-js</bcf:citekey>
-    <bcf:citekey order="15">axel-rauschmayer:speaking</bcf:citekey>
-    <bcf:citekey order="16">incomplete-js-history</bcf:citekey>
-    <bcf:citekey order="17">axel-rauschmayer:speaking</bcf:citekey>
-    <bcf:citekey order="18">axel-rauschmayer:es6</bcf:citekey>
-    <bcf:citekey order="19">axel-rauschmayer:es2016:es2017</bcf:citekey>
-    <bcf:citekey order="20">axel-rauschmayer:es2018:es2019</bcf:citekey>
-    <bcf:citekey order="21">axel-rauschmayer:tc39</bcf:citekey>
-    <bcf:citekey order="22">ajax-a-new-approach</bcf:citekey>
-    <bcf:citekey order="23">aaronsw:ajax-history</bcf:citekey>
-    <bcf:citekey order="24">vincent:short-history</bcf:citekey>
-    <bcf:citekey order="25">built-with-jquery</bcf:citekey>
-    <bcf:citekey order="26">mdn:string-includes</bcf:citekey>
-    <bcf:citekey order="27">misko:hello-world</bcf:citekey>
-    <bcf:citekey order="28">misko-radically-different-ajax-apps</bcf:citekey>
-    <bcf:citekey order="29">facebook:xhp</bcf:citekey>
-    <bcf:citekey order="30">teropa:overcoming-javascript-framework-fatigue</bcf:citekey>
-    <bcf:citekey order="30">auth0:fatigue</bcf:citekey>
-    <bcf:citekey order="30">addy:choice-paralysis</bcf:citekey>
-    <bcf:citekey order="31">tastejs:yafs</bcf:citekey>
-    <bcf:citekey order="32">teropa:cd</bcf:citekey>
-    <bcf:citekey order="33">matt:vue-code</bcf:citekey>
-    <bcf:citekey order="34">ng-uni:cd</bcf:citekey>
-    <bcf:citekey order="34">milosz:ng-cd</bcf:citekey>
-    <bcf:citekey order="35">savkin:cd</bcf:citekey>
-    <bcf:citekey order="35">thoughtram:cd</bcf:citekey>
-    <bcf:citekey order="36">what-is-react-fiber</bcf:citekey>
-    <bcf:citekey order="37">eloquent-js</bcf:citekey>
-    <bcf:citekey order="38">ancienct-concat</bcf:citekey>
-    <bcf:citekey order="39">rollup-guide</bcf:citekey>
-    <bcf:citekey order="40">uglify</bcf:citekey>
-    <bcf:citekey order="41">coffeescript-homepage</bcf:citekey>
-    <bcf:citekey order="42">gh:coffeescript-future</bcf:citekey>
-    <bcf:citekey order="43">crockford:java-was-failure</bcf:citekey>
-    <bcf:citekey order="44">hn:brendan-eich-dart-coffee-es6</bcf:citekey>
-    <bcf:citekey order="45">dart</bcf:citekey>
-    <bcf:citekey order="46">wiki:ast</bcf:citekey>
-    <bcf:citekey order="47">gh:ms:ts</bcf:citekey>
-    <bcf:citekey order="48">typescript-deep-dive</bcf:citekey>
-    <bcf:citekey order="49">gh:ms:ts:wiki:using-the-compiler-api</bcf:citekey>
-    <bcf:citekey order="50">mdn:glossary:control-flow</bcf:citekey>
-    <bcf:citekey order="51">w3c:shadow-dom</bcf:citekey>
-    <bcf:citekey order="52">w3c:css-scoping-1</bcf:citekey>
-    <bcf:citekey order="53">sojs:2017</bcf:citekey>
-    <bcf:citekey order="54">mdn:glossary:css-preprocessor</bcf:citekey>
-    <bcf:citekey order="55">toml:spec</bcf:citekey>
-    <bcf:citekey order="56">hyperapp:patch</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

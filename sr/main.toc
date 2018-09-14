@@ -262,6 +262,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.6}Stilovi}{76}{section.5.6}
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.7}Primer generisanog koda}{77}{section.5.7}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}Konkurencija i pore\IeC {\dj }enje}{79}{chapter.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.1}O pore\IeC {\dj }enju}{79}{section.6.1}
@@ -281,3 +283,11 @@
 \contentsline {subsection}{\numberline {6.2.6}Wane}{85}{subsection.6.2.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.3}Analiza rezultata}{85}{section.6.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Budu\IeC {\'c}nost}{89}{chapter.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Bliska budu\IeC {\'c}nost}{89}{section.7.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Dalja budu\IeC {\'c}nost}{91}{section.7.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}Cilj}{91}{section.7.3}

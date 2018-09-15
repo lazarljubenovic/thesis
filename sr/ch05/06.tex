@@ -4,9 +4,9 @@
 Konceptualno, direktiva za ponavljanje funkcioniše isto kao i uslovna direktiva -- sastoji se iz dva dela, pri čemu se unutrašnji deo takođe zove \textbf{parcijalni poged} i ima identičnu strukturu kao i parcijalni pogled vezan za uslovnu direktivu, a spoljni deo \textbf{ponavljajući pogled} (\textsl{repeating view}).
 
 Struktura ponavljajućeg pogleda je, međutim, znatno drugačija od strukture uslovnog pogleda.
-Sadrži najdinamičniji deo koda iz celog frejmvorka; zbog prirode direktive nemoguće mnogo stvari odrediti statički jer je nemoguće predvideti kako će se dodavati elementi u niz, brisati iz njega, i kako će menjati mesta.
+Sadrži najdinamičniji deo koda iz celog okvira; zbog prirode direktive nemoguće mnogo stvari odrediti statički jer je nemoguće predvideti kako će se dodavati elementi u niz, brisati iz njega, i kako će menjati mesta.
 Ovo je verovatno najneoptimalniji deo generisanog koda, pa se u poređenju sa ostatakom može učiniti kao previše glomazan, ali se zapravo bazira na konceptima traženje razlike između dva niza i sličan je algoritmima za \textit{dom diff} koji koriste mnoge biblioteke.
-Konkretno je inspirisan funkcijom za traženje i \textquote{krpljenje} razlika iz jedne od ranijih verzija mikro-frejmvorka \textit{Hyperapp}~\cite{hyperapp:patch}.
+Konkretno je inspirisan funkcijom za traženje i \textquote{krpljenje} razlika iz jedne od ranijih verzija mikro-okvira \textit{Hyperapp}~\cite{hyperapp:patch}.
 
 Algoritam funkcioniše tako što prolazi paralelno kroz stari i novi niz ključeva.
 Prednost se daje starom nizu -- on se obilazi sve dok se ne naiđe na trenutni element iz novog niza, ili dok se ne obiđe ceo.
